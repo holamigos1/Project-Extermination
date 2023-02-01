@@ -3,16 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - Wet
+  - Dusty
+  - Broken
+  - Weapon
+  - Clear
+  - Bounds
+  - OPS Charge
+  - Magnet Point
+  - Menu Canvas
+  - FPS Canvas
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
+  - OPS Chrages
+  - First Person View
   - 
   - 
   - 
@@ -40,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FPS UI
+    uniqueID: 4098066611
     locked: 0
