@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6749210632424338888}
   - component: {fileID: 4158445000202879602}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: Text (TMP) [CHARGE INFO]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1118,7 +1118,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2830fa1948f9c1446843cfee9db9ec38, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

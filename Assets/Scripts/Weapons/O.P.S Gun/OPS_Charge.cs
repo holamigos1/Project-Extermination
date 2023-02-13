@@ -1,4 +1,3 @@
-using Scripts.TagHolders;
 using UnityEngine;
 
 namespace Weapons.O.P.S_Gun
@@ -26,6 +25,11 @@ namespace Weapons.O.P.S_Gun
             _thisCollider = GetComponent<Collider>();
         }
 
+        public void Setup(Scripts.GameEnums.OPS_Charge chargeType)
+        {
+            _chargeType = chargeType;
+        }
+        
         private void Start()
         {
             if (_chargeType == Scripts.GameEnums.OPS_Charge.Antigravity)
@@ -86,14 +90,14 @@ namespace Weapons.O.P.S_Gun
             _lastPos = transform.position;
         }
 
-        
+
         
         private void OnCollisionEnter(Collision otherCollision)
         {
             _collidedObj = otherCollision;
             
-            if (otherCollision.transform.tag == UnityTags.CLEAR_TAG) _isColliding = true;
-            if (otherCollision.transform.tag == UnityTags.BOUND_TAG) Destroy(this);
+            if (otherCollision.transform.CompareTag(Data.Tags.GameTags.CLEAR_TAG)) _isColliding = true;
+            if (otherCollision.transform.CompareTag(Data.Tags.GameTags.BOUND_TAG)) Destroy(this);
         }
 
         private void PlaceCharge()
@@ -102,7 +106,7 @@ namespace Weapons.O.P.S_Gun
             transform.rotation = Quaternion.LookRotation(_collidedObj.contacts[0].normal);
             _isPlanted = true;
             _stayPosition = transform.position;
-            gameObject.layer = LayerMask.NameToLayer(UnityLayers.OPS_CHARGES_LAYER);
+            gameObject.layer = LayerMask.NameToLayer(Data.Layers.GameLayers.OPS_CHARGES_LAYER);
             _thisRigidbody.velocity = Vector3.zero;
             _thisRigidbody.useGravity = false;
             _thisRigidbody.isKinematic = true;
