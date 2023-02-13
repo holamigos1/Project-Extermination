@@ -6,6 +6,7 @@ using Scripts.GameEnums;
 using Scripts.TagHolders;
 using UnityEngine;
 using UnityEngine.Serialization;
+using OPS_Charge = Weapons.O.P.S_Gun.OPS_Charge;
 
 namespace Scripts.Weapons.OPS
 {
@@ -20,7 +21,7 @@ namespace Scripts.Weapons.OPS
         [SerializeField] private LayerMask ObstacleMask;
         private bool _isHaveVisableCharge;
         private Transform _magnetationPlayerPoint;
-        private OPS_CharacterController _opsCharController;
+        private MagnitatonBehaviour _fpsCharController;
         private OPS_ChargePointerUI _opsPointerScript;
         private LayerMask _otherLayerMask = LayerMask.GetMask();
         private Transform _placedVisableCharge;
@@ -34,7 +35,7 @@ namespace Scripts.Weapons.OPS
             animator = GetComponent<Animator>();
             _magnetationPlayerPoint = GameObject.FindWithTag(UnityTags.MAGNET_POINT_TAG).transform;
             _opsPointerScript = FindObjectOfType<OPS_ChargePointerUI>();
-            _opsCharController = FindObjectOfType<OPS_CharacterController>();
+            _fpsCharController = FindObjectOfType<MagnitatonBehaviour>();
 
             //двигаем бит еденицы слоя OPS_CHARGES_LAYER к нужной позиции
             _otherLayerMask = 1 << LayerMask.NameToLayer(UnityLayers.OPS_CHARGES_LAYER);
@@ -199,7 +200,7 @@ namespace Scripts.Weapons.OPS
             {
                 //если нет то проверь, примагничен ли я уже
                 //если да то отмагниться
-                if (_opsCharController.isMagnetized) _opsCharController.UnMagnetize();
+                if (_fpsCharController.IsMagnetized) _fpsCharController.UnMagnetize();
                 //если нет то покажи на пушке что "нету видимого заряда"
                 else ShowDisplay_NoVisableCharge();
             }
@@ -212,8 +213,8 @@ namespace Scripts.Weapons.OPS
         /// <param name="chargePosition"></param>
         private void Magnetize_ToPlacedCharge(Transform chargePosition)
         {
-            _opsCharController.enabled = true;
-            _opsCharController.Magnetize_ToPointByBack(chargePosition);
+            _fpsCharController.enabled = true;
+            _fpsCharController.Magnetize_ToPointByBack(chargePosition);
         }
 
         //регион с открытыми методами для вызова их из анимций пушки
