@@ -1,14 +1,12 @@
 using System;
 using System.Linq;
 using Controllers;
-using Scripts.Controllers;
-using Scripts.GameEnums;
-using Scripts.TagHolders;
+using Data.Weapons;
+using Scripts.Weapons.OPS;
 using UnityEngine;
-using UnityEngine.Serialization;
-using OPS_Charge = Weapons.O.P.S_Gun.OPS_Charge;
+using Weapons.Basic;
 
-namespace Scripts.Weapons.OPS
+namespace Weapons.O.P.S_Gun
 {
     public class OPS_Gun : RangeWeapon
     {
@@ -22,7 +20,7 @@ namespace Scripts.Weapons.OPS
         private bool _isHaveVisableCharge;
         private Transform _magnetationPlayerPoint;
         private MagnitatonBehaviour _fpsCharController;
-        private OPS_ChargePointerUI _opsPointerScript;
+        private OPS_ChargeUIPointerPresenter _opsUIPointerScript;
         private LayerMask _otherLayerMask = LayerMask.GetMask();
         private Transform _placedVisableCharge;
         private Vector3 _rayEndPoint; //temp
@@ -33,12 +31,12 @@ namespace Scripts.Weapons.OPS
         {
             //проятгиваем все переменные для пушки
             animator = GetComponent<Animator>();
-            _magnetationPlayerPoint = GameObject.FindWithTag(UnityTags.MAGNET_POINT_TAG).transform;
-            _opsPointerScript = FindObjectOfType<OPS_ChargePointerUI>();
+            _magnetationPlayerPoint = GameObject.FindWithTag(Data.Tags.GameTags.MAGNET_POINT_TAG).transform;
+            _opsUIPointerScript = FindObjectOfType<OPS_ChargeUIPointerPresenter>();
             _fpsCharController = FindObjectOfType<MagnitatonBehaviour>();
 
             //двигаем бит еденицы слоя OPS_CHARGES_LAYER к нужной позиции
-            _otherLayerMask = 1 << LayerMask.NameToLayer(UnityLayers.OPS_CHARGES_LAYER);
+            _otherLayerMask = 1 << LayerMask.NameToLayer(Data.Layers.GameLayers.OPS_CHARGES_LAYER);
             //инвертируем все биты чтобы бит слоя OPS_CHARGES_LAYER был 0 а остальные 1
             _otherLayerMask = ~_otherLayerMask;
         }
@@ -58,21 +56,21 @@ namespace Scripts.Weapons.OPS
         public void Start()
         {
             //череда подписок на нажатия кнопок мыши и клавиш (по названию события понятно что было нажато)
-            LeftMouseDown += () => animator.SetTrigger(AnimationTags.SHOOT_TRIGGER);
+            LeftMouseDown += () => animator.SetTrigger(Data.AnimationTags.AnimationTags.SHOOT_TRIGGER);
             RightMouseDown += Detect_PlacedCharge;
-            ReloadButtonDown += () => animator.SetTrigger(AnimationTags.RELOAD_TRIGGER);
+            ReloadButtonDown += () => animator.SetTrigger(Data.AnimationTags.AnimationTags.RELOAD_TRIGGER);
             
-            SwitchModeButtonDown += () => animator.SetTrigger(AnimationTags.SWITCH_MODE_TRIGGER);
+            SwitchModeButtonDown += () => animator.SetTrigger(Data.AnimationTags.AnimationTags.SWITCH_MODE_TRIGGER);
             UpdateAction +=
                 () => //костыль, тк метод Update орпеделён в наследуемом классе и тут его переопределить нельзя
                 {
                     if (_placedVisableCharge !=
                         null) // метод который на HUD рисует картинку "приконектиться" если игрок навёлся а заряд
-                        _opsPointerScript.DrawPointer(_placedVisableCharge.transform.position, _isHaveVisableCharge);
+                        _opsUIPointerScript.DrawPointer(_placedVisableCharge.transform.position, _isHaveVisableCharge);
                 };
 
             // поставть пушку в изночальный режим 
-            DisplayScript.SetCharge((GameEnums.OPS_Charge)WeaponMode);
+            DisplayScript.SetCharge((Scripts.GameEnums.OPS_Charge)WeaponMode);
         }
 
         public void FixedUpdate()
@@ -83,11 +81,10 @@ namespace Scripts.Weapons.OPS
 
         public override void Shoot()
         {
-            //спавн снаряда (логика снаряда пишется в скрипте заспаунего заряда(OPS_Charge))
+            //спавн снаряда
             var chargeObj = Instantiate(BulletCharge, BulletSpawnPoint);
-
-            //Установка типа заряда в заряд
-            chargeObj.GetComponent<OPS_Charge>().ChargeType = (GameEnums.OPS_Charge)WeaponMode;
+            
+            chargeObj.GetComponent<OPS_Charge>().Setup((Scripts.GameEnums.OPS_Charge)WeaponMode);
 
             //Делаем заряд независимым от пушки иначе заряд будет двигаться вместе с пушкой
             chargeObj.transform.parent = null;
@@ -110,7 +107,7 @@ namespace Scripts.Weapons.OPS
             else SwitchMode(WeaponMode + 1);
 
             //отображение нынешнего режима пушки интопретированой к перечеслению OPScharge
-            DisplayScript.SetCharge((GameEnums.OPS_Charge)WeaponMode);
+            DisplayScript.SetCharge((Scripts.GameEnums.OPS_Charge)WeaponMode);
         }
 
         /// <summary>
@@ -139,7 +136,7 @@ namespace Scripts.Weapons.OPS
             //ресуем эту самую сфреу с динамическим радуиусом sphereChekerRadiusDinamic
             //и возвращаем все коллайдеры на слове OPS_CHARGES_LAYER
             var chragesInSphere = Physics.OverlapSphere(
-                _rayEndPoint, sphereChekerRadiusDinamic, LayerMask.GetMask(UnityLayers.OPS_CHARGES_LAYER));
+                _rayEndPoint, sphereChekerRadiusDinamic, LayerMask.GetMask(Data.Layers.GameLayers.OPS_CHARGES_LAYER));
 
             //если коолайдеров таких нет в диапозоне сферы то мы нифига не видим и выходим с этого метода
             if (chragesInSphere is null || chragesInSphere.Length == 0)

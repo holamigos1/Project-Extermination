@@ -1,14 +1,13 @@
 using System;
-using Scripts.GameEnums;
-using Scripts.TagHolders;
+using Data.AnimationTags;
+using Data.Weapons;
 using UnityEngine;
 
-namespace Scripts.Weapons
+namespace Weapons.Basic
 {
     public abstract class RangeWeapon : MonoBehaviour, IShootable,
         IReloadable, ISwitchMode, IAnimaiable, IWeapon
     {
-        [SerializeField] private WeaponType weaponType;
         [SerializeField] private AudioSource ShootSound;
         [SerializeField] private AudioSource ReloadSound;
         [SerializeField] private AudioSource SwitchModeSound;
@@ -74,11 +73,6 @@ namespace Scripts.Weapons
             //animator.SetTrigger(AnimationTags.SWITCH_MODE_TRIGGER);
         }
 
-        public WeaponType _weaponType
-        {
-            get => weaponType;
-            set => weaponType = value;
-        }
 
 
         public virtual void Show()
