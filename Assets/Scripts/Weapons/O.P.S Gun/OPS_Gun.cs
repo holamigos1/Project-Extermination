@@ -2,13 +2,14 @@ using System;
 using System.Linq;
 using Controllers;
 using Data.Weapons;
+using Objects.Base;
 using Scripts.Weapons.OPS;
 using UnityEngine;
 using Weapons.Basic;
 
 namespace Weapons.O.P.S_Gun
 {
-    public class OPS_Gun : RangeWeapon
+    public class OPS_Gun : RangeWeapon, IPickup
     {
         [SerializeField] private AudioSource ConnectionSound;
         [SerializeField] private float MaxDistance = 75;
@@ -266,5 +267,11 @@ namespace Weapons.O.P.S_Gun
         }
 
         #endregion
+
+        public GameObject thisObject => gameObject;
+        public GameObject Pickup()
+        {
+            return gameObject;
+        }
     }
 }
