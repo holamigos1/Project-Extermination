@@ -1,8 +1,8 @@
 ﻿using System;
-using Fragsurf.Movement;
+using Movement.SourseMovment.Movement;
 using UnityEngine;
 
-namespace Fragsurf.TraceUtil
+namespace Movement.SourseMovment.TraceUtil
 {
     public class Tracer
     {

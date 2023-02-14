@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Fragsurf.Movement
+namespace Movement.SourseMovment.Movement
 {
     [Serializable]
     public class MovementConfig

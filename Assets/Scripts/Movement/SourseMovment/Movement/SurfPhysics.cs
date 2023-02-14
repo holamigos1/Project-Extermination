@@ -1,7 +1,8 @@
-﻿using Fragsurf.TraceUtil;
+﻿using Movement.SourseMovment.Extensions;
+using Movement.SourseMovment.TraceUtil;
 using UnityEngine;
 
-namespace Fragsurf.Movement
+namespace Movement.SourseMovment.Movement
 {
     public class SurfPhysics
     {

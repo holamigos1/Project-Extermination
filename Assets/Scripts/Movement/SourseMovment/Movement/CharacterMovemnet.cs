@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using Controllers;
-using Fragsurf.Movement;
 using UnityEngine;
 
-namespace OtherСomponents.SourseMovment.Movement
+namespace Movement.SourseMovment.Movement
 {
     public class CharacterMovemnet : MonoBehaviour, ISurfControllable
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Fragsurf.Movement
+namespace Movement.SourseMovment.Movement
 {
     public enum MoveType
     {
