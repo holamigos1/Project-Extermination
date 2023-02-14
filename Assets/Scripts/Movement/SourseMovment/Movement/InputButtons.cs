@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Fragsurf.Movement
+namespace Movement.SourseMovment.Movement
 {
     [Flags]
     public enum InputButtons

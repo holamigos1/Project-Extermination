@@ -3178,7 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a1eeb049fe99345b0354b7c6134a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popOutPointerImage: {fileID: 1186852727}
+  _popOutPointerImage: {fileID: 1186852727}
 --- !u!1 &1773275588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,22 +3728,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024566138}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed45e545455f24140adb67c4f150a115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionTime: 1
-  magnetizePointForwardMultiplier: 1
-  isMagnetized: 0
-  isInProccesMagnetized: 0
+  _connectionTime: 1
+  _isMagnetized: 0
+  _isInProccesMagnetized: 0
+--- !u!54 &2024566142
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024566138}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!43 &2045831528
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1314
+  m_Name: pb_Mesh-5312
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

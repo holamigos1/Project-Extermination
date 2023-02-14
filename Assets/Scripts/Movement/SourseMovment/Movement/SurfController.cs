@@ -1,7 +1,7 @@
-using Fragsurf.TraceUtil;
+using Movement.SourseMovment.TraceUtil;
 using UnityEngine;
 
-namespace Fragsurf.Movement
+namespace Movement.SourseMovment.Movement
 {
     public class SurfController
     {
@@ -29,7 +29,6 @@ namespace Fragsurf.Movement
 
         private float slideSpeedCurrent;
 
-        private bool sliding;
         public float speed;
 
         private bool uncrouchDown;
@@ -152,16 +151,14 @@ namespace Fragsurf.Movement
                             slideSpeedCurrent = Mathf.Max(_config.maximumSlideSpeed,
                                 new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z).magnitude);
                         }
-
-                        sliding = false;
+                        
                         if (_surfer.moveData.velocity.magnitude > _config.minimumSlideSpeed &&
                             _surfer.moveData.slidingEnabled && _surfer.moveData.crouching && slideDelay <= 0f)
                         {
                             if (!wasSliding)
                                 slideSpeedCurrent = Mathf.Clamp(slideSpeedCurrent * _config.slideSpeedMultiplier,
                                     _config.minimumSlideSpeed, _config.maximumSlideSpeed);
-
-                            sliding = true;
+                            
                             wasSliding = true;
                             SlideMovement();
                             return;

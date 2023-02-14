@@ -1,8 +1,8 @@
 using DG.Tweening;
-using OtherСomponents.SourseMovment.Movement;
+using Movement.SourseMovment.Movement;
 using UnityEngine;
 
-namespace Controllers
+namespace Movement.SourseMovment
 {
     [RequireComponent(typeof(CharacterMovemnet), typeof(Rigidbody))]
     public class MagnitatonBehaviour : MonoBehaviour

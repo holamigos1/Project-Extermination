@@ -2,91 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags/AnimationTags.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags/AnimationTags.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Dementions.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Dementions/Vectors.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Dementions/Vectors.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Layers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Layers/GameLayers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Layers/GameLayers.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Tags.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Tags/GameObjectsTags.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Tags/GameObjectsTags.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons/AimMode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons/AimMode.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons/WeaponMode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Movement.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/InputHandlersController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/InputHandlersController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/MagnitatonBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/MagnitatonBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/MagnitatonBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/MagnitatonBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerBattleManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerBattleManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/WeaponManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/WeaponManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NonMono.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/AntiGravitiBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/AntiGravitiBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/AntiGravitiBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/AntiGravitiBehaviour.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/MouseLook.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/MouseLook.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/PlayerComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/PlayerComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/PlayerMovementWithStrafes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/PlayerMovementWithStrafes.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/CameraWaterCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/CameraWaterCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/CameraWaterCheck.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/CameraWaterCheck.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Example player prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Example player prefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Example player prefab.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Example player prefab.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Extensions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Extensions.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Extensions/IntExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Extensions/IntExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Extensions/IntExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Extensions/IntExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Extensions/VectorExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Extensions/VectorExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Extensions/VectorExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Extensions/VectorExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Ladder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Ladder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Ladder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Ladder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/CharacterMovemnet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/CharacterMovemnet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/CharacterMovemnet.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/CharacterMovemnet.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/ISurfControllable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/ISurfControllable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/ISurfControllable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/ISurfControllable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/InputButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/InputButtons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/InputButtons.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/InputButtons.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/MoveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/MoveData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/MoveData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/MoveData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/MovementConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/MovementConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/MovementConfig.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/MovementConfig.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/SurfController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/SurfController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/SurfController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/SurfController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/SurfPhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/SurfPhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Movement/SurfPhysics.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Movement/SurfPhysics.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/TraceUtil.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/TraceUtil.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/TraceUtil/Trace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/TraceUtil/Trace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/TraceUtil/Trace.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/TraceUtil/Trace.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/TraceUtil/Tracer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/TraceUtil/Tracer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/TraceUtil/Tracer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/TraceUtil/Tracer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Water.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Water.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/SourseMovment/Water.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/Water.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/TagHolder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/TagHolder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/WeaponHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OtherСomponents/WeaponHandler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/RangeWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/RangeWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/iWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/iWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Charge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Charge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargePointerUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargePointerUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/TestPlayerRunCrouche.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/TestPlayerRunCrouche.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,16 +21,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.17f1\Editor\Unity.exe" />
@@ -153,6 +72,7 @@
       <workItem from="1675275461171" duration="3147000" />
       <workItem from="1675278946710" duration="2830000" />
       <workItem from="1676318946220" duration="6832000" />
+      <workItem from="1676371112443" duration="475000" />
     </task>
     <servers />
   </component>
