@@ -1078,6 +1078,8 @@ GameObject:
   - component: {fileID: 8876857015770884786}
   - component: {fileID: 6072808676950616903}
   - component: {fileID: 6968070224992548274}
+  - component: {fileID: 811740428179040991}
+  - component: {fileID: 3678741926675136571}
   m_Layer: 7
   m_Name: O.P.S Replica
   m_TagString: Untagged
@@ -1139,13 +1141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9568c77e463a4449437ae8cdaf0050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 4
   ShootSound: {fileID: 0}
   ReloadSound: {fileID: 0}
   SwitchModeSound: {fileID: 0}
   PickUpSound: {fileID: 0}
   weaponMode: 0
   animator: {fileID: 6072808676950616903}
+  _pickUpType: 0
   ConnectionSound: {fileID: 0}
   MaxDistance: 75
   DisplayScript: {fileID: 8487811203669565363}
@@ -1155,6 +1157,36 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 191
+--- !u!54 &811740428179040991
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876857015770884789}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &3678741926675136571
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876857015770884789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &8876857015785276023
 GameObject:
   m_ObjectHideFlags: 0

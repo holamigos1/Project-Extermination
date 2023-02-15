@@ -2,14 +2,19 @@ using System;
 using System.Linq;
 using Data.Weapons;
 using Movement.SourseMovment;
+using Objects.Base;
 using Scripts.Weapons.OPS;
 using UnityEngine;
 using Weapons.Basic;
 
 namespace Weapons.O.P.S_Gun
 {
-    public class OPS_Gun : RangeWeapon
+    public class OPS_Gun : RangeWeapon , IPickup
     {
+        public GameObject thisObject => gameObject;
+        public PickUpType PickUpType => _pickUpType;
+        
+        [SerializeField] private PickUpType _pickUpType;
         [SerializeField] private AudioSource ConnectionSound;
         [SerializeField] private float MaxDistance = 75;
         [SerializeField] private OPS_Display DisplayScript;
@@ -61,6 +66,7 @@ namespace Weapons.O.P.S_Gun
             ReloadButtonDown += () => animator.SetTrigger(Data.AnimationTags.AnimationTags.RELOAD_TRIGGER);
             
             SwitchModeButtonDown += () => animator.SetTrigger(Data.AnimationTags.AnimationTags.SWITCH_MODE_TRIGGER);
+            
             UpdateAction +=
                 () => //костыль, тк метод Update орпеделён в наследуемом классе и тут его переопределить нельзя
                 {
@@ -266,5 +272,11 @@ namespace Weapons.O.P.S_Gun
         }
 
         #endregion
+
+
+        public GameObject Pickup()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,28 +1,46 @@
-﻿using UnityEngine;
+﻿using Systems.Base;
+using Systems.GameCamera;
+using UnityEngine;
 
 namespace Characters.Systems
 {
-    public class RaycastSystem
+    public class RaycastSystem : GameSystem
     {
-        private Camera _currentMainCamera;
+        private GameObject _currentRaycastBlockingObj;
         
-        public RaycastSystem(Camera mainCamera)
+        public RaycastSystem(GameSystemsContainer container) : base(container)
         {
-            _currentMainCamera = mainCamera;
+            
         }
 
-        public Object CastRayToCameraCenter()
+        public override void Update()
         {
-            Object rayBlockingObject = new Object();
+            base.Update();
+
+            CastRayToCameraCenter();
+        }
+
+        public GameObject CastRayToCameraCenter()
+        {
+            Ray ray = new Ray(CameraSystem.CurrentMainCamera.transform.position, CameraSystem.CurrentMainCamera.transform.forward);
             
-            Ray ray = new Ray(_currentMainCamera.transform.position, _currentMainCamera.transform.forward);
+            Debug.DrawRay(CameraSystem.CurrentMainCamera.transform.position, CameraSystem.CurrentMainCamera.transform.forward*1000, Color.red);
             
             if (Physics.Raycast(ray, out RaycastHit hitInfo))
             {
-                rayBlockingObject = hitInfo.transform.gameObject;
+                if (hitInfo.transform == null) return null;
+                
+                if (_currentRaycastBlockingObj != hitInfo.transform.gameObject)
+                {
+                    _currentRaycastBlockingObj = hitInfo.transform.gameObject;
+                    SystemsСontainer.NotifySystems("Raycast Update", _currentRaycastBlockingObj);
+                    return _currentRaycastBlockingObj;
+                }
             }
             
-            return rayBlockingObject;
+            return null;
         }
+        
+
     }
 }
