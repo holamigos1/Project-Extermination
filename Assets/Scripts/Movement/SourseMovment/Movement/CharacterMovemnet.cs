@@ -13,15 +13,19 @@ namespace Movement.SourseMovment.Movement
 
         ///// Fields /////
 
-        [Header("Physics Settings")] public Vector3 colliderSize = new(1f, 2f, 1f);
+        [Header("Physics Settings")] 
+        public Vector3 colliderSize = new(1f, 2f, 1f);
         public float weight = 75f;
         public float rigidbodyPushForce = 2f;
         public bool solidCollider;
-        [Header("View Settings")] public Transform viewTransform;
+        [Header("View Settings")] 
+        public Transform viewTransform;
         public Transform playerRotationTransform;
-        [Header("Crouching setup")] public float crouchingHeightMultiplier = 0.5f;
+        [Header("Crouching setup")] 
+        public float crouchingHeightMultiplier = 0.5f;
         public float crouchingSpeed = 10f;
-        [Header("Features")] public bool crouchingEnabled = true;
+        [Header("Features")] 
+        public bool crouchingEnabled = true;
         public bool slidingEnabled;
         public bool laddersEnabled = true;
         public bool supportAngledLadders = true;
@@ -29,7 +33,8 @@ namespace Movement.SourseMovment.Movement
         public bool useStepOffset;
         public float stepOffset = 0.35f;
         [Header("Movement Config")]
-        [SerializeField] public MovementConfig movementConfig;
+        [SerializeField] 
+        public MovementConfig movementConfig;
         private Vector3 _angles;
         private CameraWaterCheck _cameraWaterCheck;
         private GameObject _cameraWaterCheckObject;

@@ -14,5 +14,6 @@
         public const string FPS_CANVAS_TAG = "FPS Canvas";
         public const string MENU_CANVAS_TAG = "Menu Canvas";
         public const string MAIN_CAMERA_TAG = "MainCamera";
+        public const string HAND_TAG = "Hand";
     }
 }

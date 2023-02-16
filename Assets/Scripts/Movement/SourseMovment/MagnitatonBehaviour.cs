@@ -57,7 +57,7 @@ namespace Movement.SourseMovment
 
             _thisRb.isKinematic = false;
             _thisRb.useGravity = true;
-            _lockingScript.enabled = false;
+            _lockingScript.enabled = true;
 
             var rotateToGravity = new Vector3(0/*мне похуй*/,
                                             _thisRb.rotation.eulerAngles.y,
