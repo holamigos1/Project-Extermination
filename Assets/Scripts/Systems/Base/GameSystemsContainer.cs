@@ -1,56 +1,88 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace Systems.Base
 {
     public class GameSystemsContainer
     {
         //TODO Прописать красивые метотды отображения систем в GameSystemsContainer с возможностью добавления и изменения их в сис
-        public event Action<string, System.Object> SystemsNotify;
-        public IEnumerable<GameSystem> Systems => _systems;
+        public event Action<string, System.Object> SystemsNotify = delegate(string s, object o) {  };
+        public IEnumerable<GameSystem> gameSystems => _gameSystems;
         
         public GameSystemsContainer()
         {
-            _systems = new List<GameSystem>();
+            _gameSystems = new List<GameSystem>();
         }
         
-        private List<GameSystem> _systems;
+        
+        private readonly List<GameSystem> _gameSystems;
 
         public void AddSystem(GameSystem gameSystemInst)
         {
-            if(_systems.Contains(gameSystemInst)) return; //а пусть будет только одна система без дублей
+            if(_gameSystems.Contains(gameSystemInst)) return; //а пусть будет только одна система без дублей
             
-            _systems.Add(gameSystemInst);
+            _gameSystems.Add(gameSystemInst);
             gameSystemInst.SystemStopped += StopSystem;
             gameSystemInst.Start();
         }
-
-        public void StopSystem<T>(T systemType) where T : GameSystem
+        
+        public void NotifySystems(string message, System.Object data)
         {
-            GameSystem genericSystem = _systems.Find(systemInst => systemInst.GetType() == typeof(T));
-            genericSystem.SystemStopped -= StopSystem;
-            genericSystem.Stop();
+            SystemsNotify.Invoke(message, data);
         }
 
-        public void StopSystem(Type systemType)
+        [CanBeNull]
+        public List<object> MakeRequest(string message, object requestObject)
         {
-            GameSystem genericSystem = _systems.Find(systemInst => systemInst.GetType() == systemType);
-            genericSystem.SystemStopped -= StopSystem;
+            List<object> responseList = new List<object>();
+            
+            _gameSystems.ForEach(system =>
+            {
+                var response = system.OnRequest(message, requestObject);
+                if(response != null) responseList.Add(response);
+            });
+            
+            if (responseList.Count > 0) return responseList;
+            else return null;
+        }
+        
+        [CanBeNull]
+        public List<object> MakeRequest(string message)
+        {
+            List<object> responseList = new List<object>();
+            
+            _gameSystems.ForEach(system =>
+            {
+                var response = system.OnRequest(message, null);
+                if(response != null) responseList.Add(response);
+            });
+            
+            if (responseList.Count > 0) return responseList;
+            else return null;
         }
 
         public void UpdateSystems()
         {
-            foreach (GameSystem system in _systems)
+            foreach (GameSystem system in _gameSystems)
             {
                 system.Update();
+            }
+        }
+        
+        public void UpdatePhysicsSystems()
+        {
+            foreach (GameSystem system in _gameSystems)
+            {
+                system.PhysicsUpdate();
             }
         }
 
         public GameSystem FindSystem<T>(T systemInst) where T: GameSystem
         {
-            if (_systems.Contains(systemInst))
+            if (_gameSystems.Contains(systemInst))
             {
-                return _systems.Find(system => system.GetType() == typeof(T));
+                return _gameSystems.Find(system => system.GetType() == typeof(T));
             }
 
             return null;
@@ -58,20 +90,28 @@ namespace Systems.Base
 
         public GameSystem FindSystem(Type systemType)
         {
-            return _systems.Find(system => system.GetType() == systemType);
+            return _gameSystems.Find(system => system.GetType() == systemType);
+        }
+        
+        public void StopSystem<T>(T systemType) where T : GameSystem
+        {
+            GameSystem genericSystem = _gameSystems.Find(systemInst => systemInst.GetType() == typeof(T));
+            genericSystem.SystemStopped -= StopSystem;
+            genericSystem.Stop();
+        }
+
+        public void StopSystem(Type systemType)
+        {
+            GameSystem genericSystem = _gameSystems.Find(systemInst => systemInst.GetType() == systemType);
+            genericSystem.SystemStopped -= StopSystem;
         }
 
         public void ShutDownSystems()
         {
-            foreach (GameSystem system in _systems)
+            foreach (GameSystem system in _gameSystems)
             {
                 system.Stop();
             }
-        }
-        
-        public void NotifySystems(string message, System.Object data)
-        {
-            SystemsNotify.Invoke(message, data);
         }
     }
 }

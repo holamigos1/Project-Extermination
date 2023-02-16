@@ -13,6 +13,7 @@ namespace Objects.Base
     {
         public GameObject thisObject { get; }
         public PickUpType PickUpType { get; }
+        public bool IsPickuped { get; }
         
         public GameObject Pickup();
     }

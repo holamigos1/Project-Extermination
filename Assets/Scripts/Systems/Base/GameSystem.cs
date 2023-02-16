@@ -8,6 +8,7 @@ namespace Systems.Base
     {
         public event Action<Type> SystemStopped;
         public GameSystemsContainer SystemsСontainer => _container;
+        
         protected GameSystem(GameSystemsContainer container)
         {
             _container = container;
@@ -23,14 +24,25 @@ namespace Systems.Base
             
         }
 
+        public virtual object OnRequest(string message, object requestObject)
+        {
+            return null;
+        }
+        
         void IObserver.NotifyOtherObservers(string message, System.Object data)
         {
             
         }
 
-        public void Start()
+        public virtual void PhysicsUpdate()
         {
-            Debug.Log($"{typeof(GameSystem)} заработал" );
+            
+        }
+        
+        
+        public virtual void Start()
+        {
+            Debug.Log($"{this.GetType().Name} заработал");
         }
 
         public virtual void Update()
@@ -38,7 +50,7 @@ namespace Systems.Base
             
         }
 
-        public void Stop()
+        public virtual void Stop()
         {
             _container.SystemsNotify -= OnNotify;
             SystemStopped.Invoke(this.GetType());
