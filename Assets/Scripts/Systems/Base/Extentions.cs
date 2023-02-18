@@ -13,9 +13,9 @@ namespace Systems.Base
             {
                 child.gameObject.layer = layoutID;
  
-                Transform _HasChildren = child.GetComponentInChildren<Transform>();
+                Transform hasChildren = child.GetComponentInChildren<Transform>();
                 
-                if (_HasChildren != null) ChangeFamilyLayers(child.gameObject, layoutID);
+                if (hasChildren != null) ChangeFamilyLayers(child.gameObject, layoutID);
             }
         }
         

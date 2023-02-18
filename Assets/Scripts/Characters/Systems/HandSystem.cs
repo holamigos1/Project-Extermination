@@ -14,7 +14,8 @@ namespace Characters.Systems
         public HandSystem(GameSystemsContainer container, Transform handPoint) : base(container)
         {
             _handPoint = handPoint;
-            if (_handPoint.GetChild(0) != null) _equippedGameObject = _handPoint.GetChild(0).gameObject;
+            if (_handPoint.GetChild(0) != null) Equip(_handPoint.GetChild(0).gameObject);
+            Debug.Log(EquippedGameObject);
         }
 
         private GameObject _equippedGameObject;
@@ -78,7 +79,7 @@ namespace Characters.Systems
                 //TODO Дописать логику проброса объекта из руки в инвентарь и взятии нового предмета по требованию.
                 return;
             }
-
+            
             _equippedGameObject = Object.Instantiate(gameObjectInst, _handPoint);
             _equippedGameObject.name = gameObjectInst.name;
             _equippedGameObject.transform.localPosition = Vector3.zero;

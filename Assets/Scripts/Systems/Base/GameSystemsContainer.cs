@@ -128,7 +128,8 @@ namespace Systems.Base
 
         public void RemoveSystem<T>(T systemInst) where T: GameSystem
         {
-            GameSystem genericSystem = _gameSystems.Find(systemInst => systemInst.GetType() == typeof(T)); ;
+            GameSystem genericSystem = _gameSystems.Find(systemInst => systemInst.GetType() == typeof(T)); 
+            if(genericSystem.IsEnabled) genericSystem.Stop();
             _gameSystems.Remove(genericSystem);
         }
     }

@@ -1,4 +1,5 @@
-﻿using Characters.Systems;
+﻿using System;
+using Characters.Systems;
 using Objects.Base;
 using Systems.GameCamera;
 using UnityEngine;
@@ -20,8 +21,7 @@ namespace Characters
             _systemsContainer.AddSystem(new RaycastSystem(new RaycastSystemData(this, _rayblockingLayers), _systemsContainer));
             _systemsContainer.AddSystem(new PlayerInputMediatorSystem(_systemsContainer));
         }
-        
-        
+
         private void OnDisable() => _systemsContainer.ShutDownSystems();
         private void Update() => _systemsContainer.UpdateSystems();
         private void FixedUpdate() => _systemsContainer.UpdatePhysicsSystems();

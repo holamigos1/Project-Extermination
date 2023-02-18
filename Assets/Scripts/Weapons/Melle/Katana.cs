@@ -1,19 +1,9 @@
-using UnityEngine;
+using Weapons.Basic;
 
 namespace Weapons.Melle
 {
-    public class Katana 
+    public class Katana : Weapon
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }
