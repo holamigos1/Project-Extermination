@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace Systems.Base
 {
@@ -45,6 +48,27 @@ namespace Systems.Base
             
             if (responseList.Count > 0) return responseList;
             else return null;
+        }
+        
+        [CanBeNull]
+        public async Task<List<object>> MakeAsyncRequest(string message, object requestObject)
+        {
+            List<Task<object>> tasks = new List<Task<object>>();
+            List<object> responseList = new List<object>();
+            
+            _gameSystems.ForEach(system => 
+                tasks.Add(system.OnAsyncRequest(message, requestObject)));
+            
+            await Task.WhenAll(tasks);
+
+            if (tasks.Count <= 0) return null;
+            
+            foreach (var task in tasks)
+            {
+                if(task.Result != null) responseList.Add(task.Result);
+            }
+            
+            return responseList;
         }
         
         [CanBeNull]

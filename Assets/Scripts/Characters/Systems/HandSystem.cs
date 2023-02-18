@@ -4,10 +4,14 @@ using UnityEngine;
 
 namespace Characters.Systems
 {
+    
     public class HandSystem : GameSystem
     {
         public GameObject EquippedGameObject => _equippedGameObject;
         
+        /// <summary>
+        /// Система управления поведения рук персонажей 
+        /// </summary>
         public HandSystem(GameSystemsContainer container, Transform handPoint) : base(container)
         {
             _handPoint = handPoint;
@@ -27,8 +31,8 @@ namespace Characters.Systems
                     break;
                 
                 case "KeyDown" when data != null:
-                    string actionCode = data.ToString();
-                    if (actionCode == "Drop") DropFromHand();
+                    if (data.ToString() == "Drop") DropFromHand();
+                    if (data.ToString() == "Interact") Grub();
                     break;
             }
         }
@@ -37,8 +41,29 @@ namespace Characters.Systems
         {
             
         }
+        
+        private async void Grub()
+        {
+            var requestResponse = await SystemsСontainer.MakeAsyncRequest("Get raycast object", null)!;
+            if (requestResponse.GetFirstAs<GameObject>() == null) return;
+            if (!requestResponse.GetFirstAs<GameObject>().TryGetComponent(out IPickup pickupObject)) return;
+            
+            if (pickupObject.PickUpType == PickUpType.InHand)
+            {
+                if (_equippedGameObject == null)
+                {
+                    GameObject gameObject = pickupObject.Pickup();
+                    Equip(gameObject); 
+                }
+            }
+            
+            if (pickupObject.PickUpType == PickUpType.InInventory)
+            {
+                //TODO Логика перемещения в инвентарь
+            }
+        }
 
-        public void Equip(GameObject gameObjectInst)
+        private void Equip(GameObject gameObjectInst)
         {
             Debug.Log($"вЗЯЛ {gameObjectInst.name}");
             
@@ -51,6 +76,7 @@ namespace Characters.Systems
             }
 
             _equippedGameObject = Object.Instantiate(gameObjectInst, _handPoint);
+            _equippedGameObject.name = gameObjectInst.name;
             _equippedGameObject.transform.localPosition = Vector3.zero;
             _equippedGameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
             
@@ -58,7 +84,7 @@ namespace Characters.Systems
             _equippedGameObject.SetActive(true);
         }
 
-        public void DropFromHand()
+        private void DropFromHand()
         {
             if (_equippedGameObject == null) return;
 

@@ -4,6 +4,7 @@ using Objects.Base;
 using Systems.Base;
 using Systems.GameCamera;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Characters
 {
@@ -13,6 +14,8 @@ namespace Characters
         
         [SerializeField] 
         private Transform _handPosition;
+        [SerializeField] 
+        private LayerMask _rayblockingLayers;
         
         private GameSystemsContainer _systemsContainer;
         
@@ -21,9 +24,8 @@ namespace Characters
             CameraSystem.CurrentMainCamera = Camera.main;
             
             _systemsContainer = new GameSystemsContainer();
-            _systemsContainer.AddSystem(new GrubSystem(_systemsContainer, _handPosition));
             _systemsContainer.AddSystem(new HandSystem(_systemsContainer, _handPosition));
-            _systemsContainer.AddSystem(new RaycastSystem(this, _systemsContainer));
+            _systemsContainer.AddSystem(new RaycastSystem(new RaycastSystemData(this, _rayblockingLayers), _systemsContainer));
             _systemsContainer.AddSystem(new PlayerInputMediatorSystem(_systemsContainer));
         }
         private void OnDisable() => _systemsContainer.ShutDownSystems();
