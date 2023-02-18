@@ -36,9 +36,8 @@ namespace Systems.Base
         
         public static T GetFirstAs<T>(this List<object> list)
         {
-            if (list == null) return default(T);
-            if (list.Count <= 0) return default(T);
-            
+            if (list == null) return default;
+            if (list.Count <= 0) return default;
             return (T)list[0];
         }
     }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Systems.Base
@@ -17,14 +17,17 @@ namespace Systems.Base
         
         private GameSystemsContainer _container;
 
-        public List<GameSystem> GameSystems { get; }
-        
         public virtual void OnNotify(string message, System.Object data)
         {
             
         }
 
         public virtual object OnRequest(string message, object requestObject)
+        {
+            return null;
+        }
+        
+        public virtual async Task<object> OnAsyncRequest(string message, object requestObject)
         {
             return null;
         }

@@ -2,37 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/PlayerInputMediatorSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/PlayerInputMediatorSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IDrop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IDrop.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IEquip.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IEquip.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S Hide.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S Hide.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S Idel.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S Idel.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S Pick Up.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S Pick Up.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S SwitchMode.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S SwitchMode.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S shooting.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Animatons/Animations/OPS/O.P.S shooting.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Terrain/New Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Terrain/New Terrain.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/GrubSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/GrubSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/GrubSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/GrubSystem.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Layers/GameLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Layers/GameLayers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Tags/GameObjectsTags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/Tags/GameObjectsTags.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IPickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IPickup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/Extentions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/Extentions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystemsContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystemsContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/IObserver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/IObserver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/RangeWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/RangeWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +87,7 @@
       <workItem from="1676371112443" duration="19269000" />
       <workItem from="1676451353886" duration="18965000" />
       <workItem from="1676558393247" duration="21391000" />
+      <workItem from="1676664955318" duration="11234000" />
     </task>
     <servers />
   </component>
