@@ -10,13 +10,16 @@ namespace Characters.Systems
 {
     public class RaycastSystem : GameSystem
     {
+        /// <summary>
+        /// Система каста лучей 
+        /// </summary>
         public RaycastSystem(RaycastSystemData raycastData, GameSystemsContainer container) : base(container)
         {
             _raycastData = raycastData;
         }
         
         private const float RAYCAST_RANGE = 5f;
-        private const float RAYCAST_RATE = 100f;
+        private const float RAYCAST_RATE = 0.1f;
         
         private RaycastSystemData _raycastData;
         private Coroutine _coroutine;
@@ -74,14 +77,8 @@ namespace Characters.Systems
             while (true)
             {
                 yield return new WaitForSeconds(seconds);
-                    /*
-                Transform camTransform = CameraSystem.CurrentMainCamera.transform;
-                Task<GameObject> awaitTask = CastRay(camTransform.position, camTransform.forward * RAYCAST_RANGE);
-                _physicsTasks.Enqueue(awaitTask);
-                while (awaitTask.IsCompleted == false) { }
-                SystemsСontainer.NotifySystems("Raycast Update", awaitTask.Result);
-                
-                */
+                var task = GetRaycastBlockingObjAsync(_mainCameraTransform.position, _mainCameraTransform.forward * RAYCAST_RANGE);
+                yield return new WaitUntil(() => task.IsCompleted);
             }
         }
 
@@ -104,7 +101,6 @@ namespace Characters.Systems
         public override void Stop()
         {
             base.Stop();
-            
             _raycastData.AnyMonobeh.StopCoroutine(_coroutine);
         }
     }

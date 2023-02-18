@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Characters.Systems
 {
-    
     public class HandSystem : GameSystem
     {
         public GameObject EquippedGameObject => _equippedGameObject;
@@ -55,6 +54,11 @@ namespace Characters.Systems
                     GameObject gameObject = pickupObject.Pickup();
                     Equip(gameObject); 
                 }
+                else
+                {
+                    Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
+                    //TODO Логика перемещения в инвентарь
+                }
             }
             
             if (pickupObject.PickUpType == PickUpType.InInventory)
@@ -79,6 +83,7 @@ namespace Characters.Systems
             _equippedGameObject.name = gameObjectInst.name;
             _equippedGameObject.transform.localPosition = Vector3.zero;
             _equippedGameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            _equippedGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
             
             GameObject.Destroy(gameObjectInst);
             _equippedGameObject.SetActive(true);

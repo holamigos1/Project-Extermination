@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using UnityEngine;
 
 namespace Systems.Base
 {
     public class GameSystemsContainer
     {
-        //TODO Прописать красивые метотды отображения систем в GameSystemsContainer с возможностью добавления и изменения их в сис
+        //TODO Прописать красивые методы отображения систем в GameSystemsContainer с возможностью добавления и изменения любых систем в проекте через Inspector
         public event Action<string, System.Object> SystemsNotify = delegate(string s, object o) {  };
         public IEnumerable<GameSystem> gameSystems => _gameSystems;
         
@@ -23,12 +21,15 @@ namespace Systems.Base
 
         public void AddSystem(GameSystem gameSystemInst)
         {
-            if(_gameSystems.Contains(gameSystemInst)) return; //а пусть будет только одна система без дублей
+            if(_gameSystems.Contains(gameSystemInst)) return;
             
             _gameSystems.Add(gameSystemInst);
-            gameSystemInst.SystemStopped += StopSystem;
-            gameSystemInst.Start();
+            
+            StartSystem(gameSystemInst);
         }
+
+        public void StartSystem(GameSystem gameSystemInst) => gameSystemInst.Start();
+        
         
         public void NotifySystems(string message, System.Object data)
         {
@@ -116,19 +117,6 @@ namespace Systems.Base
         {
             return _gameSystems.Find(system => system.GetType() == systemType);
         }
-        
-        public void StopSystem<T>(T systemType) where T : GameSystem
-        {
-            GameSystem genericSystem = _gameSystems.Find(systemInst => systemInst.GetType() == typeof(T));
-            genericSystem.SystemStopped -= StopSystem;
-            genericSystem.Stop();
-        }
-
-        public void StopSystem(Type systemType)
-        {
-            GameSystem genericSystem = _gameSystems.Find(systemInst => systemInst.GetType() == systemType);
-            genericSystem.SystemStopped -= StopSystem;
-        }
 
         public void ShutDownSystems()
         {
@@ -136,6 +124,12 @@ namespace Systems.Base
             {
                 system.Stop();
             }
+        }
+
+        public void RemoveSystem<T>(T systemInst) where T: GameSystem
+        {
+            GameSystem genericSystem = _gameSystems.Find(systemInst => systemInst.GetType() == typeof(T)); ;
+            _gameSystems.Remove(genericSystem);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Systems.Base
 {
     public static partial class Extentions
     {
-        public static void ChangeFamilyLayout(this GameObject gameObject, int layoutID)
+        public static void ChangeFamilyLayers(this GameObject gameObject, int layoutID)
         {
             gameObject.layer = layoutID;
             
@@ -15,7 +15,7 @@ namespace Systems.Base
  
                 Transform _HasChildren = child.GetComponentInChildren<Transform>();
                 
-                if (_HasChildren != null) ChangeFamilyLayout(child.gameObject, layoutID);
+                if (_HasChildren != null) ChangeFamilyLayers(child.gameObject, layoutID);
             }
         }
         

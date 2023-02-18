@@ -2873,7 +2873,7 @@ PrefabInstance:
       objectReference: {fileID: 26387324}
     - target: {fileID: 1396144422773854506, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
       propertyPath: m_VersionIndex
-      value: 570
+      value: 573
       objectReference: {fileID: 0}
     - target: {fileID: 2236337138603434080, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
       propertyPath: m_RootOrder
@@ -2983,6 +2983,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 26387324}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: _rayblockingLayers.m_Bits
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
 --- !u!1 &1643856616
