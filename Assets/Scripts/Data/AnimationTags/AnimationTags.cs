@@ -9,6 +9,8 @@
         public const string SHOOT_TRIGGER_ONE = "Shoot One";
         public const string SHOOT_TRIGGER_TWO = "Shoot Two";
         public const string SHOOT_TRIGGER_THREE = "Shoot Three";
+        
+        public const string IS_ITEM_EQUIPED = "Is Equiped";
 
         public const string RELOAD_TRIGGER = "Reload";
         public const string SWITCH_MODE_TRIGGER = "Switch Mode";

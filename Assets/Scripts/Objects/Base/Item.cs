@@ -43,6 +43,7 @@ namespace Objects.Base
             _animator.enabled = false;
             _rigidbody.isKinematic = false;
             _rigidbody.useGravity = true;
+            _animator.SetBool(Data.AnimationTags.AnimationTags.IS_ITEM_EQUIPED, false);
             _thisGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
         }
     }

@@ -3,25 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Controllers/O.P.S controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Animatons/Controllers/O.P.S controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Melle/Katana Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Melle/Katana Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Controllers/O.P.S controller.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Controllers/O.P.S controller.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Melle/Katana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Melle/Katana.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/SourseMovment/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IEquip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IEquip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags/AnimationTags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags/AnimationTags.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/Extentions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/Extentions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystemsContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystemsContainer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Display.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Display.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimeManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +87,7 @@
       <workItem from="1676371112443" duration="19269000" />
       <workItem from="1676451353886" duration="18965000" />
       <workItem from="1676558393247" duration="21391000" />
-      <workItem from="1676664955318" duration="20959000" />
+      <workItem from="1676664955318" duration="23950000" />
     </task>
     <servers />
   </component>
