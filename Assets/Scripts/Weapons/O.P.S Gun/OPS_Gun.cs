@@ -130,17 +130,17 @@ namespace Weapons.O.P.S_Gun
         
         private void OnSwitchMode()
         {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.SWITCH_MODE_TRIGGER);
+            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.SWITCH_MODE_TRIGGER);
         }
         
         private void OnAttack()
         {
-            if(_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.SHOOT_TRIGGER);
+            if(_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.SHOOT_TRIGGER);
         }
 
         public override void Reload()
         {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.RELOAD_TRIGGER);
+            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.RELOAD_TRIGGER);
         }
 
         public override void Shoot()

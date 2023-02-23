@@ -1,8 +1,12 @@
-﻿using Objects.Base;
+﻿using System;
+using Data.AnimationTags;
+using Data.Tags;
+using Objects.Base;
 using UnityEngine;
 
 namespace Weapons.Basic
 {
+    
     public abstract class Weapon : Item, IEquip
     {
         public bool IsEquip => _isEquip;
@@ -11,9 +15,8 @@ namespace Weapons.Basic
         
         private void Start()
         {
-            _animator.StopPlayback();
-            _animator.enabled = false;
-            if (transform.parent != null && transform.parent.CompareTag(Data.Tags.GameTags.HAND_TAG))
+            //_animator.enabled = false;
+            if (_transform.parent != null && _transform.parent.CompareTag(GameTags.HAND_TAG))
             {
                 Equip();
             }
@@ -21,21 +24,31 @@ namespace Weapons.Basic
         
         public void Equip()
         {
-            _thisGameObject.SetActive(true);
-            _isEquip = true;
+            Init();
+            _gameObject.SetActive(true);
             _animator.enabled = true;
-            _animator.SetBool(Data.AnimationTags.AnimationTags.IS_ITEM_EQUIPED, true);
+            _animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPED, _isEquip = true);
             _rigidbody.isKinematic = true;
             _rigidbody.useGravity = false;
         }
         
         //////// Animations ////////
 
-        public void SetReady(string value)
+        public void SetReady(string boolString)
         {
-            Debug.Log(value);
-            if(value == "true") _animator.SetBool("Is Ready",true);
-            if(value == "false") _animator.SetBool("Is Ready",false);
+            bool boolValue = Boolean.Parse(boolString); 
+            _animator.SetBool(AnimationParams.IS_ITEM_READY, boolValue);
+        }
+
+        public virtual void PlayFireAction()
+        {
+            if(!IsEquip) return;
+        }
+        
+        public void PlayAimAction()
+        {
+            if(!IsEquip) return;
         }
         
         ////////////////////////////

@@ -16,15 +16,14 @@ namespace Systems.Base
             _gameSystems = new List<GameSystem>();
         }
         
-        
         private readonly List<GameSystem> _gameSystems;
 
         public void AddSystem(GameSystem gameSystemInst)
         {
             if(_gameSystems.Contains(gameSystemInst)) return;
+            gameSystemInst.DefineContainer(this);
             
             _gameSystems.Add(gameSystemInst);
-            
             StartSystem(gameSystemInst);
         }
 
@@ -34,6 +33,11 @@ namespace Systems.Base
         public void NotifySystems(string message, System.Object data)
         {
             SystemsNotify.Invoke(message, data);
+        }
+        
+        public void NotifySystems(string message)
+        {
+            SystemsNotify.Invoke(message, null);
         }
 
         [CanBeNull]

@@ -1,12 +1,15 @@
-﻿using Systems.Base;
+﻿using Data.AnimationTags;
+using Data.Layers;
+using Systems.Base;
 using UnityEngine;
 
 namespace Objects.Base
 {
+    [SelectionBase]
     [RequireComponent(typeof(Rigidbody), typeof(Animator))]
     public abstract class Item : MonoBehaviour, IDrop, IPickup
     {
-        public GameObject thisObject => _thisGameObject;
+        public GameObject thisObject => _gameObject;
         public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isPickuped;
         public GameSystemsContainer SystemsContainer => _systemsContainer;
@@ -18,22 +21,29 @@ namespace Objects.Base
         protected GameSystemsContainer _systemsContainer;
         protected Animator _animator;
         protected Rigidbody _rigidbody;
-        protected GameObject _thisGameObject;
+        protected GameObject _gameObject;
+        protected Transform _transform;
         
         private void OnEnable()
         {
+            Init();
+        }
+
+        public void Init()
+        {
             if(_animator == null) _animator = GetComponent<Animator>();
             if(_rigidbody == null) _rigidbody = GetComponent<Rigidbody>();
-            if(_thisGameObject == null) _thisGameObject = gameObject;
+            if(_gameObject == null) _gameObject = gameObject;
+            if(_transform == null) _transform = transform;
         }
         
         public GameObject Pickup()
         {
-            _thisGameObject.SetActive(false);
+            _gameObject.SetActive(false);
             _rigidbody.isKinematic = true;
             _rigidbody.useGravity = false;
             _isPickuped = true;
-            return _thisGameObject;
+            return _gameObject;
         }
 
         public void Drop()
@@ -41,10 +51,11 @@ namespace Objects.Base
             _isPickuped = false;
             _animator.StopPlayback();
             _animator.enabled = false;
+            _animator.cullingMode = AnimatorCullingMode.CullCompletely;
             _rigidbody.isKinematic = false;
             _rigidbody.useGravity = true;
-            _animator.SetBool(Data.AnimationTags.AnimationTags.IS_ITEM_EQUIPED, false);
-            _thisGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
+            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPED, false);
+            _gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
         }
     }
 }

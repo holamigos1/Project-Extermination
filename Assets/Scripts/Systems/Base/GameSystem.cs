@@ -9,13 +9,8 @@ namespace Systems.Base
         public event Action<Type> SystemStopped = delegate(Type type) {  };
         public GameSystemsContainer SystemsСontainer => _container;
         public bool IsEnabled => _isEnabled;
-        
-        protected GameSystem(GameSystemsContainer container)
-        {
-            _container = container;
-        }
-        
-        private readonly GameSystemsContainer _container;
+
+        private GameSystemsContainer _container;
         private bool _isEnabled;
         
         public virtual void OnNotify(string message, System.Object data)
@@ -61,6 +56,11 @@ namespace Systems.Base
             
             _isEnabled = false;
             SystemStopped.Invoke(this.GetType());
+        }
+
+        public void DefineContainer(GameSystemsContainer container)
+        {
+            _container = container;
         }
 
         public void Dispose()

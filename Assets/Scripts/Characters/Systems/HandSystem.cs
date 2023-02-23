@@ -11,7 +11,7 @@ namespace Characters.Systems
         /// <summary>
         /// Система управления поведения рук персонажей 
         /// </summary>
-        public HandSystem(GameSystemsContainer container, Transform handPoint) : base(container)
+        public HandSystem(Transform handPoint)
         {
             _handPoint = handPoint;
             if (_handPoint.GetChild(0) != null) Equip(_handPoint.GetChild(0).gameObject);
