@@ -27,12 +27,10 @@ namespace Scripts.Weapons.OPS
                     PickedCargeText.text = "Gravitation";
                     PickedCargeText.color = Color.green;
                     break;
-                
                 case GameEnums.OPS_Charge.Antigravity:
                     PickedCargeText.text = "Anti-gravity";
                     PickedCargeText.color = Color.magenta;
                     break;
-                
                 case GameEnums.OPS_Charge.Horizontal:
                     PickedCargeText.text = "Horizontal";
                     PickedCargeText.color = Color.red;
