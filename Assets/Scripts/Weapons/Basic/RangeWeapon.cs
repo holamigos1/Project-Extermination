@@ -1,42 +1,39 @@
 using System;
-using Scripts.GameEnums;
-using Scripts.TagHolders;
+using Data.AnimationTags;
+using Data.Weapons;
 using UnityEngine;
 
-namespace Scripts.Weapons
+namespace Weapons.Basic
 {
     public abstract class RangeWeapon : MonoBehaviour, IShootable,
         IReloadable, ISwitchMode, IAnimaiable, IWeapon
     {
-        [SerializeField] private WeaponType weaponType;
         [SerializeField] private AudioSource ShootSound;
         [SerializeField] private AudioSource ReloadSound;
         [SerializeField] private AudioSource SwitchModeSound;
         [SerializeField] private AudioSource PickUpSound;
         public WeaponMode weaponMode;
         public Animator animator;
-        protected Action LeftMouseDown = delegate { };
-        protected Action LeftMouseNotPressed = delegate { };
-        protected Action LeftMousePressed = delegate { };
-        protected Action LeftMouseUp = delegate { };
+        
+        //Кусок дерьма
+        protected Action AttackButtonPressed = delegate { };
+        protected Action AttackButtonRelised = delegate { };
+        protected Action AttackButtonClicked = delegate { };
         protected Action ReloadButtonDown = delegate { };
-        protected Action RightMouseDown = delegate { };
-        protected Action RightMouseUp = delegate { };
+        protected Action AltAttackMouseDown = delegate { };
+        protected Action AltAttackMouseUp = delegate { };
         protected Action SwitchModeButtonDown = delegate { };
+        //
+        
         protected Action UpdateAction = delegate { };
 
         public void Update() //Нада перекодить под перебинд в будущем!!
         {
-            if (Input.GetMouseButtonDown(0)) LeftMouseDown();
-            if (Input.GetMouseButton(0)) LeftMousePressed();
-            if (Input.GetMouseButtonUp(0))
-            {
-                LeftMouseNotPressed();
-                LeftMouseUp();
-            }
-
-            if (Input.GetMouseButtonDown(1)) RightMouseDown();
-            if (Input.GetMouseButtonUp(1)) RightMouseUp();
+            if (Input.GetMouseButtonDown(0)) AttackButtonPressed();
+            if (Input.GetMouseButton(0)) AttackButtonClicked();
+            if (Input.GetMouseButtonUp(0)) AttackButtonRelised();
+            if (Input.GetMouseButtonDown(1)) AltAttackMouseDown();
+            if (Input.GetMouseButtonUp(1)) AltAttackMouseUp();
             if (Input.GetKeyDown(KeyCode.R)) ReloadButtonDown();
             if (Input.GetKeyDown(KeyCode.F)) SwitchModeButtonDown();
             UpdateAction();
@@ -48,7 +45,7 @@ namespace Scripts.Weapons
 
         public virtual void Reload()
         {
-            animator.SetTrigger(AnimationTags.RELOAD_TRIGGER);
+            animator.SetTrigger(AnimationParams.RELOAD_TRIGGER);
         }
 
         public bool isCharged { get; set; }
@@ -57,9 +54,14 @@ namespace Scripts.Weapons
 
         public float recoilForce { get; set; } = 1;
 
+        public virtual void PullTrigger()
+        {
+            
+        }
+        
         public virtual void Shoot()
         {
-            if (isReady) animator.SetTrigger(AnimationTags.SHOOT_TRIGGER);
+            if (isReady) animator.SetTrigger(AnimationParams.SHOOT_TRIGGER);
         }
 
         public virtual void CreateBullet()
@@ -74,11 +76,6 @@ namespace Scripts.Weapons
             //animator.SetTrigger(AnimationTags.SWITCH_MODE_TRIGGER);
         }
 
-        public WeaponType _weaponType
-        {
-            get => weaponType;
-            set => weaponType = value;
-        }
 
 
         public virtual void Show()
@@ -87,7 +84,7 @@ namespace Scripts.Weapons
 
         public virtual void Hide()
         {
-            animator.SetTrigger(AnimationTags.HIDE_TRIGGER);
+            animator.SetTrigger(AnimationParams.HIDE);
         }
 
         public void DisableThis()

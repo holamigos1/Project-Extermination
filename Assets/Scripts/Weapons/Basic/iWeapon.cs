@@ -1,7 +1,7 @@
-using Scripts.GameEnums;
+using Data.Weapons;
 using UnityEngine;
 
-namespace Scripts.Weapons
+namespace Weapons.Basic
 {
     public interface IReloadable
     {
@@ -19,7 +19,6 @@ namespace Scripts.Weapons
 
     public interface IWeapon
     {
-        WeaponType _weaponType { get; }
 
         void Show();
         void Hide();
