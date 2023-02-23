@@ -40,5 +40,30 @@ namespace Systems.Base
             if (list.Count <= 0) return default;
             return (T)list[0];
         }
+        
+        public static bool IsEmpty(this List<object> list)
+        {
+            if (list == null) return true;
+            if (list.Count <= 0) return true;
+            return false;
+        }
+
+
+        public static bool HasAnyChild(this Transform transform)
+        {
+            return transform.GetChild(0) != null;
+        }
+        
+        public static Transform GetFirstChild(this Transform transform)
+        {
+            var firstChild = 0;
+            return transform.GetChild(firstChild);
+        }
+        
+        public static GameObject GetFirstChildObj(this Transform transform)
+        {
+            var firstChild = 0;
+            return transform.GetChild(firstChild).gameObject;
+        }
     }
 }

@@ -1,29 +1,32 @@
+using Data.Layers;
 using Objects.Base;
 using Systems.Base;
 using UnityEngine;
 
 namespace Characters.Systems
 {
+    /// <summary>
+    /// Система управления поведенем рук персонажей 
+    /// </summary>
     public class HandSystem : GameSystem
     {
         public GameObject EquippedGameObject => _equippedGameObject;
         
-        /// <summary>
-        /// Система управления поведения рук персонажей 
-        /// </summary>
         public HandSystem(Transform handPoint)
         {
             _handPoint = handPoint;
         }
-
+        
         private GameObject _equippedGameObject;
-        private Transform _handPoint;
+        private readonly Transform _handPoint;
+        
 
         public override void Start()
         {
             base.Start();
             
-            if (_handPoint.GetChild(0) != null) Equip(_handPoint.GetChild(0).gameObject);
+            if (_handPoint.HasAnyChild()) 
+                Equip(_handPoint.GetFirstChildObj());
         }
 
         public override void OnNotify(string message, object data)
@@ -44,8 +47,12 @@ namespace Characters.Systems
         private async void Grub()
         {
             var requestResponse = await SystemsСontainer.MakeAsyncRequest("Get raycast object", null)!;
-            if (requestResponse.GetFirstAs<GameObject>() == null) return;
-            if (!requestResponse.GetFirstAs<GameObject>().TryGetComponent(out IPickup pickupableObject)) return;
+            
+            if (requestResponse.IsEmpty()) return;
+            
+            var requestObj = requestResponse.GetFirstAs<GameObject>();
+            
+            if (requestObj.TryGetComponent(out IPickup pickupableObject) is false) return;
             
             if (pickupableObject.PickUpType == PickUpType.InHand)
             {
@@ -76,17 +83,15 @@ namespace Characters.Systems
                 return;
             }
             
-            Debug.Log($"вЗЯЛ {gameObjectInst.name}");
-            
-            _equippedGameObject = Object.Instantiate(gameObjectInst, _handPoint);
-            _equippedGameObject.name = gameObjectInst.name;
+            Debug.Log($"Взял {gameObjectInst.name} с типом {gameObjectInst.GetType().Name}");
+
+            _equippedGameObject = gameObjectInst;
+            _equippedGameObject.transform.parent = _handPoint;
             _equippedGameObject.transform.localPosition = Vector3.zero;
             _equippedGameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            _equippedGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
-            
-            Object.Destroy(gameObjectInst);
+            _equippedGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
             _equippedGameObject.SetActive(true);
-            Debug.Log("пО хлебным крошкам");
+            
             SystemsСontainer.NotifySystems("Item Equipped", _equippedGameObject);
         }
 

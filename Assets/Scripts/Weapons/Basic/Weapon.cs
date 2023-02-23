@@ -6,20 +6,16 @@ using UnityEngine;
 
 namespace Weapons.Basic
 {
-    
     public abstract class Weapon : Item, IEquip
     {
-        public bool IsEquip => _isEquip;
+        public bool IsEquipped => _isEquipped;
+        public bool IsInHand => _transform.parent != null && _transform.parent.CompareTag(GameTags.HAND_TAG);
         
-        private bool _isEquip;
+        private bool _isEquipped;
         
         private void Start()
         {
-            //_animator.enabled = false;
-            if (_transform.parent != null && _transform.parent.CompareTag(GameTags.HAND_TAG))
-            {
-                Equip();
-            }
+            if (IsInHand) Equip();
         }
         
         public void Equip()
@@ -27,11 +23,13 @@ namespace Weapons.Basic
             Init();
             _gameObject.SetActive(true);
             _animator.enabled = true;
+            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, _isEquipped = true);
             _animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPED, _isEquip = true);
             _rigidbody.isKinematic = true;
             _rigidbody.useGravity = false;
         }
+        
+         
         
         //////// Animations ////////
 
@@ -43,12 +41,12 @@ namespace Weapons.Basic
 
         public virtual void PlayFireAction()
         {
-            if(!IsEquip) return;
+            if(!IsEquipped) return;
         }
         
         public void PlayAimAction()
         {
-            if(!IsEquip) return;
+            if(!IsEquipped) return;
         }
         
         ////////////////////////////

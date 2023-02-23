@@ -12,7 +12,7 @@ namespace Weapons.O.P.S_Gun
 {
     public class OPS_Gun : RangeWeapon, IPickup, IDrop, IEquip
     {
-        public bool IsEquip => _isEquipped;
+        public bool IsEquipped => _isEquipped;
         public GameObject thisObject => gameObject;
         public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isEquipped;

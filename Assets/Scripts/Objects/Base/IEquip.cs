@@ -2,7 +2,7 @@
 {
     public interface IEquip
     {
-        public bool IsEquip { get; }
+        public bool IsEquipped { get; }
 
         public void Equip();
     }

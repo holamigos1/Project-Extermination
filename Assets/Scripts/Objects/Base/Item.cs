@@ -43,6 +43,7 @@ namespace Objects.Base
             _rigidbody.isKinematic = true;
             _rigidbody.useGravity = false;
             _isPickuped = true;
+            
             return _gameObject;
         }
 
@@ -54,7 +55,7 @@ namespace Objects.Base
             _animator.cullingMode = AnimatorCullingMode.CullCompletely;
             _rigidbody.isKinematic = false;
             _rigidbody.useGravity = true;
-            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPED, false);
+            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
             _gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
         }
     }

@@ -8,7 +8,7 @@ namespace Systems.Base
     public class GameSystemsContainer
     {
         //TODO Прописать красивые методы отображения систем в GameSystemsContainer с возможностью добавления и изменения любых систем в проекте через Inspector
-        public event Action<string, System.Object> SystemsNotify = delegate(string s, object o) {  };
+        public event Action<string, System.Object> SystemsNotify;
         public IEnumerable<GameSystem> gameSystems => _gameSystems;
         
         public GameSystemsContainer()
