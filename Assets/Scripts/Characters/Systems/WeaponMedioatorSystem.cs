@@ -40,7 +40,7 @@ namespace Characters.Systems
         private void HandleEquippedItem(GameObject item)
         {
             if(item.TryGetComponent(out Weapon weaponObj) is false) return;
-
+            
             _weaponInHand = weaponObj;
         }
 

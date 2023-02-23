@@ -22,7 +22,6 @@ namespace Systems.Base
         {
             if(_gameSystems.Contains(gameSystemInst)) return;
             gameSystemInst.DefineContainer(this);
-            
             _gameSystems.Add(gameSystemInst);
             StartSystem(gameSystemInst);
         }
@@ -66,7 +65,7 @@ namespace Systems.Base
             
             await Task.WhenAll(tasks);
 
-            if (tasks.Count <= 0) return null;
+            if (tasks.Count == 0) return null;
             
             foreach (var task in tasks)
             {

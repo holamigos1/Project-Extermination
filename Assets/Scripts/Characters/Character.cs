@@ -14,10 +14,10 @@ namespace Characters
         { 
             CameraSystem.CurrentMainCamera = Camera.main;
             
-            _systemsContainer.AddSystem(new HandSystem(_handPosition));
             _systemsContainer.AddSystem(new RaycastSystem(new RaycastSystemData(this, _rayblockingLayers)));
             _systemsContainer.AddSystem(new OldInputMediatorSystem());
             _systemsContainer.AddSystem(new WeaponMediatorSystem());
+            _systemsContainer.AddSystem(new HandSystem(_handPosition));
         }
 
         private void OnDisable() => _systemsContainer.ShutDownSystems();

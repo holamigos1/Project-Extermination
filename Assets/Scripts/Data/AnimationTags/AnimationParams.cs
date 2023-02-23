@@ -7,6 +7,7 @@
 
         public const string SHOOT_TRIGGER = "Shoot";
         public const string PERFORM_ATTACK = "Attack";
+        public const string PERFORM_ATTACK_ACTION = "Attack Action";
 
         public const string IS_ITEM_EQUIPED = "Is Equiped";
         public const string IS_ITEM_READY = "Is Ready";

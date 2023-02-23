@@ -9,7 +9,10 @@ namespace Weapons.Melle
         public override void PlayFireAction()
         {
             base.PlayFireAction();
-            _animator.SetInteger(AnimationParams.PERFORM_ATTACK, Random.Range((int)1,(int)3));
+            
+            var attackAnimationID = Random.Range((int)1, (int)3+1);//мать его maxExclusive
+            _animator.SetInteger(AnimationParams.PERFORM_ATTACK_ACTION, attackAnimationID);
+            _animator.SetTrigger(AnimationParams.PERFORM_ATTACK);
         }
     }
 }

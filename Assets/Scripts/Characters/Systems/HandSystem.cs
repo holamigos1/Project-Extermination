@@ -14,20 +14,24 @@ namespace Characters.Systems
         public HandSystem(Transform handPoint)
         {
             _handPoint = handPoint;
-            if (_handPoint.GetChild(0) != null) Equip(_handPoint.GetChild(0).gameObject);
-            Debug.Log(EquippedGameObject);
         }
 
         private GameObject _equippedGameObject;
         private Transform _handPoint;
+
+        public override void Start()
+        {
+            base.Start();
+            
+            if (_handPoint.GetChild(0) != null) Equip(_handPoint.GetChild(0).gameObject);
+        }
 
         public override void OnNotify(string message, object data)
         {
             switch (message)
             {
                 case "Object pickuped" when data != null:
-                    GameObject gameObject = data as GameObject;
-                    Equip(gameObject);
+                    Equip(data as GameObject);
                     break;
                 
                 case "KeyDown" when data != null:
@@ -37,23 +41,17 @@ namespace Characters.Systems
             }
         }
 
-        public override void Update()
-        {
-            
-        }
-        
         private async void Grub()
         {
             var requestResponse = await SystemsСontainer.MakeAsyncRequest("Get raycast object", null)!;
             if (requestResponse.GetFirstAs<GameObject>() == null) return;
-            if (!requestResponse.GetFirstAs<GameObject>().TryGetComponent(out IPickup pickupObject)) return;
+            if (!requestResponse.GetFirstAs<GameObject>().TryGetComponent(out IPickup pickupableObject)) return;
             
-            if (pickupObject.PickUpType == PickUpType.InHand)
+            if (pickupableObject.PickUpType == PickUpType.InHand)
             {
                 if (_equippedGameObject == null)
                 {
-                    GameObject gameObject = pickupObject.Pickup();
-                    Equip(gameObject); 
+                    Equip(pickupableObject.Pickup()); 
                 }
                 else
                 {
@@ -62,7 +60,7 @@ namespace Characters.Systems
                 }
             }
             
-            if (pickupObject.PickUpType == PickUpType.InInventory)
+            if (pickupableObject.PickUpType == PickUpType.InInventory)
             {
                 //TODO Логика перемещения в инвентарь
             }
@@ -70,8 +68,6 @@ namespace Characters.Systems
 
         private void Equip(GameObject gameObjectInst)
         {
-            Debug.Log($"вЗЯЛ {gameObjectInst.name}");
-            
             if (_equippedGameObject != null)
             {
                 Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
@@ -80,14 +76,18 @@ namespace Characters.Systems
                 return;
             }
             
+            Debug.Log($"вЗЯЛ {gameObjectInst.name}");
+            
             _equippedGameObject = Object.Instantiate(gameObjectInst, _handPoint);
             _equippedGameObject.name = gameObjectInst.name;
             _equippedGameObject.transform.localPosition = Vector3.zero;
             _equippedGameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
             _equippedGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
             
-            GameObject.Destroy(gameObjectInst);
+            Object.Destroy(gameObjectInst);
             _equippedGameObject.SetActive(true);
+            Debug.Log("пО хлебным крошкам");
+            SystemsСontainer.NotifySystems("Item Equipped", _equippedGameObject);
         }
 
         private void DropFromHand()
@@ -103,7 +103,7 @@ namespace Characters.Systems
             {
                 dropableObj.Drop();
             }
-
+            SystemsСontainer.NotifySystems("Item Dropped", _equippedGameObject);
             _equippedGameObject = null;
         }
     }
