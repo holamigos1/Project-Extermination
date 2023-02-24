@@ -50,13 +50,14 @@ namespace Objects.Base
         public void Drop()
         {
             _isPickuped = false;
-            _animator.StopPlayback();
             _animator.enabled = false;
+            _animator.StopPlayback();
             _animator.cullingMode = AnimatorCullingMode.CullCompletely;
             _rigidbody.isKinematic = false;
             _rigidbody.useGravity = true;
             _animator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
             _gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
+            _animator.enabled = true;
         }
     }
 }
