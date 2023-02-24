@@ -15,6 +15,7 @@ TagManager:
   - Magnet Point
   - Menu Canvas
   - FPS Canvas
+  - Hand
   layers:
   - Default
   - TransparentFX
