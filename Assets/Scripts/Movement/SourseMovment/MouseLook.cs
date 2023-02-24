@@ -15,14 +15,19 @@ namespace Movement.SourseMovment
 
         [SerializeField] 
         private bool _isAbleToRotatePlayer = true;
+        
         [ShowIf("_isAbleToRotatePlayer")] [SerializeField] 
         private Transform _playerTransform;
+        
         [EnumPaging] [SerializeField] 
         private RotationAxes _axes = RotationAxes.MouseXAndY;
+        
         [SerializeField] 
         private float2 _sensitivity = 15F;
+        
         [MinMaxSlider(-180,180,true)] [SerializeField] 
         private Vector2Int _xAngleLimits;
+        
         private float2 _rotation;
 
         private void Start()

@@ -12,6 +12,7 @@ namespace Weapons.O.P.S_Gun
 {
     public class OPS_Gun : RangeWeapon, IPickup, IDrop, IEquip
     {
+        public bool IsEquipped => _isEquipped;
         public GameObject thisObject => gameObject;
         public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isEquipped;
@@ -55,14 +56,14 @@ namespace Weapons.O.P.S_Gun
                 _isEquipped = true;
                 animator.enabled = true;
                 GetComponent<Rigidbody>().isKinematic = true;
-                gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
+                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
             }
             else
             {
                 _isEquipped = false;
                 animator.enabled = false;
                 GetComponent<Rigidbody>().isKinematic = false;
-                gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
+                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
             }
         }
 
@@ -97,7 +98,6 @@ namespace Weapons.O.P.S_Gun
             _isEquipped = true;
             animator.enabled = true;
             GetComponent<Rigidbody>().isKinematic = true;
-            gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
         }
         
         public GameObject Pickup()
@@ -111,7 +111,7 @@ namespace Weapons.O.P.S_Gun
             _isEquipped = false;
             animator.enabled = false;
             GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
+            gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
         }
         
         private void FixedUpdate()
@@ -130,17 +130,17 @@ namespace Weapons.O.P.S_Gun
         
         private void OnSwitchMode()
         {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.SWITCH_MODE_TRIGGER);
+            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.SWITCH_MODE_TRIGGER);
         }
         
         private void OnAttack()
         {
-            if(_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.SHOOT_TRIGGER);
+            if(_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.SHOOT_TRIGGER);
         }
 
         public override void Reload()
         {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.RELOAD_TRIGGER);
+            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.RELOAD_TRIGGER);
         }
 
         public override void Shoot()
