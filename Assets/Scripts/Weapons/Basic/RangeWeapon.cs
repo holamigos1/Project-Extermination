@@ -45,7 +45,7 @@ namespace Weapons.Basic
 
         public virtual void Reload()
         {
-            animator.SetTrigger(AnimationParams.RELOAD_TRIGGER);
+            animator.SetTrigger(AnimationTags.RELOAD_TRIGGER);
         }
 
         public bool isCharged { get; set; }
@@ -61,7 +61,7 @@ namespace Weapons.Basic
         
         public virtual void Shoot()
         {
-            if (isReady) animator.SetTrigger(AnimationParams.SHOOT_TRIGGER);
+            if (isReady) animator.SetTrigger(AnimationTags.SHOOT_TRIGGER);
         }
 
         public virtual void CreateBullet()
@@ -84,7 +84,7 @@ namespace Weapons.Basic
 
         public virtual void Hide()
         {
-            animator.SetTrigger(AnimationParams.HIDE);
+            animator.SetTrigger(AnimationTags.HIDE_TRIGGER);
         }
 
         public void DisableThis()
