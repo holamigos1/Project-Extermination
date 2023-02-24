@@ -1,24 +1,18 @@
 using System;
 using System.Linq;
-using Data.Weapons;
-using Movement.SourseMovment;
-using Objects.Base;
-using Scripts.Weapons.OPS;
-using Systems.Base;
+using Controllers;
+using Scripts.Controllers;
+using Scripts.GameEnums;
+using Scripts.TagHolders;
 using UnityEngine;
-using Weapons.Basic;
+using UnityEngine.Serialization;
 
-namespace Weapons.O.P.S_Gun
+namespace Scripts.Weapons.OPS
 {
-    public class OPS_Gun : RangeWeapon, IPickup, IDrop, IEquip
+    public class OPS_Gun : RangeWeapon
     {
-        public GameObject thisObject => gameObject;
-        public PickUpType PickUpType => _pickUpType;
-        public bool IsPickuped => _isEquipped;
-
-        [SerializeField] private PickUpType _pickUpType;
         [SerializeField] private AudioSource ConnectionSound;
-        [SerializeField] private float MaxMagnitationDistance = 75;
+        [SerializeField] private float MaxDistance = 75;
         [SerializeField] private OPS_Display DisplayScript;
         [SerializeField] private GameObject BulletCharge;
         [SerializeField] private Transform BulletSpawnPoint;
@@ -26,44 +20,26 @@ namespace Weapons.O.P.S_Gun
         [SerializeField] private LayerMask ObstacleMask;
         private bool _isHaveVisableCharge;
         private Transform _magnetationPlayerPoint;
-        private MagnitatonBehaviour _fpsCharController;
-        private OPS_ChargeUIPointerPresenter _opsUIPointerScript;
+        private OPS_CharacterController _opsCharController;
+        private OPS_ChargePointerUI _opsPointerScript;
         private LayerMask _otherLayerMask = LayerMask.GetMask();
         private Transform _placedVisableCharge;
         private Vector3 _rayEndPoint; //temp
-        private bool _isEquipped;
+
         private readonly float _sphereChekerRadius = 5f;
 
-        private void Awake()
+        public void Awake()
         {
             //проятгиваем все переменные для пушки
             animator = GetComponent<Animator>();
-            _magnetationPlayerPoint = GameObject.FindWithTag(Data.Tags.GameTags.MAGNET_POINT_TAG).transform;
-            _opsUIPointerScript = FindObjectOfType<OPS_ChargeUIPointerPresenter>();
-            _fpsCharController = FindObjectOfType<MagnitatonBehaviour>();
+            _magnetationPlayerPoint = GameObject.FindWithTag(UnityTags.MAGNET_POINT_TAG).transform;
+            _opsPointerScript = FindObjectOfType<OPS_ChargePointerUI>();
+            _opsCharController = FindObjectOfType<OPS_CharacterController>();
 
             //двигаем бит еденицы слоя OPS_CHARGES_LAYER к нужной позиции
-            _otherLayerMask = 1 << LayerMask.NameToLayer(Data.Layers.GameLayers.OPS_CHARGES_LAYER);
+            _otherLayerMask = 1 << LayerMask.NameToLayer(UnityLayers.OPS_CHARGES_LAYER);
             //инвертируем все биты чтобы бит слоя OPS_CHARGES_LAYER был 0 а остальные 1
             _otherLayerMask = ~_otherLayerMask;
-        }
-
-        private void OnEnable()
-        {
-            if (transform.parent != null && transform.parent.CompareTag(Data.Tags.GameTags.HAND_TAG))
-            {
-                _isEquipped = true;
-                animator.enabled = true;
-                GetComponent<Rigidbody>().isKinematic = true;
-                gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
-            }
-            else
-            {
-                _isEquipped = false;
-                animator.enabled = false;
-                GetComponent<Rigidbody>().isKinematic = false;
-                gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
-            }
         }
 
         /*private void OnDrawGizmos()
@@ -78,85 +54,49 @@ namespace Weapons.O.P.S_Gun
          * ИЗ АНИМАЦИИ выстрела пушки... Если этой анимации нету то выстрела соответсвенно тоже не будет
          * (ну и при условии что в анимации стоит триггер вызова этого самого метода Shoot() ) 
          */
-        private void Start()
+        public void Start()
         {
             //череда подписок на нажатия кнопок мыши и клавиш (по названию события понятно что было нажато)
-            AttackButtonPressed += OnAttack;
-            AltAttackMouseDown += Detect_PlacedCharge;
-            ReloadButtonDown += Reload;
-            SwitchModeButtonDown += OnSwitchMode;
-            UpdateAction += OnUpdate;
+            LeftMouseDown += () => animator.SetTrigger(AnimationTags.SHOOT_TRIGGER);
+            RightMouseDown += Detect_PlacedCharge;
+            ReloadButtonDown += () => animator.SetTrigger(AnimationTags.RELOAD_TRIGGER);
             
+            SwitchModeButtonDown += () => animator.SetTrigger(AnimationTags.SWITCH_MODE_TRIGGER);
+            UpdateAction +=
+                () => //костыль, тк метод Update орпеделён в наследуемом классе и тут его переопределить нельзя
+                {
+                    if (_placedVisableCharge !=
+                        null) // метод который на HUD рисует картинку "приконектиться" если игрок навёлся а заряд
+                        _opsPointerScript.DrawPointer(_placedVisableCharge.transform.position, _isHaveVisableCharge);
+                };
+
             // поставть пушку в изночальный режим 
-            DisplayScript.SetCharge((Scripts.GameEnums.OPS_Charge)WeaponMode);
+            DisplayScript.SetCharge((GameEnums.OPS_Charge)WeaponMode);
         }
 
-        public void Equip()
-        {
-            gameObject.SetActive(true);
-            _isEquipped = true;
-            animator.enabled = true;
-            GetComponent<Rigidbody>().isKinematic = true;
-            gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
-        }
-        
-        public GameObject Pickup()
-        {
-            gameObject.SetActive(false);
-            return gameObject;
-        }
-        
-        public void Drop()
-        {
-            _isEquipped = false;
-            animator.enabled = false;
-            GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.ChangeFamilyLayout(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
-        }
-        
-        private void FixedUpdate()
+        public void FixedUpdate()
         {
             //метод проверки на расположение заряд и можно ли к ним приконектиться
             CheckFor_PlacedCharge();
         }
 
-        private void OnUpdate()
-        {
-            if(_isEquipped == false) return;
-            
-            if (_placedVisableCharge != null) // метод который на HUD рисует картинку "приконектиться" если игрок навёлся а заряд
-                _opsUIPointerScript.DrawPointer(_placedVisableCharge.transform.position, _isHaveVisableCharge);
-        }
-        
-        private void OnSwitchMode()
-        {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.SWITCH_MODE_TRIGGER);
-        }
-        
-        private void OnAttack()
-        {
-            if(_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.SHOOT_TRIGGER);
-        }
-
-        public override void Reload()
-        {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationTags.RELOAD_TRIGGER);
-        }
-
         public override void Shoot()
         {
-            var projectileObj = Instantiate(BulletCharge, BulletSpawnPoint);
-            projectileObj.GetComponent<OPS_Charge>().Setup((Scripts.GameEnums.OPS_Charge)WeaponMode);
+            //спавн снаряда (логика снаряда пишется в скрипте заспаунего заряда(OPS_Charge))
+            var chargeObj = Instantiate(BulletCharge, BulletSpawnPoint);
+
+            //Установка типа заряда в заряд
+            chargeObj.GetComponent<OPS_Charge>().ChargeType = (GameEnums.OPS_Charge)WeaponMode;
 
             //Делаем заряд независимым от пушки иначе заряд будет двигаться вместе с пушкой
-            projectileObj.transform.parent = null;
+            chargeObj.transform.parent = null;
             
-            projectileObj.transform.eulerAngles = new Vector3(
-                projectileObj.transform.eulerAngles.x,
-                projectileObj.transform.eulerAngles.y, 0);
+            chargeObj.transform.eulerAngles = new Vector3(
+                chargeObj.transform.eulerAngles.x,
+                chargeObj.transform.eulerAngles.y, 0);
 
             //выплёвываем снаряд из ствола вперёд с множителем силы импульса
-            projectileObj.GetComponent<Rigidbody>().AddForce(projectileObj.transform.forward * ShootForce, ForceMode.Impulse);
+            chargeObj.GetComponent<Rigidbody>().AddForce(chargeObj.transform.forward * ShootForce, ForceMode.Impulse);
         }
 
         /// <summary>
@@ -169,7 +109,7 @@ namespace Weapons.O.P.S_Gun
             else SwitchMode(WeaponMode + 1);
 
             //отображение нынешнего режима пушки интопретированой к перечеслению OPScharge
-            DisplayScript.SetCharge((Scripts.GameEnums.OPS_Charge)WeaponMode);
+            DisplayScript.SetCharge((GameEnums.OPS_Charge)WeaponMode);
         }
 
         /// <summary>
@@ -185,20 +125,20 @@ namespace Weapons.O.P.S_Gun
 
             /* если луч касется чего либо в диапозоне MaxDistancе то возвращает Vector3
              места касания + векотр нормали от точки касания чтобы этот Vector3 был немного приподнят */
-            if (Physics.Raycast(ray, out sphereHit, MaxMagnitationDistance)) _rayEndPoint = sphereHit.point + sphereHit.normal / 30;
+            if (Physics.Raycast(ray, out sphereHit, MaxDistance)) _rayEndPoint = sphereHit.point + sphereHit.normal / 30;
             //если луч нифига не коснулся в диапозоне то пусть вернт крайнюю точку диапозона
-            else _rayEndPoint = ray.GetPoint(MaxMagnitationDistance);
+            else _rayEndPoint = ray.GetPoint(MaxDistance);
 
             //дистанция от пушки до этой самой точки
             var distance = Vector3.Distance(transform.position, _rayEndPoint);
             //расчёт динамического изменения радуса сферы проверки в зависиости от того
             //как далеко находится пушка и точка луча (потом будет понятно нахера)
-            var sphereChekerRadiusDinamic = _sphereChekerRadius * (distance / MaxMagnitationDistance);
+            var sphereChekerRadiusDinamic = _sphereChekerRadius * (distance / MaxDistance);
 
             //ресуем эту самую сфреу с динамическим радуиусом sphereChekerRadiusDinamic
             //и возвращаем все коллайдеры на слове OPS_CHARGES_LAYER
             var chragesInSphere = Physics.OverlapSphere(
-                _rayEndPoint, sphereChekerRadiusDinamic, LayerMask.GetMask(Data.Layers.GameLayers.OPS_CHARGES_LAYER));
+                _rayEndPoint, sphereChekerRadiusDinamic, LayerMask.GetMask(UnityLayers.OPS_CHARGES_LAYER));
 
             //если коолайдеров таких нет в диапозоне сферы то мы нифига не видим и выходим с этого метода
             if (chragesInSphere is null || chragesInSphere.Length == 0)
@@ -259,7 +199,7 @@ namespace Weapons.O.P.S_Gun
             {
                 //если нет то проверь, примагничен ли я уже
                 //если да то отмагниться
-                if (_fpsCharController.IsMagnetized) _fpsCharController.UnMagnetize();
+                if (_opsCharController.isMagnetized) _opsCharController.UnMagnetize();
                 //если нет то покажи на пушке что "нету видимого заряда"
                 else ShowDisplay_NoVisableCharge();
             }
@@ -272,8 +212,8 @@ namespace Weapons.O.P.S_Gun
         /// <param name="chargePosition"></param>
         private void Magnetize_ToPlacedCharge(Transform chargePosition)
         {
-            _fpsCharController.enabled = true;
-            _fpsCharController.Magnetize_ToPointByBack(chargePosition);
+            _opsCharController.enabled = true;
+            _opsCharController.Magnetize_ToPointByBack(chargePosition);
         }
 
         //регион с открытыми методами для вызова их из анимций пушки
