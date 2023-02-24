@@ -5,7 +5,7 @@ namespace Systems.Base
 {
     public static partial class Extentions
     {
-        public static void ChangeFamilyLayout(this GameObject gameObject, int layoutID)
+        public static void ChangeFamilyLayers(this GameObject gameObject, int layoutID)
         {
             gameObject.layer = layoutID;
             
@@ -13,9 +13,9 @@ namespace Systems.Base
             {
                 child.gameObject.layer = layoutID;
  
-                Transform _HasChildren = child.GetComponentInChildren<Transform>();
+                Transform hasChildren = child.GetComponentInChildren<Transform>();
                 
-                if (_HasChildren != null) ChangeFamilyLayout(child.gameObject, layoutID);
+                if (hasChildren != null) ChangeFamilyLayers(child.gameObject, layoutID);
             }
         }
         
@@ -39,6 +39,31 @@ namespace Systems.Base
             if (list == null) return default;
             if (list.Count <= 0) return default;
             return (T)list[0];
+        }
+        
+        public static bool IsEmpty(this List<object> list)
+        {
+            if (list == null) return true;
+            if (list.Count <= 0) return true;
+            return false;
+        }
+
+
+        public static bool HasAnyChild(this Transform transform)
+        {
+            return transform.GetChild(0) != null;
+        }
+        
+        public static Transform GetFirstChild(this Transform transform)
+        {
+            var firstChild = 0;
+            return transform.GetChild(firstChild);
+        }
+        
+        public static GameObject GetFirstChildObj(this Transform transform)
+        {
+            var firstChild = 0;
+            return transform.GetChild(firstChild).gameObject;
         }
     }
 }

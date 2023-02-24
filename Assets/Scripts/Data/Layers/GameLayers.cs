@@ -1,6 +1,6 @@
 ﻿namespace Data.Layers
 {
-    public struct GameLayers
+    public static class  GameLayers
     {
         public const string GROUND_LAYER = "Ground";
         public const string OPS_CHARGES_LAYER = "OPS Chrages";

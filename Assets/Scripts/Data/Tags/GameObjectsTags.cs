@@ -1,6 +1,6 @@
 ﻿namespace Data.Tags
 {
-    public struct GameTags
+    public static class GameTags
     {
         public const string WEAPON_TAG = "Weapon";
         public const string BULLET_TAG = "Bullet";

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Systems.Base;
@@ -10,13 +9,16 @@ namespace Characters.Systems
 {
     public class RaycastSystem : GameSystem
     {
-        public RaycastSystem(RaycastSystemData raycastData, GameSystemsContainer container) : base(container)
+        /// <summary>
+        /// Система каста лучей 
+        /// </summary>
+        public RaycastSystem(RaycastSystemData raycastData)
         {
             _raycastData = raycastData;
         }
         
-        private const float RAYCAST_RANGE = 5f;
-        private const float RAYCAST_RATE = 100f;
+        private const float RAYCAST_RANGE = 5f; //TODO Убери в конфиг
+        private const float RAYCAST_RATE = 0.1f;
         
         private RaycastSystemData _raycastData;
         private Coroutine _coroutine;
@@ -47,15 +49,23 @@ namespace Characters.Systems
             {
                 case "Get raycast object":
                    var gameObject = await GetRaycastBlockingObjAsync(_mainCameraTransform.position, _mainCameraTransform.forward * RAYCAST_RANGE);
-                   Debug.Log($"RaycastSystem OnAsyncRequest: {gameObject}");
                    return gameObject;
             }
 
             return null;
         }
+        
+        private IEnumerator DelayRaycast(float seconds)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(seconds);
+                var task = GetRaycastBlockingObjAsync(_mainCameraTransform.position, _mainCameraTransform.forward * RAYCAST_RANGE);
+                yield return new WaitUntil(() => task.IsCompleted);
+            }
+        }
 
-        
-        
+
         private async Task<GameObject> GetRaycastBlockingObjAsync(Vector3 rayStartPos, Vector3 rayDirectionPos)
         {
             Task<GameObject> awaitTask = 
@@ -67,23 +77,7 @@ namespace Characters.Systems
             
             return result;
         }
-  
-
-        private IEnumerator DelayRaycast(float seconds)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(seconds);
-                    /*
-                Transform camTransform = CameraSystem.CurrentMainCamera.transform;
-                Task<GameObject> awaitTask = CastRay(camTransform.position, camTransform.forward * RAYCAST_RANGE);
-                _physicsTasks.Enqueue(awaitTask);
-                while (awaitTask.IsCompleted == false) { }
-                SystemsСontainer.NotifySystems("Raycast Update", awaitTask.Result);
-                
-                */
-            }
-        }
+        
 
         private GameObject GetRaycastBlockingObj(Vector3 rayStartPos, Vector3 rayDirectionPos)
         {
@@ -91,20 +85,18 @@ namespace Characters.Systems
             
             Ray ray = new Ray(rayStartPos, rayDirectionPos);
             
-            if (Physics.Raycast(ray, 
-                                out RaycastHit hitInfo, 
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 
                                 Vector3.Distance(rayStartPos, rayDirectionPos), 
-                                _raycastData.RayblockLayers) == false) 
-                                    return null;
+                                _raycastData.RayblockLayers) == false) return null;
             
             if (hitInfo.transform == null) return null;
+            
             return hitInfo.transform.gameObject;
         }
 
         public override void Stop()
         {
             base.Stop();
-            
             _raycastData.AnyMonobeh.StopCoroutine(_coroutine);
         }
     }
