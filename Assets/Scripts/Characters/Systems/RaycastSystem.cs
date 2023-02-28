@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Systems.Base;
-using Systems.GameCamera;
+using GameSystems.Base;
+using GameSystems.GameCamera;
 using UnityEngine;
 
 namespace Characters.Systems
@@ -96,8 +96,8 @@ namespace Characters.Systems
 
         public override void Stop()
         {
-            base.Stop();
             _raycastData.AnyMonobeh.StopCoroutine(_coroutine);
+            base.Stop();
         }
     }
     

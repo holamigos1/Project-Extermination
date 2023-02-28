@@ -1,7 +1,16 @@
+using GameData.Layers;
+using GameData.Tags;
 using UnityEngine;
 
 namespace Weapons.O.P.S_Gun
 {
+    public enum OPS_ChargeType
+    {
+        Horizontal,
+        Gravitation,
+        Antigravity
+    }
+    
     public class OPS_Charge : MonoBehaviour
     {
         [SerializeField] private Material _red;
@@ -9,7 +18,7 @@ namespace Weapons.O.P.S_Gun
         [SerializeField] private Material _magenta;
         [SerializeField] private float _speedMultiplier;
         [SerializeField] private float _antiGravitationForceMultiplier;
-        [SerializeField] private Scripts.GameEnums.OPS_Charge _chargeType;
+        [SerializeField] private OPS_ChargeType _chargeType;
         private Collision _collidedObj;
         private bool _isColliding;
         private bool _isPlanted;
@@ -25,27 +34,27 @@ namespace Weapons.O.P.S_Gun
             _thisCollider = GetComponent<Collider>();
         }
 
-        public void Setup(Scripts.GameEnums.OPS_Charge chargeType)
+        public void Setup(OPS_ChargeType chargeType)
         {
             _chargeType = chargeType;
         }
         
         private void Start()
         {
-            if (_chargeType == Scripts.GameEnums.OPS_Charge.Antigravity)
+            if (_chargeType == OPS_ChargeType.Antigravity)
             {
                 gameObject.GetComponent<Renderer>().material = _magenta;
                 _thisRigidbody.useGravity = false;
             }
 
-            if (_chargeType == Scripts.GameEnums.OPS_Charge.Gravitation)
+            if (_chargeType == OPS_ChargeType.Gravitation)
             {
                 gameObject.GetComponent<Renderer>().material = _green;
                 _thisRigidbody.useGravity = true;
                 _thisRigidbody.velocity = new Vector3(0, 0, 0); //гасим ипульс от выстрела пушки
             }
 
-            if (_chargeType == Scripts.GameEnums.OPS_Charge.Horizontal)
+            if (_chargeType == OPS_ChargeType.Horizontal)
             {
                 gameObject.transform.localEulerAngles = new Vector3(
                     0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
@@ -59,7 +68,7 @@ namespace Weapons.O.P.S_Gun
         {
             if (_isPlanted) return;
 
-            if (_chargeType == Scripts.GameEnums.OPS_Charge.Horizontal)
+            if (_chargeType == OPS_ChargeType.Horizontal)
             {
                 if (_isColliding)
                     if (Mathf.Abs(_thisRigidbody.velocity.z) < 0.001f || Mathf.Abs(_thisRigidbody.velocity.x) < 0.001f)
@@ -69,7 +78,7 @@ namespace Weapons.O.P.S_Gun
                 _thisRigidbody.AddForce(transform.forward * _speedMultiplier, ForceMode.Acceleration);
             }
 
-            if (_chargeType == Scripts.GameEnums.OPS_Charge.Antigravity)
+            if (_chargeType == OPS_ChargeType.Antigravity)
             {
                 if (_isColliding)
                     if (Mathf.Abs(_thisRigidbody.velocity.y) < 0.001f)
@@ -78,7 +87,7 @@ namespace Weapons.O.P.S_Gun
                 _thisRigidbody.AddForce(Vector3.up * (9.81f * _antiGravitationForceMultiplier), ForceMode.Acceleration);
             }
 
-            if (_chargeType == Scripts.GameEnums.OPS_Charge.Gravitation) //Логика зелёного заряда
+            if (_chargeType == OPS_ChargeType.Gravitation) //Логика зелёного заряда
             {
                 if (_isColliding)
                     if (Mathf.Abs(_thisRigidbody.velocity.y) < 0.001f)
@@ -96,8 +105,8 @@ namespace Weapons.O.P.S_Gun
         {
             _collidedObj = otherCollision;
             
-            if (otherCollision.transform.CompareTag(Data.Tags.GameTags.CLEAR_TAG)) _isColliding = true;
-            if (otherCollision.transform.CompareTag(Data.Tags.GameTags.BOUND_TAG)) Destroy(this);
+            if (otherCollision.transform.CompareTag(GameTags.CLEAR_TAG)) _isColliding = true;
+            if (otherCollision.transform.CompareTag(GameTags.BOUND_TAG)) Destroy(this);
         }
 
         private void PlaceCharge()
@@ -106,7 +115,7 @@ namespace Weapons.O.P.S_Gun
             transform.rotation = Quaternion.LookRotation(_collidedObj.contacts[0].normal);
             _isPlanted = true;
             _stayPosition = transform.position;
-            gameObject.layer = LayerMask.NameToLayer(Data.Layers.GameLayers.OPS_CHARGES_LAYER);
+            gameObject.layer = LayerMask.NameToLayer(GameLayers.OPS_CHARGES_LAYER);
             _thisRigidbody.velocity = Vector3.zero;
             _thisRigidbody.useGravity = false;
             _thisRigidbody.isKinematic = true;

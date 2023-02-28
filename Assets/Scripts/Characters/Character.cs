@@ -1,6 +1,6 @@
 ﻿using Characters.Systems;
+using GameSystems.GameCamera;
 using Objects.Base;
-using Systems.GameCamera;
 using UnityEngine;
 
 namespace Characters

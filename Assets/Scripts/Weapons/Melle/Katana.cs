@@ -1,4 +1,4 @@
-using Data.AnimationTags;
+using GameData.AnimationTags;
 using UnityEngine;
 using Weapons.Basic;
 

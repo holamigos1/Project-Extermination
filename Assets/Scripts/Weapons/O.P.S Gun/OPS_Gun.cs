@@ -1,15 +1,18 @@
 using System;
 using System.Linq;
-using Data.Weapons;
+using GameData.AnimationTags;
+using GameData.Layers;
+using GameData.Tags;
+using GameData.Weapons;
+using GameSystems.Base;
 using Movement.SourseMovment;
 using Objects.Base;
-using Scripts.Weapons.OPS;
-using Systems.Base;
 using UnityEngine;
 using Weapons.Basic;
 
 namespace Weapons.O.P.S_Gun
 {
+    //TODO Отрефактори это ↓ пж
     public class OPS_Gun : RangeWeapon, IPickup, IDrop, IEquip
     {
         public bool IsEquipped => _isEquipped;
@@ -25,6 +28,7 @@ namespace Weapons.O.P.S_Gun
         [SerializeField] private Transform BulletSpawnPoint;
         [SerializeField] private float ShootForce = 100;
         [SerializeField] private LayerMask ObstacleMask;
+        
         private bool _isHaveVisableCharge;
         private Transform _magnetationPlayerPoint;
         private MagnitatonBehaviour _fpsCharController;
@@ -39,31 +43,31 @@ namespace Weapons.O.P.S_Gun
         {
             //проятгиваем все переменные для пушки
             animator = GetComponent<Animator>();
-            _magnetationPlayerPoint = GameObject.FindWithTag(Data.Tags.GameTags.MAGNET_POINT_TAG).transform;
+            _magnetationPlayerPoint = GameObject.FindWithTag(GameTags.MAGNET_POINT_TAG).transform;
             _opsUIPointerScript = FindObjectOfType<OPS_ChargeUIPointerPresenter>();
             _fpsCharController = FindObjectOfType<MagnitatonBehaviour>();
 
             //двигаем бит еденицы слоя OPS_CHARGES_LAYER к нужной позиции
-            _otherLayerMask = 1 << LayerMask.NameToLayer(Data.Layers.GameLayers.OPS_CHARGES_LAYER);
+            _otherLayerMask = 1 << LayerMask.NameToLayer(GameLayers.OPS_CHARGES_LAYER);
             //инвертируем все биты чтобы бит слоя OPS_CHARGES_LAYER был 0 а остальные 1
             _otherLayerMask = ~_otherLayerMask;
         }
 
         private void OnEnable()
         {
-            if (transform.parent != null && transform.parent.CompareTag(Data.Tags.GameTags.HAND_TAG))
+            if (transform.parent != null && transform.parent.CompareTag(GameTags.HAND_TAG))
             {
                 _isEquipped = true;
                 animator.enabled = true;
                 GetComponent<Rigidbody>().isKinematic = true;
-                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.FIRST_PERSON_LAYER));
+                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
             }
             else
             {
                 _isEquipped = false;
                 animator.enabled = false;
                 GetComponent<Rigidbody>().isKinematic = false;
-                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
+                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
             }
         }
 
@@ -89,7 +93,7 @@ namespace Weapons.O.P.S_Gun
             UpdateAction += OnUpdate;
             
             // поставть пушку в изночальный режим 
-            DisplayScript.SetCharge((Scripts.GameEnums.OPS_Charge)WeaponMode);
+            DisplayScript.SetCharge((OPS_ChargeType)WeaponMode);
         }
 
         public void Equip()
@@ -111,7 +115,7 @@ namespace Weapons.O.P.S_Gun
             _isEquipped = false;
             animator.enabled = false;
             GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(Data.Layers.GameLayers.DEFAULT_LAYER));
+            gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
         }
         
         private void FixedUpdate()
@@ -130,23 +134,23 @@ namespace Weapons.O.P.S_Gun
         
         private void OnSwitchMode()
         {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.SWITCH_MODE_TRIGGER);
+            if (_isEquipped) animator.SetTrigger(AnimationParams.SWITCH_MODE_TRIGGER);
         }
         
         private void OnAttack()
         {
-            if(_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.SHOOT_TRIGGER);
+            if(_isEquipped) animator.SetTrigger(AnimationParams.SHOOT_TRIGGER);
         }
 
         public override void Reload()
         {
-            if (_isEquipped) animator.SetTrigger(Data.AnimationTags.AnimationParams.RELOAD_TRIGGER);
+            if (_isEquipped) animator.SetTrigger(AnimationParams.RELOAD_TRIGGER);
         }
 
         public override void Shoot()
         {
             var projectileObj = Instantiate(BulletCharge, BulletSpawnPoint);
-            projectileObj.GetComponent<OPS_Charge>().Setup((Scripts.GameEnums.OPS_Charge)WeaponMode);
+            projectileObj.GetComponent<OPS_Charge>().Setup((OPS_ChargeType)WeaponMode);
 
             //Делаем заряд независимым от пушки иначе заряд будет двигаться вместе с пушкой
             projectileObj.transform.parent = null;
@@ -169,7 +173,7 @@ namespace Weapons.O.P.S_Gun
             else SwitchMode(WeaponMode + 1);
 
             //отображение нынешнего режима пушки интопретированой к перечеслению OPScharge
-            DisplayScript.SetCharge((Scripts.GameEnums.OPS_Charge)WeaponMode);
+            DisplayScript.SetCharge((OPS_ChargeType)WeaponMode);
         }
 
         /// <summary>
@@ -198,7 +202,7 @@ namespace Weapons.O.P.S_Gun
             //ресуем эту самую сфреу с динамическим радуиусом sphereChekerRadiusDinamic
             //и возвращаем все коллайдеры на слове OPS_CHARGES_LAYER
             var chragesInSphere = Physics.OverlapSphere(
-                _rayEndPoint, sphereChekerRadiusDinamic, LayerMask.GetMask(Data.Layers.GameLayers.OPS_CHARGES_LAYER));
+                _rayEndPoint, sphereChekerRadiusDinamic, LayerMask.GetMask(GameLayers.OPS_CHARGES_LAYER));
 
             //если коолайдеров таких нет в диапозоне сферы то мы нифига не видим и выходим с этого метода
             if (chragesInSphere is null || chragesInSphere.Length == 0)

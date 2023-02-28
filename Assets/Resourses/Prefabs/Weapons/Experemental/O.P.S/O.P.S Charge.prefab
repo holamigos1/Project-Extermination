@@ -130,6 +130,6 @@ MonoBehaviour:
   _red: {fileID: 2100000, guid: 285f127a2e548144dbd29bc0b089838e, type: 2}
   _green: {fileID: 2100000, guid: 39abed3f72add7446b3faf824d8f725e, type: 2}
   _magenta: {fileID: 2100000, guid: 859da05b25004bc46abe8e367ddde3ca, type: 2}
-  _speedMultiplier: 1
-  _antiGravitationForceMultiplier: 1
+  _speedMultiplier: 2
+  _antiGravitationForceMultiplier: 5
   _chargeType: 0

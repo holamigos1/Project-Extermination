@@ -1,3 +1,4 @@
+using GameData.Tags;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +12,8 @@ namespace Weapons.O.P.S_Gun
 
         private void Start()
         {
-            _fpsCanvas = GameObject.FindWithTag(Data.Tags.GameTags.FPS_CANVAS_TAG).GetComponent<Canvas>();
-            _mainCamera = GameObject.FindWithTag(Data.Tags.GameTags.MAIN_CAMERA_TAG).GetComponent<Camera>();
+            _fpsCanvas = GameObject.FindWithTag(GameTags.FPS_CANVAS_TAG).GetComponent<Canvas>();
+            _mainCamera = GameObject.FindWithTag(GameTags.MAIN_CAMERA_TAG).GetComponent<Camera>();
             _popOutPointerImage.gameObject.SetActive(false);
         }
 
