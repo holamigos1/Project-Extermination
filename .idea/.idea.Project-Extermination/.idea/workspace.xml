@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Melle/Katana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Melle/Katana.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +86,7 @@
       <workItem from="1676451353886" duration="18965000" />
       <workItem from="1676558393247" duration="21391000" />
       <workItem from="1676664955318" duration="23950000" />
+      <workItem from="1677268707784" duration="594000" />
     </task>
     <servers />
   </component>
