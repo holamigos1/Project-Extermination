@@ -1,4 +1,4 @@
-﻿using Systems.Base;
+﻿using GameSystems.Base;
 using UnityEngine;
 
 namespace Characters.Systems

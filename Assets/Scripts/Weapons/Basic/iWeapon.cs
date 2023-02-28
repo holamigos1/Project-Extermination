@@ -1,4 +1,4 @@
-using Data.Weapons;
+using GameData.Weapons;
 using UnityEngine;
 
 namespace Weapons.Basic

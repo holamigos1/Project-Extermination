@@ -1,5 +1,6 @@
-﻿using Systems.Base;
+﻿using GameSystems.Base;
 using UnityEngine;
+using Weapons;
 using Weapons.Basic;
 
 namespace Characters.Systems

@@ -1,5 +1,5 @@
-﻿using Sirenix.OdinInspector;
-using Systems.Base;
+﻿using GameSystems.Base;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Objects.Base

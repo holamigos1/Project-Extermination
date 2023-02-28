@@ -1,6 +1,6 @@
-using Data.Layers;
+using GameData.Layers;
+using GameSystems.Base;
 using Objects.Base;
-using Systems.Base;
 using UnityEngine;
 
 namespace Characters.Systems
@@ -21,7 +21,7 @@ namespace Characters.Systems
         private readonly Transform _handPoint;
         
 
-        public override void Start()
+        public override void Start() 
         {
             base.Start();
             
@@ -86,9 +86,10 @@ namespace Characters.Systems
             Debug.Log($"Взял {gameObjectInst.name} с типом {gameObjectInst.GetType().Name}");
 
             _equippedGameObject = gameObjectInst;
-            _equippedGameObject.transform.parent = _handPoint;
-            _equippedGameObject.transform.localPosition = Vector3.zero;
-            _equippedGameObject.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            Transform equippedTransform = _equippedGameObject.transform;
+            equippedTransform.parent = _handPoint;
+            equippedTransform.localPosition = Vector3.zero;
+            equippedTransform.localRotation = Quaternion.Euler(Vector3.zero);
             _equippedGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
             _equippedGameObject.SetActive(true);
             
