@@ -2,68 +2,267 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/OldInputMediatorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/OldInputMediatorSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/AnimationTags.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags/AnimationParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/AnimationTags/AnimationParams.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/AnimationTags/AnimationParams.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/AnimationTags/AnimationParams.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Dementions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Dementions.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Dementions/Vectors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Dementions/Vectors.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Dementions/Vectors.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Dementions/Vectors.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Layers.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Layers.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Layers/GameLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Layers/GameLayers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Layers/GameLayers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Layers/GameLayers.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Tags.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Tags.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Tags/GameObjectsTags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Tags/GameObjectsTags.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Tags/GameObjectsTags.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Tags/GameObjectsTags.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Weapons.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons/AimMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Weapons/AimMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons/AimMode.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Weapons/AimMode.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons/WeaponMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Weapons/WeaponMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/Weapons/WeaponMode.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Weapons/WeaponMode.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IDrop.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IDrop.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IEquip.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IEquip.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IPickup.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IPickup.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/Extentions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/Extentions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/Extentions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/Extentions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystemsContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/GameSystemsContainer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/IGameSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/IGameSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/IGameSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/IGameSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/IObserver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/IObserver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/Base/IObserver.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/IObserver.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/GameCamera.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/GameCamera.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/GameCamera/CameraSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/GameCamera/CameraSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/GameCamera/CameraSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/GameCamera/CameraSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/RangeWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/RangeWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/RangeWeapon.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/RangeWeapon.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/Weapon.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/iWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/iWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Charge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Charge.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeType.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Display.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Display.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol/Pistol.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol/Pistol.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/AmmoOpen.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/AmmoOpen.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Close.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Close.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Explode.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Explode.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/NextModel.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/NextModel.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Open.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Open.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Recall.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Audio/Recall.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/BuiltInSettings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/BuiltInSettings/LightingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/BuiltInSettings/LightingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/BuiltInSettings/Post-processing Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/BuiltInSettings/Post-processing Profile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/BuiltInSettings/ReflectionProbe-0.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/BuiltInSettings/ReflectionProbe-0.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Demo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Demo/Demo3D.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Demo/Demo3D.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/BackgroundSprite_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/BackgroundSprite_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo Decal02_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo Decal02_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo Decal03_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo Decal03_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo Decal_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo Decal_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Ammo_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Bullet Decal_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Bullet Decal_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Bullet_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M 9mm Bullet_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Case_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Case_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_Decal_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_Decal_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_RedDotGlass_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_RedDotGlass_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_RedDot_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_RedDot_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_Skin01_Body_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_Skin01_Body_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_Skin02_Body_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Materials/PT-9M Pistol_Skin02_Body_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Case.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Case.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_High.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_High.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_High_sep.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_High_sep.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_Low.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_Low.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_Low_sep.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol 9mm Bullet_Low_sep.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol Ammo.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol Ammo.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Meshes/PT-9M Pistol.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Case.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Case.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Pistol Ammo.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Pistol Ammo.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Pistol_skin01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Pistol_skin01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Pistol_skin02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/Demo/PT-9M Pistol_skin02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Case.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Case.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Case_close.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Case_close.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_High.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_High.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_High_sep.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_High_sep.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_Low.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_Low.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_Low_sep.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol 9mm Bullet_Low_sep.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol Ammo.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol Ammo.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol_skin01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol_skin01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol_skin02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Prefabs/PT-9M Pistol_skin02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Readme.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/RenderPipline.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/RenderPipline/3D.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/RenderPipline/Hdrp.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/RenderPipline/Urp.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzAnim.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzAnim.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzCamNav.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzCamNav.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzExplode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzExplode.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzRotator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzRotator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzSelection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Scripts/NzSelection.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal02_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal02_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal02_albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal02_albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal03_albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal03_albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal_albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo Decal_albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Detail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Detail.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Mask.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Ammo/PT-9M 9mm Ammo_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet Decal_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet Decal_Albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet Decal_nrml.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet Decal_nrml.bmp.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Detail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Detail.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Mask.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Bullet/PT-9M 9mm Bullet_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Detail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Detail.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Mask.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Case/PT-9M Case_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Decal_albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Decal_albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Decal_nrml.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Decal_nrml.bmp.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Detail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Detail.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Mask.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin01_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Albedo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Albedo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Detail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Detail.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Gloss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Gloss.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Mask.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Metalness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Metalness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Textures/PT-9M Pistol/PT-9M Pistol_Skin02_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/BackGround.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/BackGround.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Hint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Hint.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/HintContainer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/HintContainer.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/1024px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/1024px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/256px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/256px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/512px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/512px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Ammo1024px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Ammo1024px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Ammo256px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Ammo256px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Ammo512px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Ammo512px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/B_1024px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/B_1024px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/B_256px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/B_256px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/B_512px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/B_512px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Case1024px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Case1024px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Case256px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Case256px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Case512px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/Case512px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S01_1024px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S01_1024px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S01_256px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S01_256px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S01_512px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S01_512px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S02_1024px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S02_1024px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S02_256px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S02_256px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S02_512px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/S02_512px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/W_1024px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/W_1024px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/W_256px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/W_256px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/W_512px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Icons/W_512px.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Next.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Previous.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NZ PT-9M Pistol/Ui/Previous.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/TestPlayerRunCrouche.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/TestPlayerRunCrouche.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,18 +288,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "Project Files",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;Project Files&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.17f1\Editor\Unity.exe" />
