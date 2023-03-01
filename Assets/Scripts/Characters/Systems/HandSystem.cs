@@ -46,7 +46,7 @@ namespace Characters.Systems
         {
             var requestResponse = 
                 await SystemsСontainer.MakeAsyncRequest("Get raycast object")!;
-            
+    
             if (requestResponse.IsEmpty()) return;
             
             GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
@@ -82,7 +82,7 @@ namespace Characters.Systems
                 return;
             }
             
-            Debug.Log($"Взял {itemInst.name} с типом {itemInst.GetType().Name}");
+            Debug.Log($"Взял предмет {itemInst.name} с типом {itemInst.GetType().Name}");
             
             _equippedItem = itemInst;
             Transform equippedTransform = _equippedItem.transform;

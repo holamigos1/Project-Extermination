@@ -29,10 +29,12 @@ namespace Characters.Systems
         {
             _physicsTasks = new Queue<Task>();
             base.Start();
-
+            
+            SystemsСontainer.PhysUpdate += PhysicsUpdate;
             _coroutine = _raycastData.AnyMonobeh.StartCoroutine(DelayRaycast(RAYCAST_RATE));
             _mainCameraTransform = CameraSystem.CurrentMainCamera.transform;
         }
+        
 
         public override void PhysicsUpdate()
         {
@@ -43,7 +45,7 @@ namespace Characters.Systems
             }
         }
         
-        public override async Task<object> OnAsyncRequest(string message)
+        public override async Task<object> OnAsyncRequest(string message, object data)
         {
             switch (message)
             {
@@ -81,6 +83,7 @@ namespace Characters.Systems
 
         private GameObject GetRaycastBlockingObj(Vector3 rayStartPos, Vector3 rayDirectionPos)
         {
+            if(_raycastData.RayblockLayers.value == 0) Debug.LogWarning($"RayblockLayers для системы {this.GetType().Name} не установленны.");
             Debug.DrawRay(rayStartPos, rayDirectionPos, Color.red);//TODO Удали как наиграешься
             
             Ray ray = new Ray(rayStartPos, rayDirectionPos);
@@ -97,6 +100,7 @@ namespace Characters.Systems
         public override void Stop()
         {
             _raycastData.AnyMonobeh.StopCoroutine(_coroutine);
+            SystemsСontainer.Update -= PhysicsUpdate;
             base.Stop();
         }
     }

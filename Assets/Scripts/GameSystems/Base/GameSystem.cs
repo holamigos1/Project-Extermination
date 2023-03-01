@@ -16,12 +16,11 @@ namespace GameSystems.Base
         public virtual void OnNotify(string message, System.Object data) { }
         public virtual object OnRequest(string message, object requestObject) => null;
         public virtual Task<object> OnAsyncRequest(string message, object requestObject) => null;
-        public virtual Task<object> OnAsyncRequest(string message) => null;
 
         public virtual void Start()
         {
-            Debug.Log($"{this.GetType().Name} заработал");
-            SystemsСontainer.SystemsNotify += OnNotify;
+            Debug.Log($"{this.GetType().Name} запущен в ");
+            SystemsСontainer.Notify += OnNotify;
         }
 
         public virtual void Update() { }
@@ -31,7 +30,7 @@ namespace GameSystems.Base
         {
             if(_isEnabled == false) return;
             
-            SystemsСontainer.SystemsNotify -= OnNotify;
+            SystemsСontainer.Notify -= OnNotify;
             
             _isEnabled = false;
             

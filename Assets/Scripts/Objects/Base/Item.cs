@@ -33,13 +33,10 @@ namespace Objects.Base
         
         public void Init()
         {
-            Debug.Log(name);
-            
             ItemAnimator ??= GetComponent<Animator>();
             ItemRigidbody ??= GetComponent<Rigidbody>();
             ItemGameObject ??= gameObject;
             ItemTransform ??= transform;
-            
         }
         
         public Item Pickup()
