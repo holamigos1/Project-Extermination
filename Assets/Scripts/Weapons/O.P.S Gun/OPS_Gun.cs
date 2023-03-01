@@ -60,14 +60,14 @@ namespace Weapons.O.P.S_Gun
                 _isEquipped = true;
                 animator.enabled = true;
                 GetComponent<Rigidbody>().isKinematic = true;
-                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
+                gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
             }
             else
             {
                 _isEquipped = false;
                 animator.enabled = false;
                 GetComponent<Rigidbody>().isKinematic = false;
-                gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
+                gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
             }
         }
 
@@ -115,7 +115,7 @@ namespace Weapons.O.P.S_Gun
             _isEquipped = false;
             animator.enabled = false;
             GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
+            gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
         }
         
         private void FixedUpdate()

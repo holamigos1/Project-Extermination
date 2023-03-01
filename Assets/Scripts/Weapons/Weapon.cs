@@ -1,6 +1,7 @@
 ﻿using System;
 using GameData.AnimationTags;
 using GameData.Tags;
+using GameSystems.Base;
 using Objects.Base;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ namespace Weapons
     public abstract class Weapon : Item, IEquip
     {
         public bool IsEquipped => _isEquipped;
-        public bool IsInHand => (ItemTransform.parent != null) && (ItemTransform.parent.CompareTag(GameTags.HAND_TAG));
+        public bool IsInHand => (ItemTransform.parent != null) && 
+                                (ItemTransform.parent.CompareTag(GameTags.HAND_TAG));
         
         private bool _isEquipped;
         
@@ -21,10 +23,13 @@ namespace Weapons
         public void Equip()
         {
             Init();
+            
             ItemGameObject.SetActive(true);
+            
             ItemAnimator.enabled = true;
             ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, _isEquipped = true);
             ItemAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+            
             ItemRigidbody.isKinematic = true;
             ItemRigidbody.useGravity = false;
         }
@@ -48,5 +53,12 @@ namespace Weapons
         }
         
         ////////////////////////////
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Bounds boudns = transform.RenderBounds();
+            Gizmos.DrawWireCube(boudns.center, boudns.size);
+        }
     }
 }

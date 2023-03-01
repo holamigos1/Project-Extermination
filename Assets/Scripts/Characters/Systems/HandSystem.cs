@@ -15,11 +15,14 @@ namespace Characters.Systems
         public HandSystem(Transform handPoint)
         {
             _handPoint = handPoint;
+            _handLocalStartPoint = _handPoint.localPosition;
         }
         
-        private Item _equippedItem;
-        private readonly Transform _handPoint;
+        private readonly Vector3 _handLocalStartPoint;
         
+        private Item _equippedItem;
+        private Transform _handPoint;
+
         public override void Start() 
         {
             base.Start();
@@ -51,22 +54,18 @@ namespace Characters.Systems
             
             GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
             
-            if (requestObj.TryGetComponent(out Item pickupableObject) is false) return;
+            if (requestObj.TryGetComponent(out Item itemObj) is false) return;
             
-            if (pickupableObject.PickUpType == PickUpType.InHand)
+            if (itemObj.PickUpType == PickUpType.InHand)
             {
-                if (_equippedItem == null)
-                {
-                    Equip(pickupableObject.Pickup()); 
-                }
-                else
-                {
-                    Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
-                    //TODO Логика перемещения в инвентарь
-                }
+                if (_equippedItem == null) 
+                    Equip(itemObj.Pickup());
+                else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
+                    
+                //TODO Логика перемещения в инвентарь
             }
             
-            if (pickupableObject.PickUpType == PickUpType.InInventory)
+            if (itemObj.PickUpType == PickUpType.InInventory)
             {
                 //TODO Логика перемещения в инвентарь
             }
@@ -77,7 +76,6 @@ namespace Characters.Systems
             if (_equippedItem != null)
             {
                 Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
-                
                 //TODO Дописать логику проброса объекта из руки в инвентарь и взятии нового предмета по требованию.
                 return;
             }
@@ -85,29 +83,35 @@ namespace Characters.Systems
             Debug.Log($"Взял предмет {itemInst.name} с типом {itemInst.GetType().Name}");
             
             _equippedItem = itemInst;
-            Transform equippedTransform = _equippedItem.transform;
-            equippedTransform.parent = _handPoint;
-            equippedTransform.localPosition = Vector3.zero;
-            equippedTransform.localRotation = Quaternion.Euler(Vector3.zero);
-            _equippedItem.gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
-            _equippedItem.gameObject.SetActive(true);
-
+            
+            _equippedItem.ItemTransform.parent = _handPoint;
+            _equippedItem.ItemTransform.localPosition = Vector3.zero;
+            _equippedItem.ItemTransform.localRotation = Quaternion.Euler(Vector3.zero);
+            
+            _equippedItem.ItemGameObject.ChangeGameObjsLayers(GameLayers.FIRST_PERSON_LAYER);
+            _equippedItem.ItemGameObject.SetActive(true);
+            
+            _handPoint.localPosition = new Vector3(_handPoint.localPosition.x,
+                                                    - _equippedItem.ItemTransform.RenderBounds().extents.y,
+                                                    _handPoint.localPosition.z);
+            
             SystemsСontainer.NotifySystems("Item Equipped", _equippedItem);
         }
 
         private void DropFromHand()
         {
             if (_equippedItem == null) return;
-            if (_equippedItem.TryGetComponent(out Rigidbody rigidbody) == null) return;
-            
-            rigidbody.isKinematic = false;
-            rigidbody.useGravity = true;
-            rigidbody.transform.parent = null;//теперь не дочка объекта руки
+
+            _equippedItem.ItemRigidbody.isKinematic = false;
+            _equippedItem.ItemRigidbody.useGravity = true;
+            _equippedItem.ItemRigidbody.transform.parent = null;//теперь не дочка объекта руки
 
             if (_equippedItem.TryGetComponent(out IDrop dropableObj))
                 dropableObj.Drop();
             
             SystemsСontainer.NotifySystems("Item Dropped", _equippedItem);
+
+            _handPoint.localPosition = _handLocalStartPoint;
             _equippedItem = null;
         }
 
