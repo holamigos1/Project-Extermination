@@ -17,10 +17,8 @@ namespace Weapons.O.P.S_Gun
     {
         public bool IsEquipped => _isEquipped;
         public GameObject thisObject => gameObject;
-        public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isEquipped;
-
-        [SerializeField] private PickUpType _pickUpType;
+        
         [SerializeField] private AudioSource ConnectionSound;
         [SerializeField] private float MaxMagnitationDistance = 75;
         [SerializeField] private OPS_Display DisplayScript;
@@ -53,8 +51,10 @@ namespace Weapons.O.P.S_Gun
             _otherLayerMask = ~_otherLayerMask;
         }
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
+            
             if (transform.parent != null && transform.parent.CompareTag(GameTags.HAND_TAG))
             {
                 _isEquipped = true;

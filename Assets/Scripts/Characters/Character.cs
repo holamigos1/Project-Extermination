@@ -12,18 +12,14 @@ namespace Characters
         
         private void Awake()
         { 
-            CameraSystem.CurrentMainCamera = Camera.main;
+            CameraSystem.CurrentMainCamera = Camera.main; //TODO Character не должен заниматься камерой!
             
-            _systemsContainer.AddSystem(new RaycastSystem(new RaycastSystemData(this, _rayblockingLayers)));
-            _systemsContainer.AddSystem(new OldInputMediatorSystem());
-            _systemsContainer.AddSystem(new WeaponMediatorSystem());
-            _systemsContainer.AddSystem(new HandSystem(_handPosition));
+            UnitSystemsContainer.AddSystem(new RaycastSystem(new RaycastSystemData(this, _rayblockingLayers)));
+            UnitSystemsContainer.AddSystem(new OldInputMediatorSystem());
+            UnitSystemsContainer.AddSystem(new WeaponMediatorSystem());
+            UnitSystemsContainer.AddSystem(new HandSystem(_handPosition));
             
             Debug.Log("Character.enabled" + this.enabled);//Если это строчку удалить то Character компонет почему то сам по себе отрубается, держу в курсе
         }
-
-        private void OnDisable() => _systemsContainer.ShutDownSystems();
-        private void Update() => _systemsContainer.UpdateSystems();
-        private void FixedUpdate() => _systemsContainer.UpdatePhysicsSystems();
     }
 }

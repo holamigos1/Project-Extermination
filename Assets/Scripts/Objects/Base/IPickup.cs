@@ -15,6 +15,6 @@ namespace Objects.Base
         public PickUpType PickUpType { get; }
         public bool IsPickuped { get; }
         
-        public GameObject Pickup();
+        public Item Pickup();
     }
 }

@@ -10,60 +10,62 @@ namespace Objects.Base
     public abstract class Item : MonoBehaviour, IDrop, IPickup
     {
         public Bounds RenderBounds => _meshFilter.sharedMesh.bounds;
-        public GameObject thisObject => _gameObject;
+        public GameObject thisObject => ItemGameObject;
         public PickUpType PickUpType => _pickUpType;
-        public bool IsPickuped => _isPickuped;
-        public GameSystemsContainer SystemsContainer => _systemsContainer;
+        public bool IsPickuped => IsItemPickuped;
+        public GameSystemsContainer SystemsContainer => ItemSystemsContainer;
         
         [SerializeField] 
         private PickUpType _pickUpType;
         
-        protected bool _isPickuped;
-        protected GameSystemsContainer _systemsContainer;
-        protected Animator _animator;
-        protected Rigidbody _rigidbody;
-        protected GameObject _gameObject;
-        protected Transform _transform;
+        protected bool IsItemPickuped;
+        protected GameSystemsContainer ItemSystemsContainer;
+        protected Animator ItemAnimator;
+        protected Rigidbody ItemRigidbody;
+        protected GameObject ItemGameObject;
+        protected Transform ItemTransform;
         
-        [SerializeField]private MeshFilter _meshFilter;
+        [SerializeField]
+        private MeshFilter _meshFilter;
         
-        private void OnEnable()
-        {
+        protected virtual void OnEnable() =>
             Init();
-        }
-
+        
         public void Init()
         {
-            _animator ??= GetComponent<Animator>();
-            _rigidbody ??= GetComponent<Rigidbody>();
-            _gameObject ??= gameObject;
-            _transform ??= transform;
+            Debug.Log(name);
+            
+            ItemAnimator ??= GetComponent<Animator>();
+            ItemRigidbody ??= GetComponent<Rigidbody>();
+            ItemGameObject ??= gameObject;
+            ItemTransform ??= transform;
+            
         }
         
-        public GameObject Pickup()
+        public Item Pickup()
         {
-            _gameObject.SetActive(false);
+            ItemGameObject.SetActive(false);
             
-            _rigidbody.isKinematic = true;
-            _rigidbody.useGravity = false;
+            ItemRigidbody.isKinematic = true;
+            ItemRigidbody.useGravity = false;
             
-            _isPickuped = true;
+            IsItemPickuped = true;
             
-            return _gameObject;
+            return this;
         }
 
         public void Drop()
         {
-            _isPickuped = false;
+            IsItemPickuped = false;
 
-            _rigidbody.isKinematic = false;
-            _rigidbody.useGravity = true;
+            ItemRigidbody.isKinematic = false;
+            ItemRigidbody.useGravity = true;
             
-            _animator.StopPlayback();
-            _animator.cullingMode = AnimatorCullingMode.CullCompletely;
-            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
+            ItemAnimator.StopPlayback();
+            ItemAnimator.cullingMode = AnimatorCullingMode.CullCompletely;
+            ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
 
-            _gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
+            ItemGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
         }
     }
 }
