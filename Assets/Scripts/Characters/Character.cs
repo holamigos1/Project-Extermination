@@ -10,7 +10,7 @@ namespace Characters
         [SerializeField] private Transform _handPosition;
         [SerializeField] private LayerMask _rayBlockLayers;
         
-        private void Awake()
+        private void Start()
         {
             CameraSystem.CurrentMainCamera = Camera.main; //TODO Character не должен заниматься камерой!
             

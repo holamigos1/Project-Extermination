@@ -1,4 +1,5 @@
-﻿using GameData.AnimationTags;
+﻿using System;
+using GameData.AnimationTags;
 using GameData.Layers;
 using GameSystems.Base;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace Objects.Base
         protected bool IsItemPickuped;
         protected GameSystemsContainer ItemSystemsContainer;
         protected Animator ItemAnimator;
-        protected Rigidbody ItemRigidbody;
+        protected Rigidbody ItemRigidbody;  
         protected GameObject ItemGameObject;
         protected Transform ItemTransform;
         
@@ -33,6 +34,7 @@ namespace Objects.Base
         
         public void Init()
         {
+            Debug.Log(ItemAnimator);
             ItemAnimator ??= GetComponent<Animator>();
             ItemRigidbody ??= GetComponent<Rigidbody>();
             ItemGameObject ??= gameObject;
@@ -63,6 +65,14 @@ namespace Objects.Base
             ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
 
             ItemGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
+        }
+        
+        protected virtual void OnDestroy()
+        {
+            ItemAnimator = null;
+            ItemRigidbody = null;  
+            ItemGameObject = null;
+            ItemTransform = null;
         }
     }
 }
