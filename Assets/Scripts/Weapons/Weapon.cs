@@ -29,8 +29,6 @@ namespace Weapons
             _rigidbody.useGravity = false;
         }
         
-         
-        
         //////// Animations ////////
 
         public void SetReady(string boolString)

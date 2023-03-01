@@ -47,23 +47,28 @@ namespace GameSystems.Base
             if (list.Count <= 0) return true;
             return false;
         }
-
-
-        public static bool HasAnyChild(this Transform transform)
-        {
-            return transform.GetChild(0) != null;
-        }
         
-        public static Transform GetFirstChild(this Transform transform)
-        {
-            var firstChild = 0;
-            return transform.GetChild(firstChild);
-        }
+        public static bool HasAnyChild(this Transform transform) =>
+            transform.GetChild(0) != null;
         
-        public static GameObject GetFirstChildObj(this Transform transform)
+        public static Transform GetFirstChild(this Transform transform) =>
+            transform.GetChild(0);
+        
+        public static GameObject GetFirstChildObj(this Transform transform) =>
+             transform.GetChild(0).gameObject;
+        
+        public static Bounds GetBounds(this GameObject gameObject)
         {
-            var firstChild = 0;
-            return transform.GetChild(firstChild).gameObject;
+            Bounds bounds = new Bounds(gameObject.transform.position,Vector3.zero);
+
+            foreach (Transform child in gameObject.transform)
+            {
+                if (child.TryGetComponent(out Renderer rendererComp)) 
+                    bounds.Encapsulate(rendererComp.bounds);
+                else bounds.Encapsulate(GetBounds(child.gameObject));
+            }
+            
+            return bounds;
         }
     }
 }

@@ -10,21 +10,19 @@ namespace Characters.Systems
     /// </summary>
     public class HandSystem : GameSystem
     {
-        public GameObject EquippedGameObject => _equippedGameObject;
+        public Item EquippedGameObject => _equippedGameObject;
         
         public HandSystem(Transform handPoint)
         {
             _handPoint = handPoint;
         }
         
-        private GameObject _equippedGameObject;
+        private Item _equippedGameObject;
         private readonly Transform _handPoint;
         
-
         public override void Start() 
         {
             base.Start();
-            
             if (_handPoint.HasAnyChild()) 
                 Equip(_handPoint.GetFirstChildObj());
         }
@@ -46,11 +44,12 @@ namespace Characters.Systems
 
         private async void Grub()
         {
-            var requestResponse = await SystemsСontainer.MakeAsyncRequest("Get raycast object", null)!;
+            var requestResponse = 
+                await SystemsСontainer.MakeAsyncRequest("Get raycast object")!;
             
             if (requestResponse.IsEmpty()) return;
             
-            var requestObj = requestResponse.GetFirstAs<GameObject>();
+            GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
             
             if (requestObj.TryGetComponent(out IPickup pickupableObject) is false) return;
             
@@ -85,32 +84,39 @@ namespace Characters.Systems
             
             Debug.Log($"Взял {gameObjectInst.name} с типом {gameObjectInst.GetType().Name}");
 
-            _equippedGameObject = gameObjectInst;
+            if(gameObjectInst.TryGetComponent(out Item item) is false) 
+                return;
+            
+            _equippedGameObject = item;
             Transform equippedTransform = _equippedGameObject.transform;
             equippedTransform.parent = _handPoint;
             equippedTransform.localPosition = Vector3.zero;
             equippedTransform.localRotation = Quaternion.Euler(Vector3.zero);
-            _equippedGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
-            _equippedGameObject.SetActive(true);
-            
+            _equippedGameObject.gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
+            _equippedGameObject.gameObject.SetActive(true);
+
             SystemsСontainer.NotifySystems("Item Equipped", _equippedGameObject);
         }
 
         private void DropFromHand()
         {
             if (_equippedGameObject == null) return;
-
-            Rigidbody objRB =_equippedGameObject.GetComponent<Rigidbody>();
-            objRB.isKinematic = false;
-            objRB.useGravity = true;
-            objRB.transform.parent = null;//теперь не дочка объекта руки
+            if (_equippedGameObject.TryGetComponent(out Rigidbody rigidbody) == null) return;
+            
+            rigidbody.isKinematic = false;
+            rigidbody.useGravity = true;
+            rigidbody.transform.parent = null;//теперь не дочка объекта руки
 
             if (_equippedGameObject.TryGetComponent(out IDrop dropableObj))
-            {
                 dropableObj.Drop();
-            }
+            
             SystemsСontainer.NotifySystems("Item Dropped", _equippedGameObject);
             _equippedGameObject = null;
+        }
+
+        private void ChangeHandPivot(Vector3 position)
+        {
+            _handPoint.transform.position = position;
         }
     }
 }

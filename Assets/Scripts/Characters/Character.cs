@@ -18,6 +18,8 @@ namespace Characters
             _systemsContainer.AddSystem(new OldInputMediatorSystem());
             _systemsContainer.AddSystem(new WeaponMediatorSystem());
             _systemsContainer.AddSystem(new HandSystem(_handPosition));
+            
+            Debug.Log("Character.enabled" + this.enabled);//Если это строчку удалить то Character компонет почему то сам по себе отрубается, держу в курсе
         }
 
         private void OnDisable() => _systemsContainer.ShutDownSystems();

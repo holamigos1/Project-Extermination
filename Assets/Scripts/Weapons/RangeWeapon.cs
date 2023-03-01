@@ -6,7 +6,7 @@ using Weapons.Basic;
 
 namespace Weapons
 {
-    public abstract class RangeWeapon : MonoBehaviour, IShootable,
+    public abstract class RangeWeapon : Weapon, IShootable,
         IReloadable, ISwitchMode, IAnimaiable, IWeapon
     {
         [SerializeField] private AudioSource ShootSound;

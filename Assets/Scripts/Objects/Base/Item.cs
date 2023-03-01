@@ -9,6 +9,7 @@ namespace Objects.Base
     [RequireComponent(typeof(Rigidbody), typeof(Animator))]
     public abstract class Item : MonoBehaviour, IDrop, IPickup
     {
+        public Bounds RenderBounds => _meshFilter.sharedMesh.bounds;
         public GameObject thisObject => _gameObject;
         public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isPickuped;
@@ -23,6 +24,8 @@ namespace Objects.Base
         protected Rigidbody _rigidbody;
         protected GameObject _gameObject;
         protected Transform _transform;
+        
+        [SerializeField]private MeshFilter _meshFilter;
         
         private void OnEnable()
         {

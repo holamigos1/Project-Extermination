@@ -50,15 +50,25 @@ namespace GameSystems.Base
             if (responseList.Count > 0) return responseList;
             else return null;
         }
-        
-        public async Task<List<object>?>? MakeAsyncRequest(string message, object requestObject)
+
+        public async Task<List<object>?>? MakeAsyncRequest(string message, object requestObject) =>
+            await AsyncRequest(message, requestObject)!;
+
+        public async Task<List<object>?>? MakeAsyncRequest(string message) => 
+            await AsyncRequest(message, null);
+
+        private async Task<List<object>?>? AsyncRequest(string message, object requestObject)
         {
             List<Task<object>> tasks = new List<Task<object>>();
             List<object> responseList = new List<object>();
 
             foreach (var system in _gameSystems)
             {
-                Task<object> result = system.OnAsyncRequest(message, requestObject);
+                Task<object> result;
+                
+                if (requestObject == null) result = system.OnAsyncRequest(message);
+                else result = system.OnAsyncRequest(message, requestObject);
+                
                 if(result != null) tasks.Add(result);
             }
             

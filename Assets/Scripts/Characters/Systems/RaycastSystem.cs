@@ -43,7 +43,7 @@ namespace Characters.Systems
             }
         }
         
-        public override async Task<object> OnAsyncRequest(string message, object requestObject)
+        public override async Task<object> OnAsyncRequest(string message)
         {
             switch (message)
             {
