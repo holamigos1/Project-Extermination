@@ -2,7 +2,7 @@ using GameData.Tags;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Weapons.O.P.S_Gun
+namespace Weapons.Range.O.P.S_Gun
 {
     public class OPS_ChargeUIPointerPresenter : MonoBehaviour
     {

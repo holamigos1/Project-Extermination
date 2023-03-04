@@ -2,7 +2,7 @@ using GameData.Layers;
 using GameData.Tags;
 using UnityEngine;
 
-namespace Weapons.O.P.S_Gun
+namespace Weapons.Range.O.P.S_Gun
 {
     public enum OPS_ChargeType
     {

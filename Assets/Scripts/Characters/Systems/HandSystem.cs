@@ -26,6 +26,7 @@ namespace Characters.Systems
         public override void Start() 
         {
             base.Start();
+            if (_handPoint.HasChild() == false) return;
             if (_handPoint.GetFirstChildObj().TryGetComponent(out Item itemIns)) 
                 Equip(itemIns);
         }

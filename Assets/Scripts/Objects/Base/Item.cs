@@ -1,5 +1,4 @@
-﻿using System;
-using GameData.AnimationTags;
+﻿using GameData.AnimationTags;
 using GameData.Layers;
 using GameSystems.Base;
 using UnityEngine;
@@ -10,7 +9,6 @@ namespace Objects.Base
     [RequireComponent(typeof(Rigidbody), typeof(Animator))]
     public abstract class Item : MonoBehaviour, IDrop, IPickup
     {
-        public Bounds RenderBounds => _meshFilter.sharedMesh.bounds;
         public GameObject thisObject => _itemGameObject;
         public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isItemPickuped;
@@ -20,13 +18,9 @@ namespace Objects.Base
         public GameObject ItemGameObject => _itemGameObject;
         public Transform ItemTransform => _itemTransform;
         
-        
         [SerializeField] 
         private PickUpType _pickUpType;
-        
-        [SerializeField]
-        private MeshFilter _meshFilter;
-        
+
         private bool _isItemPickuped;
         private GameSystemsContainer _itemSystemsContainer;
         private Animator _itemAnimator;
@@ -39,7 +33,6 @@ namespace Objects.Base
         
         public void Init()
         {
-            Debug.Log(_itemAnimator);
             _itemAnimator ??= GetComponent<Animator>();
             _itemRigidbody ??= GetComponent<Rigidbody>();
             _itemGameObject ??= gameObject;
@@ -70,14 +63,6 @@ namespace Objects.Base
             _itemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
 
             _itemGameObject.ChangeGameObjsLayers(GameLayers.DEFAULT_LAYER);
-        }
-        
-        protected virtual void OnDestroy()
-        {
-            _itemAnimator = null;
-            _itemRigidbody = null;  
-            _itemGameObject = null;
-            _itemTransform = null;
         }
     }
 }

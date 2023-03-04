@@ -33,7 +33,7 @@ namespace Weapons
             ItemRigidbody.isKinematic = true;
             ItemRigidbody.useGravity = false;
         }
-        
+
         //////// Animations ////////
 
         public void SetReady(string boolString)
@@ -44,6 +44,7 @@ namespace Weapons
 
         public virtual void PlayFireAction()
         {
+            if(ItemAnimator.GetCurrentAnimatorStateInfo(0).IsName(AnimationParams.IDLE) == false) return;
             if(!IsEquipped) return;
         }
         

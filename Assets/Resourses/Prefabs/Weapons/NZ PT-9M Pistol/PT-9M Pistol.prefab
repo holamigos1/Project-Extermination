@@ -1443,11 +1443,11 @@ GameObject:
   - component: {fileID: 806197461105865367}
   - component: {fileID: 806197461105865360}
   - component: {fileID: 806197461105865361}
-  - component: {fileID: 806197461105865362}
+  - component: {fileID: 7956677182673159091}
   m_Layer: 0
   m_Name: PT-9M Pistol
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: d03cf829016536b4ca1a629f2f1ebc86, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1482,7 +1482,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!95 &806197461105865361
 Animator:
   serializedVersion: 5
@@ -1503,7 +1503,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &806197461105865362
+--- !u!114 &7956677182673159091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1512,11 +1512,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 806197461105865363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45657abe05fa4c1cb5df60d10c589839, type: 3}
+  m_Script: {fileID: 11500000, guid: eff705f741f045228a2957950a81c0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpType: 0
-  _meshFilter: {fileID: 0}
+  _shootForce: 100
+  _ammoType: {fileID: -8273329044212282543, guid: 211e360025ff68f4b9144a2efceeaae3, type: 3}
+  _launchProjectilePoint: {fileID: 806197460989892911}
 --- !u!1 &806197461123134289
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,8 +54,8 @@ namespace GameSystems.Base
             return false;
         }
         
-        public static bool HasAnyChild (this Transform transform) =>
-            transform.GetChild(0) != null;
+        public static bool HasChild (this Transform transform) =>
+            transform.childCount != 0;
         
         public static Transform GetFirstChild (this Transform transform) =>
             transform.GetChild(0);
