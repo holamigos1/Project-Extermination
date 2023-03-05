@@ -1136,7 +1136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpType: 0
-  _meshFilter: {fileID: 0}
   ShootSound: {fileID: 0}
   ReloadSound: {fileID: 0}
   SwitchModeSound: {fileID: 0}

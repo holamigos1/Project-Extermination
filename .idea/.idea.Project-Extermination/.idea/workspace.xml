@@ -2,47 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Ammo.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Ammo/_9mm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Ammo/_9mm.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/IWeaponVerifyer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/IWeaponVerifyer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/Projectile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/Projectile.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Base.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Base/Firearm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Pistol.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Pistol.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Animatons/Controllers/Weapons/Pistol PT-9M.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Animatons/Controllers/Weapons/Pistol PT-9M.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/PT-9M Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/PT-9M Pistol.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Prefabs/PT-9M Pistol 9mm Bullet_Low_sep.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Prefabs/PT-9M Pistol 9mm Bullet_Low_sep.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Materials/Fallout Screen.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Materials/Fallout Screen.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Materials/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Materials/Green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Materials/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Materials/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Materials/WeaponUV_Weapon.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Materials/WeaponUV_Weapon.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/Experemental/O.P.S/O.P.S Replica.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/BackgroundSprite_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/BackgroundSprite_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal02_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal02_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal03_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal03_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Bullet Decal_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Bullet Decal_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Bullet_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Bullet_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Case_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Case_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Decal_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Decal_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_RedDotGlass_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_RedDotGlass_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_RedDot_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_RedDot_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin01_Body_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin01_Body_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin02_Body_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resourses/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin02_Body_mat.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/TestPlayerRunCrouche.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/TestPlayerRunCrouche.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData/Layers/GameLayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/Layers/GameLayers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/Extentions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/Extentions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Charge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Charge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Charge.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Charge.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_ChargeUIPointerPresenter.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Display.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Display.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Display.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Display.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/O.P.S Gun/OPS_Gun.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol/Pistol.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Pistol/Pistol.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Base/Firearm.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +130,7 @@
       <workItem from="1677601792261" duration="6013000" />
       <workItem from="1677687445783" duration="17990000" />
       <workItem from="1677942535459" duration="1841000" />
-      <workItem from="1677947632876" duration="10606000" />
+      <workItem from="1677947632876" duration="10886000" />
     </task>
     <servers />
   </component>
