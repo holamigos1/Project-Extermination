@@ -28,6 +28,9 @@ namespace Objects.Base
         private GameObject _itemGameObject;
         private Transform _itemTransform;
         
+        protected virtual void Awake() =>
+            Init();
+        
         protected virtual void OnEnable() =>
             Init();
         
@@ -37,6 +40,7 @@ namespace Objects.Base
             _itemRigidbody ??= GetComponent<Rigidbody>();
             _itemGameObject ??= gameObject;
             _itemTransform ??= transform;
+            //Debug.Log(GetComponent<Transform>());
         }
         
         public Item Pickup()

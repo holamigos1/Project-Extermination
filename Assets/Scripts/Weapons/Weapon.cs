@@ -17,6 +17,7 @@ namespace Weapons
         
         private void Start()
         {
+            Init();
             if (IsInHand) Equip();
         }
         

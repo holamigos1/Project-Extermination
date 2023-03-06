@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Weapons.Range.Base;
 
 namespace Weapons.Basic
 {
@@ -23,6 +24,7 @@ namespace Weapons.Basic
         protected virtual void OnCollisionEnter(Collision collision)
         {
             //TODO Спаун следа от пули
+            Debug.Log(collision.GetMaterialType());
             ProjectileHit?.Invoke(this, collision);
         }
     }
