@@ -17,14 +17,11 @@ namespace Weapons
         
         private void Start()
         {
-            Init();
             if (IsInHand) Equip();
         }
         
         public void Equip()
         {
-            Init();
-            
             ItemGameObject.SetActive(true);
             
             ItemAnimator.enabled = true;
@@ -39,7 +36,7 @@ namespace Weapons
 
         public void SetReady(string boolString)
         {
-            bool boolValue = Boolean.Parse(boolString); 
+            bool boolValue = bool.Parse(boolString); 
             ItemAnimator.SetBool(AnimationParams.IS_ITEM_READY, boolValue);
         }
 

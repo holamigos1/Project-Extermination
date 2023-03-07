@@ -1,6 +1,7 @@
 ﻿using GameData.AnimationTags;
 using GameData.Layers;
 using UnityEngine;
+using Weapons.Ammo;
 using Weapons.Basic;
 
 namespace Weapons.Range.Base
@@ -11,9 +12,8 @@ namespace Weapons.Range.Base
         [SerializeField] private Projectile _ammoType;
         [SerializeField] private Transform _launchProjectilePoint;
 
-        protected override void OnEnable()
+        protected void OnEnable()
         {
-            base.OnEnable();
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER), 
                                          LayerMask.NameToLayer(GameLayers.PROJECTILE_LAYER));
         }
@@ -22,8 +22,8 @@ namespace Weapons.Range.Base
         {
             Projectile projectileObj = Instantiate(_ammoType, _launchProjectilePoint.position, Quaternion.identity);
             projectileObj.ProjectileHit += OnHit;
-            projectileObj.transform.forward = _launchProjectilePoint.forward;
-            projectileObj.Rigidbody.AddForce(projectileObj.transform.forward * _shootForce);
+            projectileObj.ProjectileTransform.forward = _launchProjectilePoint.forward;
+            projectileObj.ProjectileRigidbody.AddForce(projectileObj.transform.forward * _shootForce);
         }
 
         private void OnHit(Projectile projectileObj, Collision collision)

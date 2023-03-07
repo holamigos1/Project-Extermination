@@ -50,10 +50,8 @@ namespace Weapons.Range.O.P.S_Gun
             _otherLayerMask = ~_otherLayerMask;
         }
 
-        protected override void OnEnable()
+        protected void OnEnable()
         {
-            base.OnEnable();
-            
             if (transform.parent != null && transform.parent.CompareTag(GameTags.HAND_TAG))
             {
                 _isEquipped = true;

@@ -13,11 +13,42 @@ namespace Objects.Base
         public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isItemPickuped;
         public GameSystemsContainer SystemsContainer => _itemSystemsContainer;
-        public Animator ItemAnimator => _itemAnimator;
-        public Rigidbody ItemRigidbody => _itemRigidbody;  
-        public GameObject ItemGameObject => _itemGameObject;
-        public Transform ItemTransform => _itemTransform;
-        
+        public Animator ItemAnimator
+        {
+            get
+            {
+                if(_itemAnimator == null)
+                    _itemAnimator = GetComponent<Animator>();
+                return _itemAnimator;
+            }
+        }
+        public Rigidbody ItemRigidbody
+        {
+            get
+            {
+                if(_itemRigidbody == null)
+                    _itemRigidbody = GetComponent<Rigidbody>();
+                return _itemRigidbody;
+            }
+        }
+        public GameObject ItemGameObject
+        {
+            get
+            {
+                if(_itemGameObject == null)
+                    _itemGameObject = gameObject;
+                return _itemGameObject;
+            }
+        }
+        public Transform ItemTransform { 
+            get
+            {
+                if(_itemTransform == null)
+                    _itemTransform = transform;
+                return _itemTransform;
+            }
+        }
+
         [SerializeField] 
         private PickUpType _pickUpType;
 
@@ -28,27 +59,13 @@ namespace Objects.Base
         private GameObject _itemGameObject;
         private Transform _itemTransform;
         
-        protected virtual void Awake() =>
-            Init();
-        
-        protected virtual void OnEnable() =>
-            Init();
-        
-        public void Init()
-        {
-            _itemAnimator ??= GetComponent<Animator>();
-            _itemRigidbody ??= GetComponent<Rigidbody>();
-            _itemGameObject ??= gameObject;
-            _itemTransform ??= transform;
-            //Debug.Log(GetComponent<Transform>());
-        }
         
         public Item Pickup()
         {
-            _itemGameObject.SetActive(false);
+            ItemGameObject.SetActive(false);
             
-            _itemRigidbody.isKinematic = true;
-            _itemRigidbody.useGravity = false;
+            ItemRigidbody.isKinematic = true;
+            ItemRigidbody.useGravity = false;
             
             _isItemPickuped = true;
             
@@ -59,14 +76,14 @@ namespace Objects.Base
         {
             _isItemPickuped = false;
 
-            _itemRigidbody.isKinematic = false;
-            _itemRigidbody.useGravity = true;
+            ItemRigidbody.isKinematic = false;
+            ItemRigidbody.useGravity = true;
             
-            _itemAnimator.StopPlayback();
-            _itemAnimator.cullingMode = AnimatorCullingMode.CullCompletely;
-            _itemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
+            ItemAnimator.StopPlayback();
+            ItemAnimator.cullingMode = AnimatorCullingMode.CullCompletely;
+            ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
 
-            _itemGameObject.ChangeGameObjsLayers(GameLayers.DEFAULT_LAYER);
+            ItemGameObject.ChangeGameObjsLayers(GameLayers.DEFAULT_LAYER);
         }
     }
 }
