@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Objects.Base;
+using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
@@ -49,20 +50,30 @@ namespace Weapons.Ammo
             if (collision.GetMaterialType(out MaterialType materialType))
             {
                 var decalSprite = BulletDecalsContainer.GetBulletHoleSprite(materialType);
-                SpawnDecal(ProjectileTransform.position - ProjectileTransform.forward/2, ProjectileTransform.rotation, decalSprite.texture);
+                SpawnDecal(ProjectileTransform.position - ProjectileTransform.forward / 2, //
+                            ProjectileTransform.rotation, 
+                            decalSprite);
             }
             
             ProjectileHit?.Invoke(this, collision);
             Destroy(gameObject);
         }
         
-        private void SpawnDecal(Vector3 position, Quaternion rotation, Texture decalTexture)
+        private void SpawnDecal(Vector3 position, Quaternion rotation, Sprite decalSprite)
         {
             DecalProjector inst = Instantiate(_decalProjector, position, rotation);
+            Texture2D croppedTexture = new Texture2D( (int)decalSprite.rect.width, (int)decalSprite.rect.height);
+            Color[] pixels = decalSprite.texture.GetPixels((int)decalSprite.textureRect.x, 
+                                                            (int)decalSprite.textureRect.y, 
+                                                            (int)decalSprite.textureRect.width, 
+                                                            (int)decalSprite.textureRect.height );
+            
+            croppedTexture.SetPixels( pixels );
+            croppedTexture.Apply();
 
-            var d = new Material(inst.material);
-
-            //inst.material.
+            var decalMat = new Material(inst.material);
+            decalMat.SetTexture("Base_Map", croppedTexture);
+            inst.material = decalMat;
             inst.StartCoroutine(DestroyDecal(inst.gameObject, DESTROY_DECAL_DELAY));
         }
 

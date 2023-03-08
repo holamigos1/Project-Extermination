@@ -4,7 +4,6 @@ using Objects.Base;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.U2D;
 using Random = UnityEngine.Random;
 
 namespace Weapons.Range.Base
@@ -33,10 +32,6 @@ namespace Weapons.Range.Base
         }
         private static BulletDecalsContainer _existingBulletDecals;
         
-        [BoxGroup("Хранилище декалей следов от пуль", centerLabel:true)]
-        [InfoBox("Убедись что спрайты декалей добавленны в Sprite Atlas!")] 
-        [SerializeField] [Required] 
-        private SpriteAtlas BulletHolesAtlas;
         
         [InfoBox("Спрайты пулевых отверстий для материала без типа!")] 
         [TabGroup("По умолчанию")]
@@ -59,7 +54,7 @@ namespace Weapons.Range.Base
         {
             Sprite[] bulletHolesSprites = GetDecalsSprites(materialType);
             int randomElem = Random.Range(0, bulletHolesSprites.Length);
-            return existingBulletDecals.BulletHolesAtlas.GetSprite(bulletHolesSprites[randomElem].name);
+            return bulletHolesSprites[randomElem];
         }
 
         private static Sprite[] GetDecalsSprites(MaterialType materialType)
