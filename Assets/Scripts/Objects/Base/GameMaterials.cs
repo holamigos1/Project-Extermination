@@ -4,6 +4,7 @@ using GameData.ResourcesPathfs;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Objects.Base
 {
@@ -12,7 +13,8 @@ namespace Objects.Base
         Defualt,
         Metal,
         Wood,
-        Glass
+        Glass,
+        Flesh
     }
     
     [Serializable]
@@ -32,11 +34,18 @@ namespace Objects.Base
         [TabGroup("Стекло")]
         [AssetSelector] [SerializeField]
         private Material[] _glassMaterials;
+        
+        [TabGroup("Мясо & Плоть")]
+        [AssetSelector] [SerializeField]
+        private Material[] _fleshMaterials;
 
         public Dictionary<string, MaterialType> MaterialNames
         {
             get
             {
+                if (Application.isPlaying == false) //идите нахуй с !
+                    _materialNames = null;
+                
                 if (_materialNames != null) 
                     return _materialNames;
                 
@@ -45,6 +54,7 @@ namespace Objects.Base
                 FillMaterialsDictionary(_metalMaterials, MaterialType.Metal);
                 FillMaterialsDictionary(_woodMaterials, MaterialType.Wood);
                 FillMaterialsDictionary(_glassMaterials, MaterialType.Glass);
+                FillMaterialsDictionary(_fleshMaterials, MaterialType.Flesh);
                 
                 void FillMaterialsDictionary(Material[] matArray, MaterialType asType)
                 { 
