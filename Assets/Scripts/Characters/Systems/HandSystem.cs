@@ -10,23 +10,25 @@ namespace Characters.Systems
     /// </summary>
     public class HandSystem : GameSystem
     {
-        public GameObject EquippedGameObject => _equippedGameObject;
+        public Item EquippedItem => _equippedItem;
         
         public HandSystem(Transform handPoint)
         {
             _handPoint = handPoint;
+            _handLocalStartPoint = _handPoint.localPosition;
         }
         
-        private GameObject _equippedGameObject;
-        private readonly Transform _handPoint;
+        private readonly Vector3 _handLocalStartPoint;
         
+        private Item _equippedItem;
+        private Transform _handPoint;
 
         public override void Start() 
         {
             base.Start();
-            
-            if (_handPoint.HasAnyChild()) 
-                Equip(_handPoint.GetFirstChildObj());
+            if (_handPoint.HasChild() == false) return;
+            if (_handPoint.GetFirstChildObj().TryGetComponent(out Item itemIns)) 
+                Equip(itemIns);
         }
 
         public override void OnNotify(string message, object data)
@@ -34,7 +36,7 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Object pickuped" when data != null:
-                    Equip(data as GameObject);
+                    Equip(data as Item);
                     break;
                 
                 case "KeyDown" when data != null:
@@ -46,71 +48,77 @@ namespace Characters.Systems
 
         private async void Grub()
         {
-            var requestResponse = await SystemsСontainer.MakeAsyncRequest("Get raycast object", null)!;
-            
+            var requestResponse = 
+                await SystemsСontainer.MakeAsyncRequest("Get raycast object")!;
+    
             if (requestResponse.IsEmpty()) return;
             
-            var requestObj = requestResponse.GetFirstAs<GameObject>();
+            GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
             
-            if (requestObj.TryGetComponent(out IPickup pickupableObject) is false) return;
+            if (requestObj.TryGetComponent(out Item itemObj) is false) return;
             
-            if (pickupableObject.PickUpType == PickUpType.InHand)
+            if (itemObj.PickUpType == PickUpType.InHand)
             {
-                if (_equippedGameObject == null)
-                {
-                    Equip(pickupableObject.Pickup()); 
-                }
-                else
-                {
-                    Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
-                    //TODO Логика перемещения в инвентарь
-                }
+                if (_equippedItem == null) 
+                    Equip(itemObj.Pickup());
+                else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
+                    
+                //TODO Логика перемещения в инвентарь
             }
             
-            if (pickupableObject.PickUpType == PickUpType.InInventory)
+            if (itemObj.PickUpType == PickUpType.InInventory)
             {
                 //TODO Логика перемещения в инвентарь
             }
         }
 
-        private void Equip(GameObject gameObjectInst)
+        private void Equip(Item itemInst)
         {
-            if (_equippedGameObject != null)
+            if (_equippedItem != null)
             {
                 Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
-                
                 //TODO Дописать логику проброса объекта из руки в инвентарь и взятии нового предмета по требованию.
                 return;
             }
             
-            Debug.Log($"Взял {gameObjectInst.name} с типом {gameObjectInst.GetType().Name}");
-
-            _equippedGameObject = gameObjectInst;
-            Transform equippedTransform = _equippedGameObject.transform;
-            equippedTransform.parent = _handPoint;
-            equippedTransform.localPosition = Vector3.zero;
-            equippedTransform.localRotation = Quaternion.Euler(Vector3.zero);
-            _equippedGameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
-            _equippedGameObject.SetActive(true);
+            Debug.Log($"Взял предмет {itemInst.name} с типом {itemInst.GetType().Name}");
             
-            SystemsСontainer.NotifySystems("Item Equipped", _equippedGameObject);
+            _equippedItem = itemInst;
+            
+            _equippedItem.ItemTransform.parent = _handPoint;
+            _equippedItem.ItemTransform.localPosition = Vector3.zero;
+            _equippedItem.ItemTransform.localRotation = Quaternion.Euler(Vector3.zero);
+            
+            _equippedItem.ItemGameObject.ChangeGameObjsLayers(GameLayers.FIRST_PERSON_LAYER);
+            _equippedItem.ItemGameObject.SetActive(true);
+            
+            _handPoint.localPosition = new Vector3(_handPoint.localPosition.x,
+                                                    - _equippedItem.ItemTransform.RenderBounds().extents.y,
+                                                    _handPoint.localPosition.z);
+            
+            SystemsСontainer.NotifySystems("Item Equipped", _equippedItem);
         }
 
         private void DropFromHand()
         {
-            if (_equippedGameObject == null) return;
+            if (_equippedItem == null) return;
 
-            Rigidbody objRB =_equippedGameObject.GetComponent<Rigidbody>();
-            objRB.isKinematic = false;
-            objRB.useGravity = true;
-            objRB.transform.parent = null;//теперь не дочка объекта руки
+            _equippedItem.ItemRigidbody.isKinematic = false;
+            _equippedItem.ItemRigidbody.useGravity = true;
+            _equippedItem.ItemRigidbody.transform.parent = null;//теперь не дочка объекта руки
 
-            if (_equippedGameObject.TryGetComponent(out IDrop dropableObj))
-            {
+            if (_equippedItem.TryGetComponent(out IDrop dropableObj))
                 dropableObj.Drop();
-            }
-            SystemsСontainer.NotifySystems("Item Dropped", _equippedGameObject);
-            _equippedGameObject = null;
+            
+            SystemsСontainer.NotifySystems("Item Dropped", _equippedItem);
+
+            _handPoint.localPosition = _handLocalStartPoint;
+            _equippedItem = null;
+        }
+
+        private void ChangeHandPivot(Vector3 position)
+        {
+            _handPoint.transform.position = position;
         }
     }
 }

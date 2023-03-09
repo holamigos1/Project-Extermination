@@ -5,6 +5,18 @@ namespace Characters.Systems
 {
     public class OldInputMediatorSystem : GameSystem
     {
+        public override void Start()
+        {
+            base.Start();
+            SystemsСontainer.Update += Update;
+        }
+
+        public override void Stop()
+        {
+            base.Stop();
+            SystemsСontainer.Update -= Update;
+        }
+
         public override void Update()
         {
             base.Update();

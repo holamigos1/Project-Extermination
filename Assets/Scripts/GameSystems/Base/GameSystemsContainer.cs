@@ -8,7 +8,9 @@ namespace GameSystems.Base
     public class GameSystemsContainer
     {
         //TODO Прописать красивые методы отображения систем в GameSystemsContainer с возможностью добавления и изменения любых систем в проекте через Inspector
-        public event Action<string, object>? SystemsNotify;
+        public event Action<string, object>? Notify;
+        public event Action? Update;
+        public event Action? PhysUpdate;
         public IEnumerable<GameSystem> gameSystems => _gameSystems;
         
         public GameSystemsContainer()
@@ -31,12 +33,11 @@ namespace GameSystems.Base
             gameSystemInst.Start();
         
         public void NotifySystems(string message, System.Object data) =>
-            SystemsNotify?.Invoke(message, data);
+            Notify?.Invoke(message, data);
         
         public void NotifySystems(string message) =>
-            SystemsNotify?.Invoke(message, null);
+            Notify?.Invoke(message, null);
         
-
         public List<object>? MakeRequest(string message, object requestObject)
         {
             List<object> responseList = new List<object>();
@@ -50,16 +51,22 @@ namespace GameSystems.Base
             if (responseList.Count > 0) return responseList;
             else return null;
         }
-        
-        public async Task<List<object>?>? MakeAsyncRequest(string message, object requestObject)
+
+        public async Task<List<object>?>? MakeAsyncRequest(string message, object requestObject) =>
+            await AsyncRequest(message, requestObject)!;
+
+        public async Task<List<object>?>? MakeAsyncRequest(string message) => 
+            await AsyncRequest(message, null);
+
+        private async Task<List<object>?>? AsyncRequest(string message, object requestObject)
         {
             List<Task<object>> tasks = new List<Task<object>>();
             List<object> responseList = new List<object>();
 
             foreach (var system in _gameSystems)
             {
-                Task<object> result = system.OnAsyncRequest(message, requestObject);
-                if(result != null) tasks.Add(result);
+                Task<object> task = system.OnAsyncRequest(message, requestObject);
+                if(task != null) tasks.Add(task);
             }
             
             if (tasks.Count == 0) return null;
@@ -87,10 +94,10 @@ namespace GameSystems.Base
         }
 
         public void UpdateSystems() =>
-            _gameSystems.ForEach(system => system.Update());
+            Update?.Invoke();
         
         public void UpdatePhysicsSystems() =>
-            _gameSystems.ForEach(system => system.PhysicsUpdate()); 
+            PhysUpdate?.Invoke();
         
         public GameSystem GetSystem<T>(T systemInst) where T: GameSystem => 
             _gameSystems.Find(system => system.GetType() == typeof(T));

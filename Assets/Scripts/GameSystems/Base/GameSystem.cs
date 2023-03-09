@@ -19,8 +19,8 @@ namespace GameSystems.Base
 
         public virtual void Start()
         {
-            Debug.Log($"{this.GetType().Name} заработал");
-            SystemsСontainer.SystemsNotify += OnNotify;
+            Debug.Log($"{this.GetType().Name} запущен в ");
+            SystemsСontainer.Notify += OnNotify;
         }
 
         public virtual void Update() { }
@@ -30,7 +30,7 @@ namespace GameSystems.Base
         {
             if(_isEnabled == false) return;
             
-            SystemsСontainer.SystemsNotify -= OnNotify;
+            SystemsСontainer.Notify -= OnNotify;
             
             _isEnabled = false;
             

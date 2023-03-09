@@ -1,6 +1,7 @@
 ﻿using System;
 using GameData.AnimationTags;
 using GameData.Tags;
+using GameSystems.Base;
 using Objects.Base;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ namespace Weapons
     public abstract class Weapon : Item, IEquip
     {
         public bool IsEquipped => _isEquipped;
-        public bool IsInHand => _transform.parent != null && _transform.parent.CompareTag(GameTags.HAND_TAG);
+        public bool IsInHand => (ItemTransform.parent != null) && 
+                                (ItemTransform.parent.CompareTag(GameTags.HAND_TAG));
         
         private bool _isEquipped;
         
@@ -20,27 +22,27 @@ namespace Weapons
         
         public void Equip()
         {
-            Init();
-            _gameObject.SetActive(true);
-            _animator.enabled = true;
-            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, _isEquipped = true);
-            _animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
-            _rigidbody.isKinematic = true;
-            _rigidbody.useGravity = false;
+            ItemGameObject.SetActive(true);
+            
+            ItemAnimator.enabled = true;
+            ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, _isEquipped = true);
+            ItemAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+            
+            ItemRigidbody.isKinematic = true;
+            ItemRigidbody.useGravity = false;
         }
-        
-         
-        
+
         //////// Animations ////////
 
         public void SetReady(string boolString)
         {
-            bool boolValue = Boolean.Parse(boolString); 
-            _animator.SetBool(AnimationParams.IS_ITEM_READY, boolValue);
+            bool boolValue = bool.Parse(boolString); 
+            ItemAnimator.SetBool(AnimationParams.IS_ITEM_READY, boolValue);
         }
 
         public virtual void PlayFireAction()
         {
+            if(ItemAnimator.GetCurrentAnimatorStateInfo(0).IsName(AnimationParams.IDLE) == false) return;
             if(!IsEquipped) return;
         }
         
@@ -50,5 +52,12 @@ namespace Weapons
         }
         
         ////////////////////////////
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Bounds boudns = transform.RenderBounds();
+            Gizmos.DrawWireCube(boudns.center, boudns.size);
+        }
     }
 }

@@ -9,58 +9,81 @@ namespace Objects.Base
     [RequireComponent(typeof(Rigidbody), typeof(Animator))]
     public abstract class Item : MonoBehaviour, IDrop, IPickup
     {
-        public GameObject thisObject => _gameObject;
+        public GameObject thisObject => _itemGameObject;
         public PickUpType PickUpType => _pickUpType;
-        public bool IsPickuped => _isPickuped;
-        public GameSystemsContainer SystemsContainer => _systemsContainer;
-        
-        [SerializeField] 
-        private PickUpType _pickUpType;
-        
-        protected bool _isPickuped;
-        protected GameSystemsContainer _systemsContainer;
-        protected Animator _animator;
-        protected Rigidbody _rigidbody;
-        protected GameObject _gameObject;
-        protected Transform _transform;
-        
-        private void OnEnable()
+        public bool IsPickuped => _isItemPickuped;
+        public GameSystemsContainer SystemsContainer => _itemSystemsContainer;
+        public Animator ItemAnimator
         {
-            Init();
+            get
+            {
+                if(_itemAnimator == null)
+                    _itemAnimator = GetComponent<Animator>();
+                return _itemAnimator;
+            }
+        }
+        public Rigidbody ItemRigidbody
+        {
+            get
+            {
+                if(_itemRigidbody == null)
+                    _itemRigidbody = GetComponent<Rigidbody>();
+                return _itemRigidbody;
+            }
+        }
+        public GameObject ItemGameObject
+        {
+            get
+            {
+                if(_itemGameObject == null)
+                    _itemGameObject = gameObject;
+                return _itemGameObject;
+            }
+        }
+        public Transform ItemTransform { 
+            get
+            {
+                if(_itemTransform == null)
+                    _itemTransform = transform;
+                return _itemTransform;
+            }
         }
 
-        public void Init()
-        {
-            _animator ??= GetComponent<Animator>();
-            _rigidbody ??= GetComponent<Rigidbody>();
-            _gameObject ??= gameObject;
-            _transform ??= transform;
-        }
+        [SerializeField] 
+        private PickUpType _pickUpType;
+
+        private bool _isItemPickuped;
+        private GameSystemsContainer _itemSystemsContainer;
+        private Animator _itemAnimator;
+        private Rigidbody _itemRigidbody;  
+        private GameObject _itemGameObject;
+        private Transform _itemTransform;
         
-        public GameObject Pickup()
+        
+        public Item Pickup()
         {
-            _gameObject.SetActive(false);
+            ItemGameObject.SetActive(false);
             
-            _rigidbody.isKinematic = true;
-            _rigidbody.useGravity = false;
+            ItemRigidbody.isKinematic = true;
+            ItemRigidbody.useGravity = false;
             
-            _isPickuped = true;
+            _isItemPickuped = true;
             
-            return _gameObject;
+            return this;
         }
 
         public void Drop()
         {
-            _isPickuped = false;
+            _isItemPickuped = false;
 
-            _rigidbody.isKinematic = false;
-            _rigidbody.useGravity = true;
+            ItemRigidbody.isKinematic = false;
+            ItemRigidbody.useGravity = true;
             
-            _animator.StopPlayback();
-            _animator.cullingMode = AnimatorCullingMode.CullCompletely;
-            _animator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
+            ItemAnimator.StopPlayback();
+            ItemAnimator.cullingMode = AnimatorCullingMode.CullCompletely;
+            ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
 
-            _gameObject.ChangeFamilyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
+            ItemGameObject.ChangeGameObjsLayers(GameLayers.DEFAULT_LAYER);
         }
     }
 }

@@ -5,18 +5,22 @@ namespace GameSystems.Base
 {
     public static partial class Extentions
     {
-        public static void ChangeFamilyLayers(this GameObject gameObject, int layoutID)
+        public static void ChangeGameObjsLayers(this GameObject gameObject, string layerName)
         {
-            gameObject.layer = layoutID;
+            int layersID = LayerMask.NameToLayer(layerName);
+            
+            gameObject.layer = layersID;
             
             foreach (Transform child in gameObject.transform)
-            {
-                child.gameObject.layer = layoutID;
- 
-                Transform hasChildren = child.GetComponentInChildren<Transform>();
-                
-                if (hasChildren != null) ChangeFamilyLayers(child.gameObject, layoutID);
-            }
+                ChangeGameObjsLayers(child.gameObject, layersID);
+        }
+        
+        public static void ChangeGameObjsLayers(this GameObject gameObject, int layerID)
+        {
+            gameObject.layer = layerID;
+            
+            foreach (Transform child in gameObject.transform)
+                ChangeGameObjsLayers(child.gameObject, layerID);
         }
         
         public static List<T> GetAs<T>(this List<object> list)
@@ -25,11 +29,12 @@ namespace GameSystems.Base
             if (list.Count <= 0) return null;
             
             List<T> genericList = new List<T>();
-            list.ForEach(obj =>
+
+            foreach (var obj in list)
             {
-                var genericObj = (T)obj;
-                genericList.Add(genericObj);
-            });
+                if (obj.GetType() != typeof(T)) continue;
+                genericList.Add((T)obj);
+            }
             
             return genericList;
         }
@@ -38,7 +43,8 @@ namespace GameSystems.Base
         {
             if (list == null) return default;
             if (list.Count <= 0) return default;
-            return (T)list[0];
+            if (list[0].GetType() == typeof(T)) return (T)list[0];
+            return default;
         }
         
         public static bool IsEmpty(this List<object> list)
@@ -47,23 +53,40 @@ namespace GameSystems.Base
             if (list.Count <= 0) return true;
             return false;
         }
-
-
-        public static bool HasAnyChild(this Transform transform)
+        
+        public static bool HasChild (this Transform transform) =>
+            transform.childCount != 0;
+        
+        public static Transform GetFirstChild (this Transform transform) =>
+            transform.GetChild(0);
+        
+        public static GameObject GetFirstChildObj (this Transform transform) =>
+             transform.GetChild(0).gameObject;
+        
+        public static Bounds RenderBounds (this Transform objTransform) 
         {
-            return transform.GetChild(0) != null;
+            Bounds bounds = new Bounds(objTransform.position, Vector3.zero);
+            
+            if (objTransform.TryGetComponent(out Renderer rendererComp)) 
+                bounds.Encapsulate(rendererComp.bounds);
+
+            foreach (Transform child in objTransform.transform)
+                bounds.Encapsulate(child.RenderBounds());
+            
+            return bounds;
         }
         
-        public static Transform GetFirstChild(this Transform transform)
+        public static Bounds RenderBounds (this GameObject objTransform) 
         {
-            var firstChild = 0;
-            return transform.GetChild(firstChild);
-        }
-        
-        public static GameObject GetFirstChildObj(this Transform transform)
-        {
-            var firstChild = 0;
-            return transform.GetChild(firstChild).gameObject;
+            Bounds bounds = new Bounds(objTransform.transform.position, Vector3.zero);
+            
+            if (objTransform.TryGetComponent(out Renderer rendererComp)) 
+                bounds.Encapsulate(rendererComp.bounds);
+
+            foreach (Transform child in objTransform.transform)
+                bounds.Encapsulate(child.RenderBounds());
+            
+            return bounds;
         }
     }
 }

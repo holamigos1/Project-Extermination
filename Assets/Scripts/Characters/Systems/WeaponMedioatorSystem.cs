@@ -1,7 +1,6 @@
 ﻿using GameSystems.Base;
-using UnityEngine;
+using Objects.Base;
 using Weapons;
-using Weapons.Basic;
 
 namespace Characters.Systems
 {
@@ -14,11 +13,11 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Item Equipped" when data != null:
-                    HandleEquippedItem(data as GameObject);
+                    HandleEquippedItem(data as Item);
                     break;
                 
                 case "Item Dropped" when data != null:
-                    HandleDropItem(data as GameObject);
+                    HandleDropItem(data as Item);
                     break;
                 
                 case "KeyDown" when data != null:
@@ -28,31 +27,27 @@ namespace Characters.Systems
             }
         }
 
-
-        private void HandleDropItem(GameObject item)
+        private void HandleDropItem(Item item)
         {
             if(item.TryGetComponent(out Weapon weaponItem) is false) return;
             //TODO Отсюда можно пробросить запуск анимации выкидывания пушки
             if(_weaponInHand == weaponItem) _weaponInHand = null;
         }
         
-        private void HandleEquippedItem(GameObject item)
+        private void HandleEquippedItem(Item item)
         {
-            if(item.TryGetComponent(out Weapon weaponObj) is false) return;
-            _weaponInHand = weaponObj;
+            if (item.TryGetComponent(out _weaponInHand) is false) return;
             _weaponInHand.Equip();
         }
 
         private void Fire()
         {
-            if(_weaponInHand == null) return;
-            _weaponInHand.PlayFireAction();
+            _weaponInHand?.PlayFireAction();
         }
 
         private void Aim()
         {
-            if(_weaponInHand == null) return;
-            _weaponInHand.PlayAimAction();
+            _weaponInHand?.PlayAimAction();
         }
     }
 }

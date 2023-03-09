@@ -1,0 +1,1543 @@
+fileFormatVersion: 2
+guid: be0d05aa455b68e43880d0c073fdf10d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bullet_decal_metal_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 456
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8ab73959a8b5a4f98969536f2b1ecf
+      internalID: 1825670894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 457
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aacf341cead0ae54f975cb0443f5f1aa
+      internalID: -1743251309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 461
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21634542fcb07640a6ab201db07a749
+      internalID: -816098194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_3
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 457
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcdef2af0543f39499bb686790964521
+      internalID: -2025480635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_4
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 460
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef36f4801369baf4aa3b2ef8102a6544
+      internalID: 1672679756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_5
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 459
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecda1a5393d07a04698283370d5ccd9d
+      internalID: 1988874817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_6
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 455
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dacd8a5b9f4652744989798b19ac0d82
+      internalID: 351118725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_7
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 457
+        width: 47
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c5b4a698e402d34eb73a23b4792b386
+      internalID: 1324914762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_8
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 390
+        width: 44
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78fde2b85e37b8479ce91a901296a92
+      internalID: 1332446146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_9
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 396
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 680176a4352f6164cb3f5ac1cff15ece
+      internalID: -1276941443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_10
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 394
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f580cba0f362a2e42ba2a4f89f2b5534
+      internalID: 292991887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_11
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 392
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6ee49a41b241642b727f216e1eac9b
+      internalID: -1083876821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_12
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 392
+        width: 46
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb860d68fc9e0a14a92734cac8c272df
+      internalID: -2133244206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_13
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 393
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc26233077da2a46931aca030edcfd5
+      internalID: -2028610947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_14
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 397
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fccc26e84ca86d4da58f6eaa50dee41
+      internalID: -237815251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_15
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 394
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea865ec9e9d50a4eaf0ff4fe360f36b
+      internalID: -1332500319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_16
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 328
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42efd865a54f0fc4caf7b9acac9a69bd
+      internalID: 1974291736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_17
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 332
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c886d04f53bf14f9fe1e9bda3e939a
+      internalID: 1558895299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_18
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 330
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0162fc1181a41e48865d47b467506a9
+      internalID: 1452659801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_19
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 327
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31aca6b4ef0ee064ab94969108157503
+      internalID: -1067030909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_20
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 328
+        width: 41
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b0b6af798947847936794fb7d6ff1a
+      internalID: 34173234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_21
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 332
+        width: 44
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88dfe6dbea4508d43b9922948de1f4ef
+      internalID: -1574276543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_22
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 327
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127518177985ca34aa254bfa4cea9b77
+      internalID: 1325184060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_23
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 328
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aee4fcfe1b9002448f515474237abb0
+      internalID: 19701120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 265
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c7c432382161b4da4c8a4a6fa4194d
+      internalID: -1078697536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_25
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 267
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d9c6c343419494d8368ac543f20428
+      internalID: 1071318886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_26
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 263
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00079c5b09c44fd4981185dcb655f960
+      internalID: -1620731922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_27
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 264
+        width: 42
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8e2f1c2ab73954980b1630f8748501
+      internalID: -56638664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_28
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 266
+        width: 40
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77659a4383641144cb61865c7a32daa6
+      internalID: -766019064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_29
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 266
+        width: 48
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3bbd34dd1c1e1441973cc8557158232
+      internalID: -153111709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_30
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 269
+        width: 39
+        height: 39
+      alignment: 9
+      pivot: {x: 0.51436126, y: 0.45531678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b5a6beed8cac74aa1322a2c0fdb41f
+      internalID: 1061132351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_31
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 267
+        width: 41
+        height: 40
+      alignment: 9
+      pivot: {x: 0.45597804, y: 0.4657692}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c52bd672d7e1de46af6a7dd6558a9aa
+      internalID: 1442398602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_32
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 204
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed2939e11e696a46b5cd03677d4bfea
+      internalID: 76438838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_33
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 205
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5062561, y: 0.45508087}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2301bd271a013b44a2282585b71c29c
+      internalID: 513355194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_34
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 205
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68500d83e52c8a4cb9cc6ccfffc73ac
+      internalID: -712394212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_35
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 205
+        width: 38
+        height: 38
+      alignment: 9
+      pivot: {x: 0.46048456, y: 0.5158057}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d693ab55f3416fb46926c9bdd63e2451
+      internalID: -1255196059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_36
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 205
+        width: 39
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5051332, y: 0.4525817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d1caa58f6f9374fb93bc668779390c
+      internalID: -652466032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_37
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 205
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538d1df39e9994f4ab46c7a7c7a43c0f
+      internalID: -831710938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_38
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 204
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16187898a963dff4394ee9f8e6db11ce
+      internalID: -340430122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_39
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 205
+        width: 41
+        height: 38
+      alignment: 9
+      pivot: {x: 0.4169295, y: 0.5061461}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfca1ab4a6120aa4e9147a89b7738a24
+      internalID: -1541012488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_40
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 141
+        width: 39
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5084877, y: 0.48344955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 626293ac2ef31de4a8860153999aa56d
+      internalID: -358557049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_41
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 140
+        width: 40
+        height: 37
+      alignment: 9
+      pivot: {x: 0.4120737, y: 0.5100646}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c4348335b24764898bb8a7e48e5448
+      internalID: -1702966767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_42
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 140
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e1a02b5183d9ee409e45cf207bb6c11
+      internalID: 1473091581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_43
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 140
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.48490065, y: 0.5689873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84047f8d7cfcd104ba0edc1b771e528a
+      internalID: -1477398625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_44
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 141
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3f80e1743f10b4bb42b55cca9ace4c
+      internalID: -1138852627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_45
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 140
+        width: 39
+        height: 39
+      alignment: 9
+      pivot: {x: 0.48310578, y: 0.4845135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebd6371a91e15149b211a9435e13655
+      internalID: 925359964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_46
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 141
+        width: 43
+        height: 38
+      alignment: 9
+      pivot: {x: 0.46967477, y: 0.5093589}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9e1a534d1675a48863a16299e9ead2
+      internalID: -488520617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_47
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 140
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b97dffefdc72394d8a8982b78df33b6
+      internalID: -553001045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_48
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 75
+        width: 41
+        height: 41
+      alignment: 9
+      pivot: {x: 0.45773077, y: 0.47545588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beedfc1f1f8a766479458eb3d066db98
+      internalID: -1411173936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_49
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 76
+        width: 43
+        height: 40
+      alignment: 9
+      pivot: {x: 0.4947994, y: 0.48881873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97e1bfb4e2ae46a4884860f2763c56e5
+      internalID: 1705928636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_50
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 76
+        width: 41
+        height: 39
+      alignment: 9
+      pivot: {x: 0.4795469, y: 0.52580166}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3f0817aac5eb0419990360e505583a
+      internalID: 2118838116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_51
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 75
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041cc999623d1874aabd48f72b03b669
+      internalID: 2055045638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_52
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 76
+        width: 39
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5430032, y: 0.50279486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4decbb6d54646084ca880572bf4420e5
+      internalID: 1856275798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_53
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 77
+        width: 39
+        height: 40
+      alignment: 9
+      pivot: {x: 0.51433384, y: 0.5363375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36802bdc3c3570240858fb22c632d238
+      internalID: -1988183288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_54
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 75
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f922d5e77ad2a4c4cab8b98450e56dce
+      internalID: -440125331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_55
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 76
+        width: 40
+        height: 40
+      alignment: 9
+      pivot: {x: 0.50978243, y: 0.48881873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb00c0533434b304e81ae037d0316b14
+      internalID: 1677674916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_56
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 12
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d648833ed5914d4e8e2a549d9fa0ed4
+      internalID: -984085883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_57
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 12
+        width: 40
+        height: 40
+      alignment: 9
+      pivot: {x: 0.416008, y: 0.5123519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f40e9e5a5c6f5d428c6c7d03f204109
+      internalID: -941539616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_58
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 12
+        width: 41
+        height: 39
+      alignment: 9
+      pivot: {x: 0.48915434, y: 0.49493286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bf784028138af43a9d20dc04aa472a
+      internalID: 973059847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_59
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 12
+        width: 40
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5765789, y: 0.5518772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed986cf696282604ab104892191d3a6a
+      internalID: -1371333228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_60
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 12
+        width: 39
+        height: 39
+      alignment: 9
+      pivot: {x: 0.47973007, y: 0.45312724}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857fcd46349977143a0dd287f2cf9bb2
+      internalID: 1166705155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_61
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 12
+        width: 39
+        height: 39
+      alignment: 9
+      pivot: {x: 0.49366486, y: 0.48353136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e94ddb4fe1ed50448ea41a21c9a7260
+      internalID: -2122760419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_62
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 12
+        width: 39
+        height: 39
+      alignment: 9
+      pivot: {x: 0.53547, y: 0.5164691}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a14423741ef074fb45bb457b4aacda
+      internalID: -480730700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_metal_63
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 11
+        width: 38
+        height: 40
+      alignment: 9
+      pivot: {x: 0.52340215, y: 0.4901189}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01b99a6907318645840e8ed916a9e8b
+      internalID: 1860156118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      bullet_decal_metal_14: -237815251
+      bullet_decal_metal_36: -652466032
+      bullet_decal_metal_38: -340430122
+      bullet_decal_metal_17: 1558895299
+      bullet_decal_metal_62: -480730700
+      bullet_decal_metal_2: -816098194
+      bullet_decal_metal_19: -1067030909
+      bullet_decal_metal_35: -1255196059
+      bullet_decal_metal_40: -358557049
+      bullet_decal_metal_45: 925359964
+      bullet_decal_metal_4: 1672679756
+      bullet_decal_metal_11: -1083876821
+      bullet_decal_metal_46: -488520617
+      bullet_decal_metal_26: -1620731922
+      bullet_decal_metal_29: -153111709
+      bullet_decal_metal_15: -1332500319
+      bullet_decal_metal_33: 513355194
+      bullet_decal_metal_7: 1324914762
+      bullet_decal_metal_12: -2133244206
+      bullet_decal_metal_10: 292991887
+      bullet_decal_metal_32: 76438838
+      bullet_decal_metal_6: 351118725
+      bullet_decal_metal_37: -831710938
+      bullet_decal_metal_55: 1677674916
+      bullet_decal_metal_25: 1071318886
+      bullet_decal_metal_48: -1411173936
+      bullet_decal_metal_61: -2122760419
+      bullet_decal_metal_58: 973059847
+      bullet_decal_metal_28: -766019064
+      bullet_decal_metal_9: -1276941443
+      bullet_decal_metal_13: -2028610947
+      bullet_decal_metal_21: -1574276543
+      bullet_decal_metal_59: -1371333228
+      bullet_decal_metal_3: -2025480635
+      bullet_decal_metal_63: 1860156118
+      bullet_decal_metal_57: -941539616
+      bullet_decal_metal_20: 34173234
+      bullet_decal_metal_53: -1988183288
+      bullet_decal_metal_0: 1825670894
+      bullet_decal_metal_8: 1332446146
+      bullet_decal_metal_30: 1061132351
+      bullet_decal_metal_52: 1856275798
+      bullet_decal_metal_1: -1743251309
+      bullet_decal_metal_50: 2118838116
+      bullet_decal_metal_60: 1166705155
+      bullet_decal_metal_5: 1988874817
+      bullet_decal_metal_22: 1325184060
+      bullet_decal_metal_41: -1702966767
+      bullet_decal_metal_16: 1974291736
+      bullet_decal_metal_54: -440125331
+      bullet_decal_metal_51: 2055045638
+      bullet_decal_metal_34: -712394212
+      bullet_decal_metal_31: 1442398602
+      bullet_decal_metal_18: 1452659801
+      bullet_decal_metal_42: 1473091581
+      bullet_decal_metal_56: -984085883
+      bullet_decal_metal_27: -56638664
+      bullet_decal_metal_23: 19701120
+      bullet_decal_metal_24: -1078697536
+      bullet_decal_metal_44: -1138852627
+      bullet_decal_metal_39: -1541012488
+      bullet_decal_metal_49: 1705928636
+      bullet_decal_metal_47: -553001045
+      bullet_decal_metal_43: -1477398625
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
