@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2236337137530071557}
   - component: {fileID: 6113251760511959750}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Camera holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 9132852804367988416}
   - component: {fileID: 6113251759678014310}
   - component: {fileID: 8856855526097715635}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2236337138973604229}
   - component: {fileID: 2236337138973604231}
   - component: {fileID: 2236337138973604228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6113251760520690883}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Hand Root
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6113251761463273895}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Magnitation Point
   m_TagString: Magnet Point
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

@@ -47,21 +47,22 @@ namespace Weapons.Ammo
         
         protected virtual void OnCollisionEnter(Collision collision)
         {
-            if (collision.GetMaterialType(out MaterialType materialType))
-            {
-                var decalSprite = BulletDecalsContainer.GetBulletHoleSprite(materialType);
-                SpawnDecal(ProjectileTransform.position - ProjectileTransform.forward / 2, //
-                            ProjectileTransform.rotation, 
-                            decalSprite);
-            }
+            // / 2 чтобы декаль жоско не размазывало когда стреляешь под углом
+            Vector3 decalPosition = ProjectileTransform.position - ProjectileTransform.forward / 2;
             
+            if (collision.GetMaterialType(out MaterialType materialType))
+                SpawnDecal(decalPosition, ProjectileTransform.rotation, BulletDecalsContainer.GetBulletHoleSprite(materialType));
+            
+            if (collision.gameObject.TryGetComponent(out TerrainCollider terrainCollider))
+                SpawnDecal(decalPosition, ProjectileTransform.rotation, BulletDecalsContainer.GetBulletHoleSprite(MaterialType.Defualt));
+                        
             ProjectileHit?.Invoke(this, collision);
             Destroy(gameObject);
         }
         
-        private void SpawnDecal(Vector3 position, Quaternion rotation, Sprite decalSprite)
+        private void SpawnDecal(Vector3 position, Quaternion rotation, Sprite decalSprite) //TODO Вынести логику спавна декалей отсюда
         {
-            DecalProjector inst = Instantiate(_decalProjector, position, rotation);
+            DecalProjector decalInst = Instantiate(_decalProjector, position, rotation);
             Texture2D croppedTexture = new Texture2D( (int)decalSprite.rect.width, (int)decalSprite.rect.height);
             Color[] pixels = decalSprite.texture.GetPixels((int)decalSprite.textureRect.x, 
                                                             (int)decalSprite.textureRect.y, 
@@ -71,10 +72,10 @@ namespace Weapons.Ammo
             croppedTexture.SetPixels( pixels );
             croppedTexture.Apply();
 
-            var decalMat = new Material(inst.material);
-            decalMat.SetTexture("Base_Map", croppedTexture);
-            inst.material = decalMat;
-            inst.StartCoroutine(DestroyDecal(inst.gameObject, DESTROY_DECAL_DELAY));
+            var newDecalMat = new Material(decalInst.material);
+            newDecalMat.SetTexture("Base_Map", croppedTexture);
+            decalInst.material = newDecalMat;
+            decalInst.StartCoroutine(DestroyDecal(decalInst.gameObject, DESTROY_DECAL_DELAY));
         }
 
         private IEnumerator DestroyDecal(GameObject decalInst, float delay)
