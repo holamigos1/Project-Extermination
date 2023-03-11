@@ -175,23 +175,38 @@ MonoBehaviour:
     - rid: 3621980667016904707
       type: {class: HandSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
+        "Systems\u0421ontainer":
+          _gameSystems: []
         _isEnabled: 1
         _handTransform: {fileID: 6113251760520690883}
     - rid: 3621980667016904708
       type: {class: HealthSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
+        "Systems\u0421ontainer":
+          _gameSystems: []
         _isEnabled: 1
     - rid: 3621980667016904709
       type: {class: OldInputMediatorSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
+        "Systems\u0421ontainer":
+          _gameSystems: []
         _isEnabled: 1
     - rid: 3621980667016904710
       type: {class: RaycastSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
-        _isEnabled: 1
+        "Systems\u0421ontainer":
+          _gameSystems: []
+        _isEnabled: 0
+        _raycastData:
+          _rayblockLayers:
+            serializedVersion: 2
+            m_Bits: 9
+          _anyMonobeh: {fileID: 9132852804367988416}
     - rid: 3621980667016904711
       type: {class: WeaponMediatorSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
+        "Systems\u0421ontainer":
+          _gameSystems: []
         _isEnabled: 1
 --- !u!114 &6113251759678014310
 MonoBehaviour:

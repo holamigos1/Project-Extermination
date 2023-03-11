@@ -14,7 +14,6 @@ namespace Characters.Systems
     [Serializable]
     public class RaycastSystem : GameSystem
     {
-
         public RaycastSystem(RaycastSystemData raycastData)
         {
             _raycastData = raycastData;
@@ -23,16 +22,18 @@ namespace Characters.Systems
         private const float RAYCAST_RANGE = 5f; //TODO Убери в конфиг
         private const float RAYCAST_RATE = 0.1f;
         
-        [SerializeField] private RaycastSystemData _raycastData;
+        [SerializeField] 
+        private RaycastSystemData _raycastData;
+        private static Transform _mainCameraTransform;
         private Coroutine _coroutine;
         private Queue<Task> _physicsTasks;
-        private static Transform _mainCameraTransform;
 
         public override void Start()
         {
             _physicsTasks = new Queue<Task>();
             base.Start();
-            
+            if(IsEnabled == false) return;
+
             SystemsСontainer.PhysUpdate += PhysicsUpdate;
             _coroutine = _raycastData.AnyMonobeh.StartCoroutine(DelayRaycast(RAYCAST_RATE));
             _mainCameraTransform = CameraSystem.CurrentMainCamera.transform;
@@ -65,7 +66,8 @@ namespace Characters.Systems
             while (true)
             {
                 yield return new WaitForSeconds(seconds);
-                var task = GetRaycastBlockingObjAsync(_mainCameraTransform.position, _mainCameraTransform.forward * RAYCAST_RANGE);
+                var task = GetRaycastBlockingObjAsync(_mainCameraTransform.position, 
+                    _mainCameraTransform.forward * RAYCAST_RANGE);
                 yield return new WaitUntil(() => task.IsCompleted);
             }
         }
@@ -102,6 +104,7 @@ namespace Characters.Systems
 
         public override void Stop()
         {
+            if(IsEnabled == false) return;
             _raycastData.AnyMonobeh.StopCoroutine(_coroutine);
             SystemsСontainer.Update -= PhysicsUpdate;
             base.Stop();

@@ -51,8 +51,6 @@ namespace Characters.Systems
                     if (data.ToString() == "Drop") DropFromHand();
                     if (data.ToString() == "Interact") Grub();
                     break;
-                
-                //dsadsd
             }
         }
 

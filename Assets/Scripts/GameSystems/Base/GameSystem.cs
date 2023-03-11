@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace GameSystems.Base
@@ -9,12 +10,33 @@ namespace GameSystems.Base
     public abstract class GameSystem : IObserver, IGameSystem, IDisposable
     {
         public event Action<Type> SystemStopped;
-        public bool IsEnabled => _isEnabled;
+
+        [ToggleLeft]
+        [ShowInInspector]
+        [PropertyOrder(1)]
+        [GUIColor("@GameExtensions.Extensions.GetEnableToggleColor(_isEnabled)")] 
+        public bool IsEnabled
+        {
+            get => _isEnabled;
+            set
+            {
+                if (value == true)
+                {
+                    _isEnabled = true;
+                    if (Application.isPlaying) Start();
+                }
+                else
+                {
+                    if (Application.isPlaying) Stop();
+                    _isEnabled = false;
+                }
+            }
+        }
         
         [SerializeField][HideInInspector] 
         protected GameSystemsContainer SystemsСontainer;
         
-        [SerializeField][ToggleLeft][GUIColor("@GameExtensions.Extensions.GetEnableToggleColor(_isEnabled)")] 
+        [SerializeField][HideInInspector] 
         private bool _isEnabled = true;
 
         public void DefineContainer(GameSystemsContainer container) =>
@@ -26,6 +48,8 @@ namespace GameSystems.Base
 
         public virtual void Start()
         {
+            if(_isEnabled == false) return;
+            
             Debug.Log($"{this.GetType().Name} запущен и готов к бою");
             SystemsСontainer.Notify += OnNotify;
         }

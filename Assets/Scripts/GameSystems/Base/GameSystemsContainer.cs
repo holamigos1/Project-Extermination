@@ -80,6 +80,7 @@ namespace GameSystems.Base
 
             foreach (var system in _gameSystems)
             {
+                if(system.IsEnabled == false) continue;
                 Task<object> task = system.OnAsyncRequest(message, requestObject);
                 if(task != null) tasks.Add(task);
             }

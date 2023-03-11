@@ -18,7 +18,6 @@ namespace GameSystems.GameCamera
                 
                 GameObject inst = new GameObject("Camera");
                 return inst.AddComponent<Camera>();
-
             }
             set => _currentMainCamera = value;
         }

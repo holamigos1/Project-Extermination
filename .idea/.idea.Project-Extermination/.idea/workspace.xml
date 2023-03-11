@@ -2,38 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Base.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HealthSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HealthSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameExtensions.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/GeneralDrawerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/GeneralDrawerConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/OdinModuleConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Config/Editor/OdinModuleConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Пугало.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Пугало.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Icons/9mm bullet icon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Icons/9mm bullet icon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Icons/Pistol Icon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Icons/Pistol Icon.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/PlayerCharacter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Character.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/PlayerCharacter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Base.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/OldInputMediatorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/OldInputMediatorSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/Extentions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameExtensions/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/Extentions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameExtensions/Extensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/GameCamera/CameraSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/GameCamera/CameraSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/GameMaterials.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/GameMaterials.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Ammo/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Ammo/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +45,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ResponsiveButtonGroupExampleComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Scarecrow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Settings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -112,10 +90,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8080">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="8080" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -147,7 +125,8 @@
       <workItem from="1678225907600" duration="7839000" />
       <workItem from="1678370683599" duration="149000" />
       <workItem from="1678370848615" duration="11062000" />
-      <workItem from="1678471360537" duration="12937000" />
+      <workItem from="1678471360537" duration="13641000" />
+      <workItem from="1678540632443" duration="6819000" />
     </task>
     <servers />
   </component>
@@ -170,6 +149,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs</url>
+          <line>56</line>
+          <properties documentPath="D:\Projects\Project-Extermination\Assets\Scripts\Characters\Systems\RaycastSystem.cs" initialLine="56" containingFunctionPresentation="method 'OnAsyncRequest'">
+            <startOffsets>
+              <option value="1729" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1856" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
