@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace GameSystems.GameCamera
 {
@@ -15,9 +16,8 @@ namespace GameSystems.GameCamera
                 _currentMainCamera = Camera.main;
                 
                 if (_currentMainCamera != null) return _currentMainCamera;
-                
-                GameObject inst = new GameObject("Camera");
-                return inst.AddComponent<Camera>();
+
+                throw new Exception("АА иди нахуе юбляя камеры ненет");
             }
             set => _currentMainCamera = value;
         }

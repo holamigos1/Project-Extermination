@@ -9,7 +9,17 @@ namespace Characters.Systems
     public class WeaponMediatorSystem : GameSystem
     {
         private Weapon _weaponInHand;
+
+        public override void Start()
+        {
+            SystemsСontainer.Notify += OnNotify;
+        }
         
+        public override void Stop()
+        {
+            SystemsСontainer.Notify -= OnNotify;
+        }
+
         public override void OnNotify(string message, object data)
         {
             switch (message)

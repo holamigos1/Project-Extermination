@@ -32,7 +32,8 @@ namespace Characters.Systems
 
         public override void Start() 
         {
-            base.Start();
+            SystemsСontainer.Notify += OnNotify;
+            
             _handLocalStartPoint = _handTransform.localPosition;
             if (_handTransform.HasChild() == false) return;
             if (_handTransform.GetFirstChildObj().TryGetComponent(out Item itemIns)) 
@@ -82,15 +83,8 @@ namespace Characters.Systems
 
         private void Equip(Item itemInst)
         {
-            if (_equippedItem != null)
-            {
-                Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
-                //TODO Дописать логику проброса объекта из руки в инвентарь и взятии нового предмета по требованию.
-                return;
-            }
-            
-            Debug.Log($"Взял предмет {itemInst.name} с типом {itemInst.GetType().Name}");
-            
+            if (_equippedItem != null) return;
+
             _equippedItem = itemInst;
             
             _equippedItem.ItemTransform.parent = _handTransform;
@@ -113,7 +107,8 @@ namespace Characters.Systems
 
             _equippedItem.ItemRigidbody.isKinematic = false;
             _equippedItem.ItemRigidbody.useGravity = true;
-            _equippedItem.ItemRigidbody.transform.parent = null;//теперь не дочка объекта руки
+            
+            _equippedItem.ItemTransform.parent = null;
 
             if (_equippedItem.TryGetComponent(out IDrop dropableObj))
                 dropableObj.Drop();

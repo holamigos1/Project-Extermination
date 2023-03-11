@@ -134,3 +134,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c0ea32f66b36845a9fb7e0c1f51da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitSystemsContainer:
+    _gameSystems:
+    - rid: 3621980684785811456
+  references:
+    version: 2
+    RefIds:
+    - rid: 3621980684785811456
+      type: {class: HealthSystem, ns: Characters.Systems, asm: Assembly-CSharp}
+      data:
+        "Systems\u0421ontainer":
+          _gameSystems:
+          - rid: 3621980684785811456
+        _isEnabled: 1

@@ -14,29 +14,26 @@ namespace Characters.Systems
     [Serializable]
     public class RaycastSystem : GameSystem
     {
-        public RaycastSystem(RaycastSystemData raycastData)
-        {
+        public RaycastSystem(RaycastSystemData raycastData) =>
             _raycastData = raycastData;
-        }
         
         private const float RAYCAST_RANGE = 5f; //TODO Убери в конфиг
         private const float RAYCAST_RATE = 0.1f;
         
         [SerializeField] 
         private RaycastSystemData _raycastData;
-        private static Transform _mainCameraTransform;
+        private Transform _mainCameraTransform;
         private Coroutine _coroutine;
         private Queue<Task> _physicsTasks;
 
         public override void Start()
         {
-            _physicsTasks = new Queue<Task>();
-            base.Start();
-            if(IsEnabled == false) return;
-
-            SystemsСontainer.PhysUpdate += PhysicsUpdate;
-            _coroutine = _raycastData.AnyMonobeh.StartCoroutine(DelayRaycast(RAYCAST_RATE));
             _mainCameraTransform = CameraSystem.CurrentMainCamera.transform;
+
+            _physicsTasks = new Queue<Task>();
+            SystemsСontainer.PhysUpdate += PhysicsUpdate;
+
+            _coroutine = _raycastData.AnyMonobeh.StartCoroutine(DelayRaycast(RAYCAST_RATE));
         }
         
 
@@ -54,7 +51,9 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Get raycast object":
-                   var gameObject = await GetRaycastBlockingObjAsync(_mainCameraTransform.position, _mainCameraTransform.forward * RAYCAST_RANGE);
+                    var gameObject = await GetRaycastBlockingObjAsync(
+                       _mainCameraTransform.position, 
+                       _mainCameraTransform.forward * RAYCAST_RANGE);
                    return gameObject;
             }
 
@@ -104,10 +103,8 @@ namespace Characters.Systems
 
         public override void Stop()
         {
-            if(IsEnabled == false) return;
             _raycastData.AnyMonobeh.StopCoroutine(_coroutine);
             SystemsСontainer.Update -= PhysicsUpdate;
-            base.Stop();
         }
     }
     

@@ -14,46 +14,30 @@ namespace GameSystems.Base
         public event Action? PhysUpdate;
         public event Action<string, object>? Notify;
         public IEnumerable<GameSystem> GameSystems => _gameSystems;
-        
-        public GameSystemsContainer()
-        {
-            foreach (GameSystem system in _gameSystems)
-                system.DefineContainer(this);
-        }
-        
+
         [SerializeReference] 
         private List<GameSystem> _gameSystems = new List<GameSystem>();
 
         public void AddSystem(GameSystem gameSystemInst)
         {
-            if(_gameSystems.Contains(gameSystemInst)) return;
-            
             gameSystemInst.DefineContainer(this);
             _gameSystems.Add(gameSystemInst);
-            StartSystem(gameSystemInst);
         }
 
-        public void InitSystems()
-        {
-            foreach (GameSystem system in _gameSystems)
-            {
-                system.DefineContainer(this);
-                system.Start();
-            }
-        }
-
-        public void StartSystems() =>
+        public void InitSystems() =>
+            _gameSystems.ForEach(system => system.DefineContainer(this));
+        
+        public void StartAllSystems() =>
             _gameSystems.ForEach(system => system.Start());
         
         public void StartSystem(GameSystem gameSystemInst) => 
             gameSystemInst.Start();
-        
+
         public void NotifySystems(string message, System.Object data) =>
             Notify?.Invoke(message, data);
-
+        
         public List<object>? MakeRequest(string message) => 
             MakeRequest(message, null);
-        
         public List<object>? MakeRequest(string message, object requestObject)
         {
             List<object> responseList = new List<object>();
@@ -68,11 +52,10 @@ namespace GameSystems.Base
             else return null;
         }
         
-        
-        public async Task<List<object>?> MakeAsyncRequest(string message, object requestObject) =>
-            await AsyncRequest(message, requestObject);
         public async Task<List<object>?> MakeAsyncRequest(string message) => 
             await AsyncRequest(message, null);
+        public async Task<List<object>?> MakeAsyncRequest(string message, object requestObject) =>
+            await AsyncRequest(message, requestObject);
         private async Task<List<object>?> AsyncRequest(string message, object? requestObject)
         {
             List<Task<object>> tasks = new List<Task<object>>();
