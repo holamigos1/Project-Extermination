@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections;
+using GameExtensions;
 using Objects.Base;
-using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 using Weapons.Range.Base;
 
 namespace Weapons.Ammo
@@ -64,6 +63,7 @@ namespace Weapons.Ammo
                         
             ProjectileHit?.Invoke(this, collision);
             Destroy(gameObject);
+            //dfsadsadsdfgdfgfsdsadSDSADSD
         }
         
         private void SpawnDecal(Vector3 position, Quaternion rotation, Transform parent, Sprite decalSprite) //TODO Вынести логику спавна декалей отсюда

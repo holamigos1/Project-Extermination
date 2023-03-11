@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using GameData.ResourcesPathfs;
+using Objects.Base;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Objects.Base
 {
@@ -91,8 +91,12 @@ namespace Objects.Base
         static void Open() =>
             Selection.activeObject = GameMaterials.ExistingMaterials;
     }
+}
 
-    public static partial class Extentions
+
+namespace GameExtensions
+{
+    public static partial class Extensions
     {
         public static MaterialType GetMaterialType(this Material material)
         {

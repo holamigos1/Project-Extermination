@@ -12,6 +12,9 @@ namespace GameSystems.GameCamera
             {
                 if (_currentMainCamera != null) return _currentMainCamera;
                 
+                _currentMainCamera = Camera.main;
+                
+                if (_currentMainCamera != null) return _currentMainCamera;
                 
                 GameObject inst = new GameObject("Camera");
                 return inst.AddComponent<Camera>();

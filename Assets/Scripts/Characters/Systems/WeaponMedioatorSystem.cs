@@ -1,9 +1,11 @@
-﻿using GameSystems.Base;
+﻿using System;
+using GameSystems.Base;
 using Objects.Base;
 using Weapons;
 
 namespace Characters.Systems
 {
+    [Serializable]
     public class WeaponMediatorSystem : GameSystem
     {
         private Weapon _weaponInHand;

@@ -1,7 +1,6 @@
-﻿using System;
-using GameData.AnimationTags;
+﻿using GameData.AnimationTags;
 using GameData.Tags;
-using GameSystems.Base;
+using GameExtensions;
 using Objects.Base;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace Weapons
         public bool IsInHand => (ItemTransform.parent != null) && 
                                 (ItemTransform.parent.CompareTag(GameTags.HAND_TAG));
         
-        private bool _isEquipped;
+        protected bool _isEquipped;
         
         private void Start()
         {

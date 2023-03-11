@@ -1,8 +1,10 @@
-﻿using GameSystems.Base;
+﻿using System;
+using GameSystems.Base;
 using UnityEngine;
 
 namespace Characters.Systems
 {
+    [Serializable]
     public class OldInputMediatorSystem : GameSystem
     {
         public override void Start()

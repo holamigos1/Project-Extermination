@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameSystems.Base;
@@ -7,11 +8,13 @@ using UnityEngine;
 
 namespace Characters.Systems
 {
+    /// <summary>
+    /// Система каста лучей 
+    /// </summary>
+    [Serializable]
     public class RaycastSystem : GameSystem
     {
-        /// <summary>
-        /// Система каста лучей 
-        /// </summary>
+
         public RaycastSystem(RaycastSystemData raycastData)
         {
             _raycastData = raycastData;
@@ -20,7 +23,7 @@ namespace Characters.Systems
         private const float RAYCAST_RANGE = 5f; //TODO Убери в конфиг
         private const float RAYCAST_RATE = 0.1f;
         
-        private RaycastSystemData _raycastData;
+        [SerializeField] private RaycastSystemData _raycastData;
         private Coroutine _coroutine;
         private Queue<Task> _physicsTasks;
         private static Transform _mainCameraTransform;
@@ -105,6 +108,7 @@ namespace Characters.Systems
         }
     }
     
+    [Serializable]
     public class RaycastSystemData
     {
         public LayerMask RayblockLayers => _rayblockLayers;
@@ -116,7 +120,7 @@ namespace Characters.Systems
             _rayblockLayers = rayblockLayers;
         }
         
-        private LayerMask _rayblockLayers;
-        private MonoBehaviour _anyMonobeh;
+        [SerializeField] private LayerMask _rayblockLayers;
+        [SerializeField] private MonoBehaviour _anyMonobeh;
     }
 }

@@ -1,5 +1,5 @@
-﻿using GameSystems.Base;
-using Sirenix.OdinInspector;
+﻿using System;
+using GameSystems.Base;
 using UnityEngine;
 
 namespace Objects.Base
@@ -7,15 +7,10 @@ namespace Objects.Base
     public abstract class Unit : MonoBehaviour
     {
         public GameSystemsContainer SystemsContainer => UnitSystemsContainer;
-        [ShowInInspector] public float HealthPoints => _healthPoints;
         
-        
-        protected GameSystemsContainer UnitSystemsContainer = new GameSystemsContainer();
+        [SerializeField] protected GameSystemsContainer UnitSystemsContainer = new GameSystemsContainer();
 
-        
-        private float _healthPoints = 100;
-        
-        
+        private void Awake() => UnitSystemsContainer.InitSystems();
         protected virtual void OnDisable() => UnitSystemsContainer.ShutDownSystems();
         protected virtual void Update() => UnitSystemsContainer.UpdateSystems();
         protected virtual void FixedUpdate() => UnitSystemsContainer.UpdatePhysicsSystems();

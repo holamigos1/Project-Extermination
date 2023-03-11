@@ -1,6 +1,9 @@
+using System;
 using GameData.Layers;
+using GameExtensions;
 using GameSystems.Base;
 using Objects.Base;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Characters.Systems
@@ -8,26 +11,31 @@ namespace Characters.Systems
     /// <summary>
     /// Система управления поведенем рук персонажей 
     /// </summary>
+    [Serializable]
     public class HandSystem : GameSystem
     {
+        [ShowInInspector] 
         public Item EquippedItem => _equippedItem;
         
-        public HandSystem(Transform handPoint)
+        public HandSystem(Transform handTransform)
         {
-            _handPoint = handPoint;
-            _handLocalStartPoint = _handPoint.localPosition;
+            _handTransform = handTransform;
+            _handLocalStartPoint = _handTransform.localPosition;
         }
         
-        private readonly Vector3 _handLocalStartPoint;
+        private Vector3 _handLocalStartPoint;
         
+        [SerializeField] [Required]
+        private Transform _handTransform;
         private Item _equippedItem;
-        private Transform _handPoint;
+        
 
         public override void Start() 
         {
             base.Start();
-            if (_handPoint.HasChild() == false) return;
-            if (_handPoint.GetFirstChildObj().TryGetComponent(out Item itemIns)) 
+            _handLocalStartPoint = _handTransform.localPosition;
+            if (_handTransform.HasChild() == false) return;
+            if (_handTransform.GetFirstChildObj().TryGetComponent(out Item itemIns)) 
                 Equip(itemIns);
         }
 
@@ -43,6 +51,8 @@ namespace Characters.Systems
                     if (data.ToString() == "Drop") DropFromHand();
                     if (data.ToString() == "Interact") Grub();
                     break;
+                
+                //dsadsd
             }
         }
 
@@ -85,16 +95,16 @@ namespace Characters.Systems
             
             _equippedItem = itemInst;
             
-            _equippedItem.ItemTransform.parent = _handPoint;
+            _equippedItem.ItemTransform.parent = _handTransform;
             _equippedItem.ItemTransform.localPosition = Vector3.zero;
             _equippedItem.ItemTransform.localRotation = Quaternion.Euler(Vector3.zero);
             
             _equippedItem.ItemGameObject.ChangeGameObjsLayers(GameLayers.FIRST_PERSON_LAYER);
             _equippedItem.ItemGameObject.SetActive(true);
             
-            _handPoint.localPosition = new Vector3(_handPoint.localPosition.x,
+            _handTransform.localPosition = new Vector3(_handTransform.localPosition.x,
                                                     - _equippedItem.ItemTransform.RenderBounds().extents.y,
-                                                    _handPoint.localPosition.z);
+                                                    _handTransform.localPosition.z);
             
             SystemsСontainer.NotifySystems("Item Equipped", _equippedItem);
         }
@@ -112,13 +122,13 @@ namespace Characters.Systems
             
             SystemsСontainer.NotifySystems("Item Dropped", _equippedItem);
 
-            _handPoint.localPosition = _handLocalStartPoint;
+            _handTransform.localPosition = _handLocalStartPoint;
             _equippedItem = null;
         }
 
         private void ChangeHandPivot(Vector3 position)
         {
-            _handPoint.transform.position = position;
+            _handTransform.transform.position = position;
         }
     }
 }
