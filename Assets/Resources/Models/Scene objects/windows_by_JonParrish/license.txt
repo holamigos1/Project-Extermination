@@ -1,0 +1,11 @@
+Model Information:
+* title:	Windows | Free Download
+* source:	https://sketchfab.com/3d-models/windows-free-download-f7a3ef7a26274631bf695746335da602
+* author:	JonParrish (https://sketchfab.com/JonParrish)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Windows | Free Download" (https://sketchfab.com/3d-models/windows-free-download-f7a3ef7a26274631bf695746335da602) by JonParrish (https://sketchfab.com/JonParrish) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
