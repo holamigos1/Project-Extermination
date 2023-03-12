@@ -11,6 +11,11 @@ namespace Weapons
         public bool IsEquipped => _isEquipped;
         public bool IsInHand => (ItemTransform.parent != null) && 
                                 (ItemTransform.parent.CompareTag(GameTags.HAND_TAG));
+
+        public float Damage => _damage;
+        
+        [SerializeField] 
+        private float _damage = 10f;
         
         protected bool _isEquipped;
         

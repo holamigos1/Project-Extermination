@@ -32,7 +32,9 @@ namespace GameSystems.Base
         
         public void StartSystem(GameSystem gameSystemInst) => 
             gameSystemInst.Start();
-
+        
+        public void NotifySystems(string message) =>
+            Notify?.Invoke(message, null);
         public void NotifySystems(string message, System.Object data) =>
             Notify?.Invoke(message, data);
         

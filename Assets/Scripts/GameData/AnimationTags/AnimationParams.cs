@@ -21,6 +21,7 @@
         public const string SWITCH_MODE_TRIGGER = "Switch Mode";
 
         public const string HIDE = "Hide";
+        public const string DAMAGED = "Damaged";
 
         public const string WALK = "Walk";
         public const string RUN = "Run";

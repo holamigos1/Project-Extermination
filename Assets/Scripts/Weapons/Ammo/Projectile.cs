@@ -63,7 +63,6 @@ namespace Weapons.Ammo
                         
             ProjectileHit?.Invoke(this, collision);
             Destroy(gameObject);
-            //dfsadsadsdfgdfgfsdsadSDSADSD
         }
         
         private void SpawnDecal(Vector3 position, Quaternion rotation, Transform parent, Sprite decalSprite) //TODO Вынести логику спавна декалей отсюда
@@ -82,6 +81,7 @@ namespace Weapons.Ammo
             newDecalMat.SetTexture("Base_Map", croppedTexture);
             decalInst.material = newDecalMat;
             decalInst.transform.parent = parent;
+            Debug.Log("ЖИЖОЧКИ");
             decalInst.StartCoroutine(DestroyDecal(decalInst.gameObject, DESTROY_DECAL_DELAY));
         }
 

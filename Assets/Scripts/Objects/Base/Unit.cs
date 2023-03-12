@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using GameSystems.Base;
+﻿using GameSystems.Base;
 using UnityEngine;
 
 namespace Objects.Base
