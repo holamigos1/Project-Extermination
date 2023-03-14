@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969224b48c274fe9836bdc39a2ea53db, type: 3}
   m_Name: Bullet Holes Data
   m_EditorClassIdentifier: 
-  BulletHolesAtlas: {fileID: 100100200, guid: 029eb6b9d2832a847a6f1ddfc2fd0e74, type: 3}
   DefualtBulletDecals:
   - {fileID: 870962525, guid: a1aee5712278dc9439fb5f0a8e4a301c, type: 3}
   - {fileID: 210075606, guid: a1aee5712278dc9439fb5f0a8e4a301c, type: 3}
@@ -129,3 +128,22 @@ MonoBehaviour:
   - {fileID: 323013616, guid: c9dac8be906ac1e4dbdfdbc0b6091398, type: 3}
   - {fileID: -1613945891, guid: c9dac8be906ac1e4dbdfdbc0b6091398, type: 3}
   - {fileID: 105295911, guid: c9dac8be906ac1e4dbdfdbc0b6091398, type: 3}
+  FleshBulletDecals:
+  - {fileID: -894776560, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: -1620311640, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 2112939567, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 307486011, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 81788402, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: -380556424, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: -1918391066, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 1082927192, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: -85403686, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 126811361, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: -1746765240, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: -1677064100, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: -636361589, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 435716296, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 1545052513, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 873101038, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 1181393869, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}
+  - {fileID: 1020846444, guid: 90dfaf682aff24148b9328237ef3554b, type: 3}

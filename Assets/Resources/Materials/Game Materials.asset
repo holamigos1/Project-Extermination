@@ -17,3 +17,5 @@ MonoBehaviour:
   _woodMaterials:
   - {fileID: 2100000, guid: 3e6c8424b4baf1d4eb4388da493fa4ce, type: 2}
   _glassMaterials: []
+  _fleshMaterials:
+  - {fileID: 2100000, guid: 677a6b559be607545be03a020093858d, type: 2}

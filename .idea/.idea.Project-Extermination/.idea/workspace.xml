@@ -3,9 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animatons/Animations/Weapons/Katana/Katana Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animatons/Animations/Weapons/Katana/Katana Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animatons/Animations/Weapons/Katana/Katana Pick Up.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animatons/Animations/Weapons/Katana/Katana Pick Up.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animatons/Controllers/Characters/Scarecrow.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animatons/Controllers/Characters/Scarecrow.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animatons/Controllers/Weapons/Katana.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animatons/Controllers/Weapons/Katana.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/OPS_Gun_TestingScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/PlayerCharacter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/PlayerCharacter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/DollySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/DollySystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HealthSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HealthSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/OldInputMediatorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/OldInputMediatorSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/RaycastSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/WeaponMedioatorSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData/AnimationTags/AnimationParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameData/AnimationTags/AnimationParams.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IPickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/IPickup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Objects/Base/Unit.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Ammo/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Ammo/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Melle/Katana.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Base/Firearm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Base/Firearm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +55,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/75633565436c42f0a6426b33f0132ade46a800/e1/ba3aab74/StackTrace.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/75633565436c42f0a6426b33f0132ade46a800/fd/d02e052c/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/b6/ef5ec1c8/StackTraceUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/ca/1660ddf5/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/db/6abdab80/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/df/bffb7452/Ray.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/908f8bca7f3649909af9c6824762362b364758/33/32756150/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c4367d6362fc42a89ea192c9475ca1e93a00/68/26e73e27/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ResponsiveButtonGroupExampleComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Scarecrow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Settings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -116,7 +142,11 @@
       <workItem from="1678142626749" duration="24354000" />
       <workItem from="1678225907600" duration="7839000" />
       <workItem from="1678370683599" duration="149000" />
-      <workItem from="1678370848615" duration="1080000" />
+      <workItem from="1678370848615" duration="11062000" />
+      <workItem from="1678471360537" duration="13641000" />
+      <workItem from="1678540632443" duration="6819000" />
+      <workItem from="1678553894580" duration="25879000" />
+      <workItem from="1678733109773" duration="16653000" />
     </task>
     <servers />
   </component>

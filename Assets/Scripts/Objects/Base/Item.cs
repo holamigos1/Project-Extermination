@@ -1,5 +1,6 @@
 ﻿using GameData.AnimationTags;
 using GameData.Layers;
+using GameExtensions;
 using GameSystems.Base;
 using UnityEngine;
 
@@ -7,10 +8,8 @@ namespace Objects.Base
 {
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody), typeof(Animator))]
-    public abstract class Item : MonoBehaviour, IDrop, IPickup
+    public abstract class Item : MonoBehaviour, IPickup
     {
-        public GameObject thisObject => _itemGameObject;
-        public PickUpType PickUpType => _pickUpType;
         public bool IsPickuped => _isItemPickuped;
         public GameSystemsContainer SystemsContainer => _itemSystemsContainer;
         public Animator ItemAnimator
@@ -48,9 +47,7 @@ namespace Objects.Base
                 return _itemTransform;
             }
         }
-
-        [SerializeField] 
-        private PickUpType _pickUpType;
+        
 
         private bool _isItemPickuped;
         private GameSystemsContainer _itemSystemsContainer;
@@ -70,20 +67,6 @@ namespace Objects.Base
             _isItemPickuped = true;
             
             return this;
-        }
-
-        public void Drop()
-        {
-            _isItemPickuped = false;
-
-            ItemRigidbody.isKinematic = false;
-            ItemRigidbody.useGravity = true;
-            
-            ItemAnimator.StopPlayback();
-            ItemAnimator.cullingMode = AnimatorCullingMode.CullCompletely;
-            ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
-
-            ItemGameObject.ChangeGameObjsLayers(GameLayers.DEFAULT_LAYER);
         }
     }
 }

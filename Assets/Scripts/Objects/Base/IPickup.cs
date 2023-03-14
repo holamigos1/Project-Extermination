@@ -3,16 +3,8 @@
 
 namespace Objects.Base
 {
-    public enum PickUpType
+   public interface IPickup
     {
-        InHand,
-        InInventory
-    }
-    
-    public interface IPickup
-    {
-        public GameObject thisObject { get; }
-        public PickUpType PickUpType { get; }
         public bool IsPickuped { get; }
         
         public Item Pickup();

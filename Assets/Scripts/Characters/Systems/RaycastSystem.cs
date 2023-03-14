@@ -1,38 +1,48 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameSystems.Base;
 using GameSystems.GameCamera;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Characters.Systems
 {
+    /// <summary>
+    /// Система каста лучей 
+    /// </summary>
+    [Serializable]
     public class RaycastSystem : GameSystem
     {
-        /// <summary>
-        /// Система каста лучей 
-        /// </summary>
-        public RaycastSystem(RaycastSystemData raycastData)
-        {
+        [Title("Система каста лучей.", 
+            "Кастит лучи и возвращает объекты в которые лучи попали.")] 
+        [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
+        #pragma warning disable CS0219
+        private string _info = "";
+
+        public RaycastSystem() { }
+
+        public RaycastSystem(RaycastSystemData raycastData) =>
             _raycastData = raycastData;
-        }
         
         private const float RAYCAST_RANGE = 5f; //TODO Убери в конфиг
         private const float RAYCAST_RATE = 0.1f;
-        
+
+        [SerializeField] [BoxGroup("Данные для каста лучей")] [HideLabel]
         private RaycastSystemData _raycastData;
+        private Transform _mainCameraTransform;
         private Coroutine _coroutine;
         private Queue<Task> _physicsTasks;
-        private static Transform _mainCameraTransform;
 
         public override void Start()
         {
-            _physicsTasks = new Queue<Task>();
-            base.Start();
-            
-            SystemsСontainer.PhysUpdate += PhysicsUpdate;
-            _coroutine = _raycastData.AnyMonobeh.StartCoroutine(DelayRaycast(RAYCAST_RATE));
             _mainCameraTransform = CameraSystem.CurrentMainCamera.transform;
+
+            _physicsTasks = new Queue<Task>();
+            SystemsСontainer.PhysUpdate += PhysicsUpdate;
+
+            _coroutine = _raycastData.AnyMonobeh.StartCoroutine(DelayRaycast(RAYCAST_RATE));
         }
         
 
@@ -50,7 +60,9 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Get raycast object":
-                   var gameObject = await GetRaycastBlockingObjAsync(_mainCameraTransform.position, _mainCameraTransform.forward * RAYCAST_RANGE);
+                    var gameObject = await GetRaycastBlockingObjAsync(
+                       _mainCameraTransform.position, 
+                       _mainCameraTransform.forward * RAYCAST_RANGE);
                    return gameObject;
             }
 
@@ -62,7 +74,8 @@ namespace Characters.Systems
             while (true)
             {
                 yield return new WaitForSeconds(seconds);
-                var task = GetRaycastBlockingObjAsync(_mainCameraTransform.position, _mainCameraTransform.forward * RAYCAST_RANGE);
+                var task = GetRaycastBlockingObjAsync(_mainCameraTransform.position, 
+                    _mainCameraTransform.forward * RAYCAST_RANGE);
                 yield return new WaitUntil(() => task.IsCompleted);
             }
         }
@@ -101,10 +114,10 @@ namespace Characters.Systems
         {
             _raycastData.AnyMonobeh.StopCoroutine(_coroutine);
             SystemsСontainer.Update -= PhysicsUpdate;
-            base.Stop();
         }
     }
     
+    [Serializable]
     public class RaycastSystemData
     {
         public LayerMask RayblockLayers => _rayblockLayers;
@@ -116,7 +129,12 @@ namespace Characters.Systems
             _rayblockLayers = rayblockLayers;
         }
         
+        [SerializeField] 
+        [LabelText("Слои блокирующие луч")]
         private LayerMask _rayblockLayers;
+        
+        [SerializeField] 
+        [LabelText("Любой скрипт MonoBehaviour")]
         private MonoBehaviour _anyMonobeh;
     }
 }

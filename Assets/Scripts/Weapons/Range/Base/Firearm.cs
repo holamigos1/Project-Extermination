@@ -12,8 +12,9 @@ namespace Weapons.Range.Base
         [SerializeField] private Projectile _ammoType;
         [SerializeField] private Transform _launchProjectilePoint;
 
-        protected void OnEnable()
+        protected void Awake()
         {
+            //TODO Вынести это в другой класс, тк его нужно вызвать единажды на сцене а не в каждой пушке
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER), 
                                          LayerMask.NameToLayer(GameLayers.PROJECTILE_LAYER));
         }
@@ -29,16 +30,15 @@ namespace Weapons.Range.Base
         private void OnHit(Projectile projectileObj, Collision collision)
         {
             projectileObj.ProjectileHit -= OnHit;
-            
-            Debug.Log($"!! {projectileObj.name} Hit {collision.gameObject.name}");
-            
+
             if (collision.gameObject.TryGetComponent(out IWeaponVerifyer weaponVerify))
                 weaponVerify.Verify(this, collision);
         }
         
         public override void PlayFireAction()
         {
-            base.PlayFireAction();
+            if(!IsEquipped) return;
+            if(!IsReady) return;
             
             ItemAnimator.SetTrigger(AnimationParams.PERFORM_ATTACK);
         }

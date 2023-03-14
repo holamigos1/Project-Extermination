@@ -4,20 +4,18 @@ using UnityEngine;
 
 namespace Objects.Base
 {
-    public abstract class Unit : MonoBehaviour
+    [SelectionBase]
+    public abstract class Unit : MonoBehaviour, ISystemsContainable
     {
         public GameSystemsContainer SystemsContainer => UnitSystemsContainer;
-        [ShowInInspector] public float HealthPoints => _healthPoints;
         
-        
-        protected GameSystemsContainer UnitSystemsContainer = new GameSystemsContainer();
+        [SerializeField] [HideLabel]
+        protected GameSystemsContainer UnitSystemsContainer;
 
-        
-        private float _healthPoints = 100;
-        
-        
-        protected virtual void OnDisable() => UnitSystemsContainer.ShutDownSystems();
+        protected virtual void Awake() => UnitSystemsContainer.InitSystems();
+        protected virtual void OnEnable() => UnitSystemsContainer.StartAllSystems();
         protected virtual void Update() => UnitSystemsContainer.UpdateSystems();
         protected virtual void FixedUpdate() => UnitSystemsContainer.UpdatePhysicsSystems();
+        protected virtual void OnDisable() => UnitSystemsContainer.ShutDownSystems();
     }
 }

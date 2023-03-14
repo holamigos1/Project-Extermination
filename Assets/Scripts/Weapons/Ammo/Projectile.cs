@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections;
+using GameExtensions;
 using Objects.Base;
-using UnityEditor.Sprites;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 using Weapons.Range.Base;
 
 namespace Weapons.Ammo
@@ -51,16 +50,22 @@ namespace Weapons.Ammo
             Vector3 decalPosition = ProjectileTransform.position - ProjectileTransform.forward / 2;
             
             if (collision.GetMaterialType(out MaterialType materialType))
-                SpawnDecal(decalPosition, ProjectileTransform.rotation, BulletDecalsContainer.GetBulletHoleSprite(materialType));
+                SpawnDecal(decalPosition, 
+                    ProjectileTransform.rotation, 
+                    collision.transform, 
+                    BulletDecalsContainer.GetBulletHoleSprite(materialType));
             
             if (collision.gameObject.TryGetComponent(out TerrainCollider terrainCollider))
-                SpawnDecal(decalPosition, ProjectileTransform.rotation, BulletDecalsContainer.GetBulletHoleSprite(MaterialType.Defualt));
+                SpawnDecal(decalPosition,
+                    ProjectileTransform.rotation, 
+                    collision.transform,
+                    BulletDecalsContainer.GetBulletHoleSprite(MaterialType.Defualt));
                         
             ProjectileHit?.Invoke(this, collision);
             Destroy(gameObject);
         }
         
-        private void SpawnDecal(Vector3 position, Quaternion rotation, Sprite decalSprite) //TODO Вынести логику спавна декалей отсюда
+        private void SpawnDecal(Vector3 position, Quaternion rotation, Transform parent, Sprite decalSprite) //TODO Вынести логику спавна декалей отсюда
         {
             DecalProjector decalInst = Instantiate(_decalProjector, position, rotation);
             Texture2D croppedTexture = new Texture2D( (int)decalSprite.rect.width, (int)decalSprite.rect.height);
@@ -75,6 +80,7 @@ namespace Weapons.Ammo
             var newDecalMat = new Material(decalInst.material);
             newDecalMat.SetTexture("Base_Map", croppedTexture);
             decalInst.material = newDecalMat;
+            decalInst.transform.parent = parent;
             decalInst.StartCoroutine(DestroyDecal(decalInst.gameObject, DESTROY_DECAL_DELAY));
         }
 

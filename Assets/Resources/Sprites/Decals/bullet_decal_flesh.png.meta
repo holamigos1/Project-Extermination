@@ -1,0 +1,531 @@
+fileFormatVersion: 2
+guid: 90dfaf682aff24148b9328237ef3554b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bullet_decal_flesh_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 86
+        width: 85
+        height: 79
+      alignment: 9
+      pivot: {x: 0.60125035, y: 0.50290537}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2df54b735128b48af33ff6fd854f15
+      internalID: -894776560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 92
+        width: 89
+        height: 70
+      alignment: 9
+      pivot: {x: 0.4755028, y: 0.6590121}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a87c22159237e024497feb117db839d0
+      internalID: -1620311640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_2
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 97
+        width: 77
+        height: 73
+      alignment: 9
+      pivot: {x: 0.23026206, y: 0.34752363}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b18a740b7dc8ff49b9bae67e266335f
+      internalID: 2112939567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_3
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 89
+        width: 70
+        height: 76
+      alignment: 9
+      pivot: {x: 0.50848347, y: 0.33201388}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d073a7f0d404f438b311e9a4f0da2c
+      internalID: 307486011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 89
+        width: 100
+        height: 76
+      alignment: 9
+      pivot: {x: 0.68408203, y: 0.498698}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6e99dd68f777e4eba7ae5a5993206b
+      internalID: 81788402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_5
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 109
+        width: 97
+        height: 38
+      alignment: 9
+      pivot: {x: 0.57754296, y: 0.5651113}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6355efd4d0e0d88449dd61f4fddc8002
+      internalID: -380556424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_6
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 89
+        width: 104
+        height: 69
+      alignment: 9
+      pivot: {x: 0.6379858, y: 0.75674504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e355103d79cc6d42870f0d2956b5d8c
+      internalID: -1918391066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 99
+        width: 72
+        height: 55
+      alignment: 9
+      pivot: {x: 0.3584205, y: 0.465811}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c225a41600a0dfb468ffb411a5425d24
+      internalID: 1082927192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_8
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 93
+        width: 79
+        height: 78
+      alignment: 9
+      pivot: {x: 0.42733958, y: 0.40991327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24ba01e94e4756408293ffa765af49b
+      internalID: -85403686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_9
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 9
+        width: 34
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5000036, y: 0.6953332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa6ce0a25fed9643ad3f661a4c95bc1
+      internalID: 126811361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_10
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 8
+        width: 77
+        height: 60
+      alignment: 9
+      pivot: {x: 0.24936508, y: 0.28886694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c7f2744e451f442af484f1945538c2
+      internalID: -1746765240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_11
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 18
+        width: 87
+        height: 53
+      alignment: 9
+      pivot: {x: 0.47838655, y: 0.27592015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001bc2b9b354ad84ca4209aab6af97f5
+      internalID: -1677064100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_12
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 11
+        width: 76
+        height: 71
+      alignment: 9
+      pivot: {x: 0.47436604, y: 0.38719606}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba67662b98cf2794a8b4f997f14923ae
+      internalID: -636361589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 7
+        width: 103
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43093592, y: 0.4005189}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1f3a6466db0ca4b8913ecad86e0a3e
+      internalID: 435716296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_14
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1
+        width: 90
+        height: 72
+      alignment: 9
+      pivot: {x: 0.48145244, y: 0.48795694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63bd9b8fd1efd946a98a1ef25f6bd5d
+      internalID: 1545052513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_15
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 6
+        width: 94
+        height: 78
+      alignment: 9
+      pivot: {x: 0.6502257, y: 0.5286611}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae782a3c0f822b1459efb91cd1028c71
+      internalID: 873101038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_16
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 6
+        width: 102
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5670824, y: 0.5612257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5def234206f8416449f36cb481cc6dc3
+      internalID: 1181393869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet_decal_flesh_17
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 9
+        width: 91
+        height: 50
+      alignment: 9
+      pivot: {x: 0.41268218, y: 0.37458158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673849510cfc0c14388228b8d88190c5
+      internalID: 1020846444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      bullet_decal_flesh_2: 2112939567
+      bullet_decal_flesh_5: -380556424
+      bullet_decal_flesh_3: 307486011
+      bullet_decal_flesh_1: -1620311640
+      bullet_decal_flesh_14: 1545052513
+      bullet_decal_flesh_9: 126811361
+      bullet_decal_flesh_6: -1918391066
+      bullet_decal_flesh_15: 873101038
+      bullet_decal_flesh_11: -1677064100
+      bullet_decal_flesh_17: 1020846444
+      bullet_decal_flesh_16: 1181393869
+      bullet_decal_flesh_4: 81788402
+      bullet_decal_flesh_12: -636361589
+      bullet_decal_flesh_0: -894776560
+      bullet_decal_flesh_13: 435716296
+      bullet_decal_flesh_10: -1746765240
+      bullet_decal_flesh_7: 1082927192
+      bullet_decal_flesh_8: -85403686
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

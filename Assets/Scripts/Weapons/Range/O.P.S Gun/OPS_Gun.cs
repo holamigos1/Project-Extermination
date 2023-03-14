@@ -4,20 +4,15 @@ using GameData.AnimationTags;
 using GameData.Layers;
 using GameData.Tags;
 using GameData.Weapons;
-using GameSystems.Base;
+using GameExtensions;
 using Movement.SourseMovment;
-using Objects.Base;
 using UnityEngine;
 
 namespace Weapons.Range.O.P.S_Gun
 {
     //TODO Отрефактори это ↓ пж
-    public class OPS_Gun : RangeWeapon, IPickup, IDrop, IEquip
+    public class OPS_Gun : RangeWeapon
     {
-        public bool IsEquipped => _isEquipped;
-        public GameObject thisObject => gameObject;
-        public bool IsPickuped => _isEquipped;
-        
         [SerializeField] private AudioSource ConnectionSound;
         [SerializeField] private float MaxMagnitationDistance = 75;
         [SerializeField] private OPS_Display DisplayScript;
@@ -33,7 +28,6 @@ namespace Weapons.Range.O.P.S_Gun
         private LayerMask _otherLayerMask = LayerMask.GetMask();
         private Transform _placedVisableCharge;
         private Vector3 _rayEndPoint; //temp
-        private bool _isEquipped;
         private readonly float _sphereChekerRadius = 5f;
 
         private void Awake()
@@ -91,28 +85,6 @@ namespace Weapons.Range.O.P.S_Gun
             
             // поставть пушку в изночальный режим 
             DisplayScript.SetCharge((OPS_ChargeType)WeaponMode);
-        }
-
-        public void Equip()
-        {
-            gameObject.SetActive(true);
-            _isEquipped = true;
-            animator.enabled = true;
-            GetComponent<Rigidbody>().isKinematic = true;
-        }
-        
-        public GameObject Pickup()
-        {
-            gameObject.SetActive(false);
-            return gameObject;
-        }
-        
-        public void Drop()
-        {
-            _isEquipped = false;
-            animator.enabled = false;
-            GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
         }
         
         private void FixedUpdate()

@@ -49,13 +49,10 @@ namespace Weapons.Range.Base
         [TabGroup("Стекло")] 
         [SerializeField] [AssetSelector]  
         private Sprite[] GlassBulletDecals;
-
-        public static Sprite GetBulletHoleSprite(MaterialType materialType)
-        {
-            Sprite[] bulletHolesSprites = GetDecalsSprites(materialType);
-            int randomElem = Random.Range(0, bulletHolesSprites.Length);
-            return bulletHolesSprites[randomElem];
-        }
+        
+        [TabGroup("Мясо & Плоть")] 
+        [SerializeField] [AssetSelector]  
+        private Sprite[] FleshBulletDecals;
 
         private static Sprite[] GetDecalsSprites(MaterialType materialType)
         {
@@ -65,9 +62,18 @@ namespace Weapons.Range.Base
                 case MaterialType.Metal: return existingBulletDecals.MetalBulletDecals;
                 case MaterialType.Wood: return existingBulletDecals.WoodBulletDecals;
                 case MaterialType.Glass: return existingBulletDecals.GlassBulletDecals;
+                case MaterialType.Flesh: return existingBulletDecals.FleshBulletDecals;
                 default: return existingBulletDecals.DefualtBulletDecals;
             }
         }
+        
+        public static Sprite GetBulletHoleSprite(MaterialType materialType)
+        {
+            Sprite[] bulletHolesSprites = GetDecalsSprites(materialType);
+            int randomElem = Random.Range(0, bulletHolesSprites.Length);
+            return bulletHolesSprites[randomElem];
+        }
+        
         
         [MenuItem("Tools/Bullet Holes")]
         static void Open() =>
