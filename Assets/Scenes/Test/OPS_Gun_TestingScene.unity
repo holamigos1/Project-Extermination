@@ -2782,6 +2782,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2236337138603434083, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: movementConfig.gravity
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236337138603434083, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: movementConfig.jumpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236337138603434083, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: movementConfig.clampAirSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
       propertyPath: managedReferences[3621980735229657088]
       value: Assembly-CSharp Characters.Systems.RaycastSystem
