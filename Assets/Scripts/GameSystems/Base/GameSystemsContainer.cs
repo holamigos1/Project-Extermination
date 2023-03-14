@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Object = System.Object;
 
@@ -15,7 +16,8 @@ namespace GameSystems.Base
         public event Action<string, object>? Notify;
         public IEnumerable<GameSystem> GameSystems => _gameSystems;
 
-        [SerializeReference] 
+        [SerializeReference] [LabelText("Системы")]
+        [Title("Список используемых систем", "Добавь систем чтобы расширить функционал объекта", titleAlignment: TitleAlignments.Centered)]
         private List<GameSystem> _gameSystems = new List<GameSystem>();
 
         public void AddSystem(GameSystem gameSystemInst)

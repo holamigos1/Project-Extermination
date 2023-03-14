@@ -14,8 +14,16 @@ namespace Characters.Systems
     [Serializable]
     public class HandSystem : GameSystem
     {
-        [ShowInInspector] 
+        [Title("Обработчик руки персонажа.", 
+            "Руководит поведением предметов в руке.")]
+        [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
+        #pragma warning disable CS0219
+        private string info = "";
+        
+        [ShowInInspector] [LabelText("Подобранный предмет")]
         public Item EquippedItem => _equippedItem;
+
+        public HandSystem() { }
         
         public HandSystem(Transform handTransform)
         {
@@ -25,7 +33,7 @@ namespace Characters.Systems
         
         private Vector3 _handLocalStartPoint;
         
-        [SerializeField] [Required]
+        [SerializeField] [Required] [LabelText("Объект руки")]
         private Transform _handTransform;
         private Item _equippedItem;
         
@@ -66,19 +74,9 @@ namespace Characters.Systems
             
             if (requestObj.TryGetComponent(out Item itemObj) is false) return;
             
-            if (itemObj.PickUpType == PickUpType.InHand)
-            {
-                if (_equippedItem == null) 
-                    Equip(itemObj.Pickup());
-                else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
-                    
-                //TODO Логика перемещения в инвентарь
-            }
-            
-            if (itemObj.PickUpType == PickUpType.InInventory)
-            {
-                //TODO Логика перемещения в инвентарь
-            }
+            if (_equippedItem == null) 
+                Equip(itemObj.Pickup());
+            else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
         }
 
         private void Equip(Item itemInst)

@@ -1,14 +1,16 @@
 ﻿using GameSystems.Base;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Objects.Base
 {
+    [SelectionBase]
     public abstract class Unit : MonoBehaviour, ISystemsContainable
     {
         public GameSystemsContainer SystemsContainer => UnitSystemsContainer;
         
-        [SerializeField] 
-        protected GameSystemsContainer UnitSystemsContainer = new GameSystemsContainer();
+        [SerializeField] [HideLabel]
+        protected GameSystemsContainer UnitSystemsContainer;
 
         protected virtual void Awake() => UnitSystemsContainer.InitSystems();
         protected virtual void OnEnable() => UnitSystemsContainer.StartAllSystems();

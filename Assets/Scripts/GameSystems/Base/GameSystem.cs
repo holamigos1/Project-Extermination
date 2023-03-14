@@ -8,7 +8,7 @@ namespace GameSystems.Base
     [Serializable]
     public abstract class GameSystem : IObserver, IGameSystem, IDisposable
     {
-        [ToggleLeft] [ShowInInspector] [PropertyOrder(1)]
+        [ToggleLeft] [ShowInInspector] [PropertyOrder(-1)] [LabelText("Включена")]
         [GUIColor("@GameExtensions.Extensions.GetEnableToggleColor(_isEnabled)")] 
         public bool IsEnabled
         {
@@ -32,6 +32,7 @@ namespace GameSystems.Base
         public virtual void OnNotify(string message, System.Object data) { }
         public virtual object OnRequest(string message, object requestObject) => null;
         public virtual Task<object> OnAsyncRequest(string message, object requestObject) => null;
+        public virtual void Reset() { }
         public virtual void Start() { }
         public virtual void Update() { }
         public virtual void PhysicsUpdate() { }

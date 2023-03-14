@@ -81,7 +81,6 @@ namespace Weapons.Ammo
             newDecalMat.SetTexture("Base_Map", croppedTexture);
             decalInst.material = newDecalMat;
             decalInst.transform.parent = parent;
-            Debug.Log("ЖИЖОЧКИ");
             decalInst.StartCoroutine(DestroyDecal(decalInst.gameObject, DESTROY_DECAL_DELAY));
         }
 

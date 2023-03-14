@@ -1540,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 1795761990}
     - target: {fileID: 5167524204265322902, guid: 5d933c253bbc20a48b7380961db3f658, type: 3}
       propertyPath: m_VersionIndex
-      value: 36
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 6028946592162772893, guid: 5d933c253bbc20a48b7380961db3f658, type: 3}
       propertyPath: m_Layer
@@ -2529,6 +2529,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 715414697125170938, guid: 1f300fb370167c84cb7dd4ae14e7df03, type: 3}
+      propertyPath: managedReferences[3621980684785811486]._isEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 715414697125170938, guid: 1f300fb370167c84cb7dd4ae14e7df03, type: 3}
+      propertyPath: managedReferences[3621980684785811486]._healthPoints
+      value: 2077
+      objectReference: {fileID: 0}
     - target: {fileID: 3184868205608358182, guid: 1f300fb370167c84cb7dd4ae14e7df03, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2771,8 +2779,44 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: managedReferences[3621980735229657088]
+      value: Assembly-CSharp Characters.Systems.RaycastSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: UnitSystemsContainer._gameSystems.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: UnitSystemsContainer._gameSystems.Array.data[3]
+      value: 3621980684785811474
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: UnitSystemsContainer._gameSystems.Array.data[4]
+      value: 3621980735229657088
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
       propertyPath: managedReferences[3621980684785811471]._isEnabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: managedReferences[3621980735229657088]._isEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: managedReferences[3621980684785811474]._ownerReference
+      value: 
+      objectReference: {fileID: 2085742672}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: managedReferences[3621980684785811471]._maxHealthAmount
+      value: 2077
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: managedReferences[3621980735229657088]._raycastData._anyMonobeh
+      value: 
+      objectReference: {fileID: 2085742672}
+    - target: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+      propertyPath: managedReferences[3621980735229657088]._raycastData._rayblockLayers.m_Bits
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
@@ -2941,7 +2985,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82720
+  m_Name: pb_Mesh-1460
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3403,6 +3447,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936665052}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2085742672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9132852804367988416, guid: 7f0539bf5e47db949a7793212930d795, type: 3}
+  m_PrefabInstance: {fileID: 1613365619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e2cd2a50fa45039920a7e162d62e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2147293076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3508,6 +3563,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1865979093, guid: 3c6868be8461afd4c9f1511bf7feb9dc, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3501504265005618426, guid: 3c6868be8461afd4c9f1511bf7feb9dc, type: 3}
       propertyPath: m_Mesh
       value: 

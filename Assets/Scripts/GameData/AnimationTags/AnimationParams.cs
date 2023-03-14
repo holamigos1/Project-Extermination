@@ -14,7 +14,7 @@
         public const string IS_ITEM_EQUIPPED = "Is Equiped";
         public const string IS_ITEM_READY = "Is Ready";
         public const string ITEM_PICKUP = "On Pick Up";
-        public const string ITEM_EQUIPPED = "On Equip";
+        public const string ITEM_EQUIP_TRIGGER = "On Equip";
         public const string ITEM_HIDED = "On Hide";
 
         public const string RELOAD_TRIGGER = "Reload";

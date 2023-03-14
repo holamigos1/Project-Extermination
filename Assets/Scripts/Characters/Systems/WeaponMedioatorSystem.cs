@@ -1,6 +1,8 @@
 ﻿using System;
 using GameSystems.Base;
 using Objects.Base;
+using Sirenix.OdinInspector;
+using UnityEngine;
 using Weapons;
 
 namespace Characters.Systems
@@ -8,6 +10,14 @@ namespace Characters.Systems
     [Serializable]
     public class WeaponMediatorSystem : GameSystem
     {
+        [Title("Обработчик оружия.", 
+            "Отвечает за логику экипированного оружия.")]
+        [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
+        #pragma warning disable CS0219
+        private string info = "";
+        
+        [SerializeField] [LabelText("Владелец оружия")]
+        private Unit _ownerReference;
         private Weapon _weaponInHand;
 
         public override void Start()
@@ -49,6 +59,7 @@ namespace Characters.Systems
         private void HandleEquippedItem(Item item)
         {
             if (item.TryGetComponent(out _weaponInHand) is false) return;
+            _weaponInHand.SetOwner(_ownerReference);
             _weaponInHand.Equip();
         }
 

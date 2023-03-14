@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameSystems.Base;
 using GameSystems.GameCamera;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Characters.Systems
@@ -14,13 +15,21 @@ namespace Characters.Systems
     [Serializable]
     public class RaycastSystem : GameSystem
     {
+        [Title("Система каста лучей.", 
+            "Кастит лучи и возвращает объекты в которые лучи попали.")] 
+        [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
+        #pragma warning disable CS0219
+        private string _info = "";
+
+        public RaycastSystem() { }
+
         public RaycastSystem(RaycastSystemData raycastData) =>
             _raycastData = raycastData;
         
         private const float RAYCAST_RANGE = 5f; //TODO Убери в конфиг
         private const float RAYCAST_RATE = 0.1f;
-        
-        [SerializeField] 
+
+        [SerializeField] [BoxGroup("Данные для каста лучей")] [HideLabel]
         private RaycastSystemData _raycastData;
         private Transform _mainCameraTransform;
         private Coroutine _coroutine;
@@ -120,7 +129,12 @@ namespace Characters.Systems
             _rayblockLayers = rayblockLayers;
         }
         
-        [SerializeField] private LayerMask _rayblockLayers;
-        [SerializeField] private MonoBehaviour _anyMonobeh;
+        [SerializeField] 
+        [LabelText("Слои блокирующие луч")]
+        private LayerMask _rayblockLayers;
+        
+        [SerializeField] 
+        [LabelText("Любой скрипт MonoBehaviour")]
+        private MonoBehaviour _anyMonobeh;
     }
 }

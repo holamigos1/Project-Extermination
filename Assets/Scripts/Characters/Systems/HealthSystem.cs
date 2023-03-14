@@ -8,15 +8,22 @@ namespace Characters.Systems
     [Serializable]
     public class HealthSystem : GameSystem
     {
-        [ShowInInspector]
+        [Title("Обработчик очков здоровья юнита.", 
+            "Если эта сисетма отсуствует то обработка получения урона юнитом работать не будет.")]
+        [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
+        #pragma warning disable CS0219
+        private string info = "";
+        
+        [ShowInInspector] [LabelText("Здоровье")]
         [ProgressBar(0, "MaxHealthAmount", ColorGetter = "GetHealthBarColor")]
-        public float HealthPoints
+        public float HealthPoints 
         {
             get => _healthPoints;
             set
             {
-                if (_healthPoints < value && Application.isPlaying) ApplyDamage(_healthPoints - value);
-                if (_healthPoints > value && Application.isPlaying) HealthRestore(value - _healthPoints);
+                if (value < _healthPoints && Application.isPlaying) ApplyDamage(_healthPoints - value);
+                if (value > _healthPoints && Application.isPlaying) HealthRestore(value - _healthPoints);
+                
                 _healthPoints = value;
             }
         }
@@ -26,10 +33,13 @@ namespace Characters.Systems
         [HideInInspector]
         private float _healthPoints;
         
+        [MinValue(1)]
         [SerializeField]
+        [LabelText("Предел очков здоровья")]
         private float _maxHealthAmount;
         
         [SerializeField]
+        [LabelText("Бессмертие")]
         private bool _isImmortal;
 
         public HealthSystem()
@@ -65,11 +75,11 @@ namespace Characters.Systems
 
         public void ApplyDamage(float damageAmount)
         {
-            _healthPoints -= damageAmount;
-            if (_isImmortal) _healthPoints += damageAmount;
+            if (_isImmortal == false) 
+                _healthPoints -= damageAmount;
             
             if (_healthPoints > 0) 
-                SystemsСontainer.NotifySystems("Damage applied");
+                SystemsСontainer.NotifySystems("Damage applied", damageAmount);
             else {
                 _healthPoints = 0;
                 SystemsСontainer.NotifySystems("Died");

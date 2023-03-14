@@ -2,13 +2,21 @@
 using GameSystems.Base;
 using UnityEngine;
 using GameData.AnimationTags;
+using Sirenix.OdinInspector;
 
 namespace Characters.Systems
 {
     [Serializable]
     public class DollySystem : GameSystem
     {
-        [SerializeField] private Animator _dollyAnimator;
+        [Title("Система куклы.", 
+            "Ответчает за отображение урона, получаемое куклой.")]
+        [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
+        #pragma warning disable CS0219
+        private string info = "";
+
+        [SerializeField] 
+        private Animator _dollyAnimator;
 
         public override void Start()
         {
@@ -25,7 +33,6 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Damage applied":
-                    Debug.Log("DSADSA");
                     _dollyAnimator.SetTrigger(AnimationParams.DAMAGED); 
                     break;
             }
