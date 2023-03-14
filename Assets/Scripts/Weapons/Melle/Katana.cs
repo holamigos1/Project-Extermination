@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using GameData.AnimationTags;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Weapons.Basic;
 
@@ -9,17 +10,16 @@ namespace Weapons.Melle
     public class Katana : Weapon
     {
         private List<GameObject> _hitedRefs = new List<GameObject>();
+        [ShowInInspector] private bool _isAbleToDamage;
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(IsEquipped == false) return;
-            if(IsReady) return;
+            if(_isAbleToDamage == false) return;
             if(_hitedRefs.Contains(collision.gameObject)) return;
+            if(collision.gameObject == Owner.gameObject) return;
             
             if (collision.gameObject.TryGetComponent(out IWeaponVerifyer weaponVerifyer))
             {
-                if(collision.gameObject == Owner.gameObject) return;
-                
                 Debug.Log("Ударил " + collision.gameObject.name);
                 
                 _hitedRefs.Add(collision.gameObject);
@@ -46,5 +46,9 @@ namespace Weapons.Melle
             
             _hitedRefs.Clear();
         }
+
+        public void SetAbleToDamage(string isAble) =>
+            _isAbleToDamage = bool.Parse(isAble);
+        
     }
 }
