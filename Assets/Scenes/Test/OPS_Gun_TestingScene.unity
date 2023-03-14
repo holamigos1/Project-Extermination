@@ -426,6 +426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PT-9M Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 806197461105865363, guid: 62640340b96b03a46afd81a600754679, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 806197461105865367, guid: 62640340b96b03a46afd81a600754679, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -1552,15 +1556,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8876857015770884786, guid: 5d933c253bbc20a48b7380961db3f658, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 476.469
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8876857015770884786, guid: 5d933c253bbc20a48b7380961db3f658, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.547
+      value: -0.318
       objectReference: {fileID: 0}
     - target: {fileID: 8876857015770884786, guid: 5d933c253bbc20a48b7380961db3f658, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 525.27
+      value: -0.013377326
       objectReference: {fileID: 0}
     - target: {fileID: 8876857015770884786, guid: 5d933c253bbc20a48b7380961db3f658, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2985,7 +2989,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1460
+  m_Name: pb_Mesh-2770
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
