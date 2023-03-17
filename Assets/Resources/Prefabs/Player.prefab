@@ -181,6 +181,9 @@ MonoBehaviour:
       type: {class: HealthSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
         _isEnabled: 1
+        _healthPoints: 2077
+        _maxHealthAmount: 2077
+        _isImmortal: 0
     - rid: 3621980684785811472
       type: {class: OldInputMediatorSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
@@ -198,6 +201,7 @@ MonoBehaviour:
       type: {class: WeaponMediatorSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
         _isEnabled: 1
+        _ownerReference: {fileID: 0}
 --- !u!114 &6113251759678014310
 MonoBehaviour:
   m_ObjectHideFlags: 0
