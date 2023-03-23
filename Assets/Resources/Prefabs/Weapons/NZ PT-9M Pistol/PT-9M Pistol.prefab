@@ -1495,7 +1495,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ff817cc325288434598c7f301869fa8e, type: 2}
   m_CullingMode: 2
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1518,7 +1518,13 @@ MonoBehaviour:
   _damage: 10
   _shootForce: 100
   _ammoType: {fileID: -8273329044212282543, guid: 211e360025ff68f4b9144a2efceeaae3, type: 3}
-  _launchProjectilePoint: {fileID: 806197460989892911}
+  _launchProjectilePoint: {fileID: 806197460613357460}
+  States:
+    Hash: 0
+    Name: '[None]'
+  Parameters:
+    Hash: 0
+    Name: '[None]'
 --- !u!1 &806197461123134289
 GameObject:
   m_ObjectHideFlags: 0

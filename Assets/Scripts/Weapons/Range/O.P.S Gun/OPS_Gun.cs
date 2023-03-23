@@ -23,7 +23,6 @@ namespace Weapons.Range.O.P.S_Gun
         
         private bool _isHaveVisableCharge;
         private Transform _magnetationPlayerPoint;
-        private MagnitatonBehaviour _fpsCharController;
         private OPS_ChargeUIPointerPresenter _opsUIPointerScript;
         private LayerMask _otherLayerMask = LayerMask.GetMask();
         private Transform _placedVisableCharge;
@@ -36,7 +35,6 @@ namespace Weapons.Range.O.P.S_Gun
             animator = GetComponent<Animator>();
             _magnetationPlayerPoint = GameObject.FindWithTag(GameTags.MAGNET_POINT_TAG).transform;
             _opsUIPointerScript = FindObjectOfType<OPS_ChargeUIPointerPresenter>();
-            _fpsCharController = FindObjectOfType<MagnitatonBehaviour>();
 
             //двигаем бит еденицы слоя OPS_CHARGES_LAYER к нужной позиции
             _otherLayerMask = 1 << LayerMask.NameToLayer(GameLayers.OPS_CHARGES_LAYER);
@@ -232,9 +230,9 @@ namespace Weapons.Range.O.P.S_Gun
             {
                 //если нет то проверь, примагничен ли я уже
                 //если да то отмагниться
-                if (_fpsCharController.IsMagnetized) _fpsCharController.UnMagnetize();
+                //if (_fpsCharController.IsMagnetized) _fpsCharController.UnMagnetize();
                 //если нет то покажи на пушке что "нету видимого заряда"
-                else ShowDisplay_NoVisableCharge();
+                //else ShowDisplay_NoVisableCharge();
             }
         }
 
@@ -245,8 +243,8 @@ namespace Weapons.Range.O.P.S_Gun
         /// <param name="chargePosition"></param>
         private void Magnetize_ToPlacedCharge(Transform chargePosition)
         {
-            _fpsCharController.enabled = true;
-            _fpsCharController.Magnetize_ToPointByBack(chargePosition);
+            //_fpsCharController.enabled = true;
+            //_fpsCharController.Magnetize_ToPointByBack(chargePosition);
         }
 
         //регион с открытыми методами для вызова их из анимций пушки

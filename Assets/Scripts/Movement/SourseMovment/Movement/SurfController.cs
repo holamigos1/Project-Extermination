@@ -1,8 +1,10 @@
+using System;
 using Movement.SourseMovment.TraceUtil;
 using UnityEngine;
 
 namespace Movement.SourseMovment.Movement
 {
+    [Serializable]
     public class SurfController
     {
         private MovementConfig _config;
@@ -43,25 +45,25 @@ namespace Movement.SourseMovment.Movement
             _config = config;
             _deltaTime = deltaTime;
 
-            if (_surfer.moveData.laddersEnabled && !_surfer.moveData.climbingLadder)
+            if (_surfer.MoveData.laddersEnabled && !_surfer.MoveData.climbingLadder)
                 // Look for ladders
                 LadderCheck(new Vector3(1f, 0.95f, 1f),
-                    _surfer.moveData.velocity * Mathf.Clamp(Time.deltaTime * 2f, 0.025f, 0.25f));
+                    _surfer.MoveData.velocity * Mathf.Clamp(Time.deltaTime * 2f, 0.025f, 0.25f));
 
-            if (_surfer.moveData.laddersEnabled && _surfer.moveData.climbingLadder)
+            if (_surfer.MoveData.laddersEnabled && _surfer.MoveData.climbingLadder)
             {
                 LadderPhysics();
             }
-            else if (!_surfer.moveData.underwater)
+            else if (!_surfer.MoveData.underwater)
             {
-                if (_surfer.moveData.velocity.y <= 0f)
+                if (_surfer.MoveData.velocity.y <= 0f)
                     jumping = false;
 
                 // apply gravity
-                if (_surfer.groundObject == null)
+                if (_surfer.GroundObject == null)
                 {
-                    _surfer.moveData.velocity.y -= _surfer.moveData.gravityFactor * _config.gravity * _deltaTime;
-                    _surfer.moveData.velocity.y += _surfer.baseVelocity.y * _deltaTime;
+                    _surfer.MoveData.velocity.y -= _surfer.MoveData.gravityFactor * _config.Gravity * _deltaTime;
+                    _surfer.MoveData.velocity.y += _surfer.BaseVelocity.y * _deltaTime;
                 }
 
                 // input velocity, check for ground
@@ -74,23 +76,23 @@ namespace Movement.SourseMovment.Movement
                 UnderwaterPhysics();
             }
 
-            var yVel = _surfer.moveData.velocity.y;
-            _surfer.moveData.velocity.y = 0f;
-            _surfer.moveData.velocity = Vector3.ClampMagnitude(_surfer.moveData.velocity, _config.maxVelocity);
-            speed = _surfer.moveData.velocity.magnitude;
-            _surfer.moveData.velocity.y = yVel;
+            var yVel = _surfer.MoveData.velocity.y;
+            _surfer.MoveData.velocity.y = 0f;
+            _surfer.MoveData.velocity = Vector3.ClampMagnitude(_surfer.MoveData.velocity, _config.MaxVelocity);
+            speed = _surfer.MoveData.velocity.magnitude;
+            _surfer.MoveData.velocity.y = yVel;
 
-            if (_surfer.moveData.velocity.sqrMagnitude == 0f)
+            if (_surfer.MoveData.velocity.sqrMagnitude == 0f)
             {
                 // Do collisions while standing still
-                SurfPhysics.ResolveCollisions(_surfer.collider, ref _surfer.moveData.origin,
-                    ref _surfer.moveData.velocity, _surfer.moveData.rigidbodyPushForce, 1f, _surfer.moveData.stepOffset,
+                SurfPhysics.ResolveCollisions(_surfer.SurfCollider, ref _surfer.MoveData.origin,
+                    ref _surfer.MoveData.velocity, _surfer.MoveData.rigidbodyPushForce, 1f, _surfer.MoveData.stepOffset,
                     _surfer);
             }
             else
             {
                 var maxDistPerFrame = 0.2f;
-                var velocityThisFrame = _surfer.moveData.velocity * _deltaTime;
+                var velocityThisFrame = _surfer.MoveData.velocity * _deltaTime;
                 var velocityDistLeft = velocityThisFrame.magnitude;
                 var initialVel = velocityDistLeft;
                 while (velocityDistLeft > 0f)
@@ -100,16 +102,16 @@ namespace Movement.SourseMovment.Movement
 
                     // increment origin
                     var velThisLoop = velocityThisFrame * (amountThisLoop / initialVel);
-                    _surfer.moveData.origin += velThisLoop;
+                    _surfer.MoveData.origin += velThisLoop;
 
                     // don't penetrate walls
-                    SurfPhysics.ResolveCollisions(_surfer.collider, ref _surfer.moveData.origin,
-                        ref _surfer.moveData.velocity, _surfer.moveData.rigidbodyPushForce, amountThisLoop / initialVel,
-                        _surfer.moveData.stepOffset, _surfer);
+                    SurfPhysics.ResolveCollisions(_surfer.SurfCollider, ref _surfer.MoveData.origin,
+                        ref _surfer.MoveData.velocity, _surfer.MoveData.rigidbodyPushForce, amountThisLoop / initialVel,
+                        _surfer.MoveData.stepOffset, _surfer);
                 }
             }
 
-            _surfer.moveData.groundedTemp = _surfer.moveData.grounded;
+            _surfer.MoveData.groundedTemp = _surfer.MoveData.grounded;
 
             _surfer = null;
         }
@@ -118,11 +120,11 @@ namespace Movement.SourseMovment.Movement
         /// </summary>
         private void CalculateMovementVelocity()
         {
-            switch (_surfer.moveType)
+            switch (_surfer.MoveType)
             {
                 case MoveType.Walk:
 
-                    if (_surfer.groundObject == null)
+                    if (_surfer.GroundObject == null)
                     {
                         /*
                         // AIR MOVEMENT
@@ -131,10 +133,10 @@ namespace Movement.SourseMovment.Movement
                         wasSliding = false;
 
                         // apply movement from input
-                        _surfer.moveData.velocity += AirInputMovement();
+                        _surfer.MoveData.velocity += AirInputMovement();
 
                         // let the magic happen
-                        SurfPhysics.Reflect(ref _surfer.moveData.velocity, _surfer.collider, _surfer.moveData.origin,
+                        SurfPhysics.Reflect(ref _surfer.MoveData.velocity, _surfer.SurfCollider, _surfer.MoveData.origin,
                             _deltaTime);
                     }
                     else
@@ -146,14 +148,14 @@ namespace Movement.SourseMovment.Movement
                         // Sliding
                         if (!wasSliding)
                         {
-                            slideDirection = new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z)
+                            slideDirection = new Vector3(_surfer.MoveData.velocity.x, 0f, _surfer.MoveData.velocity.z)
                                 .normalized;
                             slideSpeedCurrent = Mathf.Max(_config.maximumSlideSpeed,
-                                new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z).magnitude);
+                                new Vector3(_surfer.MoveData.velocity.x, 0f, _surfer.MoveData.velocity.z).magnitude);
                         }
                         
-                        if (_surfer.moveData.velocity.magnitude > _config.minimumSlideSpeed &&
-                            _surfer.moveData.slidingEnabled && _surfer.moveData.crouching && slideDelay <= 0f)
+                        if (_surfer.MoveData.velocity.magnitude > _config.minimumSlideSpeed &&
+                            _surfer.MoveData.slidingEnabled && _surfer.MoveData.crouching && slideDelay <= 0f)
                         {
                             if (!wasSliding)
                                 slideSpeedCurrent = Mathf.Clamp(slideSpeedCurrent * _config.slideSpeedMultiplier,
@@ -172,7 +174,7 @@ namespace Movement.SourseMovment.Movement
 
                         wasSliding = false;
 
-                        var fric = crouching ? _config.crouchFriction : _config.friction;
+                        var fric = crouching ? _config.crouchFriction : _config.Friction;
                         var accel = crouching ? _config.crouchAcceleration : _config.acceleration;
                         var decel = crouching ? _config.crouchDeceleration : _config.deceleration;
 
@@ -180,14 +182,14 @@ namespace Movement.SourseMovment.Movement
                         var forward = Vector3.Cross(groundNormal, -playerTransform.right);
                         var right = Vector3.Cross(groundNormal, forward);
 
-                        var speed = _surfer.moveData.sprinting ? _config.sprintSpeed : _config.walkSpeed;
+                        var speed = _surfer.MoveData.sprinting ? _config.sprintSpeed : _config.walkSpeed;
                         if (crouching)
                             speed = _config.crouchSpeed;
 
                         Vector3 _wishDir;
 
                         // Jump and friction
-                        if (_surfer.moveData.wishJump)
+                        if (_surfer.MoveData.wishJump)
                         {
                             ApplyFriction(0.0f, true, true);
                             Jump();
@@ -196,39 +198,39 @@ namespace Movement.SourseMovment.Movement
 
                         ApplyFriction(1.0f * frictionMult, true, true);
 
-                        var forwardMove = _surfer.moveData.verticalAxis;
-                        var rightMove = _surfer.moveData.horizontalAxis;
+                        var forwardMove = _surfer.MoveData.verticalAxis;
+                        var rightMove = _surfer.MoveData.horizontalAxis;
 
                         _wishDir = forwardMove * forward + rightMove * right;
                         _wishDir.Normalize();
                         var moveDirNorm = _wishDir;
 
                         var forwardVelocity = Vector3.Cross(groundNormal,
-                            Quaternion.AngleAxis(-90, Vector3.up) * new Vector3(_surfer.moveData.velocity.x, 0f,
-                                _surfer.moveData.velocity.z));
+                            Quaternion.AngleAxis(-90, Vector3.up) * new Vector3(_surfer.MoveData.velocity.x, 0f,
+                                _surfer.MoveData.velocity.z));
 
                         // Set the target speed of the player
                         var _wishSpeed = _wishDir.magnitude;
                         _wishSpeed *= speed;
 
                         // Accelerate
-                        var yVel = _surfer.moveData.velocity.y;
+                        var yVel = _surfer.MoveData.velocity.y;
                         Accelerate(_wishDir, _wishSpeed, accel * Mathf.Min(frictionMult, 1f), false);
 
-                        var maxVelocityMagnitude = _config.maxVelocity;
-                        _surfer.moveData.velocity = Vector3.ClampMagnitude(
-                            new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z),
+                        var maxVelocityMagnitude = _config.MaxVelocity;
+                        _surfer.MoveData.velocity = Vector3.ClampMagnitude(
+                            new Vector3(_surfer.MoveData.velocity.x, 0f, _surfer.MoveData.velocity.z),
                             maxVelocityMagnitude);
-                        _surfer.moveData.velocity.y = yVel;
+                        _surfer.MoveData.velocity.y = yVel;
 
                         // Calculate how much slopes should affect movement
                         var yVelocityNew = forwardVelocity.normalized.y *
-                                           new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z)
+                                           new Vector3(_surfer.MoveData.velocity.x, 0f, _surfer.MoveData.velocity.z)
                                                .magnitude;
 
                         // Apply the Y-movement from slopes
-                        _surfer.moveData.velocity.y = yVelocityNew * (_wishDir.y < 0f ? 1.2f : 1.0f);
-                        var removableYVelocity = _surfer.moveData.velocity.y - yVelocityNew;
+                        _surfer.MoveData.velocity.y = yVelocityNew * (_wishDir.y < 0f ? 1.2f : 1.0f);
+                        var removableYVelocity = _surfer.MoveData.velocity.y - yVelocityNew;
                     }
 
                     break;
@@ -237,16 +239,16 @@ namespace Movement.SourseMovment.Movement
 
         private void UnderwaterPhysics()
         {
-            _surfer.moveData.velocity = Vector3.Lerp(_surfer.moveData.velocity, Vector3.zero,
+            _surfer.MoveData.velocity = Vector3.Lerp(_surfer.MoveData.velocity, Vector3.zero,
                 _config.underwaterVelocityDampening * _deltaTime);
 
             // Gravity
             if (!CheckGrounded())
-                _surfer.moveData.velocity.y -= _config.underwaterGravity * _deltaTime;
+                _surfer.MoveData.velocity.y -= _config.underwaterGravity * _deltaTime;
 
             // Swimming upwards
             if (Input.GetButton("Jump"))
-                _surfer.moveData.velocity.y += _config.swimUpSpeed * _deltaTime;
+                _surfer.MoveData.velocity.y += _config.swimUpSpeed * _deltaTime;
 
             var fric = _config.underwaterFriction;
             var accel = _config.underwaterAcceleration;
@@ -262,8 +264,8 @@ namespace Movement.SourseMovment.Movement
 
             Vector3 _wishDir;
 
-            var forwardMove = _surfer.moveData.verticalAxis;
-            var rightMove = _surfer.moveData.horizontalAxis;
+            var forwardMove = _surfer.MoveData.verticalAxis;
+            var rightMove = _surfer.MoveData.horizontalAxis;
 
             _wishDir = forwardMove * forward + rightMove * right;
             _wishDir.Normalize();
@@ -271,50 +273,50 @@ namespace Movement.SourseMovment.Movement
 
             var forwardVelocity = Vector3.Cross(groundNormal,
                 Quaternion.AngleAxis(-90, Vector3.up) *
-                new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z));
+                new Vector3(_surfer.MoveData.velocity.x, 0f, _surfer.MoveData.velocity.z));
 
             // Set the target speed of the player
             var _wishSpeed = _wishDir.magnitude;
             _wishSpeed *= speed;
 
             // Accelerate
-            var yVel = _surfer.moveData.velocity.y;
+            var yVel = _surfer.MoveData.velocity.y;
             Accelerate(_wishDir, _wishSpeed, accel, false);
 
-            var maxVelocityMagnitude = _config.maxVelocity;
-            _surfer.moveData.velocity = Vector3.ClampMagnitude(
-                new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z), maxVelocityMagnitude);
-            _surfer.moveData.velocity.y = yVel;
+            var maxVelocityMagnitude = _config.MaxVelocity;
+            _surfer.MoveData.velocity = Vector3.ClampMagnitude(
+                new Vector3(_surfer.MoveData.velocity.x, 0f, _surfer.MoveData.velocity.z), maxVelocityMagnitude);
+            _surfer.MoveData.velocity.y = yVel;
 
-            var yVelStored = _surfer.moveData.velocity.y;
-            _surfer.moveData.velocity.y = 0f;
+            var yVelStored = _surfer.MoveData.velocity.y;
+            _surfer.MoveData.velocity.y = 0f;
 
             // Calculate how much slopes should affect movement
             var yVelocityNew = forwardVelocity.normalized.y *
-                               new Vector3(_surfer.moveData.velocity.x, 0f, _surfer.moveData.velocity.z).magnitude;
+                               new Vector3(_surfer.MoveData.velocity.x, 0f, _surfer.MoveData.velocity.z).magnitude;
 
             // Apply the Y-movement from slopes
-            _surfer.moveData.velocity.y = Mathf.Min(Mathf.Max(0f, yVelocityNew) + yVelStored, speed);
+            _surfer.MoveData.velocity.y = Mathf.Min(Mathf.Max(0f, yVelocityNew) + yVelStored, speed);
 
             // Jumping out of water
-            var movingForwards = playerTransform.InverseTransformVector(_surfer.moveData.velocity).z > 0f;
+            var movingForwards = playerTransform.InverseTransformVector(_surfer.MoveData.velocity).z > 0f;
             var waterJumpTrace = TraceBounds(playerTransform.position,
                 playerTransform.position + playerTransform.forward * 0.1f, SurfPhysics.groundLayerMask);
             if (waterJumpTrace.hitCollider != null &&
-                Vector3.Angle(Vector3.up, waterJumpTrace.planeNormal) >= _config.slopeLimit &&
-                Input.GetButton("Jump") && !_surfer.moveData.cameraUnderwater && movingForwards)
-                _surfer.moveData.velocity.y = Mathf.Max(_surfer.moveData.velocity.y, _config.jumpForce);
+                Vector3.Angle(Vector3.up, waterJumpTrace.planeNormal) >= _config.SlopeLimit &&
+                Input.GetButton("Jump") && !_surfer.MoveData.cameraUnderwater && movingForwards)
+                _surfer.MoveData.velocity.y = Mathf.Max(_surfer.MoveData.velocity.y, _config.JumpForce);
         }
 
         private void LadderCheck(Vector3 colliderScale, Vector3 direction)
         {
-            if (_surfer.moveData.velocity.sqrMagnitude <= 0f)
+            if (_surfer.MoveData.velocity.sqrMagnitude <= 0f)
                 return;
 
             var foundLadder = false;
 
-            var hits = Physics.BoxCastAll(_surfer.moveData.origin,
-                Vector3.Scale(_surfer.collider.bounds.size * 0.5f, colliderScale),
+            var hits = Physics.BoxCastAll(_surfer.MoveData.origin,
+                Vector3.Scale(_surfer.SurfCollider.bounds.size * 0.5f, colliderScale),
                 Vector3.Scale(direction, new Vector3(1f, 0f, 1f)), Quaternion.identity, direction.magnitude,
                 SurfPhysics.groundLayerMask, QueryTriggerInteraction.Collide);
             foreach (var hit in hits)
@@ -324,7 +326,7 @@ namespace Movement.SourseMovment.Movement
                 {
                     var allowClimb = true;
                     var ladderAngle = Vector3.Angle(Vector3.up, hit.normal);
-                    if (_surfer.moveData.angledLaddersEnabled)
+                    if (_surfer.MoveData.angledLaddersEnabled)
                     {
                         if (hit.normal.y < 0f)
                         {
@@ -332,7 +334,7 @@ namespace Movement.SourseMovment.Movement
                         }
                         else
                         {
-                            if (ladderAngle <= _surfer.moveData.slopeLimit)
+                            if (ladderAngle <= _surfer.MoveData.slopeLimit)
                                 allowClimb = false;
                         }
                     }
@@ -344,25 +346,25 @@ namespace Movement.SourseMovment.Movement
                     if (allowClimb)
                     {
                         foundLadder = true;
-                        if (_surfer.moveData.climbingLadder == false)
+                        if (_surfer.MoveData.climbingLadder == false)
                         {
-                            _surfer.moveData.climbingLadder = true;
-                            _surfer.moveData.ladderNormal = hit.normal;
-                            _surfer.moveData.ladderDirection = -hit.normal * direction.magnitude * 2f;
+                            _surfer.MoveData.climbingLadder = true;
+                            _surfer.MoveData.ladderNormal = hit.normal;
+                            _surfer.MoveData.ladderDirection = -hit.normal * direction.magnitude * 2f;
 
-                            if (_surfer.moveData.angledLaddersEnabled)
+                            if (_surfer.MoveData.angledLaddersEnabled)
                             {
                                 var sideDir = hit.normal;
                                 sideDir.y = 0f;
                                 sideDir = Quaternion.AngleAxis(-90f, Vector3.up) * sideDir;
 
-                                _surfer.moveData.ladderClimbDir = Quaternion.AngleAxis(90f, sideDir) * hit.normal;
-                                _surfer.moveData.ladderClimbDir *=
-                                    1f / _surfer.moveData.ladderClimbDir.y; // Make sure Y is always 1
+                                _surfer.MoveData.ladderClimbDir = Quaternion.AngleAxis(90f, sideDir) * hit.normal;
+                                _surfer.MoveData.ladderClimbDir *=
+                                    1f / _surfer.MoveData.ladderClimbDir.y; // Make sure Y is always 1
                             }
                             else
                             {
-                                _surfer.moveData.ladderClimbDir = Vector3.up;
+                                _surfer.MoveData.ladderClimbDir = Vector3.up;
                             }
                         }
                     }
@@ -371,36 +373,36 @@ namespace Movement.SourseMovment.Movement
 
             if (!foundLadder)
             {
-                _surfer.moveData.ladderNormal = Vector3.zero;
-                _surfer.moveData.ladderVelocity = Vector3.zero;
-                _surfer.moveData.climbingLadder = false;
-                _surfer.moveData.ladderClimbDir = Vector3.up;
+                _surfer.MoveData.ladderNormal = Vector3.zero;
+                _surfer.MoveData.ladderVelocity = Vector3.zero;
+                _surfer.MoveData.climbingLadder = false;
+                _surfer.MoveData.ladderClimbDir = Vector3.up;
             }
         }
 
         private void LadderPhysics()
         {
-            _surfer.moveData.ladderVelocity = _surfer.moveData.ladderClimbDir * _surfer.moveData.verticalAxis * 6f;
+            _surfer.MoveData.ladderVelocity = _surfer.MoveData.ladderClimbDir * _surfer.MoveData.verticalAxis * 6f;
 
-            _surfer.moveData.velocity = Vector3.Lerp(_surfer.moveData.velocity, _surfer.moveData.ladderVelocity,
+            _surfer.MoveData.velocity = Vector3.Lerp(_surfer.MoveData.velocity, _surfer.MoveData.ladderVelocity,
                 Time.deltaTime * 10f);
 
-            LadderCheck(Vector3.one, _surfer.moveData.ladderDirection);
+            LadderCheck(Vector3.one, _surfer.MoveData.ladderDirection);
 
             var floorTrace = TraceToFloor();
-            if (_surfer.moveData.verticalAxis < 0f && floorTrace.hitCollider != null &&
-                Vector3.Angle(Vector3.up, floorTrace.planeNormal) <= _surfer.moveData.slopeLimit)
+            if (_surfer.MoveData.verticalAxis < 0f && floorTrace.hitCollider != null &&
+                Vector3.Angle(Vector3.up, floorTrace.planeNormal) <= _surfer.MoveData.slopeLimit)
             {
-                _surfer.moveData.velocity = _surfer.moveData.ladderNormal * 0.5f;
-                _surfer.moveData.ladderVelocity = Vector3.zero;
-                _surfer.moveData.climbingLadder = false;
+                _surfer.MoveData.velocity = _surfer.MoveData.ladderNormal * 0.5f;
+                _surfer.MoveData.ladderVelocity = Vector3.zero;
+                _surfer.MoveData.climbingLadder = false;
             }
 
-            if (_surfer.moveData.wishJump)
+            if (_surfer.MoveData.wishJump)
             {
-                _surfer.moveData.velocity = _surfer.moveData.ladderNormal * 4f;
-                _surfer.moveData.ladderVelocity = Vector3.zero;
-                _surfer.moveData.climbingLadder = false;
+                _surfer.MoveData.velocity = _surfer.MoveData.ladderNormal * 4f;
+                _surfer.MoveData.ladderVelocity = Vector3.zero;
+                _surfer.MoveData.climbingLadder = false;
             }
         }
 
@@ -412,7 +414,7 @@ namespace Movement.SourseMovment.Movement
             float _currentSpeed;
 
             // again, no idea
-            _currentSpeed = Vector3.Dot(_surfer.moveData.velocity, wishDir);
+            _currentSpeed = Vector3.Dot(_surfer.MoveData.velocity, wishDir);
             _addSpeed = wishSpeed - _currentSpeed;
 
             // If you're not actually increasing your speed, stop here.
@@ -423,15 +425,15 @@ namespace Movement.SourseMovment.Movement
             _accelerationSpeed = Mathf.Min(acceleration * _deltaTime * wishSpeed, _addSpeed);
 
             // Add the velocity.
-            _surfer.moveData.velocity.x += _accelerationSpeed * wishDir.x;
-            if (yMovement) _surfer.moveData.velocity.y += _accelerationSpeed * wishDir.y;
-            _surfer.moveData.velocity.z += _accelerationSpeed * wishDir.z;
+            _surfer.MoveData.velocity.x += _accelerationSpeed * wishDir.x;
+            if (yMovement) _surfer.MoveData.velocity.y += _accelerationSpeed * wishDir.y;
+            _surfer.MoveData.velocity.z += _accelerationSpeed * wishDir.z;
         }
 
         private void ApplyFriction(float t, bool yAffected, bool grounded)
         {
             // Initialise variables
-            var _vel = _surfer.moveData.velocity;
+            var _vel = _surfer.MoveData.velocity;
             float _speed;
             float _newSpeed;
             float _control;
@@ -442,7 +444,7 @@ namespace Movement.SourseMovment.Movement
             _speed = _vel.magnitude;
             _drop = 0.0f;
 
-            var fric = crouching ? _config.crouchFriction : _config.friction;
+            var fric = crouching ? _config.crouchFriction : _config.Friction;
             var accel = crouching ? _config.crouchAcceleration : _config.acceleration;
             var decel = crouching ? _config.crouchDeceleration : _config.deceleration;
 
@@ -450,7 +452,7 @@ namespace Movement.SourseMovment.Movement
             if (grounded)
             {
                 // i honestly have no idea what this does tbh
-                _vel.y = _surfer.moveData.velocity.y;
+                _vel.y = _surfer.MoveData.velocity.y;
                 _control = _speed < decel ? decel : _speed;
                 _drop = _control * fric * _deltaTime * t;
             }
@@ -461,9 +463,9 @@ namespace Movement.SourseMovment.Movement
                 _newSpeed /= _speed;
 
             // Set the end-velocity
-            _surfer.moveData.velocity.x *= _newSpeed;
-            if (yAffected) _surfer.moveData.velocity.y *= _newSpeed;
-            _surfer.moveData.velocity.z *= _newSpeed;
+            _surfer.MoveData.velocity.x *= _newSpeed;
+            if (yAffected) _surfer.MoveData.velocity.y *= _newSpeed;
+            _surfer.MoveData.velocity.z *= _newSpeed;
         }
 
         /// <summary>
@@ -476,13 +478,13 @@ namespace Movement.SourseMovment.Movement
 
             GetWishValues(out wishVel, out wishDir, out wishSpeed);
 
-            if (_config.clampAirSpeed && wishSpeed != 0f && wishSpeed > _config.maxSpeed)
+            if (_config.clampAirSpeed && wishSpeed != 0f && wishSpeed > _config.MaxSpeed)
             {
-                wishVel = wishVel * (_config.maxSpeed / wishSpeed);
-                wishSpeed = _config.maxSpeed;
+                wishVel = wishVel * (_config.MaxSpeed / wishSpeed);
+                wishSpeed = _config.MaxSpeed;
             }
 
-            return SurfPhysics.AirAccelerate(_surfer.moveData.velocity, wishDir, wishSpeed, _config.airAcceleration,
+            return SurfPhysics.AirAccelerate(_surfer.MoveData.velocity, wishDir, wishSpeed, _config.airAcceleration,
                 _config.airCap, _deltaTime);
         }
 
@@ -497,8 +499,8 @@ namespace Movement.SourseMovment.Movement
             wishDir = Vector3.zero;
             wishSpeed = 0f;
 
-            Vector3 forward = _surfer.forward,
-                right = _surfer.right;
+            Vector3 forward = _surfer.Forward,
+                right = _surfer.Right;
 
             forward[1] = 0;
             right[1] = 0;
@@ -506,7 +508,7 @@ namespace Movement.SourseMovment.Movement
             right.Normalize();
 
             for (var i = 0; i < 3; i++)
-                wishVel[i] = forward[i] * _surfer.moveData.forwardMove + right[i] * _surfer.moveData.sideMove;
+                wishVel[i] = forward[i] * _surfer.MoveData.forwardMove + right[i] * _surfer.MoveData.sideMove;
             wishVel[1] = 0;
 
             wishSpeed = wishVel.magnitude;
@@ -519,10 +521,10 @@ namespace Movement.SourseMovment.Movement
         /// <param name="jumpPower"></param>
         private void Jump()
         {
-            if (!_config.autoBhop)
-                _surfer.moveData.wishJump = false;
+            if (!_config.AutoBhop)
+                _surfer.MoveData.wishJump = false;
 
-            _surfer.moveData.velocity.y += _config.jumpForce;
+            _surfer.MoveData.velocity.y += _config.JumpForce;
             jumping = true;
         }
 
@@ -530,19 +532,19 @@ namespace Movement.SourseMovment.Movement
         /// </summary>
         private bool CheckGrounded()
         {
-            _surfer.moveData.surfaceFriction = 1f;
-            var movingUp = _surfer.moveData.velocity.y > 0f;
+            _surfer.MoveData.surfaceFriction = 1f;
+            var movingUp = _surfer.MoveData.velocity.y > 0f;
             var trace = TraceToFloor();
 
             var groundSteepness = Vector3.Angle(Vector3.up, trace.planeNormal);
 
-            if (trace.hitCollider == null || groundSteepness > _config.slopeLimit ||
-                (jumping && _surfer.moveData.velocity.y > 0f))
+            if (trace.hitCollider == null || groundSteepness > _config.SlopeLimit ||
+                (jumping && _surfer.MoveData.velocity.y > 0f))
             {
                 SetGround(null);
 
-                if (movingUp && _surfer.moveType != MoveType.Noclip)
-                    _surfer.moveData.surfaceFriction = _config.airFriction;
+                if (movingUp && _surfer.MoveType != MoveType.Noclip)
+                    _surfer.MoveData.surfaceFriction = _config.airFriction;
 
                 return false;
             }
@@ -559,12 +561,12 @@ namespace Movement.SourseMovment.Movement
         {
             if (obj != null)
             {
-                _surfer.groundObject = obj;
-                _surfer.moveData.velocity.y = 0;
+                _surfer.GroundObject = obj;
+                _surfer.MoveData.velocity.y = 0;
             }
             else
             {
-                _surfer.groundObject = null;
+                _surfer.GroundObject = null;
             }
         }
 
@@ -576,7 +578,7 @@ namespace Movement.SourseMovment.Movement
         /// <returns></returns>
         private Trace TraceBounds(Vector3 start, Vector3 end, int layerMask)
         {
-            return Tracer.TraceCollider(_surfer.collider, start, end, layerMask);
+            return Tracer.TraceCollider(_surfer.SurfCollider, start, end, layerMask);
         }
 
         /// <summary>
@@ -584,10 +586,10 @@ namespace Movement.SourseMovment.Movement
         /// <returns></returns>
         private Trace TraceToFloor()
         {
-            var down = _surfer.moveData.origin;
+            var down = _surfer.MoveData.origin;
             down.y -= 0.15f;
 
-            return Tracer.TraceCollider(_surfer.collider, _surfer.moveData.origin, down, SurfPhysics.groundLayerMask);
+            return Tracer.TraceCollider(_surfer.SurfCollider, _surfer.MoveData.origin, down, SurfPhysics.groundLayerMask);
         }
 
         public void Crouch(ISurfControllable surfer, MovementConfig config, float deltaTime)
@@ -599,14 +601,14 @@ namespace Movement.SourseMovment.Movement
             if (_surfer == null)
                 return;
 
-            if (_surfer.collider == null)
+            if (_surfer.SurfCollider == null)
                 return;
 
-            var grounded = _surfer.groundObject != null;
-            var wantsToCrouch = _surfer.moveData.crouching;
+            var grounded = _surfer.GroundObject != null;
+            var wantsToCrouch = _surfer.MoveData.crouching;
 
-            var crouchingHeight = Mathf.Clamp(_surfer.moveData.crouchingHeight, 0.01f, 1f);
-            var heightDifference = _surfer.moveData.defaultHeight - _surfer.moveData.defaultHeight * crouchingHeight;
+            var crouchingHeight = Mathf.Clamp(_surfer.MoveData.crouchingHeight, 0.01f, 1f);
+            var heightDifference = _surfer.MoveData.defaultHeight - _surfer.MoveData.defaultHeight * crouchingHeight;
 
             if (grounded)
                 uncrouchDown = false;
@@ -614,7 +616,7 @@ namespace Movement.SourseMovment.Movement
             // Crouching input
             if (grounded)
                 crouchLerp = Mathf.Lerp(crouchLerp, wantsToCrouch ? 1f : 0f,
-                    _deltaTime * _surfer.moveData.crouchingSpeed);
+                    _deltaTime * _surfer.MoveData.crouchingSpeed);
             else if (!grounded && !wantsToCrouch && crouchLerp < 0.95f)
                 crouchLerp = 0f;
             else if (!grounded && wantsToCrouch)
@@ -625,25 +627,25 @@ namespace Movement.SourseMovment.Movement
             {
                 // Begin crouching
                 crouching = true;
-                if (_surfer.collider.GetType() == typeof(BoxCollider))
+                if (_surfer.SurfCollider.GetType() == typeof(BoxCollider))
                 {
                     // Box collider
-                    var boxCollider = (BoxCollider)_surfer.collider;
-                    boxCollider.size = new Vector3(boxCollider.size.x, _surfer.moveData.defaultHeight * crouchingHeight,
+                    var boxCollider = (BoxCollider)_surfer.SurfCollider;
+                    boxCollider.size = new Vector3(boxCollider.size.x, _surfer.MoveData.defaultHeight * crouchingHeight,
                         boxCollider.size.z);
                 }
-                else if (_surfer.collider.GetType() == typeof(CapsuleCollider))
+                else if (_surfer.SurfCollider.GetType() == typeof(CapsuleCollider))
                 {
                     // Capsule collider
-                    var capsuleCollider = (CapsuleCollider)_surfer.collider;
-                    capsuleCollider.height = _surfer.moveData.defaultHeight * crouchingHeight;
+                    var capsuleCollider = (CapsuleCollider)_surfer.SurfCollider;
+                    capsuleCollider.height = _surfer.MoveData.defaultHeight * crouchingHeight;
                 }
 
                 // Move position and stuff
-                _surfer.moveData.origin += heightDifference / 2 * (grounded ? Vector3.down : Vector3.up);
+                _surfer.MoveData.origin += heightDifference / 2 * (grounded ? Vector3.down : Vector3.up);
                 foreach (Transform child in playerTransform)
                 {
-                    if (child == _surfer.moveData.viewTransform)
+                    if (child == _surfer.MoveData.viewTransform)
                         continue;
 
                     child.localPosition = new Vector3(child.localPosition.x, child.localPosition.y * crouchingHeight,
@@ -656,10 +658,10 @@ namespace Movement.SourseMovment.Movement
             {
                 // Check if the player can uncrouch
                 var canUncrouch = true;
-                if (_surfer.collider.GetType() == typeof(BoxCollider))
+                if (_surfer.SurfCollider.GetType() == typeof(BoxCollider))
                 {
                     // Box collider
-                    var boxCollider = (BoxCollider)_surfer.collider;
+                    var boxCollider = (BoxCollider)_surfer.SurfCollider;
                     var halfExtents = boxCollider.size * 0.5f;
                     var startPos = boxCollider.transform.position;
                     var endPos = boxCollider.transform.position +
@@ -671,10 +673,10 @@ namespace Movement.SourseMovment.Movement
                     if (trace.hitCollider != null)
                         canUncrouch = false;
                 }
-                else if (_surfer.collider.GetType() == typeof(CapsuleCollider))
+                else if (_surfer.SurfCollider.GetType() == typeof(CapsuleCollider))
                 {
                     // Capsule collider
-                    var capsuleCollider = (CapsuleCollider)_surfer.collider;
+                    var capsuleCollider = (CapsuleCollider)_surfer.SurfCollider;
                     var point1 = capsuleCollider.center + Vector3.up * capsuleCollider.height * 0.5f;
                     var point2 = capsuleCollider.center + Vector3.down * capsuleCollider.height * 0.5f;
                     var startPos = capsuleCollider.transform.position;
@@ -692,22 +694,22 @@ namespace Movement.SourseMovment.Movement
                 if (canUncrouch && crouchLerp <= 0.9f)
                 {
                     crouching = false;
-                    if (_surfer.collider.GetType() == typeof(BoxCollider))
+                    if (_surfer.SurfCollider.GetType() == typeof(BoxCollider))
                     {
                         // Box collider
-                        var boxCollider = (BoxCollider)_surfer.collider;
-                        boxCollider.size = new Vector3(boxCollider.size.x, _surfer.moveData.defaultHeight,
+                        var boxCollider = (BoxCollider)_surfer.SurfCollider;
+                        boxCollider.size = new Vector3(boxCollider.size.x, _surfer.MoveData.defaultHeight,
                             boxCollider.size.z);
                     }
-                    else if (_surfer.collider.GetType() == typeof(CapsuleCollider))
+                    else if (_surfer.SurfCollider.GetType() == typeof(CapsuleCollider))
                     {
                         // Capsule collider
-                        var capsuleCollider = (CapsuleCollider)_surfer.collider;
-                        capsuleCollider.height = _surfer.moveData.defaultHeight;
+                        var capsuleCollider = (CapsuleCollider)_surfer.SurfCollider;
+                        capsuleCollider.height = _surfer.MoveData.defaultHeight;
                     }
 
                     // Move position and stuff
-                    _surfer.moveData.origin += heightDifference / 2 * (uncrouchDown ? Vector3.down : Vector3.up);
+                    _surfer.MoveData.origin += heightDifference / 2 * (uncrouchDown ? Vector3.down : Vector3.up);
                     foreach (Transform child in playerTransform)
                         child.localPosition = new Vector3(child.localPosition.x,
                             child.localPosition.y / crouchingHeight, child.localPosition.z);
@@ -719,14 +721,14 @@ namespace Movement.SourseMovment.Movement
 
             // Changing camera position
             if (!crouching)
-                _surfer.moveData.viewTransform.localPosition = Vector3.Lerp(
-                    _surfer.moveData.viewTransformDefaultLocalPos,
-                    _surfer.moveData.viewTransformDefaultLocalPos * crouchingHeight +
+                _surfer.MoveData.viewTransform.localPosition = Vector3.Lerp(
+                    _surfer.MoveData.viewTransformDefaultLocalPos,
+                    _surfer.MoveData.viewTransformDefaultLocalPos * crouchingHeight +
                     Vector3.down * heightDifference * 0.5f, crouchLerp);
             else
-                _surfer.moveData.viewTransform.localPosition = Vector3.Lerp(
-                    _surfer.moveData.viewTransformDefaultLocalPos - Vector3.down * heightDifference * 0.5f,
-                    _surfer.moveData.viewTransformDefaultLocalPos * crouchingHeight, crouchLerp);
+                _surfer.MoveData.viewTransform.localPosition = Vector3.Lerp(
+                    _surfer.MoveData.viewTransformDefaultLocalPos - Vector3.down * heightDifference * 0.5f,
+                    _surfer.MoveData.viewTransformDefaultLocalPos * crouchingHeight, crouchLerp);
         }
 
         private void SlideMovement()
@@ -745,10 +747,10 @@ namespace Movement.SourseMovment.Movement
                 (slideForward * slideSpeedCurrent).y * _deltaTime *
                 _config.downhillSlideSpeedMultiplier; // Accelerate downhill (-y = downward, - * - = +)
 
-            _surfer.moveData.velocity = slideForward * slideSpeedCurrent;
+            _surfer.MoveData.velocity = slideForward * slideSpeedCurrent;
 
             // Jump
-            if (_surfer.moveData.wishJump &&
+            if (_surfer.MoveData.wishJump &&
                 slideSpeedCurrent < _config.minimumSlideSpeed * _config.slideSpeedMultiplier)
                 Jump();
         }

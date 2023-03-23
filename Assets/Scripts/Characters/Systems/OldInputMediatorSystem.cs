@@ -12,7 +12,7 @@ namespace Characters.Systems
         [Title("Проводник старой Input системы.", 
             "Является костылём и уберётся когда у программиста дойдут руки.")] 
         [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
-        #pragma warning disable CS0219
+        #pragma warning disable CS0219, CS0414
         private string info = "";
         
         public override void Start()

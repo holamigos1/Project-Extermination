@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sirenix.OdinInspector;
@@ -7,25 +8,30 @@ using Object = System.Object;
 
 namespace GameSystems.Base
 {
-    #nullable enable
     [Serializable]
     public class GameSystemsContainer
     {
         public event Action? Update;
         public event Action? PhysUpdate;
         public event Action<string, object>? Notify;
+        public MonoBehaviour SystemsOwner => _systemsOwner;
         public IEnumerable<GameSystem> GameSystems => _gameSystems;
 
         [SerializeReference] [LabelText("Системы")]
         [Title("Список используемых систем", "Добавь систем чтобы расширить функционал объекта", titleAlignment: TitleAlignments.Centered)]
         private List<GameSystem> _gameSystems = new List<GameSystem>();
 
+        private MonoBehaviour _systemsOwner = null!;
+
         public void AddSystem(GameSystem gameSystemInst)
         {
             gameSystemInst.DefineContainer(this);
             _gameSystems.Add(gameSystemInst);
         }
-
+        
+        public void SetOwner(MonoBehaviour owner) =>
+            _systemsOwner = owner;
+        
         public void InitSystems() =>
             _gameSystems.ForEach(system => system.DefineContainer(this));
         
@@ -36,17 +42,17 @@ namespace GameSystems.Base
             gameSystemInst.Start();
         
         public void NotifySystems(string message) =>
-            Notify?.Invoke(message, null);
-        public void NotifySystems(string message, System.Object data) =>
+            Notify?.Invoke(message, null!);
+        public void NotifySystems(string message, object data) =>
             Notify?.Invoke(message, data);
         
         public List<object>? MakeRequest(string message) => 
-            MakeRequest(message, null);
+            MakeRequest(message, "");
         public List<object>? MakeRequest(string message, object requestObject)
         {
             List<object> responseList = new List<object>();
 
-            foreach (GameSystem? system in _gameSystems)
+            foreach (GameSystem system in _gameSystems)
             {
                 Object response = system.OnRequest(message, requestObject);
                 if(response != null) responseList.Add(response);
@@ -65,7 +71,7 @@ namespace GameSystems.Base
             List<Task<object>> tasks = new List<Task<object>>();
             List<object> responseList = new List<object>();
 
-            foreach (var system in _gameSystems)
+            foreach (GameSystem system in _gameSystems)
             {
                 if(system.IsEnabled == false) continue;
                 Task<object> task = system.OnAsyncRequest(message, requestObject);
@@ -91,13 +97,10 @@ namespace GameSystems.Base
 
         public bool TryGetSystem<T>(out GameSystem systemInst) where T : GameSystem
         {
-            GameSystem? desiredSystem = GetSystem<T>();
-            systemInst = null;
+            systemInst = GetSystem<T>()!;
             
-            if (desiredSystem != null) 
-                systemInst = desiredSystem;
-
-            return desiredSystem != null;
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+            return systemInst != null;
         }
         
         public GameSystem? GetSystem<T>() where T: GameSystem => 

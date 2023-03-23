@@ -8,6 +8,9 @@ namespace GameSystems.Base
     [Serializable]
     public abstract class GameSystem : IObserver, IGameSystem, IDisposable
     {
+        public GameSystem() { }
+        
+        
         [ToggleLeft] [ShowInInspector] [PropertyOrder(-1)] [LabelText("Включена")]
         [GUIColor("@GameExtensions.Extensions.GetEnableToggleColor(_isEnabled)")] 
         public bool IsEnabled
@@ -16,7 +19,6 @@ namespace GameSystems.Base
             set
             {
                 if (value == _isEnabled) return;
-                
                 if (value == true && Application.isPlaying) Start();
                 if (value == false && Application.isPlaying) Stop();
                 _isEnabled = value;
@@ -25,7 +27,8 @@ namespace GameSystems.Base
         
         protected GameSystemsContainer SystemsСontainer;
         
-        [SerializeField][HideInInspector] 
+        [SerializeField]
+        [HideInInspector] 
         private bool _isEnabled = true;
 
         public void DefineContainer(GameSystemsContainer container) => SystemsСontainer = container;

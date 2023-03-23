@@ -1,4 +1,5 @@
 ﻿using System;
+using GameObjects.Base;
 using GameSystems.Base;
 using Objects.Base;
 using Sirenix.OdinInspector;
@@ -13,7 +14,7 @@ namespace Characters.Systems
         [Title("Обработчик оружия.", 
             "Отвечает за логику экипированного оружия.")]
         [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
-        #pragma warning disable CS0219
+        #pragma warning disable CS0219, CS0414
         private string info = "";
         
         [SerializeField] [LabelText("Владелец оружия")]

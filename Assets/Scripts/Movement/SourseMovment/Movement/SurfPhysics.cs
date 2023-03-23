@@ -64,7 +64,7 @@ namespace Movement.SourseMovment.Movement
                         _colliders[i].transform.rotation, out direction, out distance))
                 {
                     // Step offset
-                    if (stepOffset > 0f && surfer != null && surfer.moveData.useStepOffset)
+                    if (stepOffset > 0f && surfer != null && surfer.MoveData.useStepOffset)
                         if (StepOffset(collider, _colliders[i], ref origin, ref velocity, rigidbodyPushForce,
                                 velocityMultiplier, stepOffset, direction, distance, forwardVelocity, surfer))
                             return;
@@ -101,13 +101,13 @@ namespace Movement.SourseMovment.Movement
             // Trace ground
             var groundTrace = Tracer.TraceCollider(collider, origin, origin + Vector3.down * 0.1f, groundLayerMask);
             if (groundTrace.hitCollider == null ||
-                Vector3.Angle(Vector3.up, groundTrace.planeNormal) > surfer.moveData.slopeLimit)
+                Vector3.Angle(Vector3.up, groundTrace.planeNormal) > surfer.MoveData.slopeLimit)
                 return false;
 
             // Trace wall
             var wallTrace = Tracer.TraceCollider(collider, origin, origin + velocity, groundLayerMask, 0.9f);
             if (wallTrace.hitCollider == null ||
-                Vector3.Angle(Vector3.up, wallTrace.planeNormal) <= surfer.moveData.slopeLimit)
+                Vector3.Angle(Vector3.up, wallTrace.planeNormal) <= surfer.MoveData.slopeLimit)
                 return false;
 
             // Trace upwards (check for roof etc)
@@ -147,7 +147,7 @@ namespace Movement.SourseMovment.Movement
             var verticalStep = Mathf.Clamp(upDistance - downDistance, 0f, stepOffset);
             var horizontalStep = forwardDistance;
             var stepAngle = Vector3.Angle(Vector3.forward, new Vector3(0f, verticalStep, horizontalStep));
-            if (stepAngle > surfer.moveData.slopeLimit)
+            if (stepAngle > surfer.MoveData.slopeLimit)
                 return false;
 
             // Get new position

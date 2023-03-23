@@ -18,7 +18,7 @@ namespace Characters.Systems
         [Title("Система каста лучей.", 
             "Кастит лучи и возвращает объекты в которые лучи попали.")] 
         [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
-        #pragma warning disable CS0219
+        #pragma warning disable CS0219, CS0414
         private string _info = "";
 
         public RaycastSystem() { }

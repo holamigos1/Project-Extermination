@@ -63,9 +63,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2236337138603434080}
-  - component: {fileID: 2236337138603434083}
   - component: {fileID: 9132852804367988416}
-  - component: {fileID: 6113251759678014310}
   - component: {fileID: 8856855526097715635}
   m_Layer: 7
   m_Name: Player
@@ -91,65 +89,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2236337138603434083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2236337138603434081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601d4686cc0b70d45a98271d52094850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderSize: {x: 0.75, y: 2, z: 0.75}
-  weight: 75
-  rigidbodyPushForce: 2
-  solidCollider: 1
-  viewTransform: {fileID: 2236337137530071557}
-  playerRotationTransform: {fileID: 2236337138603434080}
-  crouchingHeightMultiplier: 0.5
-  crouchingSpeed: 10
-  crouchingEnabled: 1
-  slidingEnabled: 0
-  laddersEnabled: 1
-  supportAngledLadders: 1
-  useStepOffset: 0
-  stepOffset: 0.35
-  movementConfig:
-    autoBhop: 1
-    gravity: 20
-    jumpForce: 6.5
-    friction: 6
-    maxSpeed: 6
-    maxVelocity: 50
-    slopeLimit: 45
-    clampAirSpeed: 0
-    airCap: 0.6
-    airAcceleration: 6
-    airFriction: 0.4
-    walkSpeed: 7
-    sprintSpeed: 12
-    acceleration: 14
-    deceleration: 10
-    crouchSpeed: 4
-    crouchAcceleration: 8
-    crouchDeceleration: 4
-    crouchFriction: 3
-    minimumSlideSpeed: 9
-    maximumSlideSpeed: 18
-    slideSpeedMultiplier: 1.75
-    slideFriction: 14
-    downhillSlideSpeedMultiplier: 2.5
-    slideDelay: 0.5
-    swimUpSpeed: 12
-    underwaterSwimSpeed: 3
-    underwaterAcceleration: 6
-    underwaterDeceleration: 3
-    underwaterFriction: 2
-    underwaterGravity: 6
-    underwaterVelocityDampening: 2
 --- !u!114 &9132852804367988416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +108,7 @@ MonoBehaviour:
     - rid: 3621980684785811472
     - rid: 3621980684785811473
     - rid: 3621980684785811474
+    - rid: 3621980954041778180
   references:
     version: 2
     RefIds:
@@ -201,22 +141,58 @@ MonoBehaviour:
       type: {class: WeaponMediatorSystem, ns: Characters.Systems, asm: Assembly-CSharp}
       data:
         _isEnabled: 1
-        _ownerReference: {fileID: 0}
---- !u!114 &6113251759678014310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2236337138603434081}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed45e545455f24140adb67c4f150a115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _connectionTime: 1
-  _isMagnetized: 0
-  _isInProccesMagnetized: 0
+        _ownerReference: {fileID: 9132852804367988416}
+    - rid: 3621980954041778180
+      type: {class: CharacterMovement, ns: Characters.Systems, asm: Assembly-CSharp}
+      data:
+        _isEnabled: 1
+        _colliderSize: {x: 1, y: 2, z: 1}
+        _weight: 75
+        _rigidbodyPushForce: 2
+        _solidCollider: 0
+        _cameraTransform: {fileID: 2236337137530071557}
+        _rootTransform: {fileID: 2236337138603434080}
+        _crouchingHeightMultiplier: 0.5
+        _crouchingSpeed: 10
+        _crouchingEnabled: 1
+        _slidingEnabled: 0
+        _laddersEnabled: 1
+        _supportAngledLadders: 1
+        _useStepOffset: 0
+        _stepOffset: 0.35
+        _movementConfig:
+          AutoBhop: 1
+          Gravity: 20
+          JumpForce: 6.5
+          Friction: 6
+          MaxSpeed: 6
+          MaxVelocity: 50
+          SlopeLimit: 45
+          clampAirSpeed: 1
+          airCap: 0.4
+          airAcceleration: 12
+          airFriction: 0.4
+          walkSpeed: 7
+          sprintSpeed: 12
+          acceleration: 14
+          deceleration: 10
+          crouchSpeed: 4
+          crouchAcceleration: 8
+          crouchDeceleration: 4
+          crouchFriction: 3
+          minimumSlideSpeed: 9
+          maximumSlideSpeed: 18
+          slideSpeedMultiplier: 1.75
+          slideFriction: 14
+          downhillSlideSpeedMultiplier: 2.5
+          slideDelay: 0.5
+          swimUpSpeed: 12
+          underwaterSwimSpeed: 3
+          underwaterAcceleration: 6
+          underwaterDeceleration: 3
+          underwaterFriction: 2
+          underwaterGravity: 6
+          underwaterVelocityDampening: 2
 --- !u!54 &8856855526097715635
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -376,10 +352,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6113251760520690882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.214, y: 0, z: 0.439}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 362149264955819362}
   m_Father: {fileID: 2236337137530071557}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,3 +500,65 @@ Transform:
   m_Father: {fileID: 2236337138603434080}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7630565936737797395
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6113251760520690883}
+    m_Modifications:
+    - target: {fileID: 7469355430525786827, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_Name
+      value: FPS Hands
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+--- !u!4 &362149264955819362 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7846303662500446321, guid: d3a0545ddbac1394c97bd7fdedfa78df, type: 3}
+  m_PrefabInstance: {fileID: 7630565936737797395}
+  m_PrefabAsset: {fileID: 0}

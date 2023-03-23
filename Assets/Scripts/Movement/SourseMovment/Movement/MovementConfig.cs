@@ -7,15 +7,15 @@ namespace Movement.SourseMovment.Movement
     public class MovementConfig
     {
         [Header("Jumping and gravity")] 
-        public bool autoBhop = true;
-        public float gravity = 20f;
-        public float jumpForce = 6.5f;
+        public bool AutoBhop = true;
+        public float Gravity;
+        public float JumpForce = 6.5f;
 
         [Header("General physics")] 
-        public float friction = 6f;
-        public float maxSpeed = 6f;
-        public float maxVelocity = 50f;
-        [Range(30f, 75f)] public float slopeLimit = 45f;
+        public float Friction = 6f;
+        public float MaxSpeed = 6f;
+        public float MaxVelocity = 50f;
+        [Range(30f, 75f)] public float SlopeLimit = 45f;
 
         [Header("Air movement")] 
         public bool clampAirSpeed = true;

@@ -4,6 +4,7 @@ using GameData.AnimationTags;
 using GameData.Layers;
 using GameData.Tags;
 using GameExtensions;
+using GameObjects.Base;
 using Objects.Base;
 using UnityEngine;
 

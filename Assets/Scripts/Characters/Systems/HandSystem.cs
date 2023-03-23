@@ -5,6 +5,7 @@ using GameSystems.Base;
 using Objects.Base;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Weapons;
 
 namespace Characters.Systems
 {
@@ -17,7 +18,7 @@ namespace Characters.Systems
         [Title("Обработчик руки персонажа.", 
             "Руководит поведением предметов в руке.")]
         [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
-        #pragma warning disable CS0219
+        #pragma warning disable CS0219, CS0414
         private string info = "";
         
         [ShowInInspector] [LabelText("Подобранный предмет")]
@@ -36,7 +37,7 @@ namespace Characters.Systems
         [SerializeField] [Required] [LabelText("Объект руки")]
         private Transform _handTransform;
         private Item _equippedItem;
-        
+        private FPSHands _hands;
 
         public override void Start() 
         {
@@ -72,10 +73,9 @@ namespace Characters.Systems
             
             GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
             
-            if (requestObj.TryGetComponent(out Item itemObj) is false) return;
+            if (requestObj.TryGetComponent(out Item itemObj) == false) return;
             
-            if (_equippedItem == null) 
-                Equip(itemObj.Pickup());
+            if (_equippedItem == null) Equip(itemObj.Pickup());
             else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
         }
 
