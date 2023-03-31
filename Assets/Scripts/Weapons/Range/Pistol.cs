@@ -1,22 +1,14 @@
-﻿using Animation;
-using Sirenix.OdinInspector;
+﻿using Weapons.Range.Base;
+using GameAnimation.Data;
 using UnityEngine;
-using Weapons.Range.Base;
 
 namespace Weapons.Range
 {
     public class Pistol : Firearm
     {
-        [BoxGroup("Стейты")][HideLabel]
-        public AnimatorStates States;
-        [BoxGroup("Парраметры")][HideLabel]
-        public AnimatorParameters Parameters;
-
-        void Start()
-        {
-            Debug.Log(States.Name); 
-            Debug.Log(States.Hash);
-            Debug.Log(ItemAnimator.GetCurrentStateName(0));
-        }
+        [SerializeField] private AnimationControllerState State;
+        [SerializeField] private AnimationControllerState State2;
+        [SerializeField] private AnimationControllerState State3;
+        [SerializeField] private AnimationControllerParameter Parameter;
     }
 }

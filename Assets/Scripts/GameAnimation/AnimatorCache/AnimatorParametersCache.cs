@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Animation;
+﻿using System.Collections.Generic;
+using GameAnimation;
+using GameAnimation.Data;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -21,34 +21,30 @@ namespace AnimatorCache
 
         public void SaveParameters(AnimatorController animController)
         {
+            int controllerInstanceID = animController.GetInstanceID();
+            
+            if(_animatorParametersDictionary.ContainsKey(controllerInstanceID) == false)
+                _animatorParametersDictionary.Add(controllerInstanceID, new Dictionary<int, (string, AnimatorControllerParameterType)>());
+
             foreach (var animParameter in animController.parameters)
-                _animatorParametersDictionary[animController.GetInstanceID()][animParameter.nameHash] =
-                    new(animParameter.name, animParameter.type);
+                _animatorParametersDictionary[controllerInstanceID]
+                    .TryAdd(animParameter.nameHash, (animParameter.name, animParameter.type));
         }
 
-        public AnimatorParameter[] LoadParameters(AnimatorController animController)
+        public AnimationControllerParameter[] LoadParameters(AnimatorController animController)
         {
-            if (!_animatorParametersDictionary.TryGetValue(animController.GetInstanceID(), 
-                    out var foundedParameter))
-            {
-                SaveParameters(animController);
-                AnimatorParameter[] response = LoadParameters(animController);
-                return response.Length == 0 ?
-                    Array.Empty<AnimatorParameter>() : 
-                    response;
-            }
+            int controllerInstanceID = animController.GetInstanceID();
+            
+            if (_animatorParametersDictionary.ContainsKey(controllerInstanceID) == false)
+                    SaveParameters(animController);
 
-            var loadedParametersArray = new AnimatorParameter[foundedParameter.Count];
+            var loadedParametersArray = new AnimationControllerParameter[_animatorParametersDictionary[controllerInstanceID].Count];
 
             int iterator = 0;
-            foreach (var parametersPair in foundedParameter)
-            {
-                loadedParametersArray[iterator].Hash = parametersPair.Key;
-                loadedParametersArray[iterator].Name = parametersPair.Value.Name;
-                loadedParametersArray[iterator].ParameterType = parametersPair.Value.Type;
-                iterator++;
-            }
-
+            foreach (var parametersPair in _animatorParametersDictionary[controllerInstanceID])
+                loadedParametersArray[iterator++] = 
+                    new AnimationControllerParameter(parametersPair.Key, parametersPair.Value.Name, parametersPair.Value.Type);
+            
             return loadedParametersArray;
         }
     }

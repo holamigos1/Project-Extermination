@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 9223ba046fd9e544d81c2cb838935779
+labels:
+- Icon
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

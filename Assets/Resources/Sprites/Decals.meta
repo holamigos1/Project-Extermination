@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 5b56ffe51d7f45949bf6872266b3dfb8
+labels:
+- Decal
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

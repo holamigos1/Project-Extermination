@@ -22,7 +22,7 @@ namespace Characters.Systems
             Capsule,
             Box
         }
-
+        
         public MoveType MoveType => MoveType.Walk;
         public MoveData MoveData { get; } = new();
 
@@ -38,6 +38,7 @@ namespace Characters.Systems
 
         [Header("Physics Settings")] 
         [SerializeField] private Vector3 _colliderSize = new(1f, 2f, 1f);
+        [SerializeField] private Vector3 _colliderCenter = new(0, 1f, 0);
         [SerializeField] private float _weight = 75f;
         [SerializeField] private float _rigidbodyPushForce = 2f;
         [SerializeField] private bool _solidCollider;
@@ -159,7 +160,7 @@ namespace Characters.Systems
 
                     var boxc = (BoxCollider)SurfCollider;
                     boxc.size = _colliderSize;
-
+                    boxc.center = _colliderCenter;
                     _defaultHeight = boxc.size.y;
 
                     break;
@@ -172,7 +173,7 @@ namespace Characters.Systems
                     var capc = (CapsuleCollider)SurfCollider;
                     capc.height = _colliderSize.y;
                     capc.radius = _colliderSize.x / 2f;
-
+                    capc.center = _colliderCenter;
                     _defaultHeight = capc.height;
 
                     break;

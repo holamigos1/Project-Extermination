@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Animation;
+﻿using System.Collections.Generic;
+using GameAnimation.Data;
 using UnityEditor.Animations;
 
-namespace AnimatorCache
+namespace GameAnimation.AnimatorCache
 {
-    readonly struct AnimatorLayersCache
+    internal readonly struct AnimatorLayersCache
     {
         public AnimatorLayersCache(int cacheSize)
         {
@@ -18,33 +17,29 @@ namespace AnimatorCache
 
         public void SaveLayers(AnimatorController animController)
         {
-            var iterator = 0;
-            foreach (AnimatorControllerLayer layer in animController.layers)
-                _animatorLayersDictionary[animController.GetInstanceID()][iterator++] = layer.name;
+            int controllerInstanceID = animController.GetInstanceID();
+            
+            if(_animatorLayersDictionary.ContainsKey(controllerInstanceID) == false)
+                _animatorLayersDictionary.Add(controllerInstanceID, new Dictionary<int, string>());
+            
+            ushort iterator = 0;
+            foreach (UnityEditor.Animations.AnimatorControllerLayer layer in animController.layers)
+                _animatorLayersDictionary[controllerInstanceID].TryAdd(iterator++, layer.name);
         }
 
-        public AnimatorLayer[] LoadLayers(AnimatorController animController)
+        public AnimationControllerLayer[] LoadLayers(AnimatorController animController)
         {
-            if (!_animatorLayersDictionary.TryGetValue(animController.GetInstanceID(), 
-                    out var foundedLayer))
-            {
-                SaveLayers(animController);
-                AnimatorLayer[] response = LoadLayers(animController);
-                return response.Length == 0 ?
-                    Array.Empty<AnimatorLayer>() : 
-                    response;
-            }
+            int controllerInstanceID = animController.GetInstanceID();
             
-            var loadedLayerArray = new AnimatorLayer[foundedLayer.Count];
+            if (_animatorLayersDictionary.ContainsKey(controllerInstanceID) == false)
+                    SaveLayers(animController);
+            
+            var loadedLayerArray = new AnimationControllerLayer[_animatorLayersDictionary[controllerInstanceID].Count];
 
             int iterator = 0;
-            foreach (var parametersPair in foundedLayer)
-            {
-                loadedLayerArray[iterator].Name = parametersPair.Value;
-                loadedLayerArray[iterator].LayerIndex = parametersPair.Key;
-                iterator++;
-            }
-
+            foreach (var parametersPair in _animatorLayersDictionary[controllerInstanceID])
+                loadedLayerArray[iterator++] = new AnimationControllerLayer(parametersPair.Key, parametersPair.Value, iterator);
+            
             return loadedLayerArray;
         }
     }

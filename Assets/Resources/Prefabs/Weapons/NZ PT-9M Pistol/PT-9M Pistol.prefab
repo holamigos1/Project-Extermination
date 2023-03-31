@@ -1519,12 +1519,22 @@ MonoBehaviour:
   _shootForce: 100
   _ammoType: {fileID: -8273329044212282543, guid: 211e360025ff68f4b9144a2efceeaae3, type: 3}
   _launchProjectilePoint: {fileID: 806197460613357460}
-  States:
-    Hash: 0
-    Name: '[None]'
-  Parameters:
-    Hash: 0
-    Name: '[None]'
+  State:
+    fullPathHash: 885627960
+    fullPathName: Base Layer.Shoot
+    name: Shoot
+  State2:
+    fullPathHash: 996585128
+    fullPathName: "Base Layer.New StateMachine.\u0411\u0435\u0431\u0440\u0430"
+    name: "\u0411\u0435\u0431\u0440\u0430"
+  State3:
+    fullPathHash: -1507367648
+    fullPathName: Base Layer.Reload
+    name: Reload
+  Parameter:
+    hash: -100720439
+    name: On Hide
+    parameterType: 9
 --- !u!1 &806197461123134289
 GameObject:
   m_ObjectHideFlags: 0

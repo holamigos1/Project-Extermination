@@ -37,7 +37,6 @@ namespace Characters.Systems
         [SerializeField] [Required] [LabelText("Объект руки")]
         private Transform _handTransform;
         private Item _equippedItem;
-        private FPSHands _hands;
 
         public override void Start() 
         {

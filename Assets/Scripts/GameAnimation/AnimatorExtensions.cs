@@ -1,22 +1,33 @@
-﻿using Animation;
+﻿using System;
 using AnimatorCache;
 using UnityEditor.Animations;
 using UnityEngine;
-using AnimatorState = Animation.AnimatorState;
+using GameAnimation.AnimatorCache;
+using GameAnimation.Data;
+using UnityEditor;
 
 public static class AnimatorExtensions
 {
     static AnimatorExtensions()
     {
-        Debug.Log("аЧЁ");
+        EditorApplication.playModeStateChanged += change =>
+        {
+            _animationStatesCache = new(cacheSize: 1000);
+            _animationLayersCache = new(cacheSize: 1000);
+            _animationParametersCache = new(cacheSize: 1000);
+        };
     }
+
+    //TODO Придумать куда убрать этот кеш
     
-    private static readonly AnimatorStatesCache AnimationStatesCache = new (cacheSize: 1000);
-    private static readonly AnimatorLayersCache AnimationLayersCache = new (cacheSize: 1000);
-    private static readonly AnimatorParametersCache AnimationParametersCache = new (cacheSize: 1000);
+    private static AnimatorStatesCache _animationStatesCache = new (cacheSize: 1000);
+    private static AnimatorLayersCache _animationLayersCache = new (cacheSize: 1000);
+    private static AnimatorParametersCache _animationParametersCache = new (cacheSize: 1000);
     
     public static string GetCurrentStateName(this Animator animator, int layerIndex)
     {
+        if (animator.runtimeAnimatorController == null) 
+            return null;
         if (animator.runtimeAnimatorController is not AnimatorController controller)
             return null;
 
@@ -25,24 +36,38 @@ public static class AnimatorExtensions
         return null;
     }
 
-    public static AnimatorState[] GetStatesNames(this AnimatorController animator)
+    public static AnimationControllerState[] GetStates(this AnimatorController animator)
     {
-        return AnimationStatesCache.LoadStates(animator);
+        return _animationStatesCache.LoadStates(animator);
     }
     
-    public static AnimatorState[] GetStatesNames(this Animator animator)
+    public static AnimationControllerState[] GetStates(this Animator animator)
     {
+        if (animator.runtimeAnimatorController == null) 
+            return Array.Empty<AnimationControllerState>();
         if (animator.runtimeAnimatorController is not AnimatorController controller)
             return null;
         
-        return AnimationStatesCache.LoadStates(controller);
+        return _animationStatesCache.LoadStates(controller);
     }
 
-    public static AnimatorParameter[] GetParametersNames(this Animator animator)
+    public static AnimationControllerParameter[] GetParameters(this Animator animator)
     {
+        if (animator.runtimeAnimatorController == null) 
+            return Array.Empty<AnimationControllerParameter>();
         if (animator.runtimeAnimatorController is not AnimatorController controller)
             return null;
         
-        return AnimationParametersCache.LoadParameters(controller);
+        return _animationParametersCache.LoadParameters(controller);
+    }
+    
+    public static AnimationControllerLayer[] GetLayers(this Animator animator)
+    {
+        if (animator.runtimeAnimatorController == null) 
+            return Array.Empty<AnimationControllerLayer>();
+        if (animator.runtimeAnimatorController is not AnimatorController controller)
+            return null;
+        
+        return _animationLayersCache.LoadLayers(controller);
     }
 }

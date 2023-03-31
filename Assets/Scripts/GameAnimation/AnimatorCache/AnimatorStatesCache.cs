@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using GameAnimation.Data;
 using UnityEditor.Animations;
-using Animation;
 using UnityEngine;
-using AnimatorState = Animation.AnimatorState;
 
 namespace AnimatorCache
 {
@@ -21,53 +19,45 @@ namespace AnimatorCache
 
         public void SaveStates(AnimatorController animController)
         {
+            int controllerInstanceID = animController.GetInstanceID();
+            
+            if(_animatorStatesDictionary.ContainsKey(controllerInstanceID) == false)
+                _animatorStatesDictionary.Add(controllerInstanceID, new Dictionary<int, (string, string)>());
+            
             foreach (AnimatorControllerLayer layer in animController.layers)
-            {
-                string fullNamePath = layer.name + "." + layer.stateMachine;
-                GetStatesNames(animController.GetInstanceID(), layer.stateMachine, fullNamePath);
-            }
+                GetStatesNames(controllerInstanceID, layer.stateMachine, layer.name);
         }
 
-        //TODO Рекурсия
+        //TODO Рекурсия, чекай стек
         private void GetStatesNames(int animControllerInst, AnimatorStateMachine animStateMachine, string fullNamePath)
         {
             foreach (ChildAnimatorState childState in animStateMachine.states)
-            {
-                fullNamePath = fullNamePath + "." + childState.state.name;
-                int pathHash = Animator.StringToHash(fullNamePath);
-                _animatorStatesDictionary[animControllerInst][pathHash] = new(fullNamePath, childState.state.name);
-            }
-            
+                _animatorStatesDictionary[animControllerInst].
+                    TryAdd(Animator.StringToHash(fullNamePath + "." + childState.state.name), 
+                        (fullNamePath + "." + childState.state.name, childState.state.name));
+
             foreach (ChildAnimatorStateMachine subStateMachines in animStateMachine.stateMachines)
-                GetStatesNames(animControllerInst, 
+                GetStatesNames(animControllerInst,
                     subStateMachines.stateMachine,
                     fullNamePath + "." + subStateMachines.stateMachine.name);
         }
 
-        public AnimatorState[] LoadStates(AnimatorController animController)
+        public AnimationControllerState[] LoadStates(AnimatorController animController)
         {
-            if (!_animatorStatesDictionary.TryGetValue(animController.GetInstanceID(), 
-                    out var foundedStatesPairs))
-            {
-                SaveStates(animController);
-                AnimatorState[] response = LoadStates(animController);
-                return response.Length == 0 ?
-                    Array.Empty<AnimatorState>() : 
-                    response;
-            }
+            int controllerInstanceID = animController.GetInstanceID();
+            
+            if (_animatorStatesDictionary.ContainsKey(controllerInstanceID) == false)
+                    SaveStates(animController);
 
-            var loadedStatesArray = new AnimatorState[foundedStatesPairs.Count];
+            var loadedStatesArray = new AnimationControllerState[_animatorStatesDictionary[controllerInstanceID].Count];
         
             //TODO если стейтов будет больше 1000 в контроллерах то надо заюзать Dictionary.AsParallel().ForAll(); (наверное это будет очень не скоро)
             
             int iterator = 0;
-            foreach (var parametersPair in foundedStatesPairs) 
-            {
-                loadedStatesArray[iterator].Name = parametersPair.Value.StateName;
-                loadedStatesArray[iterator].FullPathHash = parametersPair.Key;
-                iterator++;
-            }
-
+            foreach (var parametersPair in _animatorStatesDictionary[controllerInstanceID])
+                loadedStatesArray[iterator++] = 
+                    new AnimationControllerState(parametersPair.Key, parametersPair.Value.FullPathName, parametersPair.Value.StateName);
+            
             return loadedStatesArray;
         }
     }

@@ -33,4 +33,13 @@ namespace Misc
                 Mathf.Min(angle, to);
         }
     }
+
+    public static class BoolExtensions
+    {
+        public static bool IsFalse(this bool boolean) =>
+            boolean == false;
+        
+        public static bool IsTrue(this bool boolean) =>
+            boolean == true;
+    }
 }

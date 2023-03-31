@@ -866,6 +866,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1565280988593937319, guid: 01105ad442a2c6842a902b810878a5e6, type: 3}
+      propertyPath: m_EnabledChannels
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565280988593937319, guid: 01105ad442a2c6842a902b810878a5e6, type: 3}
       propertyPath: m_BlendShapes.JawOpen
       value: 0
       objectReference: {fileID: 0}
@@ -1011,7 +1015,8 @@ MonoBehaviour:
   boneSize: 1
   tripodSize: 1
   boneColor: {r: 0, g: 0, b: 1, a: 0.5}
-  m_Transforms: []
+  m_Transforms:
+  - {fileID: 0}
 --- !u!1 &5710712751572895728
 GameObject:
   m_ObjectHideFlags: 0
