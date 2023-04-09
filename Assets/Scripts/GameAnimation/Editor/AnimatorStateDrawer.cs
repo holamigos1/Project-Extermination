@@ -1,5 +1,6 @@
 ﻿using System;
 using GameAnimation.Data;
+using GameAnimation.Sheets.Base;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -37,6 +38,9 @@ namespace GameAnimation.Editor
         {
             if (property.CheckForAnimator(out Animator animator))
                 return animator.GetStates();
+            
+            var animatorSheet = property.serializedObject.targetObject as AnimatorParametersSheet;
+            if (animatorSheet != null) return animatorSheet.TargetController.GetStates();
 
             //todo проверки по остальным типам
             
@@ -56,8 +60,6 @@ namespace GameAnimation.Editor
                 for(int iterator = 0; iterator < _savedStates.Length; iterator++)
                     if (_savedStates[iterator] == _hashProperty.intValue)
                         _selectedIndex = iterator;
-            
-            //EditorGUI.showMixedValue = property.hasMultipleDifferentValues;
 
             var statesNames = GetStatesNames(_savedStates);
             

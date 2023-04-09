@@ -1,5 +1,6 @@
 ﻿using System;
 using GameAnimation.Data;
+using GameAnimation.Sheets.Base;
 using UnityEditor;
 using UnityEngine;
 
@@ -32,6 +33,9 @@ namespace GameAnimation.Editor
         {
             if (property.CheckForAnimator(out Animator animator))
                 return animator.GetLayers();
+            
+            var animatorSheet = property.serializedObject.targetObject as AnimatorParametersSheet;
+            if (animatorSheet != null) return animatorSheet.TargetController.GetLayers();
 
             //todo проверки по остальным типам
             

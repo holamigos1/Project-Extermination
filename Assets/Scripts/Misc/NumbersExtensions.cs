@@ -1,23 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
-
-public class UInt32
-{
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static implicit operator int(UInt32 value)
-    {
-        return (int)value;
-    }
-}
-    
-public class Int32
-{
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static implicit operator uint(Int32 value)
-    {
-        return (uint)value;
-    }
-}
+﻿using UnityEngine;
 
 public static class NumbersExtensions
 {

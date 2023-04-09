@@ -36,10 +36,24 @@ public static class AnimatorExtensions
         return null;
     }
 
-    public static AnimationControllerState[] GetStates(this AnimatorController animator)
-    {
-        return _animationStatesCache.LoadStates(animator);
-    }
+    public static AnimationControllerState[] GetStates(this AnimatorController animator) =>
+        _animationStatesCache.LoadStates(animator);
+    
+    public static AnimationControllerParameter[] GetParameters(this AnimatorController animator) =>
+        _animationParametersCache.LoadParameters(animator);
+    
+    public static AnimationControllerLayer[] GetLayers(this AnimatorController animator) =>
+        _animationLayersCache.LoadLayers(animator);
+    
+    public static AnimationControllerState[] GetStates(this RuntimeAnimatorController animator) =>
+        _animationStatesCache.LoadStates(animator as AnimatorController);
+    
+    public static AnimationControllerParameter[] GetParameters(this RuntimeAnimatorController animator) =>
+        _animationParametersCache.LoadParameters(animator as AnimatorController);
+    
+    public static AnimationControllerLayer[] GetLayers(this RuntimeAnimatorController animator) =>
+        _animationLayersCache.LoadLayers(animator as AnimatorController);
+    
     
     public static AnimationControllerState[] GetStates(this Animator animator)
     {

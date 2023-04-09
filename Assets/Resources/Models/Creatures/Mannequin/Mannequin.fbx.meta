@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 2ea0a7f8d6f70ad4ca2d676905726f9d
+labels:
+- Human
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -20,8 +22,70 @@ ModelImporter:
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'Idle Calm':\n\tLeftLowerLeg
+      average position error 4.4 mm and maximum position error 14.9 mm at time 3:29
+      (62.6%) Frame 119\n\tRightLowerLeg average position error 2.5 mm and maximum
+      position error 3.7 mm at time 3:20 (57.9%) Frame 110\n\nRetargeting quality
+      report for clip 'Armature|Falling.D':\n\tRetargeting quality is good. No significant
+      differences with original animation were found.\n\nRetargeting quality report
+      for clip 'Armature|Falling.D->Land.D':\n\tRightLowerArm average position error
+      0.2 mm and maximum position error 1.1 mm at time 0:13 (41.9%) Frame 13\n\nRetargeting
+      quality report for clip 'Armature|Idle Calm':\n\tLeftLowerLeg average position
+      error 4.4 mm and maximum position error 14.9 mm at time 3:29 (62.6%) Frame
+      119\n\tRightLowerLeg average position error 2.5 mm and maximum position error
+      3.7 mm at time 3:20 (57.9%) Frame 110\n\nRetargeting quality report for clip
+      'Armature|Jump.T & Land.D':\n\tLeftLowerLeg average position error 0.5 mm and
+      maximum position error 2.4 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg
+      average position error 1.2 mm and maximum position error 5.7 mm at time 0:
+      3 (4.6%) Frame 3\n\nRetargeting quality report for clip 'Armature|Running.B':\n\tLeftLowerLeg
+      average position error 0.5 mm and maximum position error 3.9 mm at time 0:15
+      (78.9%) Frame 15\n\nRetargeting quality report for clip 'Armature|Running.F':\n\tRightLowerLeg
+      average position error 0.3 mm and maximum position error 3.2 mm at time 0:17
+      (81.0%) Frame 17\n\nRetargeting quality report for clip 'Armature|Running.F->Jump.F':\n\tLeftLowerLeg
+      average position error 0.4 mm and maximum position error 3.8 mm at time 0:16
+      (61.5%) Frame 16\n\tRightLowerLeg average position error 0.6 mm and maximum
+      position error 11.6 mm at time 0: 2 (7.7%) Frame 2\n\nRetargeting quality report
+      for clip 'Armature|Running.F->Sliding.F':\n\tLeftLowerLeg average position
+      error 1.1 mm and maximum position error 4.0 mm at time 0:12 (57.1%) Frame 12\n\tLeftLowerArm
+      average position error 1.7 mm and maximum position error 4.5 mm at time 0:19
+      (90.5%) Frame 19\n\tRightFoot average orientation error 0.5 deg and maximum
+      orientation error 1.8 deg at time 0:12 (57.1%) Frame 12\n\nRetargeting quality
+      report for clip 'Armature|Sliding.F':\n\tLeftLowerLeg average position error
+      1.6 mm and maximum position error 4.0 mm at time 0:17 (100.0%) Frame 17\n\tLeftLowerArm
+      average position error 1.5 mm and maximum position error 1.6 mm at time 0:
+      9 (52.9%) Frame 9\n\tRightFoot average orientation error 1.0 deg and maximum
+      orientation error 1.8 deg at time 0:17 (100.0%) Frame 17\n\nRetargeting quality
+      report for clip 'Armature|Sliding.F->Walking.F':\n\tLeftLowerArm average position
+      error 2.2 mm and maximum position error 5.6 mm at time 0: 2 (8.0%) Frame 2\n\tRightFoot
+      average orientation error 0.7 deg and maximum orientation error 2.8 deg at
+      time 0:10 (40.0%) Frame 10\n\nRetargeting quality report for clip 'Armature|Standing->Jumping.T':\n\tLeftLowerLeg
+      average position error 0.2 mm and maximum position error 1.1 mm at time 0:17
+      (68.0%) Frame 17\n\tRightLowerLeg average position error 0.3 mm and maximum
+      position error 2.2 mm at time 0:16 (64.0%) Frame 16\n\nRetargeting quality
+      report for clip 'Armature|Strafe Running.R':\n\tLeftLowerLeg average position
+      error 0.6 mm and maximum position error 5.2 mm at time 0:15 (75.0%) Frame 15\n\tRightLowerLeg
+      average position error 1.1 mm and maximum position error 11.3 mm at time 0:
+      4 (20.0%) Frame 4\n\nRetargeting quality report for clip 'Armature|Strafe Walking.R':\n\tLeftLowerLeg
+      average position error 0.3 mm and maximum position error 3.2 mm at time 0:
+      4 (12.9%) Frame 4\n\tRightLowerLeg average position error 0.4 mm and maximum
+      position error 3.0 mm at time 0:19 (61.3%) Frame 19\n\nRetargeting quality
+      report for clip 'Armature|Tpose':\n\tLeftLowerLeg average position error 11.6
+      mm and maximum position error 11.6 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg
+      average position error 11.9 mm and maximum position error 11.9 mm at time 0:
+      0 (0.0%) Frame 0\n\tLeftLowerArm average position error 7.8 mm and maximum
+      position error 7.8 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerArm average
+      position error 7.9 mm and maximum position error 7.9 mm at time 0: 0 (0.0%)
+      Frame 0\n\nRetargeting quality report for clip 'Armature|Turning.R':\n\tLeftLowerLeg
+      average position error 0.8 mm and maximum position error 2.4 mm at time 0:
+      0 (0.0%) Frame 0\n\tRightLowerLeg average position error 1.0 mm and maximum
+      position error 5.5 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting quality report
+      for clip 'Armature|Walking.B':\n\tRetargeting quality is good. No significant
+      differences with original animation were found.\n\nRetargeting quality report
+      for clip 'Armature|Walking.F':\n\tLeftLowerLeg average position error 2.4 mm
+      and maximum position error 13.7 mm at time 0:22 (71.0%) Frame 22\n\tRightLowerLeg
+      average position error 1.0 mm and maximum position error 7.8 mm at time 0:22
+      (71.0%) Frame 22\n"
+    animationDoRetargetingWarnings: 1
     importAnimatedCustomProperties: 0
     importConstraints: 0
     animationCompression: 3
@@ -33,37 +97,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle Calm
-      takeName: Idle Calm
-      internalID: 3000802839309732096
-      firstFrame: 0
-      lastFrame: 190
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
       name: Turning.R
-      takeName: Turning.R
+      takeName: Armature|Turning.R
       internalID: 2211276460276000966
       firstFrame: 0
       lastFrame: 28
@@ -73,8 +108,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -92,18 +127,18 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Walking.F
-      takeName: Walking.F
+      takeName: Armature|Walking.F
       internalID: -3081672008170952397
       firstFrame: 0
       lastFrame: 31
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -0.02
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
@@ -121,18 +156,18 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Strafe Walking.R
-      takeName: Strafe Walking.R
+      takeName: Armature|Strafe Walking.R
       internalID: -2321748548418378624
       firstFrame: 0
       lastFrame: 31
       wrapMode: 0
-      orientationOffsetY: -52.26
+      orientationOffsetY: -52.28
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
@@ -150,7 +185,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Running.F
-      takeName: Running.F
+      takeName: Armature|Running.F
       internalID: 715440678718698910
       firstFrame: 0
       lastFrame: 21
@@ -160,14 +195,14 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 0
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -179,18 +214,18 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Strafe Running.R
-      takeName: Strafe Running.R
+      takeName: Armature|Strafe Running.R
       internalID: 2680679473519955197
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
-      orientationOffsetY: -63.41
+      orientationOffsetY: -63.38
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
@@ -208,7 +243,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Running.F->Jump.F
-      takeName: Running.F->Jump.F
+      takeName: Armature|Running.F->Jump.F
       internalID: -1252772400391113394
       firstFrame: 0
       lastFrame: 26
@@ -218,8 +253,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -237,7 +272,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Jump.T & Land.D
-      takeName: Jump.T & Land.D
+      takeName: Armature|Jump.T & Land.D
       internalID: -1746583430731541163
       firstFrame: 0
       lastFrame: 65
@@ -266,7 +301,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Standing->Jumping.T
-      takeName: Standing->Jumping.T
+      takeName: Armature|Standing->Jumping.T
       internalID: -4831908519224488363
       firstFrame: 0
       lastFrame: 25
@@ -295,7 +330,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Falling.D
-      takeName: Falling.D
+      takeName: Armature|Falling.D
       internalID: 2296176109170345487
       firstFrame: 0
       lastFrame: 21
@@ -305,8 +340,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
@@ -324,7 +359,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Falling.D->Land.D
-      takeName: Falling.D->Land.D
+      takeName: Armature|Falling.D->Land.D
       internalID: 723261730203398053
       firstFrame: 0
       lastFrame: 31
@@ -341,7 +376,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 0
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -353,7 +388,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Running.F->Sliding.F
-      takeName: Running.F->Sliding.F
+      takeName: Armature|Running.F->Sliding.F
       internalID: 6489639814210130734
       firstFrame: 0
       lastFrame: 21
@@ -382,18 +417,18 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Sliding.F
-      takeName: Sliding.F
+      takeName: Armature|Sliding.F
       internalID: -1840612648985896456
       firstFrame: 0
       lastFrame: 17
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -0.05
       level: 0
-      cycleOffset: 3.4
+      cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
@@ -411,12 +446,12 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Sliding.F->Walking.F
-      takeName: Sliding.F->Walking.F
+      takeName: Armature|Sliding.F->Walking.F
       internalID: 7011567542036005793
       firstFrame: 0
       lastFrame: 25
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -3
       level: 0
       cycleOffset: 0
       loop: 0
@@ -440,7 +475,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Tpose
-      takeName: Tpose
+      takeName: Armature|Tpose
       internalID: -6712725380312225458
       firstFrame: 0
       lastFrame: 1
@@ -452,6 +487,93 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Running.B
+      takeName: Armature|Running.B
+      internalID: 146454522321427973
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walking.B
+      takeName: Armature|Walking.B
+      internalID: 1023509411529336918
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0.01
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle Calm
+      takeName: Armature|Idle Calm
+      internalID: -7752796986694878821
+      firstFrame: 0
+      lastFrame: 190
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
