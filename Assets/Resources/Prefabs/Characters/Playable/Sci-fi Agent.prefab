@@ -31,6 +31,37 @@ Transform:
   m_Father: {fileID: 5293783016971572805}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: -90, z: -90}
+--- !u!1 &1803912612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803912613}
+  m_Layer: 0
+  m_Name: Hand Up Aim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1803912613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803912612}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0.38268343, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5293783016971572805}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -45, y: 180, z: 0}
 --- !u!1 &88906927595633020
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +159,7 @@ MonoBehaviour:
   _aimRoot: {fileID: 1915735515}
   _rayBlockingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   _transform: {fileID: 2892800624273700111}
   _gameObject: {fileID: 2892800624273700109}
   _characterController: {fileID: 235734965}
@@ -174,11 +205,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8911497810544351842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 944631531}
+  - {fileID: 1803912613}
   m_Father: {fileID: 1858869563826584138}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sci-fi Agent Model
       objectReference: {fileID: 0}
+    - target: {fileID: 8697216297982745861, guid: 98c9c26c766beef41993c1e9b6114b85, type: 3}
+      propertyPath: m_Data.m_Target
+      value: 
+      objectReference: {fileID: 1803912613}
     - target: {fileID: 9030041424463359964, guid: 98c9c26c766beef41993c1e9b6114b85, type: 3}
       propertyPath: m_RootOrder
       value: 0

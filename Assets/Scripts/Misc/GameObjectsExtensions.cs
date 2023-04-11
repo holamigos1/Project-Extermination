@@ -40,10 +40,11 @@ namespace Misc
         
         public static GameObject GetRaycastBlockingObj(Vector3 rayStartPos, Vector3 rayEnd, int layerMask)
         {
-            Ray ray = new Ray(rayStartPos, rayEnd);
-
             float distance = Vector3.Distance(rayStartPos, rayEnd);
-            
+
+            rayEnd = rayEnd - rayStartPos;
+            Debug.DrawRay(rayStartPos, rayEnd, Color.blue, 1f);
+            Ray ray = new Ray(rayStartPos, rayEnd);
             if (Physics.Raycast(ray, out RaycastHit hitInfo, distance, layerMask) == false) 
                 return null;
             

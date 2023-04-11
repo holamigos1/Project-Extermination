@@ -14,7 +14,7 @@ namespace Characters.Humanoid
         public Quaternion RootRotationDelta => _rootRotationDelta;
         
         [SerializeField] private HumanParametersSheet _humanAnimatorSheet;
-        
+        [SerializeField] private HumanRigsHandler.HumanRigsSettings _rigsSettings;
         [SerializeField, HideInInspector] private Transform _transform;
         [SerializeField, HideInInspector] private GameObject _gameObject;
         [SerializeField, HideInInspector] private Animator _animator;
@@ -26,6 +26,7 @@ namespace Characters.Humanoid
         
         private Vector3 _rootPositionDelta;
         private Quaternion _rootRotationDelta;
+        private HumanRigsHandler _rigsHandler;
 
         #if UNITY_EDITOR
         private void Reset()
@@ -46,10 +47,11 @@ namespace Characters.Humanoid
             if (_transform == null) Debug.LogError($"Reset {nameof(HumanoidBody)}!");
             if (_gameObject == null) Debug.LogError($"Reset {nameof(HumanoidBody)}!");
             if (_animator == null) Debug.LogError($"Reset {nameof(HumanoidBody)}!");
-            
-            _humanoidBodyParameters = new HumanoidBodyParameters(_animator, _humanAnimatorSheet);
+
             HeadController = new HumanHead(_animator);
-            
+            _rigsHandler = new HumanRigsHandler(HeadController.HeadTransform, _rigsSettings);
+            _humanoidBodyParameters = new HumanoidBodyParameters(_animator, _humanAnimatorSheet);
+
             _animator.stabilizeFeet = true;
         }
 
@@ -82,7 +84,13 @@ namespace Characters.Humanoid
 
         public void ApplyPickUp(GameItem item)
         {
-            Debug.Log($"ApplyPickUp = {item.name}");
+            if (item == null) return;
+            bool hasChild = _rigsSettings._itemRoot.HasChild();
+            if (hasChild == false) StartCoroutine(_rigsHandler.PickUpItem(item, ApplyPickUp));
+            if (hasChild && _rigsSettings._itemRoot.GetFirstChild().GetInstanceID() != item.GetInstanceID()) return; //другой предмет
+            if (_rigsSettings.RHandPickupConstraint.weight > 0) return;
+                
+            Debug.Log("SAD");
         }
         
         private void OnAnimatorMove()
@@ -92,7 +100,7 @@ namespace Characters.Humanoid
 
         private void OnAnimatorIK(int layerIndex)
         {
-
+            
         }
 
         private void FixedUpdate() //TODO Не забудь поменять Execution Order в пользу контроллера персонажа а не его тела

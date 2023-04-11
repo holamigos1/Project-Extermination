@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1609323503}
   - component: {fileID: 1609323504}
   m_Layer: 0
-  m_Name: Item Rotation Constraint
+  m_Name: Item To Aim Constraint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Data:
     m_ConstrainedObject: {fileID: 6367437751832447430}
     m_SourceObjects:
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 4248960731736398118}
   - component: {fileID: 8697216297982745861}
   m_Layer: 0
-  m_Name: R.Hand IK
+  m_Name: R.Hand Pickup Constraint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,15 +568,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Data:
     m_Root: {fileID: 6521266864426546331}
     m_Mid: {fileID: 2303503635544074322}
     m_Tip: {fileID: 6367437751832447430}
-    m_Target: {fileID: 1609323503}
+    m_Target: {fileID: 0}
     m_Hint: {fileID: 2390793928424456743}
     m_TargetPositionWeight: 1
-    m_TargetRotationWeight: 0
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0
+  m_Weight: 1
   m_Effectors: []
 --- !u!1 &4932422960233760936
 GameObject:
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8935e03361a14ec4b8edc872f76bc822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Data:
     m_ConstrainedObject: {fileID: 8374501593330374821}
     m_SourceObjects:
@@ -2027,6 +2027,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _humanAnimatorSheet: {fileID: 11400000, guid: 3c596335e525d3d4baf8f4349631d39e, type: 2}
+  _rigsSettings:
+    _itemRoot: {fileID: 8374501593330374821}
+    PickUpDistance: 2.5
+    PickUpTime: 0.4
+    HeadRigLayer: {fileID: 3414239029736707115}
+    FeetRigLayer: {fileID: 256084542160422333}
+    HandsRigLayer: {fileID: 4946154433938286042}
+    HeadAimConstraint: {fileID: 2578844263442890756}
+    RFootConstraint: {fileID: 4974494206057352415}
+    LFootConstraint: {fileID: 3115075859873947212}
+    RHandPickupConstraint: {fileID: 8697216297982745861}
+    LHandConstraint: {fileID: 344813097818626790}
+    PalmConstraint: {fileID: 2985434624767228945}
+    HandAimConstraint: {fileID: 1609323504}
   _transform: {fileID: 9030041424463359964}
   _gameObject: {fileID: 8510385447812412774}
   _animator: {fileID: 3148308616357787046}

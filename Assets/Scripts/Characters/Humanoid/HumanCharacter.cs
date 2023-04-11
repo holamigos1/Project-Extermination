@@ -179,10 +179,11 @@ namespace Characters.Humanoid
 
         private void OnInteractAction(InputActionPhase actionPhase)
         {
+            if(actionPhase != InputActionPhase.Started) return;
+            
             GameObject raycastObject = _aimRoot.GetRayBlockObject(_rayBlockingMask);
-
+            
             if (raycastObject == null) return;
-
             if (raycastObject.TryGetComponent(out GameItem item))
                 _bodyController.ApplyPickUp(item);
         }
