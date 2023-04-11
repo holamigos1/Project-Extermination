@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public abstract class Weapon : Item, IEquip, IDrop
+    public abstract class Weapon : GameItem, IEquip, IDrop
     {
         public Unit Owner => _owner;
         public bool IsEquipped => _isEquipped;
@@ -17,9 +17,11 @@ namespace Weapons
 
         public bool IsReady => ItemAnimator.GetCurrentAnimatorStateInfo(0).IsName(AnimationParams.IDLE);
         public float Damage => _damage;
+        public Transform RightHandGrip => _rightHandGrip;
         
         [SerializeField] 
         private float _damage = 10f;
+        
         
         protected bool _isEquipped;
         protected Unit _owner;

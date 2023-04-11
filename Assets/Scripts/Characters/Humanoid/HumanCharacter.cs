@@ -1,5 +1,6 @@
 ﻿using Characters.ConsciousnessEntities.Base;
 using GameObjects;
+using GameObjects.Base;
 using Misc;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -58,7 +59,7 @@ namespace Characters.Humanoid
         [SerializeField] private MultiAimConstraint _headAimConstraint;
         [SerializeField] private AimRoot _aimRoot;
         [Tooltip("Слои объектов с которыми персонаж может взаимодействовать.")]
-        [SerializeField] private LayerMask rayBlockingMask; 
+        [SerializeField] private LayerMask _rayBlockingMask; 
 
         [SerializeField, HideInInspector] private Transform _transform;
         [SerializeField, HideInInspector] private GameObject _gameObject;
@@ -67,29 +68,31 @@ namespace Characters.Humanoid
         private IHumanEntity _currentHumanDriver;
 
 #if UNITY_EDITOR
-        private void Reset()
+        private void Reset() //TODO жирно
         {
             _transform = transform;
             _gameObject = gameObject;
+            _gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
             _bodyController = _transform.GetComponentsInAllChildren<HumanoidBody>().First();
             _characterController = GetComponent<CharacterController>();
             _aimRoot = _transform.GetComponentsInAllChildren<AimRoot>().First();
-            
+
             if(_bodyController == null) 
                 Debug.LogError($"{nameof(HumanoidBody)} controller is not exist in Character game object hierarchy!");
         }
         #endif
         
-        private void Awake()
+        private void Awake() //TODO жирно
         {
-            if (CharactersConsciousnessEntity is IHumanEntityCreator entityCreator) HumanDriver = entityCreator.CreateEntityInstance();
+            if (CharactersConsciousnessEntity is IHumanEntityCreator entityCreator) 
+                HumanDriver = entityCreator.CreateEntityInstance();
             else Debug.LogError($"{CharactersConsciousnessEntity.name} type of {nameof(ConsciousnessEntityData)} is not designed to control this human being!");
 
             if (_transform == null) Debug.LogError($"Reset {nameof(HumanCharacter)}!");
             if (_gameObject == null) Debug.LogError($"Reset {nameof(HumanCharacter)}!");
             if (_characterController == null) Debug.LogError($"Reset {nameof(HumanCharacter)}!");
-            
-            
+
+            _characterController.detectCollisions = true;
             _characterController.enableOverlapRecovery = true;
             _aimRoot.SetClamping(_headAimConstraint.data.limits, _headAimConstraint.data.limits);
             HumanDriver.UpdateEntity();
@@ -176,7 +179,12 @@ namespace Characters.Humanoid
 
         private void OnInteractAction(InputActionPhase actionPhase)
         {
-            //_viewController.Interact();
+            GameObject raycastObject = _aimRoot.GetRayBlockObject(_rayBlockingMask);
+
+            if (raycastObject == null) return;
+
+            if (raycastObject.TryGetComponent(out GameItem item))
+                _bodyController.ApplyPickUp(item);
         }
 
         private void OnAttackAction(InputActionPhase actionPhase)

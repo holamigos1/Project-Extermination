@@ -4,6 +4,6 @@
     {
         public bool IsPickuped { get; }
         
-        public Item Pickup();
+        public GameItem Pickup();
     }
 }

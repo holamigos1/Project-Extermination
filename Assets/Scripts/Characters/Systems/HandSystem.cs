@@ -21,7 +21,7 @@ namespace Characters.Systems
         private string info = "";
         
         [ShowInInspector] [LabelText("Подобранный предмет")]
-        public Item EquippedItem => _equippedItem;
+        public GameItem EquippedItem => _equippedItem;
 
         public HandSystem() { }
         
@@ -35,7 +35,7 @@ namespace Characters.Systems
         
         [SerializeField] [Required] [LabelText("Объект руки")]
         private Transform _handTransform;
-        private Item _equippedItem;
+        private GameItem _equippedItem;
 
         public override void Start() 
         {
@@ -43,7 +43,7 @@ namespace Characters.Systems
             
             _handLocalStartPoint = _handTransform.localPosition;
             if (_handTransform.HasChild() == false) return;
-            if (_handTransform.GetFirstChildObj().TryGetComponent(out Item itemIns)) 
+            if (_handTransform.GetFirstChildObj().TryGetComponent(out GameItem itemIns)) 
                 Equip(itemIns);
         }
 
@@ -52,7 +52,7 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Object pickuped" when data != null:
-                    Equip(data as Item);
+                    Equip(data as GameItem);
                     break;
                 
                 case "KeyDown" when data != null:
@@ -71,13 +71,13 @@ namespace Characters.Systems
             
             GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
             
-            if (requestObj.TryGetComponent(out Item itemObj) == false) return;
+            if (requestObj.TryGetComponent(out GameItem itemObj) == false) return;
             
             if (_equippedItem == null) Equip(itemObj.Pickup());
             else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
         }
 
-        private void Equip(Item itemInst)
+        private void Equip(GameItem itemInst)
         {
             if (_equippedItem != null) return;
 

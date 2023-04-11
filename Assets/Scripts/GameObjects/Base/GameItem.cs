@@ -5,8 +5,9 @@ namespace GameObjects.Base
 {
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody), typeof(Animator))]
-    public abstract class Item : MonoBehaviour, IPickup
+    public abstract class GameItem : MonoBehaviour, IPickup
     {
+        //TODO Большучее поле, украти его
         public bool IsPickuped => _isItemPickuped;
         public GameSystemsContainer SystemsContainer => _itemSystemsContainer;
         public Animator ItemAnimator
@@ -45,6 +46,8 @@ namespace GameObjects.Base
             }
         }
         
+        [SerializeField] [Tooltip("Место за которое перснаж может взяться")]
+        protected Transform _rightHandGrip;
 
         private bool _isItemPickuped;
         private GameSystemsContainer _itemSystemsContainer;
@@ -54,7 +57,7 @@ namespace GameObjects.Base
         private Transform _itemTransform;
         
         
-        public Item Pickup()
+        public GameItem Pickup()
         {
             ItemGameObject.SetActive(false);
             

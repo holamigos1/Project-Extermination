@@ -1,4 +1,5 @@
 using GameAnimation.Sheets;
+using GameObjects.Base;
 using Misc;
 using UnityEngine;
 
@@ -59,8 +60,8 @@ namespace Characters.Humanoid
 
         public void ApplyMovementDirection(Vector2 direction)
         {
-            _humanoidBodyParameters.ForwardMovementParameter = direction.y;
-            _humanoidBodyParameters.SideMovementParameter = direction.x;
+            _humanoidBodyParameters.ForwardDeltaParameter = direction.y;
+            _humanoidBodyParameters.SideDeltaParameter = direction.x;
         }
 
         public void ApplyRotationDirection(Vector2 direction)
@@ -77,6 +78,11 @@ namespace Characters.Humanoid
         public void ApplyJump()
         {
 
+        }
+
+        public void ApplyPickUp(GameItem item)
+        {
+            Debug.Log($"ApplyPickUp = {item.name}");
         }
         
         private void OnAnimatorMove()

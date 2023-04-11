@@ -6,6 +6,9 @@ namespace Characters.Humanoid
     public class AimRoot : MonoBehaviour
     {
         public Transform Transform { get; private set; }
+        public Transform AimTarget => _aimTarget;
+
+        [SerializeField] private Transform _aimTarget;
         
         private Range _xAxisClamp; //Pitch
         private Range _yAxisClamp; //Yaw
@@ -51,5 +54,9 @@ namespace Characters.Humanoid
             
             if (isClamped == false) Transform.localRotation = Quaternion.Euler(localAngles);
         }
+        
+        /// <summary>От AimRoot до его AimTarget</summary>
+        public GameObject GetRayBlockObject(LayerMask mask) =>
+            Transform.GetRaycastBlockingObj(AimTarget.position, mask);
     }
 }

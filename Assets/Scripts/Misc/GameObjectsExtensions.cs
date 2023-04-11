@@ -35,6 +35,9 @@ namespace Misc
                 ChangeGameObjsLayers(child.gameObject, layerID);
         }
         
+        public static GameObject GetRaycastBlockingObj(this Transform rayStartPos, Vector3 rayEnd, LayerMask rayBlockingMask) =>
+            GetRaycastBlockingObj(rayStartPos.position, rayEnd, rayBlockingMask);
+        
         public static GameObject GetRaycastBlockingObj(Vector3 rayStartPos, Vector3 rayEnd, int layerMask)
         {
             Ray ray = new Ray(rayStartPos, rayEnd);

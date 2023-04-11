@@ -1,8 +1,10 @@
-﻿using GameAnimation.Sheets;
+﻿using GameAnimation.Data;
+using GameAnimation.Sheets;
 using UnityEngine;
 
 namespace Characters.Humanoid
 {
+    //Триггеры не в его зоне ответственности
     public class HumanoidBodyParameters
     {
         public HumanoidBodyParameters(Animator humanAnimator, HumanParametersSheet humanAnimatorSheet)
@@ -16,7 +18,7 @@ namespace Characters.Humanoid
 
         public Vector3 MovementAcceleration => _movementAcceleration;
         public MovementType CurrentMovementType { get; set; } = MovementType.Walking;
-        
+
         private readonly HumanParametersSheet _humanAnimatorSheet;
         private readonly Animator _humanAnimator;
         
@@ -26,27 +28,53 @@ namespace Characters.Humanoid
         public void FrameTick() //Кто салоцировал тот и апдейтит
         {
             _humanAnimator.SetFloat(_humanAnimatorSheet.ForwardMovement.Hash, 
-                Mathf.SmoothDamp(ForwardMovementParameter, _speededMovementParametersGoal.y, ref _movementAcceleration.z, MOVEMENT_SMOOTH_TIME));
+                Mathf.SmoothDamp(ForwardDeltaParameter, _speededMovementParametersGoal.y, ref _movementAcceleration.z, MOVEMENT_SMOOTH_TIME));
 
             _humanAnimator.SetFloat(_humanAnimatorSheet.SideMovement.Hash, 
-                Mathf.SmoothDamp(SideMovementParameter, _speededMovementParametersGoal.x, ref _movementAcceleration.x, MOVEMENT_SMOOTH_TIME));
+                Mathf.SmoothDamp(SideDeltaParameter, _speededMovementParametersGoal.x, ref _movementAcceleration.x, MOVEMENT_SMOOTH_TIME));
         }
 
         private Vector2 _speededMovementParametersGoal => _movementParametersGoal * (int)CurrentMovementType;
         private Vector2 _movementParametersGoal;
         private Vector3 _movementAcceleration;
 
-        public float ForwardMovementParameter
+        public float ForwardDeltaParameter
         {
             get => _humanAnimator.GetFloat(_humanAnimatorSheet.ForwardMovement.Hash);
             set => _movementParametersGoal.y = value;
         }
         
-        public float SideMovementParameter
+        public float SideDeltaParameter
         {
             get => _humanAnimator.GetFloat(_humanAnimatorSheet.SideMovement.Hash);
             set => _movementParametersGoal.x = value;
         }
+        
+        public float RotationDeltaParameter
+        {
+            get => _humanAnimator.GetFloat(_humanAnimatorSheet.SideMovement.Hash);
+            set => _movementParametersGoal.x = value;
+        }
+        
+        public WeaponType EquippedWeaponParameter
+        {
+            get => (WeaponType)_humanAnimator.GetInteger(_humanAnimatorSheet.EquippedWeaponType.Hash);
+            set => _humanAnimator.SetInteger(_humanAnimatorSheet.EquippedWeaponType.Hash,(int)value);
+        }
+        
+        public ItemType EquippedItemParameter
+        {
+            get => (ItemType)_humanAnimator.GetInteger(_humanAnimatorSheet.EquippedItemType.Hash);
+            set => _humanAnimator.SetInteger(_humanAnimatorSheet.EquippedItemType.Hash,(int)value);
+        }
+        
+        public InteractionType InteractionTypeParameter
+        {
+            get => (InteractionType)_humanAnimator.GetInteger(_humanAnimatorSheet.InteractionType.Hash);
+            set => _humanAnimator.SetInteger(_humanAnimatorSheet.InteractionType.Hash,(int)value);
+        }
+        
+        
         
         public enum MovementType 
         {

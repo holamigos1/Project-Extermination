@@ -14,10 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetController: {fileID: 9100000, guid: a9630fa1f0c03ae48a5466ee312cceae, type: 2}
   _sideMovement:
-    hash: -1109873145
-    name: SideMovement
+    hash: -387739548
+    name: Movement_Side
     parameterType: 1
   _forwardMovement:
-    hash: 1694618174
-    name: ForwardMovement
+    hash: 269562302
+    name: Movement_Forward
     parameterType: 1
+  _rotationMovement:
+    hash: 25796721
+    name: Movement_Rotation
+    parameterType: 1
+  _equippedWeaponType:
+    hash: -1418711105
+    name: Equipped_WeaponType
+    parameterType: 3
+  _equippedItemType:
+    hash: -700087228
+    name: Equipped_ItemType
+    parameterType: 3
+  _interactionType:
+    hash: -1458088342
+    name: Interaction_Type
+    parameterType: 3

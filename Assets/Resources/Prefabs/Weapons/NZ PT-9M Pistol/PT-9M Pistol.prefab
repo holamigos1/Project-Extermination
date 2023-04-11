@@ -698,7 +698,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806197460611533683}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -797,7 +797,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806197460613357461}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -979,7 +979,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806197460879676795}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -1426,7 +1426,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806197461094098683}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -1464,6 +1464,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 806197461874506104}
+  - {fileID: 2331855872447561527}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1491,10 +1492,10 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806197461105865363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ff817cc325288434598c7f301869fa8e, type: 2}
-  m_CullingMode: 2
+  m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -1515,26 +1516,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff705f741f045228a2957950a81c0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rightHandGrip: {fileID: 2331855872447561527}
   _damage: 10
   _shootForce: 100
   _ammoType: {fileID: -8273329044212282543, guid: 211e360025ff68f4b9144a2efceeaae3, type: 3}
   _launchProjectilePoint: {fileID: 806197460613357460}
-  State:
-    fullPathHash: 885627960
-    fullPathName: Base Layer.Shoot
-    name: Shoot
-  State2:
-    fullPathHash: 996585128
-    fullPathName: "Base Layer.New StateMachine.\u0411\u0435\u0431\u0440\u0430"
-    name: "\u0411\u0435\u0431\u0440\u0430"
-  State3:
-    fullPathHash: -1507367648
-    fullPathName: Base Layer.Reload
-    name: Reload
-  Parameter:
-    hash: -100720439
-    name: On Hide
-    parameterType: 9
 --- !u!1 &806197461123134289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1818,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806197461558158292}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -2013,12 +1999,43 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806197461882128499}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6477230377792519721, guid: ddda645ceea16cd43a9c00f432731e68, type: 3}
+--- !u!1 &2633981112443806143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2331855872447561527}
+  m_Layer: 0
+  m_Name: RightHandGrip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2331855872447561527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633981112443806143}
+  m_LocalRotation: {x: 0.4714653, y: 0.55640084, z: 0.5050492, w: 0.4615884}
+  m_LocalPosition: {x: 0.0342, y: -0.0053, z: -0.111}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 806197461105865367}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -7.283, y: 93.683, z: 87.383}
 --- !u!1001 &9057025752388529921
 PrefabInstance:
   m_ObjectHideFlags: 0

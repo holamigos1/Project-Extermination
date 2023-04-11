@@ -35,11 +35,11 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Item Equipped" when data != null:
-                    HandleEquippedItem(data as Item);
+                    HandleEquippedItem(data as GameItem);
                     break;
                 
                 case "Item Dropped" when data != null:
-                    HandleDropItem(data as Item);
+                    HandleDropItem(data as GameItem);
                     break;
                 
                 case "KeyDown" when data != null:
@@ -49,14 +49,14 @@ namespace Characters.Systems
             }
         }
 
-        private void HandleDropItem(Item item)
+        private void HandleDropItem(GameItem item)
         {
             if(item.TryGetComponent(out Weapon weaponItem) is false) return;
             //TODO Отсюда можно пробросить запуск анимации выкидывания пушки
             if(_weaponInHand == weaponItem) _weaponInHand = null;
         }
         
-        private void HandleEquippedItem(Item item)
+        private void HandleEquippedItem(GameItem item)
         {
             if (item.TryGetComponent(out _weaponInHand) is false) return;
             _weaponInHand.SetOwner(_ownerReference);
