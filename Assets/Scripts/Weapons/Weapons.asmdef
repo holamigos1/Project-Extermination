@@ -1,0 +1,22 @@
+{
+    "name": "Weapons",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b3464a7fc6357e24e990c176e63f6d74",
+        "GUID:8b087a6327117014ab74a1dc8be97ffa",
+        "GUID:90864085555a2fd47b3744cf5260791e",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9",
+        "GUID:477069ab2444ebb4a8da3a79cbcaf821",
+        "GUID:8a4c396f9dd04aeb985834e215fcc4f8",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

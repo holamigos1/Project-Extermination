@@ -1,11 +1,10 @@
 using System;
 using GameData.Layers;
-using GameExtensions;
+using GameObjects.Base;
 using GameSystems.Base;
-using Objects.Base;
+using Misc;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Weapons;
 
 namespace Characters.Systems
 {

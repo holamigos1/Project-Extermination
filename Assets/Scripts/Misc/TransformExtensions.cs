@@ -1,27 +1,29 @@
-﻿using Unity.Mathematics;
-using UnityEngine;
+﻿using UnityEngine;
 
-public static class TransformExtensions
+namespace Misc
 {
-    public static bool HasChild(this Transform transform) =>
-        transform.childCount != 0;
-        
-    public static Transform GetFirstChild (this Transform transform) =>
-        transform.GetChild(0);
-        
-    public static GameObject GetFirstChildObj (this Transform transform) =>
-        transform.GetChild(0).gameObject;
-        
-    public static Bounds RenderBounds (this Transform objTransform) 
+    public static class TransformExtensions
     {
-        var bounds = new Bounds(objTransform.position, Vector3.zero);
+        public static bool HasChild(this Transform transform) =>
+            transform.childCount != 0;
+        
+        public static Transform GetFirstChild (this Transform transform) =>
+            transform.GetChild(0);
+        
+        public static GameObject GetFirstChildObj (this Transform transform) =>
+            transform.GetChild(0).gameObject;
+        
+        public static Bounds RenderBounds (this Transform objTransform) 
+        {
+            var bounds = new Bounds(objTransform.position, Vector3.zero);
             
-        if (objTransform.TryGetComponent(out Renderer rendererComp)) 
-            bounds.Encapsulate(rendererComp.bounds);
+            if (objTransform.TryGetComponent(out Renderer rendererComp)) 
+                bounds.Encapsulate(rendererComp.bounds);
 
-        foreach (Transform child in objTransform.transform)
-            bounds.Encapsulate(child.RenderBounds());
+            foreach (Transform child in objTransform.transform)
+                bounds.Encapsulate(child.RenderBounds());
             
-        return bounds;
+            return bounds;
+        }
     }
 }

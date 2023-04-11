@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Collections;
+﻿using System.Collections;
 using GameData.AnimationTags;
 using GameData.Layers;
 using GameData.Tags;
-using GameExtensions;
 using GameObjects.Base;
-using Objects.Base;
+using Misc;
 using UnityEngine;
 
 namespace Weapons

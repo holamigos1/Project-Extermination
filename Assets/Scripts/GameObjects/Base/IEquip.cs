@@ -1,4 +1,4 @@
-﻿namespace Objects.Base
+﻿namespace GameObjects.Base
 {
     public interface IEquip
     {

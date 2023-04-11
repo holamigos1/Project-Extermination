@@ -4,8 +4,7 @@ using GameData.AnimationTags;
 using GameData.Layers;
 using GameData.Tags;
 using GameData.Weapons;
-using GameExtensions;
-using Movement.SourseMovment;
+using Misc;
 using UnityEngine;
 
 namespace Weapons.Range.O.P.S_Gun

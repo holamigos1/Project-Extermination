@@ -1,5 +1,6 @@
 ﻿using Characters.ConsciousnessEntities.Base;
 using GameObjects;
+using Misc;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
@@ -49,10 +50,15 @@ namespace Characters.Humanoid
             }
         }
         
-        [SerializeField] private ConsciousnessEntityData CharactersConsciousnessEntityData;
+        //TODO Поле растёт, убери всё в классы настроект!
+        [Tooltip("Перенеси сюда ConsciousnessEntityData чтобы у персонажа было сознание.")]
+        [SerializeField] private ConsciousnessEntityData CharactersConsciousnessEntity;
         [SerializeField] private HumanoidBody _bodyController;
+        [Tooltip("Перенеси сюда MultiAimConstraint который управляет взглядом головы.")]
         [SerializeField] private MultiAimConstraint _headAimConstraint;
         [SerializeField] private AimRoot _aimRoot;
+        [Tooltip("Слои объектов с которыми персонаж может взаимодействовать.")]
+        [SerializeField] private LayerMask rayBlockingMask; 
 
         [SerializeField, HideInInspector] private Transform _transform;
         [SerializeField, HideInInspector] private GameObject _gameObject;
@@ -60,8 +66,7 @@ namespace Characters.Humanoid
             
         private IHumanEntity _currentHumanDriver;
 
-
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void Reset()
         {
             _transform = transform;
@@ -77,9 +82,13 @@ namespace Characters.Humanoid
         
         private void Awake()
         {
-            if (CharactersConsciousnessEntityData is IHumanEntityCreator entityCreator) 
-                HumanDriver = entityCreator.CreateEntityInstance();
-            else Debug.LogError($"{CharactersConsciousnessEntityData.name} type of {nameof(ConsciousnessEntityData)} is not designed to control this human being!");
+            if (CharactersConsciousnessEntity is IHumanEntityCreator entityCreator) HumanDriver = entityCreator.CreateEntityInstance();
+            else Debug.LogError($"{CharactersConsciousnessEntity.name} type of {nameof(ConsciousnessEntityData)} is not designed to control this human being!");
+
+            if (_transform == null) Debug.LogError($"Reset {nameof(HumanCharacter)}!");
+            if (_gameObject == null) Debug.LogError($"Reset {nameof(HumanCharacter)}!");
+            if (_characterController == null) Debug.LogError($"Reset {nameof(HumanCharacter)}!");
+            
             
             _characterController.enableOverlapRecovery = true;
             _aimRoot.SetClamping(_headAimConstraint.data.limits, _headAimConstraint.data.limits);
@@ -119,7 +128,7 @@ namespace Characters.Humanoid
         private void FixedUpdate()
         {
             _characterController.Move(_bodyController.RootPositionDelta + Physics.gravity * Time.smoothDeltaTime);
-            //transform.rotation = _bodyController.
+            _transform.rotation *= _bodyController.RootRotationDelta;
         }
 
         private void OnLookDirectionAction(Vector2 directionVelocity, InputActionPhase actionPhase)
@@ -136,9 +145,6 @@ namespace Characters.Humanoid
         private void OnMoveDirectionAction(Vector2 directionVelocity, InputActionPhase actionPhase)
         {
             _bodyController.ApplyMovementDirection(directionVelocity);
-
-            if (directionVelocity == Vector2.zero)
-                _aimRoot.Transform.localPosition = new Vector3(0, _aimRoot.Transform.localPosition.y, 0);
         }
         
         private void OnSitDownAction(InputActionPhase actionPhase)

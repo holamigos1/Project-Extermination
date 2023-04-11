@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-
-
-namespace Objects.Base
+﻿namespace GameObjects.Base
 {
    public interface IPickup
     {

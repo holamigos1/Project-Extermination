@@ -1,0 +1,17 @@
+{
+    "name": "GameObjects",
+    "rootNamespace": "",
+    "references": [
+        "GUID:22b07cfb06a53ad47b65581da7e0c031",
+        "GUID:b3464a7fc6357e24e990c176e63f6d74"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

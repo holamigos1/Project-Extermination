@@ -1,10 +1,7 @@
-﻿using GameData.AnimationTags;
-using GameData.Layers;
-using GameExtensions;
-using GameSystems.Base;
+﻿using GameSystems.Base;
 using UnityEngine;
 
-namespace Objects.Base
+namespace GameObjects.Base
 {
     [SelectionBase]
     [RequireComponent(typeof(Rigidbody), typeof(Animator))]

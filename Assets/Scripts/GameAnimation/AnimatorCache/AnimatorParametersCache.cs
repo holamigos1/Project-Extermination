@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using GameAnimation;
 using GameAnimation.Data;
 using UnityEditor.Animations;
 using UnityEngine;
 
-namespace AnimatorCache
+namespace GameAnimation.AnimatorCache
 {
     readonly struct AnimatorParametersCache
     {

@@ -1,4 +1,5 @@
 using GameAnimation.Sheets;
+using Misc;
 using UnityEngine;
 
 namespace Characters.Humanoid
@@ -9,7 +10,7 @@ namespace Characters.Humanoid
     {
         public Vector3 Velocity => _humanoidBodyParameters.MovementAcceleration;
         public Vector3 RootPositionDelta => _rootPositionDelta;
-        public Vector3 RootRotationDelta => _rootRotationDelta;
+        public Quaternion RootRotationDelta => _rootRotationDelta;
         
         [SerializeField] private HumanParametersSheet _humanAnimatorSheet;
         
@@ -23,7 +24,7 @@ namespace Characters.Humanoid
         public HumanHead HeadController { get; private set; }
         
         private Vector3 _rootPositionDelta;
-        private Vector3 _rootRotationDelta;
+        private Quaternion _rootRotationDelta;
 
         #if UNITY_EDITOR
         private void Reset()
@@ -33,14 +34,18 @@ namespace Characters.Humanoid
             _gameObject = gameObject;   
             _humanAnimatorSheet = AssetDataBaseExtensions.LoadAssetAtFilter<HumanParametersSheet>
                 ($"t:{nameof(HumanParametersSheet)}");
-            
-            if (_humanAnimatorSheet == null) 
-                Debug.LogError("Где список параметров гуманоида в проекте?");
+
+            if (_humanAnimatorSheet == null)
+                Debug.LogError($"Создай список {nameof(HumanParametersSheet)} в проекте!");
         }
         #endif
 
         private void Awake()
         {
+            if (_transform == null) Debug.LogError($"Reset {nameof(HumanoidBody)}!");
+            if (_gameObject == null) Debug.LogError($"Reset {nameof(HumanoidBody)}!");
+            if (_animator == null) Debug.LogError($"Reset {nameof(HumanoidBody)}!");
+            
             _humanoidBodyParameters = new HumanoidBodyParameters(_animator, _humanAnimatorSheet);
             HeadController = new HumanHead(_animator);
             
@@ -60,7 +65,7 @@ namespace Characters.Humanoid
 
         public void ApplyRotationDirection(Vector2 direction)
         {
-            
+            _rootRotationDelta = Quaternion.AngleAxis(direction.x, Vector3.up);
         }
 
         public void ApplySprint(bool isSprinting)
@@ -77,7 +82,6 @@ namespace Characters.Humanoid
         private void OnAnimatorMove()
         {
             _rootPositionDelta += _animator.deltaPosition;
-            //transform.rotation = Quaternion.Euler(_rootRotationDelta);
         }
 
         private void OnAnimatorIK(int layerIndex)
@@ -87,7 +91,12 @@ namespace Characters.Humanoid
 
         private void FixedUpdate() //TODO Не забудь поменять Execution Order в пользу контроллера персонажа а не его тела
         {
-            _rootPositionDelta = Vector3.zero;
+            if (_rootRotationDelta != Quaternion.identity) 
+                _animator.stabilizeFeet = false;
+            else _animator.stabilizeFeet = true;
+
+            _rootPositionDelta = Vector3.zero; //подтираю дельты
+            _rootRotationDelta = Quaternion.identity;
         }
     }
 }

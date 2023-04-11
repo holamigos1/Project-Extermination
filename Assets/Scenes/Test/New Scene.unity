@@ -718,6 +718,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1756010855}
     - target: {fileID: 2892800624273700108, guid: 5b0c6b193f12b08408b3abc9060060cb, type: 3}
+      propertyPath: rayBlockingMask.m_Bits
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892800624273700108, guid: 5b0c6b193f12b08408b3abc9060060cb, type: 3}
+      propertyPath: CharactersConsciousnessEntity
+      value: 
+      objectReference: {fileID: 11400000, guid: acab814fb624f8a418490305bab26ca3, type: 2}
+    - target: {fileID: 2892800624273700108, guid: 5b0c6b193f12b08408b3abc9060060cb, type: 3}
       propertyPath: CharactersConsciousnessEntityData
       value: 
       objectReference: {fileID: 11400000, guid: acab814fb624f8a418490305bab26ca3, type: 2}
