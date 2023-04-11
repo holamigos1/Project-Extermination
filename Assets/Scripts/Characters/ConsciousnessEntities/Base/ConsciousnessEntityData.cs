@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Characters.Data.Base
+namespace Characters.ConsciousnessEntities.Base
 {
     public abstract class ConsciousnessEntityData : ScriptableObject
     {

@@ -28,7 +28,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
             ""id"": ""209e39b1-9e04-4f97-8cd3-ccd58af5e1d2"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Moving"",
                     ""type"": ""Value"",
                     ""id"": ""77500fb2-a1f0-4557-92e4-5f8cfde90f4a"",
                     ""expectedControlType"": ""Vector2"",
@@ -107,6 +107,15 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Looking"",
+                    ""type"": ""Value"",
+                    ""id"": ""58a9fb50-a7e7-4c13-abba-123d2b772b43"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""ScaleVector2(x=3,y=3)"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -117,7 +126,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -128,7 +137,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -139,7 +148,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -150,7 +159,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -161,7 +170,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -172,7 +181,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -183,7 +192,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -194,7 +203,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -205,7 +214,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -216,7 +225,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Move"",
+                    ""action"": ""Moving"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -307,6 +316,17 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9555da69-33d1-4f8f-92f9-dc3da214a32c"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Looking"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -332,7 +352,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
 }");
         // FPSCharacter
         m_FPSCharacter = asset.FindActionMap("FPSCharacter", throwIfNotFound: true);
-        m_FPSCharacter_Move = m_FPSCharacter.FindAction("Move", throwIfNotFound: true);
+        m_FPSCharacter_Moving = m_FPSCharacter.FindAction("Moving", throwIfNotFound: true);
         m_FPSCharacter_Interact = m_FPSCharacter.FindAction("Interact", throwIfNotFound: true);
         m_FPSCharacter_Reload = m_FPSCharacter.FindAction("Reload", throwIfNotFound: true);
         m_FPSCharacter_Throw = m_FPSCharacter.FindAction("Throw", throwIfNotFound: true);
@@ -341,6 +361,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         m_FPSCharacter_Sprint = m_FPSCharacter.FindAction("Sprint", throwIfNotFound: true);
         m_FPSCharacter_Attack = m_FPSCharacter.FindAction("Attack", throwIfNotFound: true);
         m_FPSCharacter_Aim = m_FPSCharacter.FindAction("Aim", throwIfNotFound: true);
+        m_FPSCharacter_Looking = m_FPSCharacter.FindAction("Looking", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -400,7 +421,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
     // FPSCharacter
     private readonly InputActionMap m_FPSCharacter;
     private IFPSCharacterActions m_FPSCharacterActionsCallbackInterface;
-    private readonly InputAction m_FPSCharacter_Move;
+    private readonly InputAction m_FPSCharacter_Moving;
     private readonly InputAction m_FPSCharacter_Interact;
     private readonly InputAction m_FPSCharacter_Reload;
     private readonly InputAction m_FPSCharacter_Throw;
@@ -409,11 +430,12 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_FPSCharacter_Sprint;
     private readonly InputAction m_FPSCharacter_Attack;
     private readonly InputAction m_FPSCharacter_Aim;
+    private readonly InputAction m_FPSCharacter_Looking;
     public struct FPSCharacterActions
     {
         private @GameInputActions m_Wrapper;
         public FPSCharacterActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_FPSCharacter_Move;
+        public InputAction @Moving => m_Wrapper.m_FPSCharacter_Moving;
         public InputAction @Interact => m_Wrapper.m_FPSCharacter_Interact;
         public InputAction @Reload => m_Wrapper.m_FPSCharacter_Reload;
         public InputAction @Throw => m_Wrapper.m_FPSCharacter_Throw;
@@ -422,6 +444,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_FPSCharacter_Sprint;
         public InputAction @Attack => m_Wrapper.m_FPSCharacter_Attack;
         public InputAction @Aim => m_Wrapper.m_FPSCharacter_Aim;
+        public InputAction @Looking => m_Wrapper.m_FPSCharacter_Looking;
         public InputActionMap Get() { return m_Wrapper.m_FPSCharacter; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -431,9 +454,9 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_FPSCharacterActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnMove;
+                @Moving.started -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnMoving;
+                @Moving.performed -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnMoving;
+                @Moving.canceled -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnMoving;
                 @Interact.started -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnInteract;
@@ -458,13 +481,16 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnAim;
+                @Looking.started -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnLooking;
+                @Looking.performed -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnLooking;
+                @Looking.canceled -= m_Wrapper.m_FPSCharacterActionsCallbackInterface.OnLooking;
             }
             m_Wrapper.m_FPSCharacterActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
+                @Moving.started += instance.OnMoving;
+                @Moving.performed += instance.OnMoving;
+                @Moving.canceled += instance.OnMoving;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -489,6 +515,9 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @Looking.started += instance.OnLooking;
+                @Looking.performed += instance.OnLooking;
+                @Looking.canceled += instance.OnLooking;
             }
         }
     }
@@ -504,7 +533,7 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
     }
     public interface IFPSCharacterActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnMoving(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
@@ -513,5 +542,6 @@ public partial class @GameInputActions : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnLooking(InputAction.CallbackContext context);
     }
 }

@@ -13,8 +13,9 @@ namespace Characters.ConsciousnessEntities
         }
         
         public bool IsActive { get; set; }
-        
+
         public event Action<Vector2, InputActionPhase> MoveDirectionAction;
+        public event Action<Vector2, InputActionPhase> LookDirectionAction;
         public event Action<InputActionPhase> InteractAction;
         public event Action<InputActionPhase> ReloadAction;
         public event Action<InputActionPhase> ThrowAction;

@@ -36,6 +36,12 @@ namespace Characters.ConsciousnessEntities
             remove => _fpsCharacterInputActionsHandler.MoveDirectionAction -= value;
         }
 
+        event Action<Vector2, InputActionPhase> IHumanEntity.LookDirectionAction
+        {
+            add => _fpsCharacterInputActionsHandler.LookDirectionAction += value;
+            remove => _fpsCharacterInputActionsHandler.LookDirectionAction -= value;
+        }
+
         event Action<InputActionPhase> IHumanEntity.InteractAction
         {
             add => _fpsCharacterInputActionsHandler.InteractAction += value;

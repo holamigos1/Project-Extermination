@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 224381974090098900}
   - {fileID: 4102184191142454}
@@ -39,7 +40,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95283820790929226
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -52,10 +53,11 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &114728553263397740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +156,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 224382147304928610}
   m_Father: {fileID: 4027335240799878}
@@ -207,6 +210,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &114197894892380680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +257,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -47.75, y: -11.98, z: -63.168888}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4314897981608074}
   m_RootOrder: 0
@@ -281,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9beda531928fc40968802117a5d256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ApplyBeforeBody: 0
   m_RecenterTarget: 0
   m_VerticalAxis:
     Value: 0
@@ -331,6 +335,7 @@ MonoBehaviour:
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
+  m_ApplyBeforeBody: 0
 --- !u!114 &114070110674447096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +386,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 224381974090098900}
   m_RootOrder: 0
@@ -413,6 +419,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -455,6 +463,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4102184191142454}
   m_RootOrder: 0
@@ -483,7 +492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9beda531928fc40968802117a5d256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ApplyBeforeBody: 0
   m_RecenterTarget: 0
   m_VerticalAxis:
     Value: 0
@@ -533,6 +541,7 @@ MonoBehaviour:
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
+  m_ApplyBeforeBody: 0
 --- !u!114 &114480396777470252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,6 +596,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4651183836439746}
   m_RootOrder: 0
@@ -762,8 +772,7 @@ MonoBehaviour:
   m_MovementEffects:
     m_ZonesDefinition:
       m_MovementZoneLibraries:
-      - m_PhysicMaterial: {fileID: 13400000, guid: 29b2c1bb6c1514a8481c9824004f1bfa,
-          type: 2}
+      - m_PhysicMaterial: {fileID: 13400000, guid: 29b2c1bb6c1514a8481c9824004f1bfa, type: 2}
         m_ZoneLibrary:
           m_LeftFootEffects:
           - {fileID: 114703649657986578, guid: 39b499a1da7614637b04ee652e561932, type: 3}
@@ -773,8 +782,7 @@ MonoBehaviour:
           - {fileID: 114805303375849546, guid: ecb7fd2a290b048dabc44bf7feffd33e, type: 3}
           m_JumpingEffects:
           - {fileID: 114403976645686668, guid: a9342873cbbcd4dee83f201b44d61868, type: 3}
-      - m_PhysicMaterial: {fileID: 13400000, guid: 6940cb6fb8efe45f18f8f38410c06794,
-          type: 2}
+      - m_PhysicMaterial: {fileID: 13400000, guid: 6940cb6fb8efe45f18f8f38410c06794, type: 2}
         m_ZoneLibrary:
           m_LeftFootEffects:
           - {fileID: 114703649657986578, guid: d5b731d417b5a43f0970e4eb0b903491, type: 3}
@@ -800,8 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d18c90d0624c479e19c99103789302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TouchControlsPrefab: {fileID: 1201311427779892, guid: 412a843d79095470db5a469eead8163c,
-    type: 3}
+  m_TouchControlsPrefab: {fileID: 1201311427779892, guid: 412a843d79095470db5a469eead8163c, type: 3}
   m_CameraLookSensitivity:
     m_MouseVertical: 1
     m_MouseHorizontal: 1
@@ -857,6 +864,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4527289882227228}
   m_RootOrder: 0
@@ -885,7 +893,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9beda531928fc40968802117a5d256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ApplyBeforeBody: 0
   m_RecenterTarget: 0
   m_VerticalAxis:
     Value: 0
@@ -935,6 +942,7 @@ MonoBehaviour:
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
+  m_ApplyBeforeBody: 0
 --- !u!114 &114924922506280468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,6 +992,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4336105935122792}
   m_Father: {fileID: 4027335240799878}
@@ -1015,7 +1024,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -1051,6 +1063,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4616418079778226}
   m_Father: {fileID: 4027335240799878}
@@ -1082,7 +1095,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -1118,6 +1134,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4628960612161210}
   m_Father: {fileID: 4027335240799878}
@@ -1149,7 +1166,10 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1
@@ -1184,6 +1204,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4529930359431332}
   - {fileID: 4027335240799878}

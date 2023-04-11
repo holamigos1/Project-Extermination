@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Unity.Mathematics;
+using UnityEngine;
 
 public static class TransformExtensions
 {
-    public static bool HasChild (this Transform transform) =>
+    public static bool HasChild(this Transform transform) =>
         transform.childCount != 0;
         
     public static Transform GetFirstChild (this Transform transform) =>
@@ -13,7 +14,7 @@ public static class TransformExtensions
         
     public static Bounds RenderBounds (this Transform objTransform) 
     {
-        Bounds bounds = new Bounds(objTransform.position, Vector3.zero);
+        var bounds = new Bounds(objTransform.position, Vector3.zero);
             
         if (objTransform.TryGetComponent(out Renderer rendererComp)) 
             bounds.Encapsulate(rendererComp.bounds);

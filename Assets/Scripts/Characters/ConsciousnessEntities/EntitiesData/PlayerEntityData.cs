@@ -1,11 +1,7 @@
-﻿using System;
-using Characters.ConsciousnessEntities.Base;
-using Characters.Data.Base;
-using NewInput;
+﻿using Characters.ConsciousnessEntities.Base;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Characters.ConsciousnessEntities
+namespace Characters.ConsciousnessEntities.EntitiesData
 {
     [CreateAssetMenu(fileName = "Player Entity", menuName = "Game Data/Player Entity", order = 1)]
     public class PlayerEntityData : ConsciousnessEntityData, IHumanEntityCreator

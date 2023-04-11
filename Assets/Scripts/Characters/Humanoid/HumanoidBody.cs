@@ -1,14 +1,15 @@
 using GameAnimation.Sheets;
 using UnityEngine;
 
-namespace Characters
+namespace Characters.Humanoid
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Animator))]
     public class HumanoidBody : MonoBehaviour
     {
         public Vector3 Velocity => _humanoidBodyParameters.MovementAcceleration;
-        public Vector3 rootMotionPhysicsDelta => _animator.deltaPosition;
+        public Vector3 RootPositionDelta => _rootPositionDelta;
+        public Vector3 RootRotationDelta => _rootRotationDelta;
         
         [SerializeField] private HumanParametersSheet _humanAnimatorSheet;
         
@@ -19,7 +20,10 @@ namespace Characters
         //TODO Контроллер глаз
         
         private HumanoidBodyParameters _humanoidBodyParameters;
-        private Vector3 _rootMotionPhysicsDelta;
+        public HumanHead HeadController { get; private set; }
+        
+        private Vector3 _rootPositionDelta;
+        private Vector3 _rootRotationDelta;
 
         #if UNITY_EDITOR
         private void Reset()
@@ -38,7 +42,8 @@ namespace Characters
         private void Awake()
         {
             _humanoidBodyParameters = new HumanoidBodyParameters(_animator, _humanAnimatorSheet);
-            _animator.applyRootMotion = true;
+            HeadController = new HumanHead(_animator);
+            
             _animator.stabilizeFeet = true;
         }
 
@@ -51,6 +56,11 @@ namespace Characters
         {
             _humanoidBodyParameters.ForwardMovementParameter = direction.y;
             _humanoidBodyParameters.SideMovementParameter = direction.x;
+        }
+
+        public void ApplyRotationDirection(Vector2 direction)
+        {
+            
         }
 
         public void ApplySprint(bool isSprinting)
@@ -66,14 +76,18 @@ namespace Characters
         
         private void OnAnimatorMove()
         {
-            Debug.Log("OnAnimatorMove");
-            _rootMotionPhysicsDelta += _animator.deltaPosition;
+            _rootPositionDelta += _animator.deltaPosition;
+            //transform.rotation = Quaternion.Euler(_rootRotationDelta);
+        }
+
+        private void OnAnimatorIK(int layerIndex)
+        {
+
         }
 
         private void FixedUpdate() //TODO Не забудь поменять Execution Order в пользу контроллера персонажа а не его тела
         {
-            Debug.Log("FixedUpdate");
-            _rootMotionPhysicsDelta = Vector3.zero;
+            _rootPositionDelta = Vector3.zero;
         }
     }
 }

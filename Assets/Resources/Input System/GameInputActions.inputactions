@@ -6,7 +6,7 @@
             "id": "209e39b1-9e04-4f97-8cd3-ccd58af5e1d2",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Moving",
                     "type": "Value",
                     "id": "77500fb2-a1f0-4557-92e4-5f8cfde90f4a",
                     "expectedControlType": "Vector2",
@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Looking",
+                    "type": "Value",
+                    "id": "58a9fb50-a7e7-4c13-abba-123d2b772b43",
+                    "expectedControlType": "Vector2",
+                    "processors": "ScaleVector2(x=3,y=3)",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -95,7 +104,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -106,7 +115,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -117,7 +126,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -128,7 +137,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -139,7 +148,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -150,7 +159,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -161,7 +170,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -172,7 +181,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -183,7 +192,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -194,7 +203,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Move",
+                    "action": "Moving",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -283,6 +292,17 @@
                     "processors": "",
                     "groups": "PC",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9555da69-33d1-4f8f-92f9-dc3da214a32c",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Looking",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

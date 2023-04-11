@@ -14,6 +14,7 @@ namespace NewInput
         }
         
         public event Action<Vector2, InputActionPhase> MoveDirectionAction;
+        public event Action<Vector2, InputActionPhase> LookDirectionAction;
         public event Action<InputActionPhase> InteractAction;
         public event Action<InputActionPhase> ReloadAction;
         public event Action<InputActionPhase> ThrowAction;
@@ -30,7 +31,10 @@ namespace NewInput
             _inputActionsAsset.FPSCharacter.Disable();
         }
         
-        public void OnMove(InputAction.CallbackContext context) =>
+        //"0+6 usages" должно быть везде
+        public void OnLooking(InputAction.CallbackContext context) =>
+            LookDirectionAction?.Invoke(context.ReadValue<Vector2>(), context.action.phase);
+        public void OnMoving(InputAction.CallbackContext context) =>
             MoveDirectionAction?.Invoke(context.ReadValue<Vector2>(), context.action.phase);
         public void OnInteract(InputAction.CallbackContext context) =>
             InteractAction?.Invoke(context.action.phase);

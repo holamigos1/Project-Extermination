@@ -1,24 +1,14 @@
-﻿using System;
-using Characters.ConsciousnessEntities.Base;
-using Characters.Data.Base;
+﻿using Characters.ConsciousnessEntities.Base;
 using GameObjects;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 
-namespace Characters
+namespace Characters.Humanoid
 {
     [RequireComponent(typeof(CharacterController))]
     public class HumanCharacter : MonoBehaviour
     {
-        [SerializeField] private ConsciousnessEntityData CharactersConsciousnessEntityData;
-        [SerializeField] private HumanoidBody _bodyController;
-        
-        [SerializeField, HideInInspector] private Transform _transform;
-        [SerializeField, HideInInspector] private GameObject _gameObject;
-        [SerializeField, HideInInspector] private CharacterController _characterController;
-            
-        private IHumanEntity _currentHumanDriver;
-
         public IHumanEntity HumanDriver
         {
             get => _currentHumanDriver;
@@ -35,6 +25,7 @@ namespace Characters
                     _currentHumanDriver.InteractAction -= OnInteractAction;
                     _currentHumanDriver.JumpAction -= OnJumpAction;
                     _currentHumanDriver.MoveDirectionAction -= OnMoveDirectionAction;
+                    _currentHumanDriver.LookDirectionAction -= OnLookDirectionAction;
                     _currentHumanDriver.ReloadAction -= OnReloadAction;
                     _currentHumanDriver.SprintAction -= OnSprintAction;
                     _currentHumanDriver.ThrowAction -= OnThrowAction;
@@ -50,12 +41,25 @@ namespace Characters
                 _currentHumanDriver.InteractAction += OnInteractAction;
                 _currentHumanDriver.JumpAction += OnJumpAction;
                 _currentHumanDriver.MoveDirectionAction += OnMoveDirectionAction;
+                _currentHumanDriver.LookDirectionAction += OnLookDirectionAction;
                 _currentHumanDriver.ReloadAction += OnReloadAction;
                 _currentHumanDriver.SprintAction += OnSprintAction;
                 _currentHumanDriver.ThrowAction += OnThrowAction;
                 _currentHumanDriver.SitDownAction += OnSitDownAction;
             }
         }
+        
+        [SerializeField] private ConsciousnessEntityData CharactersConsciousnessEntityData;
+        [SerializeField] private HumanoidBody _bodyController;
+        [SerializeField] private MultiAimConstraint _headAimConstraint;
+        [SerializeField] private AimRoot _aimRoot;
+
+        [SerializeField, HideInInspector] private Transform _transform;
+        [SerializeField, HideInInspector] private GameObject _gameObject;
+        [SerializeField, HideInInspector] private CharacterController _characterController;
+            
+        private IHumanEntity _currentHumanDriver;
+
 
         #if UNITY_EDITOR
         private void Reset()
@@ -64,6 +68,7 @@ namespace Characters
             _gameObject = gameObject;
             _bodyController = _transform.GetComponentsInAllChildren<HumanoidBody>().First();
             _characterController = GetComponent<CharacterController>();
+            _aimRoot = _transform.GetComponentsInAllChildren<AimRoot>().First();
             
             if(_bodyController == null) 
                 Debug.LogError($"{nameof(HumanoidBody)} controller is not exist in Character game object hierarchy!");
@@ -72,12 +77,12 @@ namespace Characters
         
         private void Awake()
         {
-            if (CharactersConsciousnessEntityData is IHumanEntityCreator entityCreator)
+            if (CharactersConsciousnessEntityData is IHumanEntityCreator entityCreator) 
                 HumanDriver = entityCreator.CreateEntityInstance();
             else Debug.LogError($"{CharactersConsciousnessEntityData.name} type of {nameof(ConsciousnessEntityData)} is not designed to control this human being!");
-
+            
             _characterController.enableOverlapRecovery = true;
-            _characterController.detectCollisions = true;
+            _aimRoot.SetClamping(_headAimConstraint.data.limits, _headAimConstraint.data.limits);
             HumanDriver.UpdateEntity();
         }
 
@@ -91,24 +96,51 @@ namespace Characters
             switch (hit.controller.collisionFlags)
             {
                 case CollisionFlags.None:
-                    Debug.Log(CollisionFlags.None);
+                    //Debug.Log(CollisionFlags.None);
                     break;
                 case CollisionFlags.Sides:
-                    Debug.Log(CollisionFlags.Sides);
+                    //Debug.Log(CollisionFlags.Sides);
                     break;
                 case CollisionFlags.Above:
-                    Debug.Log(CollisionFlags.Above);
+                   // Debug.Log(CollisionFlags.Above);
                     break;
                 case CollisionFlags.Below:
-                    Debug.Log(CollisionFlags.Below);
+                    //Debug.Log(CollisionFlags.Below);
                     break;
             }
         }
-        private void FixedUpdate()
+
+        private void Update()
         {
-            _characterController.Move(_bodyController.rootMotionPhysicsDelta);
+            HumanDriver.UpdateEntity();
+            _aimRoot.SyncHorizontalPosition(_bodyController.HeadController.HeadTransform);
         }
 
+        private void FixedUpdate()
+        {
+            _characterController.Move(_bodyController.RootPositionDelta + Physics.gravity * Time.smoothDeltaTime);
+            //transform.rotation = _bodyController.
+        }
+
+        private void OnLookDirectionAction(Vector2 directionVelocity, InputActionPhase actionPhase)
+        {
+            directionVelocity *= Time.smoothDeltaTime;
+
+            _aimRoot.Pitch(-directionVelocity.y);// минус тк +X это наклон вниз, нада вверх
+            bool isClamped = _aimRoot.Yaw(directionVelocity.x);
+            
+            if(isClamped) 
+                _bodyController.ApplyRotationDirection(directionVelocity);
+        }
+        
+        private void OnMoveDirectionAction(Vector2 directionVelocity, InputActionPhase actionPhase)
+        {
+            _bodyController.ApplyMovementDirection(directionVelocity);
+
+            if (directionVelocity == Vector2.zero)
+                _aimRoot.Transform.localPosition = new Vector3(0, _aimRoot.Transform.localPosition.y, 0);
+        }
+        
         private void OnSitDownAction(InputActionPhase actionPhase)
         {
             //_viewController.SitDown();
@@ -128,11 +160,6 @@ namespace Characters
         private void OnReloadAction(InputActionPhase actionPhase)
         {
             //_viewController.Reload();
-        }
-
-        private void OnMoveDirectionAction(Vector2 direction, InputActionPhase actionPhase)
-        {
-            _bodyController.ApplyMovementDirection(direction);
         }
 
         private void OnJumpAction(InputActionPhase actionPhase)

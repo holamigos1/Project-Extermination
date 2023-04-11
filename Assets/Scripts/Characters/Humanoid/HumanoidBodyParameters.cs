@@ -1,7 +1,7 @@
 ﻿using GameAnimation.Sheets;
 using UnityEngine;
 
-namespace Characters
+namespace Characters.Humanoid
 {
     public class HumanoidBodyParameters
     {
@@ -21,7 +21,7 @@ namespace Characters
         private readonly Animator _humanAnimator;
         
         //TODO Придумай как избавится от магических чисел
-        private const float MOVEMENT_SMOOTH_TIME = 0.1f; 
+        private const float MOVEMENT_SMOOTH_TIME = 0.15f; 
         
         public void FrameTick() //Кто салоцировал тот и апдейтит
         {
