@@ -45,14 +45,14 @@ namespace Weapons.Range.O.P.S_Gun
         {
             if (transform.parent != null && transform.parent.CompareTag(GameTags.HAND_TAG))
             {
-                _isEquipped = true;
+                IsEquipped = true;
                 animator.enabled = true;
                 GetComponent<Rigidbody>().isKinematic = true;
                 gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
             }
             else
             {
-                _isEquipped = false;
+                IsEquipped = false;
                 animator.enabled = false;
                 GetComponent<Rigidbody>().isKinematic = false;
                 gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
@@ -92,7 +92,7 @@ namespace Weapons.Range.O.P.S_Gun
 
         private void OnUpdate()
         {
-            if(_isEquipped == false) return;
+            if(IsEquipped == false) return;
             
             if (_placedVisableCharge != null) // метод который на HUD рисует картинку "приконектиться" если игрок навёлся а заряд
                 _opsUIPointerScript.DrawPointer(_placedVisableCharge.transform.position, _isHaveVisableCharge);
@@ -100,17 +100,17 @@ namespace Weapons.Range.O.P.S_Gun
         
         private void OnSwitchMode()
         {
-            if (_isEquipped) animator.SetTrigger(AnimationParams.SWITCH_MODE_TRIGGER);
+            if (IsEquipped) animator.SetTrigger(AnimationParams.SWITCH_MODE_TRIGGER);
         }
         
         private void OnAttack()
         {
-            if(_isEquipped) animator.SetTrigger(AnimationParams.SHOOT_TRIGGER);
+            if(IsEquipped) animator.SetTrigger(AnimationParams.SHOOT_TRIGGER);
         }
 
         public override void Reload()
         {
-            if (_isEquipped) animator.SetTrigger(AnimationParams.RELOAD_TRIGGER);
+            if (IsEquipped) animator.SetTrigger(AnimationParams.RELOAD_TRIGGER);
         }
 
         public override void Shoot()

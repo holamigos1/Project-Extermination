@@ -25,15 +25,35 @@ MonoBehaviour:
     hash: 25796721
     name: Movement_Rotation
     parameterType: 1
-  _equippedWeaponType:
+  _equippedWeaponTypeInt:
     hash: -1418711105
     name: Equipped_WeaponType
     parameterType: 3
-  _equippedItemType:
+  _equippedItemTypeInt:
     hash: -700087228
     name: Equipped_ItemType
     parameterType: 3
-  _interactionType:
+  _interactionTypeInt:
     hash: -1458088342
     name: Interaction_Type
     parameterType: 3
+  _equipTrigger:
+    hash: -386692432
+    name: EquipTrigger
+    parameterType: 9
+  _attackTrigger:
+    hash: -1742204373
+    name: AttackTrigger
+    parameterType: 9
+  _isHidingWeapon:
+    hash: 1484609771
+    name: IsHidingWeapon
+    parameterType: 4
+  _isAimBool:
+    hash: 472901803
+    name: IsAim
+    parameterType: 4
+  _reloadTrigger:
+    hash: 1678796994
+    name: Reload Trigger
+    parameterType: 9

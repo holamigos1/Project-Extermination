@@ -2,16 +2,72 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanRigsHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanRigsHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/CharacterWeaponHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/CharacterWeaponHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/WeaponHandlers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/WeaponHandlers/PistolAnimationHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/WeaponHandlers/PistolAnimationHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/WeaponHandlers/WeaponsHandlerContainer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/WeaponHandlers/WeaponsHandlerContainer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/StateMachineBehaviours.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/StateMachineBehaviours/EquipItemStateBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/StateMachineBehaviours/EquipItemStateBehaviour.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/StateMachineBehaviours/HideItemStateBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/StateMachineBehaviours/HideItemStateBehaviour.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/GizmosExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/GizmosExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animaton/Controllers/Human/Human Animation Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animaton/Controllers/Human/Human Animation Controller.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animaton/Sheets/Human Animator Sheet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animaton/Sheets/Human Animator Sheet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Mannequin/Mannequin.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Mannequin/Mannequin.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Mannequin/Mannequin.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Mannequin/Mannequin.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Mannequin/Mannequin.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Mannequin/Mannequin.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Sci-fi agent by 3D Resource/Sci-fi_agent.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Models/Creatures/Sci-fi agent by 3D Resource/Sci-fi_agent.blend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/PT-9M Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/PT-9M Pistol.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal02_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal02_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal03_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal03_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Ammo Decal_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Bullet Decal_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M 9mm Bullet Decal_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Case_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Case_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Decal_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Decal_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin01_Body_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin01_Body_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin02_Body_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Materials/PT-9M Pistol_Skin02_Body_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Case.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Case.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_High.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_High.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_High_sep.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_High_sep.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_Low.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_Low.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_Low_sep.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol 9mm Bullet_Low_sep.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol Ammo.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol Ammo.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Weapons/NZ PT-9M Pistol/Sourse/Meshes/PT-9M Pistol.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Standard Assets Characters/Standard-Assets-Characters-master/Assets/_Standard Assets/Characters/Animation/Animators/AnimStateMachine_MaleController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Standard Assets Characters/Standard-Assets-Characters-master/Assets/_Standard Assets/Characters/Animation/Animators/AnimStateMachine_MaleController.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/New Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Characters.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Characters.asmdef" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/AimRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/AimRoot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanCharacter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanHead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanHead.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanHead.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanHead.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanRigsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanRigsHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanRigsHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanRigsHandler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanoidBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanoidBody.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/GameObjectsExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/GameObjectsExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanoidBodyParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanoidBodyParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanoidBodyParameters.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanoidBodyParameters.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/Data/ItemType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/Data/ItemType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/Sheets/HumanParametersSheet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/Sheets/HumanParametersSheet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjects/Base/GameItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjects/Base/GameItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjects/Base/IPickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjects/Base/IPickup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/RotationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/RotationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapons.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapons.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +99,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434908727417408abd02bbd1a0835ef881d000/ef/6aca83a9/PropertyDrawer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/12/3fd09160/IComparable`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/51/5495d2ed/Delegate.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/60/9ff7d648/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/81/95bd5652/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/9b/38a58890/Action.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/b1/a0523614/Action`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/bd/adb309b1/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/ce/f4cc0b33/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/db/9ea9092f/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/f1/f3189953/Type.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/9e/4a954c5e/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/d7/12cffab1/Action`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/fc/239520fa/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -64,6 +122,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/75633565436c42f0a6426b33f0132ade46a800/e1/ba3aab74/StackTrace.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/75633565436c42f0a6426b33f0132ade46a800/fd/d02e052c/SystemException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/35/79c949d3/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/4f/07be8346/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/89/445dca0c/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/8b/7d5a6228/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/a3/35f39d69/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
@@ -96,6 +155,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/AssetDataBaseExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineFreeLook.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Core/CinemachineVirtualCameraBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/double2x2.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/double3x2.gen.cs" root0="SKIP_HIGHLIGHTING" />
@@ -116,19 +176,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "Project Files",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.3849519",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;Project Files&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.3849519&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.17f1\Editor\Unity.exe" />
@@ -148,10 +210,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16320">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="16320" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -205,7 +267,16 @@
       <workItem from="1681037905469" duration="606000" />
       <workItem from="1681043241742" duration="37315000" />
       <workItem from="1681084428864" duration="4902000" />
-      <workItem from="1681153617921" duration="47102000" />
+      <workItem from="1681153617921" duration="56810000" />
+      <workItem from="1681228196273" duration="24892000" />
+      <workItem from="1681326658512" duration="1862000" />
+      <workItem from="1681341877954" duration="628000" />
+      <workItem from="1681355184161" duration="5082000" />
+      <workItem from="1681361186692" duration="2784000" />
+      <workItem from="1681364191826" duration="11103000" />
+      <workItem from="1681502155513" duration="6092000" />
+      <workItem from="1681606683226" duration="8784000" />
+      <workItem from="1681852238653" duration="3924000" />
     </task>
     <servers />
   </component>

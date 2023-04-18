@@ -2,7 +2,7 @@
 {
    public interface IPickup
     {
-        public bool IsPickuped { get; }
+        public bool IsPickup { get; }
         
         public GameItem Pickup();
     }

@@ -7,13 +7,13 @@ namespace Misc
     {
         public static float ClampAngle(this float angle, Vector2 minMax, out bool isClamped)
         {
-            const float tolerance = -1f; //Todo мааагияя
-        
+            const float tolerance = 3f;
+
             float clampedAngle = angle.ClampAngle(minMax.x, minMax.y);
+
             angle = Mathf.Repeat(angle + 180, 360) - 180;
-            //Debug.Log($"angle {angle} clampedAngle {angle} minMax.x - tolerance {minMax.x - tolerance} minMax.Y + tolerance {minMax.y + tolerance}");
-        
-            if (minMax.x - tolerance >  angle || angle - tolerance > minMax.y)
+            
+            if (angle - tolerance < minMax.x  || angle + tolerance > minMax.y)
                 isClamped = true;
             else isClamped = false;
         

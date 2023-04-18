@@ -1,5 +1,6 @@
 ﻿using Misc;
 using UnityEngine;
+using Range = Misc.Range;
 
 namespace Characters.Humanoid
 {
@@ -13,6 +14,8 @@ namespace Characters.Humanoid
         private Range _xAxisClamp; //Pitch
         private Range _yAxisClamp; //Yaw
         private Vector3 _startLocalPosition;
+        private Vector3 spoint;
+        private Vector3 _planeNormal;
         
         public void Awake()
         {
@@ -26,14 +29,18 @@ namespace Characters.Humanoid
             _yAxisClamp = yAxisClamp;
         }
 
-        public void SyncHorizontalPosition(Transform point) //магнитит рут к башке
+        public void SyncWithHeadBone(Transform headBone) //магнитит рут к башке
         {
-            Vector3 syncWorldPos = point.position;
-            Vector3 startPos = _startLocalPosition;
+            //Todo а если голова больше? 
+            //todo а если персонаж присел? или лежит? прицеливается?
             
-            syncWorldPos += point.forward * startPos.z;
-            syncWorldPos.y = startPos.y;
-            
+            Vector3 tipOfNose = new Vector3(0,0.1f,0.15f); 
+            Vector3 syncWorldPos = headBone.position;
+
+            syncWorldPos += headBone.forward * tipOfNose.z;
+            syncWorldPos += headBone.up * tipOfNose.y;
+                                                                                            //Mathf.Cos компенсирует тярску при беге, смотря вперёд
+            syncWorldPos.y = Mathf.Lerp(Transform.position.y, syncWorldPos.y, Mathf.Abs(Mathf.Cos(Transform.localRotation.eulerAngles.x)));
             Transform.position = syncWorldPos;
         }
 

@@ -125,7 +125,7 @@ namespace Characters.Humanoid
         private void Update()
         {
             HumanDriver.UpdateEntity();
-            _aimRoot.SyncHorizontalPosition(_bodyController.HeadController.HeadTransform);
+            _aimRoot.SyncWithHeadBone(_bodyController.HeadController.HeadTransform);
         }
 
         private void FixedUpdate()
@@ -149,16 +149,15 @@ namespace Characters.Humanoid
         {
             _bodyController.ApplyMovementDirection(directionVelocity);
         }
-        
+
         private void OnSitDownAction(InputActionPhase actionPhase)
         {
             //_viewController.SitDown();
         }
 
-        private void OnThrowAction(InputActionPhase actionPhase)
-        {
-            //_viewController.Throw();
-        }
+        private void OnThrowAction(InputActionPhase actionPhase) =>
+            _bodyController.ApplyThrowItem();
+        
 
         private void OnSprintAction(InputActionPhase actionPhase)
         {
@@ -166,10 +165,9 @@ namespace Characters.Humanoid
             if(actionPhase == InputActionPhase.Canceled) _bodyController.ApplySprint(false);
         }
 
-        private void OnReloadAction(InputActionPhase actionPhase)
-        {
-            //_viewController.Reload();
-        }
+        private void OnReloadAction(InputActionPhase actionPhase) =>
+            _bodyController.ApplyReload();
+        
 
         private void OnJumpAction(InputActionPhase actionPhase)
         {
@@ -190,12 +188,16 @@ namespace Characters.Humanoid
 
         private void OnAttackAction(InputActionPhase actionPhase)
         {
-            //_viewController.Attack();
+            if(actionPhase == InputActionPhase.Started)
+                _bodyController.ApplyAttack();
         }
 
         private void OnAimAction(InputActionPhase actionPhase)
         {
-            //_viewController.Aim();
+            if(actionPhase == InputActionPhase.Started)
+                _bodyController.ApplyAim(true);
+            if(actionPhase == InputActionPhase.Canceled)
+                _bodyController.ApplyAim(false);
         }
     }
 }

@@ -1517,6 +1517,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rightHandGrip: {fileID: 2331855872447561527}
+  _itemAnimator: {fileID: 806197461105865361}
+  _itemRigidbody: {fileID: 806197461105865360}
+  _itemGameObject: {fileID: 806197461105865363}
+  _itemTransform: {fileID: 806197461105865367}
   _damage: 10
   _shootForce: 100
   _ammoType: {fileID: -8273329044212282543, guid: 211e360025ff68f4b9144a2efceeaae3, type: 3}

@@ -1,31 +1,40 @@
-﻿using System.Collections;
+// Designed by Kinemation, 2023
+
+using System.Collections.Generic;
+using System.Collections;
 using GameData.AnimationTags;
 using GameData.Layers;
 using GameData.Tags;
 using GameObjects.Base;
+using Kinemation.FPSFramework.Runtime.Core;
 using Misc;
 using UnityEngine;
 
 namespace Weapons
 {
-    public abstract class Weapon : GameItem, IEquip, IDrop
+    public class Weapon : GameItem
     {
-        public Unit Owner => _owner;
-        public bool IsEquipped => _isEquipped;
+        public bool IsEquipped { get; protected set; }
         public bool IsInHand => (ItemTransform.parent != null) && 
                                 (ItemTransform.parent.CompareTag(GameTags.HAND_TAG));
 
         public bool IsReady => ItemAnimator.GetCurrentAnimatorStateInfo(0).IsName(AnimationParams.IDLE);
         public float Damage => _damage;
-        public Transform RightHandGrip => _rightHandGrip;
-        
+
         [SerializeField] 
         private float _damage = 10f;
         
+        [Tooltip("Список Transform позиций к которым можно прицелиться.")]
+        [SerializeField] private List<Transform> _scopes;
+        [SerializeField] public WeaponAnimData gunData;
+        [SerializeField] public RecoilAnimData recoilData;
         
-        protected bool _isEquipped;
-        protected Unit _owner;
+        public FireMode fireMode;
+        public float fireRate;
+        public int burstAmount;
         
+        private int _scopeIndex;
+
         private void Start()
         {
             if (IsInHand) Equip();
@@ -49,11 +58,8 @@ namespace Weapons
             while (IsReady == false) //да она дохрена раз обращается к GetCurrentAnimatorStateInfo, и чо
                 yield return null;
             
-            ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, _isEquipped = true);
+            ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, IsEquipped = true);
         }
-
-        public void SetOwner(Unit newOwner) =>
-            _owner = newOwner;
 
         public virtual void PlayFireAction() { }
         
@@ -69,8 +75,8 @@ namespace Weapons
         
         public void Drop()
         {
-            _isEquipped = false;
-            _owner = null;
+            IsEquipped = false;
+            Owner = null;
             
             ItemRigidbody.isKinematic = false;
             ItemRigidbody.useGravity = true;
@@ -80,6 +86,26 @@ namespace Weapons
             ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
 
             ItemGameObject.ChangeGameObjsLayers(GameLayers.DEFAULT_LAYER);
+        }
+
+        public Transform GetScope()
+        {
+            _scopeIndex++;
+            _scopeIndex = _scopeIndex > _scopes.Count - 1 ? 0 : _scopeIndex;
+            return _scopes[_scopeIndex];
+        }
+        
+        public void OnFire()
+        {
+            PlayFireAnim();
+        }
+
+        private void PlayFireAnim()
+        {
+            if (ItemAnimator == null)
+                return;
+            
+            ItemAnimator.Play("Fire", 0, 0f);
         }
     }
 }
