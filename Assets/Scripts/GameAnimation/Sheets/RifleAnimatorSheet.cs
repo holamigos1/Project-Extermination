@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameAnimation.Sheets
 {
-    [CreateAssetMenu(fileName = "Rifle Animator Sheet", menuName = "Game Data/Animator Sheets/Rifle", order = 1)]
+    [CreateAssetMenu(fileName = "Rifle Animator Sheet", menuName = "Scriptable Data/Animator Sheets/Rifle", order = 1)]
     public class RifleAnimatorSheet : AnimatorParametersSheet
     {
         public AnimatorControllerState FireState => _fireState;

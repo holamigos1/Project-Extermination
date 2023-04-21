@@ -17,7 +17,7 @@ namespace GameObjects.Base
     }
     
     [Serializable]
-    [CreateAssetMenu(fileName = "Game Materials", menuName = "Game Data/Materials", order = 1)]
+    [CreateAssetMenu(fileName = "Game Materials", menuName = "Scriptable Data/Materials", order = 1)]
     public class GameMaterials : ScriptableObject
     {
         private Dictionary<string, MaterialType> _materialNames;
@@ -101,6 +101,17 @@ namespace GameObjects.Base
             //TODO Сделать бинарный поиск типа материала
             
             return type;
+        }
+        
+        public static bool GetMaterialType(this GameObject gameObj, out MaterialType materialType)
+        {
+            materialType = MaterialType.Defualt;
+            bool isContainsRender = gameObj.TryGetComponent(out Renderer renderer);
+            
+            if (isContainsRender)
+                materialType = renderer.sharedMaterial.GetMaterialType();
+            
+            return isContainsRender;
         }
 
         public static bool GetMaterialType(this Collision collision, out MaterialType materialType)

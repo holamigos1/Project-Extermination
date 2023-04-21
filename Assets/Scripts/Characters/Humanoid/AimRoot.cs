@@ -69,7 +69,13 @@ namespace Characters.Humanoid
         }
         
         /// <summary>От AimRoot до его AimTarget</summary>
-        public GameObject GetRayBlockObject(LayerMask mask) =>
-            Transform.GetRaycastBlockingObj(AimTarget.position, mask);
+        public GameObject GetRayBlockObject(LayerMask mask)
+        { 
+            Collider rayBlockCollider = Transform.GetRaycastBlockingObj(AimTarget.position, mask).collider;
+            
+            return rayBlockCollider != null ?
+                rayBlockCollider.gameObject :
+                null;   
+        }
     }
 }

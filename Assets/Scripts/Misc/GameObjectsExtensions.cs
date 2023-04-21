@@ -34,24 +34,22 @@ namespace Misc
             foreach (Transform child in gameObject.transform)
                 ChangeGameObjsLayers(child.gameObject, layerID);
         }
-        
-        public static GameObject GetRaycastBlockingObj(this Transform rayStartPos, Vector3 rayEnd, LayerMask rayBlockingMask) =>
-            GetRaycastBlockingObj(rayStartPos.position, rayEnd, rayBlockingMask);
-        
-        public static GameObject GetRaycastBlockingObj(Vector3 rayStartPos, Vector3 rayEnd, int layerMask)
-        {
-            float distance = Vector3.Distance(rayStartPos, rayEnd);
 
-            rayEnd = rayEnd - rayStartPos;
-            Debug.DrawRay(rayStartPos, rayEnd, Color.blue, 1f);
-            Ray ray = new Ray(rayStartPos, rayEnd);
+        public static RaycastHit GetRaycastBlockingObj(this Transform rayStartPos, Vector3 rayDirection, LayerMask rayBlockingMask) =>
+            GetRaycastBlockingObj(rayStartPos.position, rayDirection, 1000f ,rayBlockingMask); //todo magic 1000f
+
+        public static RaycastHit GetRaycastBlockingObj(Vector3 rayStartPos, Vector3 rayDirection, float distance, int layerMask)
+        {
+            Ray ray = new Ray(rayStartPos, rayDirection);
             if (Physics.Raycast(ray, out RaycastHit hitInfo, distance, layerMask) == false) 
-                return null;
+                return new RaycastHit();
             
             if (hitInfo.transform == null) 
-                return null;
+                return new RaycastHit();
             
-            return hitInfo.transform.gameObject;
-        }
+            Debug.DrawRay(rayStartPos, rayDirection * hitInfo.distance, Color.blue, 1f);
+            
+            return hitInfo;
+        }   
     }
 }

@@ -14,7 +14,7 @@ namespace GameObjects.Base
         public Rigidbody ItemRigidbody => _itemBasicComponents.Rigidbody;
         public GameObject ItemGameObject => _itemBasicComponents.GameObject;
         public Transform ItemTransform => _itemBasicComponents.Transform;
-
+        
         [SerializeField] private ItemBasicComponents _itemBasicComponents;
         private bool _isItemPickup;
         

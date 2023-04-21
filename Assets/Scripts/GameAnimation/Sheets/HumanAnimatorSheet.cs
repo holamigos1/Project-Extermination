@@ -5,7 +5,7 @@ using AnimatorControllerParameter = GameAnimation.Data.AnimatorControllerParamet
 
 namespace GameAnimation.Sheets
 {
-    [CreateAssetMenu(fileName = "Human Animator Sheet", menuName = "Game Data/Animator Sheets/Human", order = 1)]
+    [CreateAssetMenu(fileName = "Human Animator Sheet", menuName = "Scriptable Data/Animator Sheets/Human", order = 1)]
     public class HumanAnimatorSheet : AnimatorParametersSheet
     {
         public AnimatorControllerParameter SideMovement => _sideMovement;
