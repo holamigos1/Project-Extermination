@@ -1,7 +1,8 @@
-// Designed by Kinemation, 2023
+// Designed by Kinemation and Sanya2286661337, 2023
 
 using System.Collections.Generic;
 using System.Collections;
+using GameAnimation.Sheets;
 using GameData.AnimationTags;
 using GameData.Layers;
 using GameData.Tags;
@@ -24,10 +25,11 @@ namespace Weapons
         [SerializeField] 
         private float _damage = 10f;
         
+        [SerializeField] private RifleAnimatorSheet _rifleAnimatorSheet;
         [Tooltip("Список Transform позиций к которым можно прицелиться.")]
         [SerializeField] private List<Transform> _scopes;
-        [SerializeField] public WeaponAnimData gunData;
-        [SerializeField] public RecoilAnimData recoilData;
+        [SerializeField] public WeaponAnimData gunData; //TODO А если это катана или пульт наведения лазненым спутником?
+        [SerializeField] public RecoilAnimData recoilData; //TODO Убери в скрипт Firearm
         
         public FireMode fireMode;
         public float fireRate;
@@ -35,16 +37,20 @@ namespace Weapons
         
         private int _scopeIndex;
 
-        private void Start()
+        protected void Start()
         {
-            if (IsInHand) Equip();
+            Debug.Log(ItemGameObject.name);
+            if (IsInHand)
+            {
+                Equip();
+            }
         }
         
         public void Equip()
         {
             ItemGameObject.SetActive(true);
             ItemAnimator.enabled = true;
-            ItemAnimator.SetTrigger(AnimationParams.ITEM_EQUIP_TRIGGER);
+            ItemAnimator.SetTrigger(AnimationParams.ITEM_EQUIP_TRIGGER); //TODO Используй AnimatorParametersSheet для имён стейтов
             ItemAnimator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
             
             ItemRigidbody.isKinematic = true;
@@ -73,7 +79,7 @@ namespace Weapons
             Gizmos.DrawWireCube(boudns.center, boudns.size);
         }
         
-        public void Drop()
+        public void OnDrop()
         {
             IsEquipped = false;
             Owner = null;
@@ -105,7 +111,7 @@ namespace Weapons
             if (ItemAnimator == null)
                 return;
             
-            ItemAnimator.Play("Fire", 0, 0f);
+            ItemAnimator.Play(_rifleAnimatorSheet.FireState.Hash, _rifleAnimatorSheet.DefaultLayer, 0f); //TODO Используй AnimatorParametersSheet для имён стейтов
         }
     }
 }

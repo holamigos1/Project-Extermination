@@ -3,20 +3,21 @@ using GameAnimation.Data;
 using GameAnimation.Sheets.Base;
 using UnityEditor;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace GameAnimation.Editor
 {
-    [CustomPropertyDrawer(typeof(AnimationControllerState))]
+    [CustomPropertyDrawer(typeof(AnimatorControllerState))]
     public class AnimatorStateDrawer : PropertyDrawer
     {
         private int _selectedIndex;
         private SerializedProperty _hashProperty;
+        private SerializedProperty _hashFullPathProperty;
         private SerializedProperty _nameProperty;
         private SerializedProperty _fullPathProperty;
-        private AnimationControllerState[] _savedStates;
-
-        private (string[] Names, string[] FullPathNames) GetStatesNames(AnimationControllerState[] states)
+        private AnimatorControllerState[] _savedStates;
+        private RuntimeAnimatorController _runtimeAnimatorController;
+        
+        private (string[] Names, string[] FullPathNames) GetStatesNames(AnimatorControllerState[] states)
         {
             if (states.Length == 0) 
                 return (Array.Empty<string>(), Array.Empty<string>());
@@ -25,7 +26,7 @@ namespace GameAnimation.Editor
             var fullNamesArray = new string[_savedStates.Length];
 
             int iterator = 0;
-            foreach (AnimationControllerState state in states)
+            foreach (AnimatorControllerState state in states)
             {
                 fullNamesArray[iterator] = state.FullPathName;
                 namesArray[iterator++] = state.Name;
@@ -33,24 +34,15 @@ namespace GameAnimation.Editor
             
             return (namesArray, fullNamesArray);
         }
-        
-        private AnimationControllerState[] GetStates(SerializedProperty property)
-        {
-            if (property.CheckForAnimator(out Animator animator))
-                return animator.GetStates();
-            
-            var animatorSheet = property.serializedObject.targetObject as AnimatorParametersSheet;
-            if (animatorSheet != null) return animatorSheet.TargetController.GetStates();
 
-            //todo проверки по остальным типам
-            
-            return Array.Empty<AnimationControllerState>();
-        }
-        
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            _savedStates ??= GetStates(property);
-            _hashProperty ??= property.FindPropertyRelative("fullPathHash");
+            _runtimeAnimatorController = property.GetAnimationController();
+            if(_runtimeAnimatorController == null) return;
+            
+            _savedStates = _runtimeAnimatorController.GetStates();
+            _hashFullPathProperty ??= property.FindPropertyRelative("fullPathHash"); //TODO Если какая нибудь собака поменять имена переменных то всё накроется
+            _hashProperty ??= property.FindPropertyRelative("hash");
             _nameProperty ??= property.FindPropertyRelative("name");
             _fullPathProperty ??= property.FindPropertyRelative("fullPathName");
             
@@ -58,7 +50,7 @@ namespace GameAnimation.Editor
 
             if(_selectedIndex == 0)
                 for(int iterator = 0; iterator < _savedStates.Length; iterator++)
-                    if (_savedStates[iterator] == _hashProperty.intValue)
+                    if (_savedStates[iterator] == _hashFullPathProperty.intValue)
                         _selectedIndex = iterator;
 
             var statesNames = GetStatesNames(_savedStates);
@@ -69,9 +61,10 @@ namespace GameAnimation.Editor
 
             EditorGUI.EndChangeCheck();
 
-            _hashProperty.intValue = _savedStates[_selectedIndex];
+            _hashFullPathProperty.intValue = _savedStates[_selectedIndex];
             _nameProperty.stringValue = _savedStates[_selectedIndex].Name;
             _fullPathProperty.stringValue = _savedStates[_selectedIndex].FullPathName;
+            _hashProperty.intValue = _savedStates[_selectedIndex].Hash;
             
             EditorGUI.LabelField(position, new GUIContent(" ", _fullPathProperty.stringValue)); // <-- Displays tooltip
         }

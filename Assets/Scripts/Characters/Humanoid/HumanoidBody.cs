@@ -23,7 +23,7 @@ namespace Characters.Humanoid
         
         public HumanHead HeadController { get; private set; }
 
-        [SerializeField] private HumanParametersSheet _humanAnimatorSheet;
+        [SerializeField] private HumanAnimatorSheet _humanAnimatorSheet;
         [SerializeField] private HumanRigsHandler.HumanRigsSettings _rigsSettings;
         [SerializeField, HideInInspector] private Transform _transform;
         [SerializeField, HideInInspector] private GameObject _gameObject;
@@ -43,11 +43,11 @@ namespace Characters.Humanoid
             _animator = GetComponent<Animator>();
             _transform = transform;
             _gameObject = gameObject;   
-            _humanAnimatorSheet = AssetDataBaseExtensions.LoadAssetAtFilter<HumanParametersSheet>
-                ($"t:{nameof(HumanParametersSheet)}");
+            _humanAnimatorSheet = AssetDataBaseExtensions.LoadAssetAtFilter<HumanAnimatorSheet>
+                ($"t:{nameof(HumanAnimatorSheet)}");
             
             if (_humanAnimatorSheet == null)
-                Debug.LogError($"Создай список {nameof(HumanParametersSheet)} в проекте!");
+                Debug.LogError($"Создай список {nameof(HumanAnimatorSheet)} в проекте!");
         }
         #endif
 

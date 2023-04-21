@@ -27,7 +27,7 @@ namespace Characters.Systems
 
         public override void Update()
         {
-            if(Input.GetKeyDown(KeyCode.G)) SystemsСontainer.NotifySystems("KeyDown","Drop");
+            if(Input.GetKeyDown(KeyCode.G)) SystemsСontainer.NotifySystems("KeyDown","OnDrop");
             if(Input.GetKeyDown(KeyCode.E)) SystemsСontainer.NotifySystems("KeyDown","Interact");
             if(Input.GetKeyUp(KeyCode.E)) SystemsСontainer.NotifySystems("KeyUp","Interact");
             if(Input.GetKeyDown(KeyCode.Mouse0)) SystemsСontainer.NotifySystems("KeyDown","Fire");

@@ -3,19 +3,21 @@ using GameAnimation.Data;
 using GameAnimation.Sheets.Base;
 using UnityEditor;
 using UnityEngine;
+using AnimatorControllerParameter = GameAnimation.Data.AnimatorControllerParameter;
 
 namespace GameAnimation.Editor
 {
-    [CustomPropertyDrawer(typeof(AnimationControllerParameter))]
+    [CustomPropertyDrawer(typeof(AnimatorControllerParameter))]
     public class AnimatorParameterDrawer : PropertyDrawer
     {
         private int _selectedIndex;
         private SerializedProperty _hashProperty;
         private SerializedProperty _nameProperty;
         private SerializedProperty _typeEnumProperty;
-        private AnimationControllerParameter[] _savedParameters;
+        private RuntimeAnimatorController _runtimeAnimatorController;
+        private AnimatorControllerParameter[] _savedParameters;
 
-        private string[] GetParameterNames(AnimationControllerParameter[] parameters)
+        private string[] GetParameterNames(AnimatorControllerParameter[] parameters)
         {
             if (parameters.Length == 0) 
                 return Array.Empty<string>();
@@ -23,28 +25,18 @@ namespace GameAnimation.Editor
             var namesArray = new string[_savedParameters.Length];
 
             int iterator = 0;
-            foreach (AnimationControllerParameter parameter in parameters)
+            foreach (AnimatorControllerParameter parameter in parameters)
                 namesArray[iterator++] = parameter.Name;
 
             return namesArray;
         }
-        
-        private AnimationControllerParameter[] GetParameters(SerializedProperty property)
-        {
-            if (property.CheckForAnimator(out Animator animator))
-                return animator.GetParameters();
 
-            var animatorSheet = property.serializedObject.targetObject as AnimatorParametersSheet;
-            if (animatorSheet != null) return animatorSheet.TargetController.GetParameters();
-            
-            //todo проверки по остальным типам
-            
-            return Array.Empty<AnimationControllerParameter>();
-        }
-        
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            _savedParameters ??= GetParameters(property);
+            _runtimeAnimatorController = property.GetAnimationController();
+            if(_runtimeAnimatorController == null) return;
+            
+            _savedParameters = _runtimeAnimatorController.GetParameters();
             _hashProperty ??= property.FindPropertyRelative("hash");
             _nameProperty ??= property.FindPropertyRelative("name");
             _typeEnumProperty ??= property.FindPropertyRelative("parameterType");

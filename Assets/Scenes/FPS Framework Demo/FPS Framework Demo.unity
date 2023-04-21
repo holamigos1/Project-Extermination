@@ -565,6 +565,11 @@ Transform:
   m_Father: {fileID: 957652049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &321486581 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7970000252165194226, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &422849130
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +918,11 @@ Transform:
   m_Father: {fileID: 1566629825}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -31.666, z: 0}
+--- !u!4 &669880714 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1617034113182620940, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1170,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 511
 --- !u!114 &782628377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,6 +1237,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &914433187 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 358457024669177342, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &929954211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1253,7 @@ GameObject:
   - component: {fileID: 929954215}
   - component: {fileID: 929954214}
   - component: {fileID: 929954213}
-  - component: {fileID: 929954212}
+  - component: {fileID: 929954216}
   m_Layer: 3
   m_Name: Mirror
   m_TagString: Untagged
@@ -1246,19 +1261,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &929954212
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929954211}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &929954213
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1325,6 +1327,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &929954216
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929954211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &957652048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +1714,11 @@ Transform:
   m_Father: {fileID: 225042936}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1140524142 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5577457037248386252, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1275061049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2543,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1660197818}
   - component: {fileID: 1660197820}
-  - component: {fileID: 1660197819}
   - component: {fileID: 1660197821}
   m_Layer: 3
   m_Name: Mirror Camera
@@ -2546,14 +2566,6 @@ Transform:
   m_Father: {fileID: 929954215}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1660197819
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660197817}
-  m_Enabled: 1
 --- !u!20 &1660197820
 Camera:
   m_ObjectHideFlags: 0
@@ -2606,9 +2618,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1660197817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1689203695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,6 +2933,16 @@ Transform:
   m_Father: {fileID: 957652049}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1793127232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2626369263779333354, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1820723410 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2305725457584828441, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1828546517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,6 +3140,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828601335}
   m_CullTransparentMesh: 1
+--- !u!4 &1854351705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2915131671948392849, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1949177222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1617034113561734898, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1967428594 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8724818459650098234, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+  m_PrefabInstance: {fileID: 8526311840588009766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2025627679
 GameObject:
   m_ObjectHideFlags: 0
@@ -3209,6 +3267,10 @@ PrefabInstance:
       propertyPath: layerAlpha
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 134116449862501399, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: e6900de4bacadb14fa37d2b744609163, type: 2}
     - target: {fileID: 156755240168882714, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -3341,9 +3403,17 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.010248807
       objectReference: {fileID: 0}
+    - target: {fileID: 693596722787789465, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a3c2851ed24cfbc4eae96bd1cf811765, type: 2}
     - target: {fileID: 757951669351840624, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: layerAlpha
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 757951669351840626, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: lerpSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 757951669351840636, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_Enabled
@@ -3441,6 +3511,298 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.026861878
       objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: fireMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: fireRate
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: recoilData
+      value: 
+      objectReference: {fileID: 11400000, guid: b0d912a5cd6b9864c87bd779c079da50, type: 2}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemRigidbody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemGameObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _scopes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _scopes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1854351705}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.leftHandTarget
+      value: 
+      objectReference: {fileID: 1967428594}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.target
+      value: 
+      objectReference: {fileID: 11400000, guid: ec2bb2999c76a454d8b0597a48dde751, type: 2}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.threshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.aimPoint
+      value: 
+      objectReference: {fileID: 1854351705}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.aimSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.maxValue
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.startOffset
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pivotPoint
+      value: 
+      objectReference: {fileID: 914433187}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.mass
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.mass
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.weaponLength
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.scale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.scale.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.z
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.speed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.speed
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.stiffness
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.y
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.z
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.w
+      value: -0.9513084
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.x
+      value: -0.22627231
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.y
+      value: 0.18844119
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.z
+      value: -0.091121025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocSway.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocSway.y
+      value: -0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocSway.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotSway.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotSway.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotSway.z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.w
+      value: 0.9238795
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428956329782498722, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.z
+      value: 0.38268346
+      objectReference: {fileID: 0}
     - target: {fileID: 1549498554595235382, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.036611866
@@ -3456,6 +3818,10 @@ PrefabInstance:
     - target: {fileID: 1549498554595235382, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.26265627
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670488441606241459, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1723750300017140138, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3480,6 +3846,282 @@ PrefabInstance:
     - target: {fileID: 1723750300017140138, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.000000053362186
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: fireMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: fireRate
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: recoilData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0720a1377eae4234b89eb7e573924ff2, type: 2}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: burstAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemRigidbody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemGameObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _scopes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.leftHandTarget
+      value: 
+      objectReference: {fileID: 1793127232}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.target
+      value: 
+      objectReference: {fileID: 11400000, guid: a02d64f9cd249de4e81b5132268a6f9f, type: 2}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.threshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.aimPoint
+      value: 
+      objectReference: {fileID: 669880714}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.aimSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.maxValue
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.startOffset
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pivotPoint
+      value: 
+      objectReference: {fileID: 1949177222}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.mass
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.mass
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.weaponLength
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.scale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.scale.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.z
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.speed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.speed
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.stiffness
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.y
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.z
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.w
+      value: -0.9513084
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.x
+      value: -0.22627231
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.y
+      value: 0.18844119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.z
+      value: -0.091121025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.x
+      value: -0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.z
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.w
+      value: 0.9536893
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.x
+      value: 0.002283024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.y
+      value: 0.0072407126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000235327942966871, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.z
+      value: 0.30069754
       objectReference: {fileID: 0}
     - target: {fileID: 2119728934462300943, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3913,6 +4555,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.35499153
       objectReference: {fileID: 0}
+    - target: {fileID: 5407465425877532842, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5599592251365945305, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.6455657
@@ -4077,6 +4723,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.04477785
       objectReference: {fileID: 0}
+    - target: {fileID: 6810602099548696521, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 32e6239e5e8d5cc44a97fd532483007b, type: 2}
     - target: {fileID: 7068956039934375134, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.3467412
@@ -4108,6 +4758,314 @@ PrefabInstance:
     - target: {fileID: 7175825402303015915, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.11537497
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: fireMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: fireRate
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: recoilData
+      value: 
+      objectReference: {fileID: 11400000, guid: f3220270c5a42d84a99e8338ca2d3ff1, type: 2}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemRigidbody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _itemGameObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _scopes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: _scopes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1140524142}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.handsOffset.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.handsOffset.y
+      value: -0.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.handsOffset.z
+      value: -0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.leftHandTarget
+      value: 
+      objectReference: {fileID: 1820723410}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.target
+      value: 
+      objectReference: {fileID: 11400000, guid: 99e1902b9fdf6e64ab6de65d9f35a9ba, type: 2}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.threshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.aimPoint
+      value: 
+      objectReference: {fileID: 1140524142}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.aimSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.freeAimData.maxValue
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.startOffset
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pivotPoint
+      value: 
+      objectReference: {fileID: 321486581}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.mass
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.mass
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.weaponLength
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.scale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.scale.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.scale.z
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.speed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.speed
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.maxValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.maxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.stiffness
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.stiffness
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.y
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.position.z
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.w
+      value: -0.9513084
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.x
+      value: -0.22627231
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.y
+      value: 0.18844119
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.blockData.restPose.rotation.z
+      value: -0.091121025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocSway.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocSway.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocSway.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotSway.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotSway.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotSway.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.x.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.y.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.loc.z.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.x.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.y.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.springData.rot.z.criticalDamping
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.position.y
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.w
+      value: 0.95371026
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.x
+      value: 0.0011283843
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.y
+      value: 0.003578774
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416079444267653013, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
+      propertyPath: gunData.gunAimData.pointAimOffset.rotation.z
+      value: 0.30070356
       objectReference: {fileID: 0}
     - target: {fileID: 7448029494456138203, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.w

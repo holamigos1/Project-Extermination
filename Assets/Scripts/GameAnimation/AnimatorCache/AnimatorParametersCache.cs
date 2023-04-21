@@ -2,6 +2,7 @@
 using GameAnimation.Data;
 using UnityEditor.Animations;
 using UnityEngine;
+using AnimatorControllerParameter = GameAnimation.Data.AnimatorControllerParameter;
 
 namespace GameAnimation.AnimatorCache
 {
@@ -30,19 +31,19 @@ namespace GameAnimation.AnimatorCache
                     .TryAdd(animParameter.nameHash, (animParameter.name, animParameter.type));
         }
 
-        public AnimationControllerParameter[] LoadParameters(AnimatorController animController)
+        public AnimatorControllerParameter[] LoadParameters(AnimatorController animController)
         {
             int controllerInstanceID = animController.GetInstanceID();
             
             if (_animatorParametersDictionary.ContainsKey(controllerInstanceID) == false)
                     SaveParameters(animController);
 
-            var loadedParametersArray = new AnimationControllerParameter[_animatorParametersDictionary[controllerInstanceID].Count];
+            var loadedParametersArray = new AnimatorControllerParameter[_animatorParametersDictionary[controllerInstanceID].Count];
 
             int iterator = 0;
             foreach (var parametersPair in _animatorParametersDictionary[controllerInstanceID])
                 loadedParametersArray[iterator++] = 
-                    new AnimationControllerParameter(parametersPair.Key, parametersPair.Value.Name, parametersPair.Value.Type);
+                    new AnimatorControllerParameter(parametersPair.Key, parametersPair.Value.Name, parametersPair.Value.Type);
             
             return loadedParametersArray;
         }

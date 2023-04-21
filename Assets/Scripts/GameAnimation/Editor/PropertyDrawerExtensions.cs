@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using GameAnimation.Sheets.Base;
+using UnityEditor;
 using UnityEngine;
 
 namespace GameAnimation.Editor
@@ -21,6 +22,16 @@ namespace GameAnimation.Editor
 
             animator = null;
             return false;
+        }
+        
+        public static RuntimeAnimatorController GetAnimationController(this SerializedProperty property)
+        {
+            var animatorSheet = 
+                property.serializedObject.targetObject as AnimatorParametersSheet;
+            
+            return animatorSheet != null ?
+                animatorSheet.TargetController : 
+                null;
         }
     }
 }

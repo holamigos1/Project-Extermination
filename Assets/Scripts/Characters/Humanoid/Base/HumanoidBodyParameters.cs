@@ -7,7 +7,7 @@ namespace Characters.Humanoid.Base
     //Триггеры не в его зоне ответственности
     public class HumanoidBodyParameters
     {
-        public HumanoidBodyParameters(Animator humanAnimator, HumanParametersSheet humanAnimatorSheet)
+        public HumanoidBodyParameters(Animator humanAnimator, HumanAnimatorSheet humanAnimatorSheet)
         {
             HumanAnimatorSheet = humanAnimatorSheet;
             _humanAnimator = humanAnimator;
@@ -19,7 +19,7 @@ namespace Characters.Humanoid.Base
         public Vector3 MovementAcceleration => _movementAcceleration;
         public MovementType CurrentMovementType { get; set; } = MovementType.Walking;
 
-        public readonly HumanParametersSheet HumanAnimatorSheet;
+        public readonly HumanAnimatorSheet HumanAnimatorSheet;
         private readonly Animator _humanAnimator;
         
         //TODO Придумай как избавится от магических чисел

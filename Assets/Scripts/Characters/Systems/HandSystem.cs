@@ -56,7 +56,7 @@ namespace Characters.Systems
                     break;
                 
                 case "KeyDown" when data != null:
-                    if (data.ToString() == "Drop") DropFromHand();
+                    if (data.ToString() == "OnDrop") DropFromHand();
                     if (data.ToString() == "Interact") Grub();
                     break;
             }

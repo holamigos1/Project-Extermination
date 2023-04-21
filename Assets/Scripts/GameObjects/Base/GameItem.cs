@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace GameObjects.Base
 {
@@ -9,32 +10,25 @@ namespace GameObjects.Base
         //TODO Большучее поле, украти его [UPD ПОШЁЛ НАХУЙ]
         public Unit Owner { get; protected set; }
         public bool IsPickup => _isItemPickup;
-        public Animator ItemAnimator => _itemAnimator;
-        public Rigidbody ItemRigidbody => _itemRigidbody;
-        public GameObject ItemGameObject => _itemGameObject;
-        public Transform ItemTransform => _itemTransform;
-        public Transform RightHandGrip => _rightHandGrip;
-        
-        [SerializeField] [Tooltip("Место за которое перснаж может взяться")]
-        protected Transform _rightHandGrip;
+        public Animator ItemAnimator => _itemBasicComponents.Animator;
+        public Rigidbody ItemRigidbody => _itemBasicComponents.Rigidbody;
+        public GameObject ItemGameObject => _itemBasicComponents.GameObject;
+        public Transform ItemTransform => _itemBasicComponents.Transform;
 
-        [SerializeField, HideInInspector] private Animator _itemAnimator;
-        [SerializeField, HideInInspector] private Rigidbody _itemRigidbody;  
-        [SerializeField, HideInInspector] private GameObject _itemGameObject;
-        [SerializeField, HideInInspector] private Transform _itemTransform;
+        [SerializeField] private ItemBasicComponents _itemBasicComponents;
         private bool _isItemPickup;
         
         public void SetOwner(Unit newOwner) =>
             Owner = newOwner;
         
-        private void Reset()
+        public void Reset()
         {
-            Debug.Log("dsad");
-            _itemAnimator = GetComponent<Animator>();
-            _itemRigidbody = GetComponent<Rigidbody>();
-            _itemGameObject = gameObject;
-            _itemTransform = transform;
+            _itemBasicComponents.Animator = GetComponent<Animator>();
+            _itemBasicComponents.Rigidbody = GetComponent<Rigidbody>();
+            _itemBasicComponents.GameObject = gameObject;
+            _itemBasicComponents.Transform = GetComponent<Transform>();
         }
+        
 
         public GameItem Pickup()
         {
@@ -44,6 +38,15 @@ namespace GameObjects.Base
             _isItemPickup = true;
             
             return this;
+        }
+
+        [Serializable]
+        public struct ItemBasicComponents
+        {
+            public Animator Animator;
+            public Rigidbody Rigidbody;
+            public GameObject GameObject;
+            public Transform Transform;
         }
     }
 }

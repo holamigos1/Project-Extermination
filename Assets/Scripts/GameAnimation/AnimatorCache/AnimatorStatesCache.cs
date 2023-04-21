@@ -2,6 +2,7 @@
 using GameAnimation.Data;
 using UnityEditor.Animations;
 using UnityEngine;
+using AnimatorControllerLayer = UnityEditor.Animations.AnimatorControllerLayer;
 
 namespace GameAnimation.AnimatorCache
 {
@@ -42,21 +43,21 @@ namespace GameAnimation.AnimatorCache
                     fullNamePath + "." + subStateMachines.stateMachine.name);
         }
 
-        public AnimationControllerState[] LoadStates(AnimatorController animController)
+        public AnimatorControllerState[] LoadStates(AnimatorController animController)
         {
             int controllerInstanceID = animController.GetInstanceID();
             
             if (_animatorStatesDictionary.ContainsKey(controllerInstanceID) == false)
                     SaveStates(animController);
 
-            var loadedStatesArray = new AnimationControllerState[_animatorStatesDictionary[controllerInstanceID].Count];
+            var loadedStatesArray = new AnimatorControllerState[_animatorStatesDictionary[controllerInstanceID].Count];
         
             //TODO если стейтов будет больше 1000 в контроллерах то надо заюзать Dictionary.AsParallel().ForAll(); (наверное это будет очень не скоро)
             
             int iterator = 0;
             foreach (var parametersPair in _animatorStatesDictionary[controllerInstanceID])
                 loadedStatesArray[iterator++] = 
-                    new AnimationControllerState(parametersPair.Key, parametersPair.Value.FullPathName, parametersPair.Value.StateName);
+                    new AnimatorControllerState(parametersPair.Key, parametersPair.Value.FullPathName, parametersPair.Value.StateName);
             
             return loadedStatesArray;
         }
