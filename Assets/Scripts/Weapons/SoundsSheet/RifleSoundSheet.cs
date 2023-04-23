@@ -9,5 +9,6 @@ namespace Weapons.SoundsSheet
         public AudioClip ShootSound_1;
         public AudioClip ShootSound_2;
         public AudioClip ShootSound_3;
+        public AudioClip ShootEchoSound;
     }
 }

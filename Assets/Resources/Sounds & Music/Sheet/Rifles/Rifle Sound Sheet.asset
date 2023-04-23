@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f35dd614b040e5b85787eda011ce00, type: 3}
   m_Name: Rifle Sound Sheet
   m_EditorClassIdentifier: 
-  ShootSound_1: {fileID: 8300000, guid: fba004a1f8f28c24e82d196800d53684, type: 3}
+  ShootSound_1: {fileID: 8300000, guid: 6bf3447e93a32bb4d83466508a5d8338, type: 3}
   ShootSound_2: {fileID: 0}
   ShootSound_3: {fileID: 0}
+  ShootEchoSound: {fileID: 8300000, guid: 7fa7aa2984433cf4ba36c66693573f4d, type: 3}
