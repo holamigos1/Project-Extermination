@@ -1135,7 +1135,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9568c77e463a4449437ae8cdaf0050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickUpType: 0
+  _itemBasicComponents:
+    Animator: {fileID: 0}
+    Rigidbody: {fileID: 0}
+    GameObject: {fileID: 0}
+    Transform: {fileID: 0}
+  _damage: 10
+  _rifleAnimatorSheet: {fileID: 0}
+  _scopes: []
+  gunData:
+    leftHandTarget: {fileID: 0}
+    gunAimData:
+      target: {fileID: 0}
+      pivotPoint: {fileID: 0}
+      aimPoint: {fileID: 0}
+      pointAimOffset:
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0, w: 0}
+      aimSpeed: 0
+    handsOffset: {x: 0, y: 0, z: 0}
+    springData:
+      loc:
+        x:
+          stiffness: 0
+          criticalDamping: 0
+          speed: 0
+          mass: 0
+          maxValue: 0
+        y:
+          stiffness: 0
+          criticalDamping: 0
+          speed: 0
+          mass: 0
+          maxValue: 0
+        z:
+          stiffness: 0
+          criticalDamping: 0
+          speed: 0
+          mass: 0
+          maxValue: 0
+        scale: {x: 0, y: 0, z: 0}
+      rot:
+        x:
+          stiffness: 0
+          criticalDamping: 0
+          speed: 0
+          mass: 0
+          maxValue: 0
+        y:
+          stiffness: 0
+          criticalDamping: 0
+          speed: 0
+          mass: 0
+          maxValue: 0
+        z:
+          stiffness: 0
+          criticalDamping: 0
+          speed: 0
+          mass: 0
+          maxValue: 0
+        scale: {x: 0, y: 0, z: 0}
+    freeAimData:
+      scalar: 0
+      maxValue: 0
+      speed: 0
+    moveSwayData:
+      maxMoveLocSway: {x: 0, y: 0, z: 0}
+      maxMoveRotSway: {x: 0, y: 0, z: 0}
+    blockData:
+      weaponLength: 0
+      startOffset: 0
+      threshold: 0
+      restPose:
+        position: {x: 0, y: 0, z: 0}
+        rotation: {x: 0, y: 0, z: 0, w: 0}
+  recoilData: {fileID: 0}
+  fireMode: 0
+  fireRate: 0
+  burstAmount: 0
   ShootSound: {fileID: 0}
   ReloadSound: {fileID: 0}
   SwitchModeSound: {fileID: 0}

@@ -1,8 +1,8 @@
 using System;
 using GameData.Layers;
-using GameExtensions;
+using GameObjects.Base;
 using GameSystems.Base;
-using Objects.Base;
+using Misc;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -17,11 +17,11 @@ namespace Characters.Systems
         [Title("Обработчик руки персонажа.", 
             "Руководит поведением предметов в руке.")]
         [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
-        #pragma warning disable CS0219
+        #pragma warning disable CS0219, CS0414
         private string info = "";
         
         [ShowInInspector] [LabelText("Подобранный предмет")]
-        public Item EquippedItem => _equippedItem;
+        public GameItem EquippedItem => _equippedItem;
 
         public HandSystem() { }
         
@@ -35,8 +35,7 @@ namespace Characters.Systems
         
         [SerializeField] [Required] [LabelText("Объект руки")]
         private Transform _handTransform;
-        private Item _equippedItem;
-        
+        private GameItem _equippedItem;
 
         public override void Start() 
         {
@@ -44,7 +43,7 @@ namespace Characters.Systems
             
             _handLocalStartPoint = _handTransform.localPosition;
             if (_handTransform.HasChild() == false) return;
-            if (_handTransform.GetFirstChildObj().TryGetComponent(out Item itemIns)) 
+            if (_handTransform.GetFirstChildObj().TryGetComponent(out GameItem itemIns)) 
                 Equip(itemIns);
         }
 
@@ -53,11 +52,11 @@ namespace Characters.Systems
             switch (message)
             {
                 case "Object pickuped" when data != null:
-                    Equip(data as Item);
+                    Equip(data as GameItem);
                     break;
                 
                 case "KeyDown" when data != null:
-                    if (data.ToString() == "Drop") DropFromHand();
+                    if (data.ToString() == "OnDrop") DropFromHand();
                     if (data.ToString() == "Interact") Grub();
                     break;
             }
@@ -72,14 +71,13 @@ namespace Characters.Systems
             
             GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
             
-            if (requestObj.TryGetComponent(out Item itemObj) is false) return;
+            if (requestObj.TryGetComponent(out GameItem itemObj) == false) return;
             
-            if (_equippedItem == null) 
-                Equip(itemObj.Pickup());
+            if (_equippedItem == null) Equip(itemObj.Pickup());
             else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
         }
 
-        private void Equip(Item itemInst)
+        private void Equip(GameItem itemInst)
         {
             if (_equippedItem != null) return;
 

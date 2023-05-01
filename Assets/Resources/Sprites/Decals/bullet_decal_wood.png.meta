@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: a1aee5712278dc9439fb5f0a8e4a301c
+labels:
+- Decal
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

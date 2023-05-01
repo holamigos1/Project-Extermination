@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd2054ec8b7419fbe250794af0d241d, type: 3}
+  m_Name: Human Animator Sheet
+  m_EditorClassIdentifier: 
+  _targetController: {fileID: 9100000, guid: a9630fa1f0c03ae48a5466ee312cceae, type: 2}
+  _sideMovement:
+    hash: -387739548
+    name: Movement_Side
+    parameterType: 1
+  _forwardMovement:
+    hash: 269562302
+    name: Movement_Forward
+    parameterType: 1
+  _rotationMovement:
+    hash: 25796721
+    name: Movement_Rotation
+    parameterType: 1
+  _equippedWeaponTypeInt:
+    hash: -1418711105
+    name: Equipped_WeaponType
+    parameterType: 3
+  _equippedItemTypeInt:
+    hash: -700087228
+    name: Equipped_ItemType
+    parameterType: 3
+  _interactionTypeInt:
+    hash: -1458088342
+    name: Interaction_Type
+    parameterType: 3
+  _equipTrigger:
+    hash: -386692432
+    name: EquipTrigger
+    parameterType: 9
+  _attackTrigger:
+    hash: -1742204373
+    name: AttackTrigger
+    parameterType: 9
+  _isHidingWeapon:
+    hash: 1484609771
+    name: IsHidingWeapon
+    parameterType: 4
+  _isAimBool:
+    hash: 472901803
+    name: IsAim
+    parameterType: 4
+  _reloadTrigger:
+    hash: 1678796994
+    name: Reload Trigger
+    parameterType: 9

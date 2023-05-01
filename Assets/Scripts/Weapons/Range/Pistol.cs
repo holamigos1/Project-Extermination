@@ -4,6 +4,6 @@ namespace Weapons.Range
 {
     public class Pistol : Firearm
     {
-        
+
     }
 }

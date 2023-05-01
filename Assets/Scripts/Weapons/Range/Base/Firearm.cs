@@ -6,7 +6,7 @@ using Weapons.Basic;
 
 namespace Weapons.Range.Base
 {
-    public class Firearm : Weapon
+    public class Firearm : Weapon //TODO Переписать стрельбу с огнестрела в этот скрипт
     {
         [SerializeField] private float _shootForce;
         [SerializeField] private Projectile _ammoType;

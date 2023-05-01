@@ -11,7 +11,7 @@ namespace Characters.Systems
         [Title("Обработчик очков здоровья юнита.", 
             "Если эта сисетма отсуствует то обработка получения урона юнитом работать не будет.")]
         [ShowInInspector] [HideLabel] [DisplayAsString][PropertySpace(SpaceBefore = -5,SpaceAfter = -20)]
-        #pragma warning disable CS0219
+        #pragma warning disable CS0219, CS0414
         private string info = "";
         
         [ShowInInspector] [LabelText("Здоровье")]

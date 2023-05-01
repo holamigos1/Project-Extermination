@@ -4,13 +4,13 @@ namespace Movement.SourseMovment.Movement
 {
     public interface ISurfControllable
     {
-        MoveType moveType { get; }
-        MoveData moveData { get; }
-        Collider collider { get; }
-        GameObject groundObject { get; set; }
-        Vector3 forward { get; }
-        Vector3 right { get; }
-        Vector3 up { get; }
-        Vector3 baseVelocity { get; }
+        MoveType MoveType { get; }
+        MoveData MoveData { get; }
+        Collider SurfCollider { get; }
+        GameObject GroundObject { get; set; }
+        Vector3 Forward { get; }
+        Vector3 Right { get; }
+        Vector3 Up { get; }
+        Vector3 BaseVelocity { get; }
     }
 }

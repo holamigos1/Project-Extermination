@@ -1,6 +1,6 @@
 ﻿using System;
 using GameData.ResourcesPathfs;
-using Objects.Base;
+using GameObjects.Base;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 namespace Weapons.Range.Base
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "Bullet Holes Data", menuName = "Game Data/Bullet Holes", order = 1)]
+    [CreateAssetMenu(fileName = "Bullet Holes Data", menuName = "Scriptable Data/Bullet Holes", order = 1)]
     public class BulletDecalsContainer : ScriptableObject
     {
         public static BulletDecalsContainer existingBulletDecals
