@@ -1,9 +1,10 @@
 // RandomPointOnNavMesh
+
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     public class RandomPointOnNavMesh
     {

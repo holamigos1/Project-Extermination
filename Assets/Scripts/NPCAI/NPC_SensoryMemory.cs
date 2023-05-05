@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     public class NPC_MemoryCell
     {

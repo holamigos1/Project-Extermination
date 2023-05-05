@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     [CreateAssetMenu()]
     public class NPCAgentConfig : ScriptableObject

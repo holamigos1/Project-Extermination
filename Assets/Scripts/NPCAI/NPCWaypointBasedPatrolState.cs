@@ -1,6 +1,7 @@
+using NPCAI.Waypoint_edit.Scripts;
 using UnityEngine;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     public class NPCWaypointBasedPatrolState : NPCState
     {

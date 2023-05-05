@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Weapons.Basic;
+using Weapons.DamageTypes;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
-    public class ZombieHealth : MonoBehaviour
+    public class ZombieHealth : MonoBehaviour , IHittable
     {
         public float maxHealth = 100f;
         public float currentHealth;
@@ -12,7 +12,7 @@ namespace baponkar.npc.zombie
         public bool  isInjured = false;
         public float dieForce = 2f;
         NPCRagdol ragdol;
-        HitBox hitBox;
+        HitBox hitBox;  
         Rigidbody [] rigidBody;
         
         public void Start()
@@ -26,12 +26,18 @@ namespace baponkar.npc.zombie
             }
             currentHealth = maxHealth;
         }
-        
-        public void TakeDamage(float damage, Vector3 direction)
+
+        public void Die(Vector3 direction)
+        {
+            ragdol.ActivateRagdol();
+            ragdol.ApplyForce(direction * dieForce);
+        }
+
+        public void ApplyHit(BulletHit hit)
         {
             if(currentHealth > 0)
             {
-                currentHealth -= damage;
+                currentHealth -= hit.Damage;
             }
             if(currentHealth <= 30f && currentHealth > 0)
             {
@@ -41,14 +47,8 @@ namespace baponkar.npc.zombie
                 currentHealth = 0;
                 isInjured = false;
                 isDead = true;
-                Die(direction);
+                Die(hit.HitVector);
             }
-        }
-
-        public void Die(Vector3 direction)
-        {
-            ragdol.ActivateRagdol();
-            ragdol.ApplyForce(direction * dieForce);
         }
     }
 }

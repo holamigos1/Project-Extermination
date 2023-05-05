@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     public class NPCFootStep : MonoBehaviour
     {

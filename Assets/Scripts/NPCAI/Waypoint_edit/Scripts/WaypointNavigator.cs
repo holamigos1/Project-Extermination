@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace baponkar
+namespace NPCAI.Waypoint_edit.Scripts
 {
     public class WaypointNavigator : MonoBehaviour
     {

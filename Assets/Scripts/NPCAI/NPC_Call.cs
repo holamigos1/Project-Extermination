@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     [ExecuteInEditMode]
     public class NPC_Call : MonoBehaviour
@@ -43,7 +41,7 @@ namespace baponkar.npc.zombie
                 var nearAgent = npcAgent.transform.GetComponent<NPC_Agent>(); //TODO GetComponent каждый фрейм
                 var nearCalling = npcAgent.transform.GetComponent<NPC_Call>();
                     
-                nearAgent.NoticedEnemy(npcAgent.TargetingSystem.Target.transform);
+                nearAgent.NoticedEnemy(npcAgent.TargetingSystem.TargetPosition);
                 nearCalling.getCall = true;
                 if(getCall == false) //TODO ??? 
                     nearAgent.StateMachine.ChangeState(NPCStateId.Alert);

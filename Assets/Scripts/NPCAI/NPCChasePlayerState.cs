@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     public class NPCChasePlayerState : NPCState
     {
@@ -12,7 +12,7 @@ namespace baponkar.npc.zombie
 
         void NPCState.Enter(NPC_Agent agent)
         {
-            agent.NoticedEnemy(agent.TargetingSystem.Target.transform);
+            agent.NoticedEnemy(agent.TargetingSystem.TargetPosition);
             agent.navMeshAgent.isStopped = false;
             agent.navMeshAgent.stoppingDistance = agent.Config.attackRadius;
         }

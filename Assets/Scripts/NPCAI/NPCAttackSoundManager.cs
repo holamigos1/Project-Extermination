@@ -1,28 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCAttackSoundManager : MonoBehaviour
+namespace NPCAI
 {
-    AudioSource audioSource;
-    public AudioClip [] clips;
-    
-    void Start()
+    public class NPCAttackSoundManager : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-    }
+        AudioSource audioSource;
+        public AudioClip [] clips;
+    
+        void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
    
-    void Update()
-    {
-        
-    }
-
-    public void Attack()
-    {
-        if(!audioSource.isPlaying)
+        void Update()
         {
-            audioSource.PlayOneShot(clips[Random.Range(0,clips.Length)]);
+        
+        }
+
+        public void Attack()
+        {
+            if(!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(clips[Random.Range(0,clips.Length)]);
+            }
         }
     }
 }

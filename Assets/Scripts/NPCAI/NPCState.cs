@@ -1,4 +1,4 @@
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     public enum NPCStateId
     {

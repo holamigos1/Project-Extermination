@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(ZombieHealth))]
@@ -66,7 +66,7 @@ namespace baponkar.npc.zombie
             currentState = _agentStateMachine.currentState;
         }
 
-        public void NoticedEnemy(Transform enemyObj)
+        public void NoticedEnemy(Vector3 enemyObj)
         {
             _enemySeen = true;
         }

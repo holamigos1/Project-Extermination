@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using NPCAI.Waypoint_edit.Scripts;
 using UnityEditor;
+using UnityEngine;
 
-namespace baponkar
+namespace NPCAI.Waypoint_edit.Editor
 {
     [InitializeOnLoad]
     public class WaypointEditor

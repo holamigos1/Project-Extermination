@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     //[ExecuteInEditMode]
     public class NPCVisonSensor : MonoBehaviour

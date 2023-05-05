@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: meshColor.r
       value: 0.7830189
       objectReference: {fileID: 0}
+    - target: {fileID: 1373999114323958392, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2645203572241135593, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: -0.0000015686383
@@ -1191,6 +1195,10 @@ PrefabInstance:
       propertyPath: meshColor.a
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 1373999114323958392, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2687018619856873596, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1382,6 +1390,10 @@ PrefabInstance:
       propertyPath: meshColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1373999114323958392, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2687018619856873596, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1449,7 +1461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 396659192199487300, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.637979e-12
+      value: 8.17
       objectReference: {fileID: 0}
     - target: {fileID: 396659192199487300, guid: 8b0aac6c89ad46c4b9863b1a800d7f91, type: 3}
       propertyPath: m_LocalRotation.w

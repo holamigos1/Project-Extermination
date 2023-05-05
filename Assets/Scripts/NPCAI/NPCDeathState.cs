@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-
-namespace baponkar.npc.zombie
+namespace NPCAI
 {
     public class NPCDeathState : NPCState
     {
