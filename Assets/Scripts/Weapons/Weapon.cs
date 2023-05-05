@@ -12,6 +12,8 @@ using Misc;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.VFX;
+using Weapons.Basic;
+using Weapons.DamageTypes;
 using Weapons.Range.Base;
 using Weapons.SoundsSheet;
 
@@ -132,6 +134,9 @@ namespace Weapons
             Vector3 directionToHitPoint = Vector3.Normalize(worldHitPos - gunPivotWorldPos);
             float distanceToHitPoint = Vector3.Distance(gunPivotWorldPos,worldHitPos);
             Vector3 decalWorldSpawnPoint = gunPivotWorldPos + directionToHitPoint * (distanceToHitPoint - 0.5f); //TODO magic 0.5f (UDP это оступ от точки попадания чтобы декаль в обекте не спаунилась)
+
+            var hittable = target.GetComponent<IHittable>();
+            hittable?.ApplyHit(new BulletHit(_damage, directionToHitPoint));
             
             if (target.GetMaterialType(out MaterialType materialType))
                 SpawnDecal(decalWorldSpawnPoint, 

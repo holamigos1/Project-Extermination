@@ -250,9 +250,9 @@ GameObject:
   - component: {fileID: 2115404232}
   - component: {fileID: 2115404243}
   - component: {fileID: 2115404253}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UnityCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

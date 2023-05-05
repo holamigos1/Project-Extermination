@@ -16,17 +16,18 @@ TagManager:
   - Menu Canvas
   - FPS Canvas
   - Hand
+  - NPC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - Obstacle
   - Water
   - UI
   - OPS Chrages
   - First Person View
   - Projectile
-  - 
+  - Creature
   - 
   - 
   - 
