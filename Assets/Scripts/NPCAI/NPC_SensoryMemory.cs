@@ -19,6 +19,7 @@ namespace NPCAI
     {
         public List<NPC_MemoryCell> memories = new List<NPC_MemoryCell>();
         private readonly GameObject [] _characters;
+        private const string CREATURE_LAYER_NAME = "Creature";
 
         public NPC_SensoryMemory(int maxPlayers)
         {
@@ -27,7 +28,7 @@ namespace NPCAI
 
         public void UpdateSenses(NPCVisonSensor sensor)
         {
-            int targets = sensor.Filter(_characters, "Character");
+            int targets = sensor.Filter(_characters, CREATURE_LAYER_NAME);
             
             for(int i =0; i< targets; ++i)
             {

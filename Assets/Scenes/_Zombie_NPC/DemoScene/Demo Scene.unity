@@ -1390,6 +1390,10 @@ PrefabInstance:
       propertyPath: meshColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1373999114323958385, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
+      propertyPath: scanFrequency
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1373999114323958392, guid: e7efd3135f6438845adbcc14555c3ca0, type: 3}
       propertyPath: m_IsTrigger
       value: 1

@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/IDamageType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/IDamageType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/IHittable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Basic/IHittable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/DamageTypes.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/DamageTypes/BulletHit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/DamageTypes/BulletHit.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/AI/Zombie.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/AI/Zombie.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Playable/UnityCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Playable/UnityCharacter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCChasePlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCChasePlayerState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Agent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Agent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Call.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Call.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/ZombieHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCAI/ZombieHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_SensoryMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_SensoryMemory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +226,7 @@
       <workItem from="1682053973943" duration="4767000" />
       <workItem from="1682061902295" duration="5644000" />
       <workItem from="1682272785012" duration="1014000" />
-      <workItem from="1683262222098" duration="690000" />
+      <workItem from="1683262222098" duration="1196000" />
     </task>
     <servers />
   </component>
