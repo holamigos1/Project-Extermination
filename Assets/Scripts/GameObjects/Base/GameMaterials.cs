@@ -17,7 +17,7 @@ namespace GameObjects.Base
     }
     
     [Serializable]
-    [CreateAssetMenu(fileName = "Game Materials", menuName = "Scriptable Data/Materials", order = 1)]
+    [CreateAssetMenu(fileName = "Материалы Предметов", menuName = "Scriptable Data/Materials", order = 1)]
     public class GameMaterials : ScriptableObject
     {
         private Dictionary<string, MaterialType> _materialNames;
@@ -42,7 +42,7 @@ namespace GameObjects.Base
         {
             get
             {
-                if (Application.isPlaying == false) //идите нахуй с !
+                if (Application.isPlaying == false) 
                     _materialNames = null;
                 
                 if (_materialNames != null) 
@@ -55,9 +55,9 @@ namespace GameObjects.Base
                 FillMaterialsDictionary(_glassMaterials, MaterialType.Glass);
                 FillMaterialsDictionary(_fleshMaterials, MaterialType.Flesh);
                 
-                void FillMaterialsDictionary(Material[] matArray, MaterialType asType)
+                void FillMaterialsDictionary(IEnumerable<Material> matArray, MaterialType asType)
                 { 
-                    foreach (var material in matArray)
+                    foreach (Material material in matArray)
                         _materialNames.Add(material.name, asType);
                 }
 
@@ -69,7 +69,7 @@ namespace GameObjects.Base
         {
             get
             {
-                string materialTypesPath  = ResourcesPaths.MATERIAL_TYPES_PATH + "Game Materials";
+                string materialTypesPath  = ResourcesPaths.MATERIAL_TYPES_PATH + "Game Materials"; //TODO Убрать в подклассы загрузки ассетов
                 string materialTypesSavePath = "Assets/Resources/"+ ResourcesPaths.MATERIAL_TYPES_PATH + "Game Materials.asset";
                 
                 if (_existingMaterials == null) 

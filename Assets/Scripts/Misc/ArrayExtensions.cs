@@ -1,41 +1,61 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace Misc
 {
     public static class ArrayExtensions
     {
-        public static T First<T>(this IList<T> list) =>
-            list.Count > 0 ? list[0] : default;
-    
-        public static List<T> GetAs<T>(this List<object> list)
-        {
-            if (list == null) return null;
-            if (list.Count <= 0) return null;
-            
-            List<T> genericList = new List<T>();
 
-            foreach (var obj in list)
+        /// <summary> Берёт первый элемент из списка </summary>
+        /// <param name="list">Массив из которого надо взять первый T</param>
+        /// <typeparam name="T">Искомый тип типа class</typeparam>
+        /// <returns>Если есть искомый тип он его вернёт, иначе вернёт null</returns>
+        [CanBeNull] 
+        public static T First<T>(this IList<T> list) 
+                where T : class =>
+                list?.Count > 0 ?
+                    list[0] :
+                    default(T);
+        
+        [CanBeNull] 
+        public static T First<T>(this IList<object> list) =>
+            list?.Count > 0 ?
+                (T)list[0] :
+                default(T);
+        
+        [CanBeNull] 
+        public static T Last<T>(this IList<T> list) where T : class =>
+            list?.Count > 0 ?
+                list[^1] :
+                null;
+
+        public static IList<T> FindFirstOne<T>(this IList<object> list)
+        {
+            if (list == null) 
+                return null;
+            
+            if (list.Count <= 0) 
+                return null;
+            
+            IList<T> genericList = new List<T>();
+
+            foreach (object obj in list)
             {
-                if (obj.GetType() != typeof(T)) continue;
+                if (obj.GetType() != typeof(T)) 
+                    continue;
+                
                 genericList.Add((T)obj);
             }
             
             return genericList;
         }
-        
-        public static T GetFirstAs<T>(this List<object> list)
+
+        public static bool IsEmpty(this IList<object> list)
         {
-            if (list == null) return default;
-            if (list.Count <= 0) return default;
-            if (list[0].GetType() == typeof(T)) return (T)list[0];
-            return default;
-        }
-        
-        public static bool IsEmpty(this List<object> list)
-        {
-            if (list == null) return true;
-            if (list.Count <= 0) return true;
-            return false;
+            if (list == null) 
+                return true;
+            
+            return list.Count <= 0;
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Misc
             return clampedAngle;
         }
 
+        
+        
         public static float ClampAngle(this float angle, Range range) =>
             angle.ClampAngle(range.Minimum, range.Maximum);
 

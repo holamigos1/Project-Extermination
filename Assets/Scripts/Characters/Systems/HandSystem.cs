@@ -55,7 +55,7 @@ namespace Characters.Systems
                     Equip(data as GameItem);
                     break;
                 
-                case "KeyDown" when data != null:
+                case "KeyDown" when data != null: 
                     if (data.ToString() == "OnDrop") DropFromHand();
                     if (data.ToString() == "Interact") Grub();
                     break;
@@ -66,20 +66,24 @@ namespace Characters.Systems
         {
             var requestResponse = 
                 await SystemsСontainer.MakeAsyncRequest("Get raycast object")!;
-    
-            if (requestResponse.IsEmpty()) return;
+
+            var requestObj = requestResponse.First<GameObject>();
             
-            GameObject requestObj = requestResponse.GetFirstAs<GameObject>();
+            if(!requestObj)
+                return;
             
-            if (requestObj.TryGetComponent(out GameItem itemObj) == false) return;
+            if (requestObj.TryGetComponent(out GameItem itemObj) == false) 
+                return;
             
-            if (_equippedItem == null) Equip(itemObj.Pickup());
-            else Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
+            if (_equippedItem == null) 
+                Equip(itemObj.Pickup());
+            else 
+                Debug.LogWarning("Попытка взять предмет не удалась, т.к. уже есть объект в руке!");
         }
 
         private void Equip(GameItem itemInst)
         {
-            if (_equippedItem != null) return;
+            if (!_equippedItem) return;
 
             _equippedItem = itemInst;
             
