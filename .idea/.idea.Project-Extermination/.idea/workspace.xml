@@ -8,39 +8,121 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Kinemation/FPSFramework/FPSAnimFW_Diagramm.cd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/SavePaths.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/SavePaths.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/StringExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/StringExtensions.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/HUDCanvas.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/HUDCanvas.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/MainMenuCanvas.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/MainMenuCanvas.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/SettingsCanvas.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/SettingsCanvas.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FPSAnimFW_Diagramm.cd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/Editor.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Playable/UnityCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Playable/UnityCharacter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/FPS/FPS.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FPS/FPS.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Удали меня.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Удали меня.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/AimRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/AimRoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanRigsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/Base/HumanRigsHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanCharacter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanoidBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanoidBody.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Systems/HandSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameExtensions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameExtensions/Extensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameExtensions/Extensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameObjects/Base/GameMaterials.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameObjects/Base/GameMaterials.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/ArrayExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/ArrayExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/AssetDataBaseExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/AssetDataBaseExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/RotationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/RotationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/GameAnimations.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAnimation/GameAnimations.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/ArrayExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/ArrayExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/ArrayExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/ArrayExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/AssetDataBaseExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/AssetDataBaseExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/AssetDataBaseExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/AssetDataBaseExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/BinarySearchExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/BinarySearchExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/BinarySearchExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/BinarySearchExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/GameObjectsExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/GameObjectsExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/GameObjectsExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/GameObjectsExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/GizmosExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/GizmosExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/GizmosExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/GizmosExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/NumbersExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/NumbersExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/NumbersExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/NumbersExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/RotationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/RotationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/RotationExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/RotationExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/StringExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/StringExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/StringExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/StringExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/TransformExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/TransformExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/TransformExtensions.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/TransformExtensions.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/DebugNavmeshAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/DebugNavmeshAgent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/DebugNavmeshAgent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/DebugNavmeshAgent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/HitBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/HitBox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/HitBox.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/HitBox.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAgentConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAgentConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAgentConfig.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAgentConfig.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAlertState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAlertState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAlertState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAlertState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAttackSoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAttackSoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAttackSoundManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAttackSoundManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCAttackState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCAttackState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCChasePlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCChasePlayerState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCChasePlayerState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCChasePlayerState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCDeathState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCDeathState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCFleeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCFleeState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCFleeState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCFleeState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCFootStep.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCFootStep.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCFootStep.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCFootStep.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCHealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCHealthBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCHealthBar.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCHealthBar.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCIdleState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCIdleState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCLocomotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCLocomotion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCLocomotion.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCLocomotion.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCPatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCPatrolState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCPatrolState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCPatrolState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCRagdol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCRagdol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCRagdol.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCRagdol.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCSoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCSoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCSoundManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCSoundManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCSoundSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCSoundSensor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCSoundSensor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCSoundSensor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCStateMachine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCStateMachine.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCVisonSensor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCVisonSensor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCVisonSensor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCVisonSensor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCWaypointBasedPatrolState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCWaypointBasedPatrolState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPCWaypointBasedPatrolState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPCWaypointBasedPatrolState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Agent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_Agent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Agent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_Agent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Agent_Configaration.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_Agent_Configaration.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Agent_Configaration.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_Agent_Configaration.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Call.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_Call.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_Call.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_Call.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_SensoryMemory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_SensoryMemory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_SensoryMemory.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_SensoryMemory.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_TargetingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_TargetingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/NPC_TargetingSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/NPC_TargetingSystem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/RandomPointOnNavMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/RandomPointOnNavMesh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/RandomPointOnNavMesh.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/RandomPointOnNavMesh.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Editor.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Editor/WaypointEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Editor/WaypointEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Editor/WaypointEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Editor/WaypointEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Editor/WaypointManagerWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Editor/WaypointManagerWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Editor/WaypointManagerWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Editor/WaypointManagerWindow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/CharacterNavigationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/CharacterNavigationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/CharacterNavigationController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/CharacterNavigationController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/PedestrianSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/PedestrianSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/PedestrianSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/PedestrianSpawner.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/Waypoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/Waypoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/Waypoint.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/Waypoint.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/WaypointNavigator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/WaypointNavigator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/Waypoint_edit/Scripts/WaypointNavigator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/Waypoint_edit/Scripts/WaypointNavigator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/ZombieHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/ZombieHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCAI/ZombieHealth.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/ZombieHealth.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameCanvasBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameCanvasBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UIGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UIGod.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UISheet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UISheet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Range/O.P.S Gun/OPS_Gun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/asetdbtest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/asetdbtest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/realezator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/realezator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/hei.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/hui.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project-Extermination.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Project-Extermination.sln.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,14 +134,25 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/f08dcdf2c57e4ac88f9f7a21a08fa96a34c00/eb/5cc488d7/02000043pdb61.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/16dc34dd6ca6448fa1f489dc654c16e916b200/62/fd3ee3c6/SirenixPathLookupScriptableObjectEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434908727417408abd02bbd1a0835ef881d000/16/81fde29c/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434908727417408abd02bbd1a0835ef881d000/da/b53cde03/DesktopStandaloneBuildWindowExtension.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434908727417408abd02bbd1a0835ef881d000/e6/c69d8b74/RuntimeInitializeClassInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/2e/bf1074d3/Type.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/91/99c19040/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/a9/7bcf21a1/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7405fbb4f3a74446bb627ca48ec8746625800/b3/fa9b0380/LinqExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/26/a09b3486/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/b6/802b1b5f/Index.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/DebugNavmeshAgent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/HumanCharacter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Characters/Scarecrow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAnimation/Data/AnimatorControllerState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAnimation/Editor/AnimatorLayerDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAnimation/Editor/AnimatorParameterDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAnimation/Editor/AnimatorStateDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/AssetDataBaseExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/AssetDataBaseExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/MuzzleFlashVFXAttributeContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.sprite@1.0.0/Editor/Interface/IAssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
@@ -81,7 +174,7 @@
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="SWEA" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2L9FZdcvvqywBrko4gBn6wLwby7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -96,9 +189,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TODO_SCOPE": "Project Files",
     "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.3812636",
+    "XThreadsFramesViewSplitterKey": "0.37799564",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "feature/HUD",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -152,10 +246,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10664">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5228">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10664" />
+      <option name="pid" value="5228" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -249,6 +343,11 @@
       <workItem from="1683976738498" duration="1066000" />
       <workItem from="1684023993839" duration="25711000" />
       <workItem from="1684077983667" duration="24520000" />
+      <workItem from="1684148792335" duration="5044000" />
+      <workItem from="1684172061809" duration="6277000" />
+      <workItem from="1684250767388" duration="517000" />
+      <workItem from="1684251303607" duration="16282000" />
+      <workItem from="1684271461574" duration="4616000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace UserInterface
@@ -7,20 +8,23 @@ namespace UserInterface
     public class UISheet : ScriptableObject
     {
         [SerializeField] 
-        protected List<GameCanvasBase> AllGameCanvases;
+        internal List<GameCanvasBase> AllGameCanvases = new List<GameCanvasBase>();
 
-        public GameCanvasBase FindCanvas(GameCanvasBase genericCanvas)
+        /// <summary>Пытается найти в себе GameCanvasBase заданного типа.</summary>
+        /// <typeparam name="TGameCanvasBase">Тип искомого наследника от GameCanvasBase.</typeparam>
+        /// <seealso cref="GameCanvasBase"/>
+        /// <returns>Возвращает TGameCanvasBase искомого типа если он есть, иначе вернёт null.</returns>
+        [CanBeNull]
+        internal GameCanvasBase FindCanvas(Type desiredCanvasType)
         {
-            Type genericCanvasType = genericCanvas.GetType();
-            GameCanvasBase desiredCanvas = null;
-            
-            Debug.Log(genericCanvas.GetType());
+            if (AllGameCanvases.Count == 0)
+                throw new ArgumentNullException(nameof(UIGod), $"Ни одного {nameof(GameCanvasBase)} не указано в списке ссылок.");
             
             foreach (GameCanvasBase canvas in AllGameCanvases)
-                if (genericCanvasType == canvas.GetType())
-                    desiredCanvas = canvas;
+                if (desiredCanvasType == canvas.GetType())
+                    return canvas;
             
-            return desiredCanvas;
+            return null;
         }
     }
 }

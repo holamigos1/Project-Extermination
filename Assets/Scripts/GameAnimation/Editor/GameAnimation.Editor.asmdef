@@ -1,0 +1,18 @@
+{
+    "name": "GameAnimation.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GameAnimations"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

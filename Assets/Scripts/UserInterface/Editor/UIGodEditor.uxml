@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xmlns="UnityEngine.UIElements" ue="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Label text="Обозреватель игровых интерфейсов" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; height: 33px;" />
+</ui:UXML>

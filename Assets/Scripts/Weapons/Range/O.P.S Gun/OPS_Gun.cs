@@ -5,6 +5,7 @@ using GameData.Layers;
 using GameData.Tags;
 using GameData.Weapons;
 using Misc;
+using Misc.Extensions;
 using UnityEngine;
 
 namespace Weapons.Range.O.P.S_Gun

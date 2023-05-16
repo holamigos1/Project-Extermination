@@ -9,6 +9,7 @@ using GameData.Tags;
 using GameObjects.Base;
 using Kinemation.FPSFramework.Runtime.Core;
 using Misc;
+using Misc.Extensions;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.VFX;
