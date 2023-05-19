@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UserInterface;
 using UserInterface.GameUIs;
@@ -9,13 +8,27 @@ namespace DefaultNamespace
 {
 	public class realezator : MonoBehaviour
 	{
-		[SerializeField] 
-		protected List<GameCanvasBase> AllGameCanvases = new List<GameCanvasBase>();
-		
 		private void Start()
 		{
-			if (UIGod.TryGetCanvas(out HUDCanvas canvas))
-				Instantiate(canvas);
+			HUDCanvas canvas = null;
+			HUDCanvas canvasinst = UIGod.GetCanvasInstance<HUDCanvas>();
+			
+			if(canvas) 
+				Debug.Log("canvas");
+			
+			bool sa = canvasinst;
+			
+			if(sa) 
+				Debug.Log("canvasinst");
+
+			canvasinst = null;
+			sa = canvasinst;
+			
+			if(canvasinst) 
+				Debug.Log("canvasinst");
+
+			if(sa)
+				Debug.Log("SADAD");
 		}
 	}
 }

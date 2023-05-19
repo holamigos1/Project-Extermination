@@ -31,6 +31,8 @@ namespace UserInterface.Editor
 
         private void OnEnable()
         {
+            Debug.Log("UIGodEditor OnEnable");
+            
             //TODO Если пути к UIGodEditor.uss и UIGodEditor.uxml файлам поменяются то будет больно
             _styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/UserInterface/Editor/UIGodEditor.uss");
             _visualTreeUxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/UserInterface/Editor/UIGodEditor.uxml");
@@ -40,6 +42,7 @@ namespace UserInterface.Editor
 
         private void OnDisable()
         {
+            Debug.Log("UIGodEditor OnDisable");
             UIGod.FindUISheet().AllGameCanvases = _gameCanvases;
         }
 
@@ -50,9 +53,11 @@ namespace UserInterface.Editor
             //TODO Процедурный код разбросай на методы
             SerializedObject serializedObject = new (this);
             
+            //TODO Про DRY что нибудь слышал? Убери повторения пж.
+            
             SerializedProperty property = serializedObject.FindProperty(nameof(_uiSheetFolder));
             PropertyField field = new (property);
-            field.label = "Путь к UISheet";
+            field.label = "Путь к UISheet         ";
             field.Bind(serializedObject);
             _root.Add(field);
             
@@ -64,7 +69,7 @@ namespace UserInterface.Editor
             
             property = serializedObject.FindProperty(nameof(_gameCanvases));
             field = new (property);
-            field.label = "Список игровых полотен";
+            field.label = "Список игровых полотен ";
             field.Bind(serializedObject);
             _root.Add(field);
             

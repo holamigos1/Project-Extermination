@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllGameCanvases:
   - {fileID: 7111162148934624308, guid: da9d3412118a4064c97c0d62d7e69ef3, type: 3}
+  - {fileID: 7468381170386164102, guid: 0e9a84cee4547f34fa35ad646aae42ae, type: 3}
+  - {fileID: 4056276514829691974, guid: 49ae7ec0293dd18479e82dc1ecf467d6, type: 3}
+  - {fileID: 7552298287861445807, guid: fd89cbb4feb1c604e9496b1a939218dc, type: 3}

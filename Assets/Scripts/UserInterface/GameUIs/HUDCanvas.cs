@@ -11,5 +11,8 @@ namespace UserInterface.GameUIs
 		
 		[SerializeField] 
 		private TMP_Text _ammoText; //TODO Прописать отдельный класс для панельки текущих патронов 
+
+		public void ChangeHealthSlider(float healthVolume) =>
+			_healthSlider.value = Mathf.Clamp01(healthVolume);
 	}
 }

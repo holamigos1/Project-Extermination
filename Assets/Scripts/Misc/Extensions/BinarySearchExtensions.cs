@@ -1,6 +1,6 @@
-﻿#nullable enable
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Misc.Extensions
 {
@@ -9,13 +9,15 @@ namespace Misc.Extensions
         private const int NOT_FOUND = -1;
 
         /// <summary> Выполняет поиск значения в отсортированном массиве SortedList&lt;TKey, TValueT&gt;, используя алгоритм двоичного поиска.</summary>
-        /// <param name="searchList">SortedList&lt;TKey, TValueT&gt; в котором надо найти занчение TKey requiredKey.</param>
-        /// <param name="requiredKey">Искомый ключ в списке.</param>
-        /// <param name="foundedValue">Значение искомого ключа.</param>
-        /// <typeparam name="TKey">Тип ключа списка SortedList&lt;TKey, TValueT&gt;, наследуемый от IComparable&lt;TKey&gt;.</typeparam>
-        /// <typeparam name="TValue">Тип занчения списка SortedList&lt;TKey, TValueT&gt;.</typeparam>
-        /// <returns>Возвращает true eсли TKey найден в SortedList&lt;TKey, TValueT&gt; и возврощает TValue foundedValue со занчением от TKey,
-        /// иначе TValue вернётся как default(TValue).</returns>
+        /// <param name="searchList">SortedList&lt;TKey, TValue&gt; в котором надо найти значение TKey requiredKey.</param>
+        /// <param name="requiredKey">Ключ который надо найти в списке.</param>
+        /// <param name="foundedValue">Выходное значение искомого ключа.</param>
+        /// <typeparam name="TKey">Тип ключа списка, наследуемый от IComparable&lt;TKey&gt;.</typeparam>
+        /// <typeparam name="TValue">Тип значения списка.</typeparam>
+        /// <seealso cref="IComparable &lt;T&gt;"/>
+        /// <returns>Возвращает true eсли TKey найден и возвращает TValue foundedValue со значением от TKey,
+        /// иначе вернёт false и TValue вернётся как default(TValue).</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool BinarySearch<TKey, TValue> (this SortedList<TKey, TValue> searchList, TKey requiredKey, out TValue? foundedValue) 
             where TKey : IComparable<TKey>
         {
@@ -35,12 +37,16 @@ namespace Misc.Extensions
         /// <param name="searchList">IList&lt;T&gt; в котором ищется searchValue.</param>
         /// <param name="searchValue">Искомое знчение от <typeparamref name="T"/>.</param>
         /// <typeparam name="T">Тип T, который должен наследоваться от IComparable&lt;T&gt;.</typeparam>
-        /// <returns>Возвращает int индекс позиции искомого заничения в searchList.</returns>
+        /// <seealso cref="IComparable &lt;T&gt;"/>
+        /// <returns>Возвращает int индекс позиции искомого заничения в searchList. </returns>
         /// <returns>Возвращает int -1 если не нашёл объект в IList&lt;T&gt;.</returns>
-        public static int BinarySearch<T>(this IList<T> searchList, T searchValue) where T : IComparable<T> =>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int BinarySearch<T>(this IList<T> searchList, T searchValue) 
+            where T : IComparable<T> =>
             searchList.BinarySearch(searchValue, 0, searchList.Count-1);
 
     
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static int BinarySearch<T>(this IList<T> searchList, T searchValue, int lowIndex, int highIndex)
             where T : IComparable<T>
         {
