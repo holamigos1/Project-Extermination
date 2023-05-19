@@ -1,6 +1,7 @@
 ﻿using Misc;
+using Misc.Extensions;
 using UnityEngine;
-using Range = Misc.Range;
+using Range = Misc.Extensions.Range;
 
 namespace Characters.Humanoid
 {

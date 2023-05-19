@@ -627,7 +627,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
             
             if (rigData.rootBone == null)
             {
-                var root = transform.Find("rootBone");
+                var root = transform.Find("rootBone"); //TODO Сделать базу имён костей с разных программ
 
                 if (root != null)
                 {
@@ -644,7 +644,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
 
             if (rigData.rightFoot.obj == null)
             {
-                var bone = transform.Find("RightFootIK");
+                var bone = transform.Find("RightFootIK"); //TODO Сделать базу имён костей с разных программ
 
                 if (bone != null)
                 {
@@ -660,7 +660,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
 
             if (rigData.leftFoot.obj == null)
             {
-                var bone = transform.Find("LeftFootIK");
+                var bone = transform.Find("LeftFootIK"); //TODO Сделать базу имён костей с разных программ
 
                 if (bone != null)
                 {
@@ -717,7 +717,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
                     continue;
                 }
 
-                bMatches = bone.name.ToLower().Contains("lefthand") || bone.name.ToLower().Contains("hand_l")
+                bMatches = bone.name.ToLower().Contains("lefthand") || bone.name.ToLower().Contains("hand_l") //TODO Сделать базу имён костей с разных программ
                                                                     || bone.name.ToLower().Contains("hand l")
                                                                     || bone.name.ToLower().Contains("l hand")
                                                                     || bone.name.ToLower().Contains("l.hand")
@@ -735,7 +735,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
                     continue;
                 }
 
-                bMatches = bone.name.ToLower().Contains("righthand") || bone.name.ToLower().Contains("hand_r")
+                bMatches = bone.name.ToLower().Contains("righthand") || bone.name.ToLower().Contains("hand_r") //TODO Сделать базу имён костей с разных программ
                                                                      || bone.name.ToLower().Contains("hand r")
                                                                      || bone.name.ToLower().Contains("r hand")
                                                                      || bone.name.ToLower().Contains("r.hand")
@@ -752,7 +752,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
                     foundRightHand = true;
                 }
 
-                bMatches = bone.name.ToLower().Contains("rightfoot") || bone.name.ToLower().Contains("foot_r")
+                bMatches = bone.name.ToLower().Contains("rightfoot") || bone.name.ToLower().Contains("foot_r") //TODO Сделать базу имён костей с разных программ
                                                                      || bone.name.ToLower().Contains("foot r")
                                                                      || bone.name.ToLower().Contains("r foot")
                                                                      || bone.name.ToLower().Contains("r.foot")
@@ -765,7 +765,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
                     foundRightFoot = true;
                 }
 
-                bMatches = bone.name.ToLower().Contains("leftfoot") || bone.name.ToLower().Contains("foot_l")
+                bMatches = bone.name.ToLower().Contains("leftfoot") || bone.name.ToLower().Contains("foot_l") //TODO Сделать базу имён костей с разных программ
                                                                     || bone.name.ToLower().Contains("foot l")
                                                                     || bone.name.ToLower().Contains("l foot")
                                                                     || bone.name.ToLower().Contains("l.foot")
@@ -811,7 +811,7 @@ namespace Kinemation.FPSFramework.Runtime.Core
 
             if (rigData.rightHand.obj == null)
             {
-                var boneObject = head.transform.Find("RightHandIK");
+                var boneObject = head.transform.Find("RightHandIK"); //TODO Сделать базу имён костей с разных программ
 
                 if (boneObject != null)
                 {

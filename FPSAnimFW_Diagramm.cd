@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Kinemation.FPSFramework.Editor.Core.CoreAnimComponentEditor">
+    <Position X="18" Y="19.25" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAASIAQQQgAAAgAAQGAAQBCAAAJAAAAAAAQABCAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Editor\Core\CoreAnimComponentEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Editor.Layers.AdsLayerEditor">
+    <Position X="10" Y="23.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Editor\Layers\AdsLayerEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Editor.Layers.BlendingLayerEditor">
+    <Position X="10" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Editor\Layers\BlendingLayerEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Editor.Layers.LookLayerEditor">
+    <Position X="13.25" Y="19.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AASAAOAAAwAIAAAAQAWQCAAACAAwQAACBABBgANACAI=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Editor\Layers\LookLayerEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Core.AnimLayer">
+    <Position X="15.75" Y="1" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AEQAgAAAAgACAACBCAACEACAJAEAAACBQAAggAFAAEE=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Core.CoreAnimComponent">
+    <Position X="25.5" Y="36.75" Width="7" />
+    <TypeIdentifier>
+      <HashCode>goRFEAEQRCBIQKgCAABhIAAiQQAkTQBA4CAQIABECAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Core.CoreToolkitLib">
+    <Position X="25.5" Y="31" Width="12.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAAQAAAAEAAAQAAAAAAgAAAIIAAgACAQAAAABA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Core.RecoilAnimation">
+    <Position X="25.5" Y="19.25" Width="7.75" />
+    <TypeIdentifier>
+      <HashCode>AEQAQCgVVAAAMBgABIgABCIogAAwQgggohAKgiDAEAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Core.RecoilAnimData">
+    <Position X="21.75" Y="25.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQQCAgCAUEQAAGAAAAARAAgAAAIZEAEAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Core.SpringCameraShake">
+    <Position X="9.5" Y="25.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAACAAAIAAAQABAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\SpringCameraShake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Core.TargetAimData">
+    <Position X="10" Y="19.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQAACAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\TargetAimData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.AdsLayer">
+    <Position X="22.25" Y="7.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgBBAAAABgAAAAiAAAJARQAACAAAIAAAAAECA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\AdsLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.BlendingLayer">
+    <Position X="30.25" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AEAIAAAAAAAAAAEAAAAAAACAAAABAAAAAQAAAAAABAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\BlendingLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.DemoLoco">
+    <Position X="14.75" Y="12" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>LAAAAAAAILEDAAQAAAAAQAAABABAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\DemoLoco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.LeftHandIKLayer">
+    <Position X="7.25" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABEAAAAAAAAAAAACBAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\LeftHandIKLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.LegIK">
+    <Position X="10.25" Y="7.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAACBAAAABIACAAAAFABAAEAAAAAEAAQAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\LegIK.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.LocomotionLayer">
+    <Position X="14.5" Y="7.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AgAQBCAQAAAAAYAAAAAEAAAABAABAAAEAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\LocomotionLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.LookLayer">
+    <Position X="18.5" Y="7.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>CQCAEEBAAwAIAABAACUQBBCADAAQkAAiAAAgACsAAEc=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\LookLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.RecoilLayer">
+    <Position X="26.75" Y="7.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAIACAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\RecoilLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.SlotLayer">
+    <Position X="33.25" Y="7.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAACAAAABAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\SlotLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.SwayLayer">
+    <Position X="1" Y="7.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAACAABEAhAAAAAgAAACQABAAAAARAAABAAAIAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\SwayLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kinemation.FPSFramework.Runtime.Layers.WeaponCollision">
+    <Position X="4.75" Y="7.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAACIAAAAAAgAAAAAAAABAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\WeaponCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.AimOffsetBone">
+    <Position X="7.5" Y="19.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.AimOffset">
+    <Position X="10" Y="34.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAgAAAIAAAAAAAAAAIACAABAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.DynamicBone">
+    <Position X="13.5" Y="35.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAIAAIAAAIAAAAAAAEAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.CachedBones">
+    <Position X="10.25" Y="28.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.DynamicRigData">
+    <Position X="18" Y="25.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAgAEBAAAAEAAIAAAAAAAAAAIAAAAAAAAAgAFAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.BlendTime">
+    <Position X="13.25" Y="32.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreAnimComponent.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.VectorCurve">
+    <Position X="16.5" Y="41" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAgAAgAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.LocRot">
+    <Position X="21" Y="38.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.SpringData">
+    <Position X="13.25" Y="29.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAACAAAAAAAAAAEBAAAAAAAAASAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.VectorSpringData">
+    <Position X="5.25" Y="19.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.LocRotSpringData">
+    <Position X="17.75" Y="32.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.FreeAimData">
+    <Position X="11" Y="32.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.MoveSwayData">
+    <Position X="10.25" Y="42" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.GunBlockData">
+    <Position X="13.5" Y="38.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAIAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.WeaponAnimData">
+    <Position X="13.5" Y="41" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACAAABAAAAAAAAAgAAAAAAQCAgAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.CharAnimData">
+    <Position X="9.25" Y="37" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAABAAAAAAAAAAAAAAAAEAAAAKAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.DynamicMotion">
+    <Position X="20.5" Y="31.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAABAAAAAAACgACAABAQAAIgIAAAAAAIkA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.MotionPlayer">
+    <Position X="16.5" Y="38.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAAAAAAEAAAABAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\CoreToolkitLib.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.RecoilCurves">
+    <Position X="13.25" Y="26.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAwAgAAAEAAAAAAAAAAAAAAAAIABA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.StartRest">
+    <Position X="20.5" Y="35.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.AnimState">
+    <Position X="9.5" Y="30.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAEAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.SpringShakeProfile">
+    <Position X="21" Y="41" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAQAAAAAAAAAAAAAgBAAAAEAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\SpringCameraShake.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Kinemation.FPSFramework.Runtime.Core.GunAimData">
+    <Position X="10.25" Y="39.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAQAAAAACAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\TargetAimData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Kinemation.FPSFramework.Runtime.Core.FireMode">
+    <Position X="4.75" Y="27" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Kinemation.FPSFramework.Runtime.Layers.ReadyPose">
+    <Position X="7" Y="27" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Layers\LocomotionLayer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Kinemation.FPSFramework.Runtime.Core.ConditionDelegate">
+    <Position X="1.75" Y="25.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Kinemation.FPSFramework.Runtime.Core.PlayDelegate">
+    <Position X="4" Y="25.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Kinemation.FPSFramework.Runtime.Core.StopDelegate">
+    <Position X="6.75" Y="25.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Plugins\Kinemation\FPSFramework\Runtime\Core\RecoilAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="JetBrains Mono" Size="9" />
+</ClassDiagram>

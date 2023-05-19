@@ -8,7 +8,7 @@ using Weapons;
 
 namespace Characters.Humanoid
 {
-    public enum FPSMovementState
+    public enum FPSMovementState //TODO Сделать через стейт машину
     {
         Idle,
         Walking,
@@ -16,13 +16,13 @@ namespace Characters.Humanoid
         Sprinting
     }
     
-    public enum FPSPoseState
+    public enum FPSPoseState //TODO Сделать через стейт машину
     {
         Standing,
         Crouching
     }
     
-    public enum FPSActionState
+    public enum FPSActionState //TODO Сделать через стейт машину
     {
         None,
         Ready,
@@ -30,7 +30,7 @@ namespace Characters.Humanoid
         PointAiming,
     }
 
-    public enum CameraState
+    public enum CameraState //TODO Сделать через стейт машину
     {
         FirstPerson,
         ThirdPerson,
@@ -286,9 +286,9 @@ namespace Characters.Humanoid
             animator.SetBool(Crouch1, false);
         }
 
-        private void ProcessActionInput()
+        private void ProcessActionInput() //TODO Использовать NewInputSystem
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape)) 
             {
                 Application.Quit(0);
             }
@@ -432,7 +432,7 @@ namespace Characters.Humanoid
 
         private void ProcessLookInput()
         {
-            _freeLook = Input.GetKey(KeyCode.X);
+            _freeLook = Input.GetKey(KeyCode.X); //TODO Использовать NewInputSystem
 
             float deltaMouseX = Input.GetAxis("Mouse X") * sensitivity;
             float deltaMouseY = -Input.GetAxis("Mouse Y") * sensitivity;
