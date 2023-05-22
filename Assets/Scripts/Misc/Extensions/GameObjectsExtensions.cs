@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace Misc.Extensions
 {
@@ -17,16 +18,11 @@ namespace Misc.Extensions
             return bounds;
         }
     
-        public static void ChangeGameObjsLayers(this GameObject gameObject, string layerName)
-        {
-            int layersID = LayerMask.NameToLayer(layerName);
-            
-            gameObject.layer = layersID;
-            
-            foreach (Transform child in gameObject.transform)
-                ChangeGameObjsLayers(child.gameObject, layersID);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void ChangeGameObjsLayers(this GameObject gameObject, string layerName) =>
+            ChangeGameObjsLayers(gameObject, LayerMask.NameToLayer(layerName));
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ChangeGameObjsLayers(this GameObject gameObject, int layerID)
         {
             gameObject.layer = layerID;
@@ -36,7 +32,7 @@ namespace Misc.Extensions
         }
 
         public static RaycastHit GetRaycastBlockingObj(this Transform rayStartPos, Vector3 rayDirection, LayerMask rayBlockingMask) =>
-            GetRaycastBlockingObj(rayStartPos.position, rayDirection, 1000f ,rayBlockingMask); //todo magic 1000f
+            GetRaycastBlockingObj(rayStartPos.position, rayDirection, Mathf.Infinity ,rayBlockingMask); 
 
         public static RaycastHit GetRaycastBlockingObj(Vector3 rayStartPos, Vector3 rayDirection, float distance, int layerMask)
         {

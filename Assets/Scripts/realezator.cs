@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using GameObjects.Coroutines;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UserInterface;
 using UserInterface.GameUIs;
 
@@ -8,27 +13,16 @@ namespace DefaultNamespace
 {
 	public class realezator : MonoBehaviour
 	{
-		private void Start()
+		public void Start()
 		{
-			HUDCanvas canvas = null;
-			HUDCanvas canvasinst = UIGod.GetCanvasInstance<HUDCanvas>();
-			
-			if(canvas) 
-				Debug.Log("canvas");
-			
-			bool sa = canvasinst;
-			
-			if(sa) 
-				Debug.Log("canvasinst");
+			var waitForKeyDown = new WaitForKeyDown();
+			waitForKeyDown.Execute(KeyCode.Mouse0).Done += instruction => Debug.Log("dsad");
+		}
 
-			canvasinst = null;
-			sa = canvasinst;
+		private void Reset()
+		{
 			
-			if(canvasinst) 
-				Debug.Log("canvasinst");
-
-			if(sa)
-				Debug.Log("SADAD");
 		}
 	}
 }
+

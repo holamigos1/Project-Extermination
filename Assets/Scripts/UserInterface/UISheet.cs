@@ -6,16 +6,16 @@ using UnityEngine;
 
 namespace UserInterface
 {
+    /// <summary> ScriptableObject контейнер массива всех GameCanvasBase в проекте. </summary>
+    /// <seealso cref="GameCanvasBase"/>
+    /// <seealso cref="ScriptableObject"/>
     public class UISheet : ScriptableObject
     {
         [SerializeField] 
-        internal List<GameCanvasBase> AllGameCanvases = new ();
-
-        /// <summary>Пытается найти в себе GameCanvasBase заданного типа.</summary>
-        /// <typeparam name="TGameCanvasBase">Тип искомого наследника от GameCanvasBase.</typeparam>
-        /// <seealso cref="GameCanvasBase"/>
-        /// <returns>Возвращает TGameCanvasBase искомого типа если он есть, иначе вернёт null.</returns>
-        [CanBeNull] [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal List<GameCanvasBase> AllGameCanvases = new ();//TODO 
+        
+        [CanBeNull] 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal GameCanvasBase FindCanvas(Type desiredCanvasType)
         {
             if (AllGameCanvases.Count == 0)

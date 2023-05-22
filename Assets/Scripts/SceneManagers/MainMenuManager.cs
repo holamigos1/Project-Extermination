@@ -26,6 +26,8 @@ namespace SceneManagers
                     _mainMenuCanvas.Play += OnPlayAction;
                     _mainMenuCanvas.Exit += OnExit;
                     _mainMenuCanvas.ToSettings += OnSettingsAction;
+                    _mainMenuCanvas.ApplyUITransparency(PlayerPrefsVars.UITransparencyValue);
+                    _mainMenuCanvas.ApplyUIScale(PlayerPrefsVars.UIScaleValue);
                 }
                 else
                 {
@@ -38,9 +40,8 @@ namespace SceneManagers
             }
         }
         
-        public SettingsCanvas SettingsCanvas
+        public SettingsCanvas SettingsCanvas //TODO Этот же код дублируется в других файлах, убери логику в классы обработчики 
         {
-            get => _settingsCanvas;
             set
             {
                 if (value)
@@ -49,14 +50,27 @@ namespace SceneManagers
                     _settingsCanvas.Returing += OnSettingsReturn;
                     _settingsCanvas.MusicValueChanging += OnMusicValueChanging;
                     _settingsCanvas.SoundValueChanging += OnSoundValueChanging;
+                    _settingsCanvas.FoVValueChanging += OnFoVValueChanging;
+                    _settingsCanvas.UITransparencyValueChanging += OnUITransparencyValueChanging;
+                    _settingsCanvas.UIScaleValueChanging += OnUIScaleValueChanging;
+                    
+                    _settingsCanvas.UIScaleValue = PlayerPrefsVars.UIScaleValue;
+                    _settingsCanvas.FoVValue = PlayerPrefsVars.FPSFoVValue;
+                    _settingsCanvas.UITransparencyValue = PlayerPrefsVars.UITransparencyValue;
                     _settingsCanvas.SoundValue = PlayerPrefsVars.GlobalSoundsValue;
                     _settingsCanvas.MusicValue = PlayerPrefsVars.GlobalMusicValue;
+                    _settingsCanvas.ApplyUITransparency(PlayerPrefsVars.UITransparencyValue);
+                    _settingsCanvas.ApplyUIScale(PlayerPrefsVars.UIScaleValue);
                 }
                 else
                 {
                     _settingsCanvas.Returing -= OnSettingsReturn;
                     _settingsCanvas.MusicValueChanging -= OnMusicValueChanging;
                     _settingsCanvas.SoundValueChanging -= OnSoundValueChanging;
+                    _settingsCanvas.FoVValueChanging -= OnFoVValueChanging;
+                    _settingsCanvas.UITransparencyValueChanging -= OnUITransparencyValueChanging;
+                    _settingsCanvas.UIScaleValueChanging -= OnUIScaleValueChanging;
+                    
                     Destroy(_settingsCanvas.gameObject);
                     _settingsCanvas = null;
                 }
@@ -94,10 +108,29 @@ namespace SceneManagers
         {
             SettingsCanvas = null;
         }
+        
+        private void OnFoVValueChanging(float newValue)
+        {
+            PlayerPrefsVars.FPSFoVValue = newValue;
+        }
 
+        private void OnUITransparencyValueChanging(float newValue)
+        {
+            PlayerPrefsVars.UITransparencyValue = newValue;
+            _mainMenuCanvas.ApplyUITransparency(newValue);
+            _settingsCanvas.ApplyUITransparency(newValue);
+        }
+        
+        private void OnUIScaleValueChanging(float newValue)
+        {
+            PlayerPrefsVars.UIScaleValue = newValue;
+            _mainMenuCanvas.ApplyUIScale(newValue);
+            _settingsCanvas.ApplyUIScale(newValue);
+        }
+        
         private void OnMusicValueChanging(float newValue) =>
             PlayerPrefsVars.GlobalMusicValue = newValue;
-
+        
         private void OnSoundValueChanging(float newValue) =>
             PlayerPrefsVars.GlobalSoundsValue = newValue;
 
