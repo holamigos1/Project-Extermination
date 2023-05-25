@@ -8,32 +8,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35c10071-1825-46cc-b7c2-9696e5c892b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/PlayerPrefsVars.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/PlayerPrefsVars.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project-Extermination/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Kinemation/FPSFramework/Runtime/Core/CoreAnimComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Kinemation/FPSFramework/Runtime/Core/CoreAnimComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/HUD Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/HUD Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scriptable Data/UI/UISheet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scriptable Data/UI/UISheet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Material Palette.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Material Palette.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Material Palette.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Material Palette.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/House_panel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enviroment/House_panel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/House_panel.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enviroment/House_panel.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/billboard-letters.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enviroment/billboard-letters.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/billboard-letters.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enviroment/billboard-letters.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/ВЫВЕСКА.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enviroment/ВЫВЕСКА.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/ВЫВЕСКА.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enviroment/ВЫВЕСКА.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Playable/UnityCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Characters/Playable/UnityCharacter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/FPS/FPS.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FPS/FPS.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/Location2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/Location2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Удали меня.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Удали меня.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/FPSController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Characters/Humanoid/FPSController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/BinarySearchExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/BinarySearchExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/Editor/UIGodEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/Editor/UIGodEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameCanvasBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameCanvasBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/HUDCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/HUDCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/MainMenuCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/MainMenuCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/PauseCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/PauseCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/SettingsCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/SettingsCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UIGod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UIGod.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UISheet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/UISheet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/realezator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/realezator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project-Extermination.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Project-Extermination.sln.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/_Zombie_NPC/DemoScene/Demo Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/_Zombie_NPC/DemoScene/Demo Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Удали меня.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Удали меня.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/HuiCanvas.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/GameUIs/HuiCanvas.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/realezator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/realezator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/realezator.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/realezator.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,12 +48,18 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434908727417408abd02bbd1a0835ef881d000/16/81fde29c/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434908727417408abd02bbd1a0835ef881d000/da/b53cde03/DesktopStandaloneBuildWindowExtension.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/434908727417408abd02bbd1a0835ef881d000/e6/c69d8b74/RuntimeInitializeClassInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/17/541f0b38/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/2e/bf1074d3/Type.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/49/2ee05d98/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/91/99c19040/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5980a88ae5314d4b9811fcde1734d236568bc0/a9/7bcf21a1/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7405fbb4f3a74446bb627ca48ec8746625800/b3/fa9b0380/LinqExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/03/745c57e5/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/26/a09b3486/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/67/5aa4dad5/Scene.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/9a/acd62366/UnityAction`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/a6/9180ada9/Coroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/b1/862d2fa4/YieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/908f8bca7f3649909af9c6824762362b364758/e3/f25f2968/SortedList`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de80aed0bd3646409e8bfb15c101f005e2000/b6/802b1b5f/Index.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Artificial_Intelligence/DebugNavmeshAgent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -67,8 +71,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAnimation/Editor/AnimatorStateDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSystems/Base/GameSystemsContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Misc/Extensions/AssetDataBaseExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneManager/HUDManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneManager/MainMenuManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/MuzzleFlashVFXAttributeContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.sprite@1.0.0/Editor/Interface/IAssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
@@ -79,6 +81,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/double2x2.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/double3x2.gen.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.probuilder@5.0.7/Editor/EditorCore/MaterialPalette.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.probuilder@5.0.7/Samples~/Runtime/Runtime Editing/Scripts/CameraMotion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@12.1.9/Runtime/Decal/DecalProjector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.terrain-tools@4.0.3/Editor/TerrainTools/BrushControllers/BaseBrushUIGroup.cs" root0="SKIP_HIGHLIGHTING" />
@@ -86,6 +89,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/GUI/IAssetsDatabaseHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Settings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -119,7 +123,7 @@
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -271,6 +275,9 @@
       <workItem from="1684423463268" duration="6030000" />
       <workItem from="1684500618138" duration="20772000" />
       <workItem from="1684524218646" duration="12220000" />
+      <workItem from="1684692345526" duration="37313000" />
+      <workItem from="1684736761363" duration="2000" />
+      <workItem from="1684737334517" duration="44000" />
     </task>
     <servers />
   </component>

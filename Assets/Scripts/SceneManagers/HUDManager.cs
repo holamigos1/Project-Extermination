@@ -15,30 +15,45 @@ namespace SceneManagers
 
         [SerializeField]
         private UnityEvent<bool> _onGameRunning;
+        
+        [SerializeField]
+        private UnityEvent<float> _onFOV_Changed;
     
         private HUDCanvas      _hudCanvas;
         private SettingsCanvas _settingsCanvas;
         private PauseCanvas    _pauseCanvas;
 
-        public SettingsCanvas SettingsCanvas
+        public SettingsCanvas SettingsCanvas //TODO Этот же код дублируется в других файлах, убери логику в классы обработчики 
         {
-            get => _settingsCanvas;
             set
             {
                 if (value)
                 {
                     _settingsCanvas = value;
-                    _settingsCanvas.Returing += ReturnFromSettings;
+                    _settingsCanvas.Returing += OnSettingsReturn;
                     _settingsCanvas.MusicValueChanging += OnMusicValueChanging;
                     _settingsCanvas.SoundValueChanging += OnSoundValueChanging;
+                    _settingsCanvas.FoVValueChanging += OnFoVValueChanging;
+                    _settingsCanvas.UITransparencyValueChanging += OnUITransparencyValueChanging;
+                    _settingsCanvas.UIScaleValueChanging += OnUIScaleValueChanging;
+                    
+                    _settingsCanvas.UIScaleValue = PlayerPrefsVars.UIScaleValue;
+                    _settingsCanvas.FoVValue = PlayerPrefsVars.FPSFoVValue;
+                    _settingsCanvas.UITransparencyValue = PlayerPrefsVars.UITransparencyValue;
                     _settingsCanvas.SoundValue = PlayerPrefsVars.GlobalSoundsValue;
                     _settingsCanvas.MusicValue = PlayerPrefsVars.GlobalMusicValue;
+                    _settingsCanvas.ApplyUITransparency(PlayerPrefsVars.UITransparencyValue);
+                    _settingsCanvas.ApplyUIScale(PlayerPrefsVars.UIScaleValue);
                 }
                 else
                 {
-                    _settingsCanvas.Returing -= ReturnFromSettings;
+                    _settingsCanvas.Returing -= OnSettingsReturn;
                     _settingsCanvas.MusicValueChanging -= OnMusicValueChanging;
                     _settingsCanvas.SoundValueChanging -= OnSoundValueChanging;
+                    _settingsCanvas.FoVValueChanging -= OnFoVValueChanging;
+                    _settingsCanvas.UITransparencyValueChanging -= OnUITransparencyValueChanging;
+                    _settingsCanvas.UIScaleValueChanging -= OnUIScaleValueChanging;
+                    
                     Destroy(_settingsCanvas.gameObject);
                     _settingsCanvas = null;
                 }
@@ -56,6 +71,8 @@ namespace SceneManagers
                     _pauseCanvas.Exit += GoToMainMenu;
                     _pauseCanvas.Resume += ResumePause;
                     _pauseCanvas.ToSettings += GoToSettings;
+                    _pauseCanvas.ApplyUITransparency(PlayerPrefsVars.UITransparencyValue);
+                    _pauseCanvas.ApplyUIScale(PlayerPrefsVars.UIScaleValue);
                 }
                 else
                 {
@@ -72,6 +89,9 @@ namespace SceneManagers
         private void OnEnable()
         {
             _hudCanvas = UIGod.GetCanvasInstance<HUDCanvas>();
+            _hudCanvas.ApplyUITransparency(PlayerPrefsVars.UITransparencyValue);
+            _hudCanvas.ApplyUIScale(PlayerPrefsVars.UIScaleValue);
+            OnFoVValueChanging(PlayerPrefsVars.FPSFoVValue);
         }
 
         private void OnDisable()
@@ -122,7 +142,7 @@ namespace SceneManagers
                 return;
         
             if (_settingsCanvas != null)
-                ReturnFromSettings();
+                OnSettingsReturn();
         
             _onGameRunning.Invoke(true);
         
@@ -132,14 +152,36 @@ namespace SceneManagers
             PauseCanvas = null;
         }
     
-        private void ReturnFromSettings()
+        private void OnSettingsReturn()
         {
             SettingsCanvas = null;
         }
     
+        private void OnFoVValueChanging(float newValue)
+        {
+            PlayerPrefsVars.FPSFoVValue = newValue;
+            _onFOV_Changed.Invoke(newValue);
+        }
+
+        private void OnUITransparencyValueChanging(float newValue)
+        {
+            PlayerPrefsVars.UITransparencyValue = newValue;
+            _pauseCanvas.ApplyUITransparency(newValue);
+            _hudCanvas.ApplyUITransparency(newValue);
+            _settingsCanvas.ApplyUITransparency(newValue);
+        }
+        
+        private void OnUIScaleValueChanging(float newValue)
+        {
+            PlayerPrefsVars.UIScaleValue = newValue;
+            _pauseCanvas.ApplyUIScale(newValue);
+            _hudCanvas.ApplyUIScale(newValue);
+            _settingsCanvas.ApplyUIScale(newValue);
+        }
+        
         private void OnMusicValueChanging(float newValue) =>
             PlayerPrefsVars.GlobalMusicValue = newValue;
-
+        
         private void OnSoundValueChanging(float newValue) =>
             PlayerPrefsVars.GlobalSoundsValue = newValue;
     }

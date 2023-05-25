@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 2115404232}
   - component: {fileID: 2115404243}
   - component: {fileID: 2115404253}
+  - component: {fileID: 6358914538625783906}
   m_Layer: 9
   m_Name: UnityCharacter
   m_TagString: Player
@@ -1285,6 +1286,49 @@ MonoBehaviour:
   layerAlpha: 1
   lerpSpeed: 0
   runInEditor: 0
+--- !u!114 &6358914538625783906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065919089169516030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db61e503ec588b4cb3e2c8ed591f05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainMenuSceneAsset: {fileID: 102900000, guid: 9d2eebd03ffc75640b48f785d07855d7, type: 3}
+  _onGameRunning:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 757951669351840638}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFOV_Changed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6624334008321366730}
+        m_TargetAssemblyTypeName: UnityEngine.Camera, UnityEngine
+        m_MethodName: set_fieldOfView
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1114874913098144432
 GameObject:
   m_ObjectHideFlags: 0

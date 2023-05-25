@@ -37,13 +37,13 @@ namespace UserInterface.Editor
             _styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/UserInterface/Editor/UIGodEditor.uss");
             _visualTreeUxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/UserInterface/Editor/UIGodEditor.uxml");
             _root = rootVisualElement;
-            _gameCanvases = UIGod.FindUISheet().AllGameCanvases;
+            _gameCanvases = UIGod.UISheetInstance.AllGameCanvases;
         }
 
         private void OnDisable()
         {
             Debug.Log("UIGodEditor OnDisable");
-            UIGod.FindUISheet().AllGameCanvases = _gameCanvases;
+            UIGod.UISheetInstance.AllGameCanvases = _gameCanvases;
         }
 
         public void CreateGUI()
