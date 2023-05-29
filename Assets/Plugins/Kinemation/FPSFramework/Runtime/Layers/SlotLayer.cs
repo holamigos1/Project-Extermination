@@ -1,31 +1,28 @@
 // Designed by Kinemation, 2023
 
-using Kinemation.FPSFramework.Runtime.Core;
+using Plugins.Kinemation.FPSFramework.Runtime.Core;
+using Plugins.Kinemation.FPSFramework.Runtime.Core.Data;
 
-namespace Kinemation.FPSFramework.Runtime.Layers
+namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 {
-    public class SlotLayer : AnimLayer
-    {
-        public MotionPlayer motionPlayer;
-        
-        public void PlayMotion(DynamicMotion motionToPlay)
-        {
-            motionPlayer.Play(motionToPlay);
-        }
+	public class SlotLayer : AnimLayer
+	{
+		public MotionPlayer motionPlayer;
 
-        public override void OnAnimStart()
-        {
-            motionPlayer.Reset();
-        }
+		public void PlayMotion(DynamicMotion motionToPlay) =>
+			motionPlayer.Play(motionToPlay);
 
-        public override void OnAnimUpdate()
-        {
-            motionPlayer.UpdateMotion();
-            
-            CoreToolkitLib.MoveInBoneSpace(GetRootBone(), GetMasterIK(), motionPlayer.Get().position, 
-                smoothLayerAlpha);
-            CoreToolkitLib.RotateInBoneSpace(GetRootBone().rotation, GetMasterIK(), 
-                motionPlayer.Get().rotation, smoothLayerAlpha);
-        }
-    }
+		public override void OnAnimStart() =>
+			motionPlayer.Reset();
+
+		public override void OnAnimUpdate()
+		{
+			motionPlayer.UpdateMotion();
+
+			CoreToolkitLib.MoveInBoneSpace(RootBone, MasterIK, motionPlayer.Get().position,
+										   SmoothLayerAlpha);
+			CoreToolkitLib.RotateInBoneSpace(RootBone.rotation, MasterIK,
+											 motionPlayer.Get().rotation, SmoothLayerAlpha);
+		}
+	}
 }

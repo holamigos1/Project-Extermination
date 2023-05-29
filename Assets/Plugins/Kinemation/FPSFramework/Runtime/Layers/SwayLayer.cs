@@ -1,147 +1,148 @@
 // Designed by Kinemation, 2023
 
-using Kinemation.FPSFramework.Runtime.Core;
+using Plugins.Kinemation.FPSFramework.Runtime.Core;
 using UnityEngine;
+using Weapons.Data;
 
-namespace Kinemation.FPSFramework.Runtime.Layers
+namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 {
-    public class SwayLayer : AnimLayer
-    {
-        [Header("Deadzone Rotation")]
-        [SerializeField] protected Transform headBone;
-        [SerializeField] protected FreeAimData freeAimData;
-        [SerializeField] protected bool bFreeAim;
-        [SerializeField] protected bool useCircleMethod;
+	public class SwayLayer : AnimLayer
+	{
+		[Header("Deadzone Rotation"), SerializeField]
         
-        protected Vector3 smoothMoveSwayRot;
-        protected Vector3 smoothMoveSwayLoc;
+		protected Transform headBone;
 
-        protected Quaternion deadZoneRot;
-        protected Vector2 deadZoneRotTarget;
-        
-        protected float smoothFreeAimAlpha;
+		[SerializeField] protected FreeAimData freeAimData;
+		[SerializeField] protected bool        bFreeAim;
+		[SerializeField] protected bool        useCircleMethod;
 
-        protected Vector2 swayTarget;
-        protected Vector3 swayLoc;
-        protected Vector3 swayRot;
+		protected Quaternion deadZoneRot;
+		protected Vector2    deadZoneRotTarget;
 
-        public void SetFreeAimEnable(bool enable)
-        {
-            bFreeAim = enable;
-        }
+		protected float   smoothFreeAimAlpha;
+		protected Vector3 smoothMoveSwayLoc;
 
-        public override void OnAnimUpdate()
-        {
-            if (Mathf.Approximately(Time.deltaTime, 0f))
-            {
-                return;
-            }
-            
-            var master = GetMasterIK();
-            LocRot baseT = new LocRot(master.position, master.rotation);
+		protected Vector3 smoothMoveSwayRot;
+		protected Vector3 swayLoc;
+		protected Vector3 swayRot;
 
-            freeAimData = GetGunData().freeAimData;
+		protected Vector2 swayTarget;
 
-            ApplySway();
-            ApplyFreeAim();
-            ApplyMoveSway();
+		public void SetFreeAimEnable(bool enable) =>
+			bFreeAim = enable;
 
-            LocRot newT = new LocRot(GetMasterIK().position, GetMasterIK().rotation);
-        
-            GetMasterIK().position = Vector3.Lerp(baseT.position, newT.position, smoothLayerAlpha);
-            GetMasterIK().rotation = Quaternion.Slerp(baseT.rotation, newT.rotation, smoothLayerAlpha);
-        }
+		public override void OnAnimUpdate()
+		{
+			if (Mathf.Approximately(Time.deltaTime, 0f))
+				return;
 
-        protected virtual void ApplyFreeAim()
-        {
-            float deltaRight = GetCharData().deltaAimInput.x;
-            float deltaUp = GetCharData().deltaAimInput.y;
-            
-            if (bFreeAim)
-            {
-                deadZoneRotTarget.x += deltaUp * freeAimData.scalar;
-                deadZoneRotTarget.y += deltaRight * freeAimData.scalar;
-            }
-            else
-            {
-                deadZoneRotTarget = Vector2.zero;
-            }
-            
-            deadZoneRotTarget.x = Mathf.Clamp(deadZoneRotTarget.x, -freeAimData.maxValue, freeAimData.maxValue);
-            
-            if (useCircleMethod)
-            {
-                var maxY = Mathf.Sqrt(Mathf.Pow(freeAimData.maxValue, 2f) - Mathf.Pow(deadZoneRotTarget.x, 2f));
-                deadZoneRotTarget.y = Mathf.Clamp(deadZoneRotTarget.y, -maxY, maxY);
-            }
-            else
-            {
-                deadZoneRotTarget.y = Mathf.Clamp(deadZoneRotTarget.y, -freeAimData.maxValue, freeAimData.maxValue);
-            }
-            
-            deadZoneRot.x = CoreToolkitLib.Glerp(deadZoneRot.x, deadZoneRotTarget.x, freeAimData.speed);
-            deadZoneRot.y = CoreToolkitLib.Glerp(deadZoneRot.y, deadZoneRotTarget.y, freeAimData.speed);
+			Transform master = MasterIK;
+			var baseT = new LocationAndRotation(master.position, master.rotation);
 
-            Quaternion q = Quaternion.Euler(new Vector3(deadZoneRot.x, deadZoneRot.y, 0f));
-            q.Normalize();
+			freeAimData = GunData.freeAimData;
 
-            smoothFreeAimAlpha = CoreToolkitLib.Glerp(smoothFreeAimAlpha, bFreeAim ? 1f : 0f, 10f);
-            q = Quaternion.Slerp(Quaternion.identity, q, smoothFreeAimAlpha);
-            
-            CoreToolkitLib.RotateInBoneSpace(GetRootBone().rotation, headBone,q, 1f);
-        }
+			ApplySway();
+			ApplyFreeAim();
+			ApplyMoveSway();
 
-        protected virtual void ApplySway()
-        {
-            var masterDynamic = GetMasterIK();
-            
-            float deltaRight = core.rigData.characterData.deltaAimInput.x / Time.deltaTime;
-            float deltaUp = core.rigData.characterData.deltaAimInput.y / Time.deltaTime; 
+			var newT = new LocationAndRotation(MasterIK.position, MasterIK.rotation);
 
-            swayTarget += new Vector2(deltaRight, deltaUp) * 0.01f;
-            swayTarget.x = CoreToolkitLib.GlerpLayer(swayTarget.x * 0.01f, 0f, 5f);
-            swayTarget.y = CoreToolkitLib.GlerpLayer(swayTarget.y * 0.01f, 0f, 5f);
+			MasterIK.position = Vector3.Lerp(baseT.position, newT.position, SmoothLayerAlpha);
+			MasterIK.rotation = Quaternion.Slerp(baseT.rotation, newT.rotation, SmoothLayerAlpha);
+		}
 
-            Vector3 targetLoc = new Vector3(swayTarget.x, swayTarget.y,0f);
-            Vector3 targetRot = new Vector3(swayTarget.y, swayTarget.x, swayTarget.x);
+		protected virtual void ApplyFreeAim()
+		{
+			float deltaRight = CharData.deltaAimInput.x;
+			float deltaUp = CharData.deltaAimInput.y;
 
-            swayLoc = CoreToolkitLib.SpringInterp(swayLoc, targetLoc, ref core.rigData.gunData.springData.loc);
-            swayRot = CoreToolkitLib.SpringInterp(swayRot, targetRot, ref core.rigData.gunData.springData.rot);
+			if (bFreeAim)
+			{
+				deadZoneRotTarget.x += deltaUp * freeAimData.scalar;
+				deadZoneRotTarget.y += deltaRight * freeAimData.scalar;
+			}
+			else
+			{
+				deadZoneRotTarget = Vector2.zero;
+			}
 
-            var rot = core.rigData.rootBone.rotation;
+			deadZoneRotTarget.x = Mathf.Clamp(deadZoneRotTarget.x, -freeAimData.maxValue, freeAimData.maxValue);
 
-            CoreToolkitLib.RotateInBoneSpace(rot, masterDynamic, Quaternion.Euler(swayRot), 1f);
-            CoreToolkitLib.MoveInBoneSpace(core.rigData.rootBone, masterDynamic, swayLoc, 1f);
-        }
+			if (useCircleMethod)
+			{
+				float maxY = Mathf.Sqrt(Mathf.Pow(freeAimData.maxValue, 2f) - Mathf.Pow(deadZoneRotTarget.x, 2f));
+				deadZoneRotTarget.y = Mathf.Clamp(deadZoneRotTarget.y, -maxY, maxY);
+			}
+			else
+			{
+				deadZoneRotTarget.y = Mathf.Clamp(deadZoneRotTarget.y, -freeAimData.maxValue, freeAimData.maxValue);
+			}
 
-        protected virtual void ApplyMoveSway()
-        {
-            var moveRotTarget = new Vector3();
-            var moveLocTarget = new Vector3();
+			deadZoneRot.x = CoreToolkitLib.Glerp(deadZoneRot.x, deadZoneRotTarget.x, freeAimData.speed);
+			deadZoneRot.y = CoreToolkitLib.Glerp(deadZoneRot.y, deadZoneRotTarget.y, freeAimData.speed);
 
-            var moveSwayData = GetGunData().moveSwayData;
-            var moveInput = GetCharData().moveInput;
+			Quaternion q = Quaternion.Euler(new Vector3(deadZoneRot.x, deadZoneRot.y, 0f));
+			q.Normalize();
 
-            moveRotTarget.x = moveInput.y * moveSwayData.maxMoveRotSway.x;
-            moveRotTarget.y = moveInput.x * moveSwayData.maxMoveRotSway.y;
-            moveRotTarget.z = moveInput.x * moveSwayData.maxMoveRotSway.z;
-            
-            moveLocTarget.x = moveInput.x * moveSwayData.maxMoveLocSway.x;
-            moveLocTarget.y = moveInput.y * moveSwayData.maxMoveLocSway.y;
-            moveLocTarget.z = moveInput.y * moveSwayData.maxMoveLocSway.z;
+			smoothFreeAimAlpha = CoreToolkitLib.Glerp(smoothFreeAimAlpha, bFreeAim ?
+														  1f :
+														  0f, 10f);
+			q = Quaternion.Slerp(Quaternion.identity, q, smoothFreeAimAlpha);
 
-            smoothMoveSwayRot.x = CoreToolkitLib.Glerp(smoothMoveSwayRot.x, moveRotTarget.x, 3.8f);
-            smoothMoveSwayRot.y = CoreToolkitLib.Glerp(smoothMoveSwayRot.y, moveRotTarget.y, 3f);
-            smoothMoveSwayRot.z = CoreToolkitLib.Glerp(smoothMoveSwayRot.z, moveRotTarget.z, 5f);
-            
-            smoothMoveSwayLoc.x = CoreToolkitLib.Glerp(smoothMoveSwayLoc.x, moveLocTarget.x, 2.2f);
-            smoothMoveSwayLoc.y = CoreToolkitLib.Glerp(smoothMoveSwayLoc.y, moveLocTarget.y, 3f);
-            smoothMoveSwayLoc.z = CoreToolkitLib.Glerp(smoothMoveSwayLoc.z, moveLocTarget.z, 2.5f);
-            
-            CoreToolkitLib.MoveInBoneSpace(core.rigData.rootBone, GetMasterIK(), 
-                smoothMoveSwayLoc, 1f);
-            CoreToolkitLib.RotateInBoneSpace(GetMasterIK().rotation, GetMasterIK(), 
-                Quaternion.Euler(smoothMoveSwayRot), 1f);
-        }
-    }
+			CoreToolkitLib.RotateInBoneSpace(RootBone.rotation, headBone, q, 1f);
+		}
+
+		protected virtual void ApplySway()
+		{
+			Transform masterDynamic = MasterIK;
+
+			float deltaRight = CoreAnim.rigData.characterData.deltaAimInput.x / Time.deltaTime;
+			float deltaUp = CoreAnim.rigData.characterData.deltaAimInput.y / Time.deltaTime;
+
+			swayTarget += new Vector2(deltaRight, deltaUp) * 0.01f;
+			swayTarget.x = CoreToolkitLib.GlerpLayer(swayTarget.x * 0.01f, 0f, 5f);
+			swayTarget.y = CoreToolkitLib.GlerpLayer(swayTarget.y * 0.01f, 0f, 5f);
+
+			var targetLoc = new Vector3(swayTarget.x, swayTarget.y, 0f);
+			var targetRot = new Vector3(swayTarget.y, swayTarget.x, swayTarget.x);
+
+			swayLoc = CoreToolkitLib.SpringInterp(swayLoc, targetLoc, ref CoreAnim.rigData.gunData.springData.location);
+			swayRot = CoreToolkitLib.SpringInterp(swayRot, targetRot, ref CoreAnim.rigData.gunData.springData.rotation);
+
+			Quaternion rot = CoreAnim.rigData.rootBone.rotation;
+
+			CoreToolkitLib.RotateInBoneSpace(rot, masterDynamic, Quaternion.Euler(swayRot), 1f);
+			CoreToolkitLib.MoveInBoneSpace(CoreAnim.rigData.rootBone, masterDynamic, swayLoc, 1f);
+		}
+
+		protected virtual void ApplyMoveSway()
+		{
+			var moveRotTarget = new Vector3();
+			var moveLocTarget = new Vector3();
+
+			MoveSwayData moveSwayData = GunData.moveSwayData;
+			Vector2 moveInput = CharData.moveInput;
+
+			moveRotTarget.x = moveInput.y * moveSwayData.maxMoveRotationSway.x;
+			moveRotTarget.y = moveInput.x * moveSwayData.maxMoveRotationSway.y;
+			moveRotTarget.z = moveInput.x * moveSwayData.maxMoveRotationSway.z;
+
+			moveLocTarget.x = moveInput.x * moveSwayData.maxMoveLocationSway.x;
+			moveLocTarget.y = moveInput.y * moveSwayData.maxMoveLocationSway.y;
+			moveLocTarget.z = moveInput.y * moveSwayData.maxMoveLocationSway.z;
+
+			smoothMoveSwayRot.x = CoreToolkitLib.Glerp(smoothMoveSwayRot.x, moveRotTarget.x, 3.8f);
+			smoothMoveSwayRot.y = CoreToolkitLib.Glerp(smoothMoveSwayRot.y, moveRotTarget.y, 3f);
+			smoothMoveSwayRot.z = CoreToolkitLib.Glerp(smoothMoveSwayRot.z, moveRotTarget.z, 5f);
+
+			smoothMoveSwayLoc.x = CoreToolkitLib.Glerp(smoothMoveSwayLoc.x, moveLocTarget.x, 2.2f);
+			smoothMoveSwayLoc.y = CoreToolkitLib.Glerp(smoothMoveSwayLoc.y, moveLocTarget.y, 3f);
+			smoothMoveSwayLoc.z = CoreToolkitLib.Glerp(smoothMoveSwayLoc.z, moveLocTarget.z, 2.5f);
+
+			CoreToolkitLib.MoveInBoneSpace(CoreAnim.rigData.rootBone, MasterIK,
+										   smoothMoveSwayLoc, 1f);
+			CoreToolkitLib.RotateInBoneSpace(MasterIK.rotation, MasterIK,
+											 Quaternion.Euler(smoothMoveSwayRot), 1f);
+		}
+	}
 }

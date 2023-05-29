@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using GameObjects.Base;
+using GameItems.Base;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Weapons.Range.Base;

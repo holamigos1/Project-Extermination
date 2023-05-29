@@ -1,4 +1,4 @@
-using GameObjects.Base;
+using GameItems.Base;
 using UnityEngine;
 using Weapons.Basic;
 using Weapons.Melle;

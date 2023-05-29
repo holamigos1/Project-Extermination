@@ -1,7 +1,6 @@
 ﻿using Misc;
 using Misc.Extensions;
 using UnityEngine;
-using Range = Misc.Extensions.Range;
 
 namespace Characters.Humanoid
 {
@@ -12,8 +11,8 @@ namespace Characters.Humanoid
 
         [SerializeField] private Transform _aimTarget;
         
-        private Range _xAxisClamp; //Pitch
-        private Range _yAxisClamp; //Yaw
+        private MinMaxDiapason _xAxisClamp; //Pitch
+        private MinMaxDiapason _yAxisClamp; //Yaw
         private Vector3 _startLocalPosition;
         private Vector3 spoint;
         private Vector3 _planeNormal;
@@ -24,7 +23,7 @@ namespace Characters.Humanoid
             _startLocalPosition = Transform.localPosition;
         }
         
-        public void SetClamping(Range xAxisClamp, Range yAxisClamp)
+        public void SetClamping(MinMaxDiapason xAxisClamp, MinMaxDiapason yAxisClamp)
         {
             _xAxisClamp = xAxisClamp;
             _yAxisClamp = yAxisClamp;
@@ -72,7 +71,7 @@ namespace Characters.Humanoid
         /// <summary>От AimRoot до его AimTarget</summary>
         public GameObject GetRayBlockObject(LayerMask mask)
         { 
-            Collider rayBlockCollider = Transform.GetRaycastBlockingObj(AimTarget.position, mask).collider;
+            Collider rayBlockCollider = Transform.GetRaycastBlockingObject(AimTarget.position, mask).collider;
             
             return rayBlockCollider != null ?
                 rayBlockCollider.gameObject :

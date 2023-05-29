@@ -1,5 +1,5 @@
 ﻿using System;
-using GameObjects.Base;
+using GameItems.Base;
 using GameSystems.Base;
 using Sirenix.OdinInspector;
 using UnityEngine;

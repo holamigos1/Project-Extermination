@@ -1,160 +1,154 @@
 // Designed by Kinemation, 2023
 
-using Kinemation.FPSFramework.Runtime.Core;
+using Plugins.Kinemation.FPSFramework.Runtime.Core;
 using UnityEngine;
+using Weapons.Data;
 
-namespace Kinemation.FPSFramework.Runtime.Layers
+namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 {
-    public class AdsLayer : AnimLayer
-    {
-        [Header("SightsAligner")]
-        [Range(0f, 1f)] public float aimLayerAlphaLoc;
-        [Range(0f, 1f)] public float aimLayerAlphaRot;
-        [SerializeField] protected Transform aimTarget;
-
-        protected float adsAlpha;
-        protected float pointAlpha;
+	public class AdsLayer : AnimLayer
+	{
+		[Header("SightsAligner"), Range(0f, 1f)]
         
-        protected float smoothAdsAlpha;
-        protected float smoothPointAlpha;
-        protected LocRot smoothAimPoint;
-        
-        public void SetAdsAlpha(float weight)
-        {
-            adsAlpha = Mathf.Clamp01(weight);
-        }
-        
-        public void SetPointAlpha(float weight)
-        {
-            pointAlpha = Mathf.Clamp01(weight);
-        }
+		public float aimLayerAlphaLoc;
 
-        public override void OnAnimUpdate()
-        {
-            var dynamicMaster = GetMasterIK();
-            
-            Vector3 baseLoc = dynamicMaster.position;
-            Quaternion baseRot = dynamicMaster.rotation;
-            
-            ApplyPointAiming();
-            ApplyAiming();
-            
-            Vector3 postLoc = dynamicMaster.position;
-            Quaternion postRot = dynamicMaster.rotation;
+		[Range(0f, 1f)]  public    float     aimLayerAlphaRot;
+		[SerializeField] protected Transform aimTarget;
 
-            dynamicMaster.position = Vector3.Lerp(baseLoc, postLoc, smoothLayerAlpha);
-            dynamicMaster.rotation = Quaternion.Slerp(baseRot, postRot, smoothLayerAlpha);
-        }
+		protected float adsAlpha;
+		protected float pointAlpha;
 
-        public void CalculateAimData()
-        {
-            var aimData = GetGunData().gunAimData;
-            
-            var stateName = aimData.target.stateName.Length > 0
-                ? aimData.target.stateName
-                : aimData.target.staticPose.name;
+		protected float            smoothAdsAlpha;
+		protected LocationAndRotation smoothAimPoint;
+		protected float            smoothPointAlpha;
 
-            if (GetAnimator() != null)
-            {
-                GetAnimator().Play(stateName);
-                GetAnimator().Update(0f);
-            }
-            
-            // Cache the local data, so we can apply it without issues
-            aimData.target.aimLoc = aimData.pivotPoint.InverseTransformPoint(aimTarget.position);
-            aimData.target.aimRot = Quaternion.Inverse(aimData.pivotPoint.rotation) * GetRootBone().rotation;
-        }
+		public void SetAdsAlpha(float weight) =>
+			adsAlpha = Mathf.Clamp01(weight);
 
-        protected virtual void ApplyAiming()
-        {
-            var aimData = GetGunData().gunAimData;
+		public void SetPointAlpha(float weight) =>
+			pointAlpha = Mathf.Clamp01(weight);
 
-            //Apply Aiming
-            var masterTransform = GetMasterIK();
+		public override void OnAnimUpdate()
+		{
+			Transform dynamicMaster = MasterIK;
 
-            smoothAdsAlpha = CoreToolkitLib.Glerp(smoothAdsAlpha, adsAlpha, aimData.aimSpeed);
-            
-            ApplyHandsOffset();
-            
-            Vector3 scopeAimLoc = Vector3.zero;
-            Quaternion scopeAimRot = Quaternion.identity;
+			Vector3 baseLoc = dynamicMaster.position;
+			Quaternion baseRot = dynamicMaster.rotation;
 
-            if (aimData.aimPoint != null)
-            {
-                scopeAimRot = Quaternion.Inverse(aimData.pivotPoint.rotation) * aimData.aimPoint.rotation;
-                scopeAimLoc = -aimData.pivotPoint.InverseTransformPoint(aimData.aimPoint.position);
-            }
+			ApplyPointAiming();
+			ApplyAiming();
 
-            if (!smoothAimPoint.position.Equals(scopeAimLoc))
-            {
-                smoothAimPoint.position = CoreToolkitLib.Glerp(smoothAimPoint.position, scopeAimLoc, aimData.aimSpeed);
-            }
+			Vector3 postLoc = dynamicMaster.position;
+			Quaternion postRot = dynamicMaster.rotation;
 
-            if (!smoothAimPoint.rotation.Equals(scopeAimRot))
-            {
-                smoothAimPoint.rotation = CoreToolkitLib.Glerp(smoothAimPoint.rotation, scopeAimRot, aimData.aimSpeed);
-            }
+			dynamicMaster.position = Vector3.Lerp(baseLoc, postLoc, SmoothLayerAlpha);
+			dynamicMaster.rotation = Quaternion.Slerp(baseRot, postRot, SmoothLayerAlpha);
+		}
 
-            LocRot additiveAim = aimData.target != null ? new LocRot(aimData.target.aimLoc, aimData.target.aimRot) 
-                : new LocRot(Vector3.zero, Quaternion.identity);
-            
-            Vector3 addAimLoc = additiveAim.position;
-            Quaternion addAimRot = additiveAim.rotation;
+		public void CalculateAimData()
+		{
+			GunAimData aimData = GunData.gunAimData;
 
-            // Base Animation layer
-            Vector3 baseLoc = masterTransform.position;
-            Quaternion baseRot = masterTransform.rotation;
+			string stateName = aimData.target.stateName.Length > 0 ?
+				aimData.target.stateName :
+				aimData.target.staticPose.name;
 
-            CoreToolkitLib.MoveInBoneSpace(masterTransform, masterTransform, addAimLoc, 1f);
-            masterTransform.rotation *= addAimRot;
-            CoreToolkitLib.MoveInBoneSpace(masterTransform, masterTransform, smoothAimPoint.position, 1f);
+			if (Rig_animator != null)
+			{
+				Rig_animator.Play(stateName);
+				Rig_animator.Update(0f);
+			}
 
-            addAimLoc = masterTransform.position;
-            addAimRot = masterTransform.rotation;
+			// Cache the local data, so we can apply it without issues
+			aimData.target.aimLocation = aimData.pivotPoint.InverseTransformPoint(aimTarget.position);
+			aimData.target.aimRotation = Quaternion.Inverse(aimData.pivotPoint.rotation) * RootBone.rotation;
+		}
 
-            ApplyAbsAim(smoothAimPoint.position, smoothAimPoint.rotation);
+		protected virtual void ApplyAiming()
+		{
+			GunAimData aimData = GunData.gunAimData;
 
-            // Blend between Absolute and Additive
-            masterTransform.position = Vector3.Lerp(masterTransform.position, addAimLoc, aimLayerAlphaLoc);
-            masterTransform.rotation = Quaternion.Slerp(masterTransform.rotation, addAimRot, aimLayerAlphaRot);
+			//Apply Aiming
+			Transform masterTransform = MasterIK;
 
-            float aimWeight = Mathf.Clamp01(smoothAdsAlpha - smoothPointAlpha);
-            
-            // Blend Between Non-Aiming and Aiming
-            masterTransform.position = Vector3.Lerp(baseLoc, masterTransform.position, aimWeight);
-            masterTransform.rotation = Quaternion.Slerp(baseRot, masterTransform.rotation, aimWeight);
-        }
+			smoothAdsAlpha = CoreToolkitLib.Glerp(smoothAdsAlpha, adsAlpha, aimData.aimSpeed);
 
-        protected virtual void ApplyPointAiming()
-        {
-            var aimData = GetGunData().gunAimData;
-            smoothPointAlpha = CoreToolkitLib.GlerpLayer(smoothPointAlpha, pointAlpha * adsAlpha, 
-                aimData.aimSpeed);
-            
-            CoreToolkitLib.MoveInBoneSpace(GetRootBone(), GetMasterIK(),
-                aimData.pointAimOffset.position * smoothPointAlpha, 1f);
+			ApplyHandsOffset();
 
-            var pointAimRot = Quaternion.Slerp(Quaternion.identity, aimData.pointAimOffset.rotation, 
-                smoothPointAlpha);
-            
-            CoreToolkitLib.RotateInBoneSpace(GetRootBone().rotation, GetMasterIK(),
-                pointAimRot, 1f);
-        }
+			Vector3 scopeAimLoc = Vector3.zero;
+			Quaternion scopeAimRot = Quaternion.identity;
 
-        protected virtual void ApplyHandsOffset()
-        {
-            CoreToolkitLib.MoveInBoneSpace(GetRootBone(), GetMasterIK(),
-                GetGunData().handsOffset * (1f - smoothAdsAlpha), 1f);
-        }
+			if (aimData.aimPoint != null)
+			{
+				scopeAimRot = Quaternion.Inverse(aimData.pivotPoint.rotation) * aimData.aimPoint.rotation;
+				scopeAimLoc = -aimData.pivotPoint.InverseTransformPoint(aimData.aimPoint.position);
+			}
 
-        // Absolute aiming overrides base animation
-        protected virtual void ApplyAbsAim(Vector3 loc, Quaternion rot)
-        {
-            Vector3 offset = -loc;
-            
-            GetMasterIK().position = aimTarget.position;
-            GetMasterIK().rotation = GetRootBone().rotation * rot;
-            CoreToolkitLib.MoveInBoneSpace(GetMasterIK(),GetMasterIK(), -offset, 1f);
-        }
-    }
+			if (!smoothAimPoint.position.Equals(scopeAimLoc))
+				smoothAimPoint.position = CoreToolkitLib.Glerp(smoothAimPoint.position, scopeAimLoc, aimData.aimSpeed);
+
+			if (!smoothAimPoint.rotation.Equals(scopeAimRot))
+				smoothAimPoint.rotation = CoreToolkitLib.Glerp(smoothAimPoint.rotation, scopeAimRot, aimData.aimSpeed);
+
+			LocationAndRotation additiveAim = aimData.target != null ?
+				new LocationAndRotation(aimData.target.aimLocation, aimData.target.aimRotation) :
+				new LocationAndRotation(Vector3.zero, Quaternion.identity);
+
+			Vector3 addAimLoc = additiveAim.position;
+			Quaternion addAimRot = additiveAim.rotation;
+
+			// Base Animation layer
+			Vector3 baseLoc = masterTransform.position;
+			Quaternion baseRot = masterTransform.rotation;
+
+			CoreToolkitLib.MoveInBoneSpace(masterTransform, masterTransform, addAimLoc, 1f);
+			masterTransform.rotation *= addAimRot;
+			CoreToolkitLib.MoveInBoneSpace(masterTransform, masterTransform, smoothAimPoint.position, 1f);
+
+			addAimLoc = masterTransform.position;
+			addAimRot = masterTransform.rotation;
+
+			ApplyAbsAim(smoothAimPoint.position, smoothAimPoint.rotation);
+
+			// Blend between Absolute and Additive
+			masterTransform.position = Vector3.Lerp(masterTransform.position, addAimLoc, aimLayerAlphaLoc);
+			masterTransform.rotation = Quaternion.Slerp(masterTransform.rotation, addAimRot, aimLayerAlphaRot);
+
+			float aimWeight = Mathf.Clamp01(smoothAdsAlpha - smoothPointAlpha);
+
+			// Blend Between Non-Aiming and Aiming
+			masterTransform.position = Vector3.Lerp(baseLoc, masterTransform.position, aimWeight);
+			masterTransform.rotation = Quaternion.Slerp(baseRot, masterTransform.rotation, aimWeight);
+		}
+
+		protected virtual void ApplyPointAiming()
+		{
+			GunAimData aimData = GunData.gunAimData;
+			smoothPointAlpha = CoreToolkitLib.GlerpLayer(smoothPointAlpha, pointAlpha * adsAlpha,
+														 aimData.aimSpeed);
+
+			CoreToolkitLib.MoveInBoneSpace(RootBone, MasterIK,
+										   aimData.pointAimOffset.position * smoothPointAlpha, 1f);
+
+			Quaternion pointAimRot = Quaternion.Slerp(Quaternion.identity, aimData.pointAimOffset.rotation,
+													  smoothPointAlpha);
+
+			CoreToolkitLib.RotateInBoneSpace(RootBone.rotation, MasterIK,
+											 pointAimRot, 1f);
+		}
+
+		protected virtual void ApplyHandsOffset() =>
+			CoreToolkitLib.MoveInBoneSpace(RootBone, MasterIK,
+										   GunData.handsOffset * (1f - smoothAdsAlpha), 1f);
+
+		// Absolute aiming overrides base animation
+		protected virtual void ApplyAbsAim(Vector3 loc, Quaternion rot)
+		{
+			Vector3 offset = -loc;
+
+			MasterIK.position = aimTarget.position;
+			MasterIK.rotation = RootBone.rotation * rot;
+			CoreToolkitLib.MoveInBoneSpace(MasterIK, MasterIK, -offset, 1f);
+		}
+	}
 }

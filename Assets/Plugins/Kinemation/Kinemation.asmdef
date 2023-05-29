@@ -1,3 +1,17 @@
 {
-	"name": "Kinemation"
+    "name": "Kinemation",
+    "rootNamespace": "",
+    "references": [
+        "GUID:824dc30bda5edb04a8f72471d645cfa4",
+        "GUID:477069ab2444ebb4a8da3a79cbcaf821"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

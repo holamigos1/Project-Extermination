@@ -6,15 +6,14 @@ using GameAnimation.Sheets;
 using GameData.AnimationTags;
 using GameData.Layers;
 using GameData.Tags;
-using GameObjects.Base;
-using Kinemation.FPSFramework.Runtime.Core;
-using Misc;
+using GameItems.Base;
 using Misc.Extensions;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.VFX;
 using Weapons.Basic;
 using Weapons.DamageTypes;
+using Weapons.Data;
 using Weapons.Range.Base;
 using Weapons.SoundsSheet;
 
@@ -112,7 +111,7 @@ namespace Weapons
             ItemAnimator.cullingMode = AnimatorCullingMode.CullCompletely;
             ItemAnimator.SetBool(AnimationParams.IS_ITEM_EQUIPPED, false);
 
-            ItemGameObject.ChangeGameObjsLayers(GameLayers.DEFAULT_LAYER);
+            ItemGameObject.ChangeObjectHierarhyLayers(GameLayers.DEFAULT_LAYER);
         }
 
         public Transform GetScope()
@@ -172,7 +171,7 @@ namespace Weapons
             DoShotSound();
 
             Transform gunPivot = gunData.gunAimData.pivotPoint;
-            var rayBlockingObj = gunPivot.GetRaycastBlockingObj(gunPivot.forward, _deathRayBlockingLayers);
+            var rayBlockingObj = gunPivot.GetRaycastBlockingObject(gunPivot.forward, _deathRayBlockingLayers);
             if (rayBlockingObj.collider != null && rayBlockingObj.collider.gameObject != null) 
                 ApplyDamage(rayBlockingObj.collider.gameObject, rayBlockingObj.point);
         }

@@ -1,88 +1,89 @@
 // Designed by Kinemation, 2023
 
-using Kinemation.FPSFramework.Runtime.Core;
+using Plugins.Kinemation.FPSFramework.Runtime.Core;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
+using Weapons.Data;
 
-namespace Kinemation.FPSFramework.Runtime.Layers
+namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 {
-    public class LegIK : AnimLayer
-    {
-        [SerializeField] protected float footTraceLength;
-        [SerializeField] protected float footInterpSpeed;
-        [SerializeField] protected float pelvisInterpSpeed;
+	public class LegIK : AnimLayer
+	{
+		[SerializeField] protected float footTraceLength;
+		[SerializeField] protected float footInterpSpeed;
+		[SerializeField] protected float pelvisInterpSpeed;
 
-        [SerializeField] protected LayerMask layerName;
+		[SerializeField] protected LayerMask        layerName;
+		protected                  LocationAndRotation smoothLfIK;
+		protected                  float            smoothPelvis;
 
-        protected LocRot smoothRfIK;
-        protected LocRot smoothLfIK;
-        protected float smoothPelvis;
+		protected LocationAndRotation smoothRfIK;
+		protected Vector3          traceEnd;
 
-        protected Vector3 traceStart;
-        protected Vector3 traceEnd;
+		protected Vector3 traceStart;
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(traceStart, traceEnd);
-        }
+		private void OnDrawGizmos()
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawLine(traceStart, traceEnd);
+		}
 
-        private LocRot TraceFoot(Transform footTransform)
-        {
-            Vector3 origin = footTransform.position;
-            origin.y = GetPelvis().position.y;
-            
-            traceStart = origin;
-            traceEnd = traceStart - GetRootBone().up * footTraceLength;
-            
-            LocRot target = new LocRot(footTransform.position, footTransform.rotation);
-            Quaternion finalRotation = footTransform.rotation;
-            if (Physics.Raycast(origin, -GetRootBone().up, out RaycastHit hit, footTraceLength,layerName))
-            {
-                var rotation = footTransform.rotation;
-                finalRotation = Quaternion.FromToRotation(GetRootBone().up, hit.normal) * rotation;
-                finalRotation.Normalize();
-                target.position = hit.point;
+		private LocationAndRotation TraceFoot(Transform footTransform)
+		{
+			Vector3 origin = footTransform.position;
+			origin.y = Pelvis_bone.position.y;
 
-                float animOffset = GetRootBone().InverseTransformPoint(footTransform.position).y;
-                target.position.y += animOffset;
-            }
-            
-            target.position -= footTransform.position;
-            target.rotation = Quaternion.Inverse(footTransform.rotation) * finalRotation;
-            
-            return target;
-        }
-        
-        public override void OnAnimUpdate()
-        {
-            var rightFoot = GetRightFoot().obj.transform;
-            var leftFoot = GetLeftFoot().obj.transform;
-            
-            Vector3 rf = rightFoot.position;
-            Vector3 lf = leftFoot.position;
+			traceStart = origin;
+			traceEnd = traceStart - RootBone.up * footTraceLength;
 
-            LocRot rfIK = TraceFoot(rightFoot);
-            LocRot lfIK = TraceFoot(leftFoot);
+			var target = new LocationAndRotation(footTransform.position, footTransform.rotation);
+			Quaternion finalRotation = footTransform.rotation;
+			if (Physics.Raycast(origin, -RootBone.up, out RaycastHit hit, footTraceLength, layerName))
+			{
+				Quaternion rotation = footTransform.rotation;
+				finalRotation = Quaternion.FromToRotation(RootBone.up, hit.normal) * rotation;
+				finalRotation.Normalize();
+				target.position = hit.point;
 
-            smoothRfIK = CoreToolkitLib.Glerp(smoothRfIK, rfIK, footInterpSpeed);
-            smoothLfIK = CoreToolkitLib.Glerp(smoothLfIK, lfIK, footInterpSpeed);
-            
-            CoreToolkitLib.MoveInBoneSpace(GetRootBone(), rightFoot, smoothRfIK.position, smoothLayerAlpha);
-            CoreToolkitLib.MoveInBoneSpace(GetRootBone(), leftFoot, smoothLfIK.position, smoothLayerAlpha);
+				float animOffset = RootBone.InverseTransformPoint(footTransform.position).y;
+				target.position.y += animOffset;
+			}
 
-            rightFoot.rotation *= Quaternion.Slerp(Quaternion.identity, smoothRfIK.rotation, smoothLayerAlpha);
-            leftFoot.rotation *= Quaternion.Slerp(Quaternion.identity, smoothLfIK.rotation, smoothLayerAlpha);
-            
-            var dtR = rightFoot.position - rf;
-            var dtL = leftFoot.position - lf;
+			target.position -= footTransform.position;
+			target.rotation = Quaternion.Inverse(footTransform.rotation) * finalRotation;
 
-            float pelvisOffset = dtR.y < dtL.y ? dtR.y : dtL.y;
-            smoothPelvis = CoreToolkitLib.Glerp(smoothPelvis, pelvisOffset, pelvisInterpSpeed);
-            
-            CoreToolkitLib.MoveInBoneSpace(GetRootBone(), GetPelvis(),
-                new Vector3(0f, smoothPelvis, 0f), smoothLayerAlpha);
-        }
-    }
+			return target;
+		}
+
+		public override void OnAnimUpdate()
+		{
+			Transform rightFoot = Right_foot_bone.obj.transform;
+			Transform leftFoot = Left_foot_bone.obj.transform;
+
+			Vector3 rf = rightFoot.position;
+			Vector3 lf = leftFoot.position;
+
+			LocationAndRotation rfIK = TraceFoot(rightFoot);
+			LocationAndRotation lfIK = TraceFoot(leftFoot);
+
+			smoothRfIK = CoreToolkitLib.Glerp(smoothRfIK, rfIK, footInterpSpeed);
+			smoothLfIK = CoreToolkitLib.Glerp(smoothLfIK, lfIK, footInterpSpeed);
+
+			CoreToolkitLib.MoveInBoneSpace(RootBone, rightFoot, smoothRfIK.position, SmoothLayerAlpha);
+			CoreToolkitLib.MoveInBoneSpace(RootBone, leftFoot, smoothLfIK.position, SmoothLayerAlpha);
+
+			rightFoot.rotation *= Quaternion.Slerp(Quaternion.identity, smoothRfIK.rotation, SmoothLayerAlpha);
+			leftFoot.rotation *= Quaternion.Slerp(Quaternion.identity, smoothLfIK.rotation, SmoothLayerAlpha);
+
+			Vector3 dtR = rightFoot.position - rf;
+			Vector3 dtL = leftFoot.position - lf;
+
+			float pelvisOffset = dtR.y < dtL.y ?
+				dtR.y :
+				dtL.y;
+			smoothPelvis = CoreToolkitLib.Glerp(smoothPelvis, pelvisOffset, pelvisInterpSpeed);
+
+			CoreToolkitLib.MoveInBoneSpace(RootBone, Pelvis_bone,
+										   new Vector3(0f, smoothPelvis, 0f), SmoothLayerAlpha);
+		}
+	}
 }

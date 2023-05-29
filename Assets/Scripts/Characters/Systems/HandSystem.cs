@@ -1,6 +1,6 @@
 using System;
 using GameData.Layers;
-using GameObjects.Base;
+using GameItems.Base;
 using GameSystems.Base;
 using Misc;
 using Misc.Extensions;
@@ -92,7 +92,7 @@ namespace Characters.Systems
             _equippedItem.ItemTransform.localPosition = Vector3.zero;
             _equippedItem.ItemTransform.localRotation = Quaternion.Euler(Vector3.zero);
             
-            _equippedItem.ItemGameObject.ChangeGameObjsLayers(GameLayers.FIRST_PERSON_LAYER);
+            _equippedItem.ItemGameObject.ChangeObjectHierarhyLayers(GameLayers.FIRST_PERSON_LAYER);
             _equippedItem.ItemGameObject.SetActive(true);
             
             _handTransform.localPosition = new Vector3(_handTransform.localPosition.x,

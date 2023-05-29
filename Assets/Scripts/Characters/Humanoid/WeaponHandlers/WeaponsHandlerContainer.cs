@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Characters.Humanoid.Base;
-using GameObjects.Base;
+using GameItems.Base;
 using UnityEngine;
 using Weapons;
 using Weapons.Range;

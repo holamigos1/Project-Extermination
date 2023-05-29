@@ -47,6 +47,8 @@ namespace SceneManagers
                 }
                 else
                 {
+                    if(!_settingsCanvas) return;
+                    
                     _settingsCanvas.Returing -= OnSettingsReturn;
                     _settingsCanvas.MusicValueChanging -= OnMusicValueChanging;
                     _settingsCanvas.SoundValueChanging -= OnSoundValueChanging;
@@ -76,6 +78,8 @@ namespace SceneManagers
                 }
                 else
                 {
+                    if(!_pauseCanvas) return;
+                    
                     _pauseCanvas.Exit -= GoToMainMenu;
                     _pauseCanvas.Resume -= ResumePause;
                     _pauseCanvas.ToSettings -= GoToSettings;
@@ -92,6 +96,7 @@ namespace SceneManagers
             _hudCanvas.ApplyUITransparency(PlayerPrefsVars.UITransparencyValue);
             _hudCanvas.ApplyUIScale(PlayerPrefsVars.UIScaleValue);
             OnFoVValueChanging(PlayerPrefsVars.FPSFoVValue);
+            ResumePause();
         }
 
         private void OnDisable()
@@ -99,17 +104,16 @@ namespace SceneManagers
             ResumePause();
             Destroy(_hudCanvas);
             _hudCanvas = null;
+            SettingsCanvas = null;
+            PauseCanvas = null;
         }
 
         // Update is called once per frame
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape)) //TODO Сделать через NewInputSystem
-                if (_pauseCanvas == null)
-                    Pause();
-                else
-                    ResumePause();
-            
+                if (!_pauseCanvas) Pause();
+                else ResumePause();
         }
 
         private void Pause()
@@ -126,6 +130,7 @@ namespace SceneManagers
 
         private void GoToSettings()
         {
+            Debug.Log(UIGod.GetCanvasInstance<SettingsCanvas>());
             SettingsCanvas = UIGod.GetCanvasInstance<SettingsCanvas>();
         }
     
@@ -136,18 +141,18 @@ namespace SceneManagers
 
         private void ResumePause()
         {
-            Time.timeScale = 1;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             
             if(_pauseCanvas == null)
                 return;
+            
+            Time.timeScale = 1;
         
             if (_settingsCanvas != null)
                 OnSettingsReturn();
         
             _onGameRunning.Invoke(true);
-        
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
             
             PauseCanvas = null;
         }

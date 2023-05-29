@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using Misc.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,16 +21,17 @@ namespace UserInterface
 			
 			foreach (GameCanvasBase gameCanvas in s_SheetOfAllGameUIs.AllGameCanvases)
 				if (gameCanvas == null)
-					throw new NullReferenceException("В обозревателе игровых интерфейсов имеется пустой UI!");
+					s_SheetOfAllGameUIs.AllGameCanvases.Remove(gameCanvas);
 		}
 
-		public static Transform UIParentInstance => 
-								s_uiParentInstance ? 
-								s_uiParentInstance :
-								s_uiParentInstance = new GameObject(UI_Layer_Name) 
-														{ tag = "GameController", 
-														layer = LayerMask.NameToLayer(UI_Layer_Name) }
-														.transform;
+		public static Transform UIParentInstance =>
+			s_uiParentInstance ?
+				s_uiParentInstance :
+				s_uiParentInstance = new GameObject(UI_Layer_Name)
+									 .SetTag("GameController")
+									 .SetLayer(LayerMask.NameToLayer(UI_Layer_Name))
+									 .transform;
+														
 
 		
 		public static int? UISheetInstanceID => s_SheetOfAllGameUIs ? 
@@ -47,8 +49,8 @@ namespace UserInterface
 			
 				UISheet uiSheet = loadedAssetsArray.Length switch 
 				{
-					1 => loadedAssetsArray[Index.Start],
-					<= 0 => AssetDataBaseExtensions.CreateAsset<UISheet>(Full_Sheet_Save_Path.Split('/')),
+					> 0 => loadedAssetsArray[Index.Start],
+					0 => AssetDataBaseExtensions.CreateAsset<UISheet>(Full_Sheet_Save_Path.Split('/')),
 					var _ => throw new ArgumentOutOfRangeException(nameof(UISheet),
 																   $"{nameof(UISheet)} должен существовать в единственном экземпляре в проекте. Удалите лишний {nameof(UISheet)}!"),
 				};
@@ -68,7 +70,7 @@ namespace UserInterface
 		
 		private static readonly UISheet s_SheetOfAllGameUIs;
 
-		private static SortedList<IComparable<string>, GameCanvasBase> s_gameCanvasInstancesCache;
+		private static SortedList<string, GameCanvasBase> s_gameCanvasInstancesCache;
 
 		/// <summary> Создаёт на текущей сцене клон префаба TGameCanvas если его нету на сцене. </summary>
 		/// <typeparam name="TGameCanvas">Объект типа GameCanvasBase.</typeparam>
@@ -80,10 +82,11 @@ namespace UserInterface
 			where TGameCanvas : GameCanvasBase
 		{
 			if (s_gameCanvasInstancesCache.TryGetValue(typeof(TGameCanvas).Name, out GameCanvasBase canvasInstance))
-				if (canvasInstance) 
+				if(canvasInstance != null)
 					return canvasInstance as TGameCanvas;
 
-			TGameCanvas desiredCanvasInstance = TryGetCanvas(out TGameCanvas prefabricatedCanvas) ?
+			TGameCanvas desiredCanvasInstance = 
+				TryGetCanvas(out TGameCanvas prefabricatedCanvas) ?
 				UnityEngine.Object.Instantiate(prefabricatedCanvas, UIParentInstance) :
 				null;
 
@@ -102,14 +105,14 @@ namespace UserInterface
 			bool isFounded = desiredCanvas;
 
 			if(!isFounded)
-				Debug.LogWarning($"Canvas {typeof(TGameCanvas).Name} не нашёлся! Добавь его в список UISheet.");
+				Debug.LogWarning($"Canvas {typeof(TGameCanvas).Name} не нашёлся! Добавь его в список интерфейсов.");
 			
 			return isFounded;
 		}
 
 		private static void OnActiveSceneChanged(Scene previousScene, Scene loadedScene)
 		{
-			s_gameCanvasInstancesCache = new SortedList<IComparable<string>, GameCanvasBase>(CanvasInstancesCacheSize);
+			s_gameCanvasInstancesCache = new SortedList<string, GameCanvasBase>(CanvasInstancesCacheSize);
 		}
 	}
 }

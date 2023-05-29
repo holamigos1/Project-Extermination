@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Misc.Extensions
         /// <summary>Выгружает массив ссылок на объекты Unity переданного типа TObj из AssetDatabase</summary>
         /// <typeparam name="TObj">Тип наследник UnityEngine.Object</typeparam>
         /// <returns>Массив TObj[] если таковые ассеты существуют в проекте, иначе вернёт пустой массив TObj[]</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TObj[] LoadAssets<TObj>() 
             where TObj : UnityEngine.Object
         {
@@ -31,6 +33,7 @@ namespace Misc.Extensions
         /// <param name="savePath">Путь сохранения в папке Assets. Последний элемент в заданном пути воспринимается как имя создаваемого файла, расширение прописывать не обязательно. Если по заданному пути первой будет папка Assets, то она будет пропущена.</param>
         /// <typeparam name="TScriptObj">Тип наследник ScriptableObject</typeparam>
         /// <returns>Сохранённый экземпляр объекта TScriptObj</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TScriptObj CreateAsset<TScriptObj>(string[] savePath) 
             where TScriptObj : ScriptableObject
         {
@@ -54,6 +57,7 @@ namespace Misc.Extensions
         /// <summary>Создаёт директорию в папке Assets корня проекта.</summary>
         /// <param name="directoryFolders">Путь создаваемой директории в папке Assets. Если по заданному пути первой будет папка Assets, то она будет пропущена.</param>
         /// <returns>Возвращает true если директория создалась. Если путь уже существовал вернёт false. Если параметры пусты вернёт false.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static bool CreateAssetDirectory(string[] directoryFolders)
         {
             var currentPath = "Assets";
@@ -81,6 +85,7 @@ namespace Misc.Extensions
             return true;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static bool TryFindAssetGuids(Type assetType, out string[] foundedGuids)
         {
             string preparedFilter = AssetDBFilters.TypeFilter(assetType);
@@ -88,9 +93,11 @@ namespace Misc.Extensions
             return foundedGuids.Length > 0;
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static bool ContainsExtension(string path, string extension) =>
             Path.GetExtension(path) == extension;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static string AdjustFileExtension(string filePath, string fileExtension) =>
             filePath += Path.GetExtension(filePath) switch
             {
@@ -106,12 +113,16 @@ namespace Misc.Extensions
         private const string TypePrefix = "t:";
         private const string AssetLabelPrefix = "l:";
         private const string RefPrefix = "ref:";
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string RefIDFilter(int instanceID) =>
             RefPrefix + instanceID;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string TypeFilter(Type type) =>
             TypePrefix + type.Name;
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static string AssetLabelFilter(string labelName) =>
             AssetLabelPrefix + labelName;
     }

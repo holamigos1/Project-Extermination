@@ -1,7 +1,5 @@
 ﻿using Characters.ConsciousnessEntities.Base;
-using GameObjects;
-using GameObjects.Base;
-using Misc;
+using GameItems.Base;
 using Misc.Extensions;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -74,9 +72,9 @@ namespace Characters.Humanoid
             _transform = transform;
             _gameObject = gameObject;
             _gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-            _bodyController = _transform.GetComponentsInAllChildren<HumanoidBody>().First();
+            _bodyController = _transform.GetComponentsInChildren<HumanoidBody>().First();
             _characterController = GetComponent<CharacterController>();
-            _aimRoot = _transform.GetComponentsInAllChildren<AimRoot>().First();
+            _aimRoot = _transform.GetComponentsInChildren<AimRoot>().First();
 
             if(_bodyController == null) 
                 Debug.LogError($"{nameof(HumanoidBody)} controller is not exist in Character game object hierarchy!");

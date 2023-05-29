@@ -49,14 +49,14 @@ namespace Weapons.Range.O.P.S_Gun
                 IsEquipped = true;
                 animator.enabled = true;
                 GetComponent<Rigidbody>().isKinematic = true;
-                gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
+                gameObject.ChangeObjectHierarhyLayers(LayerMask.NameToLayer(GameLayers.FIRST_PERSON_LAYER));
             }
             else
             {
                 IsEquipped = false;
                 animator.enabled = false;
                 GetComponent<Rigidbody>().isKinematic = false;
-                gameObject.ChangeGameObjsLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
+                gameObject.ChangeObjectHierarhyLayers(LayerMask.NameToLayer(GameLayers.DEFAULT_LAYER));
             }
         }
 

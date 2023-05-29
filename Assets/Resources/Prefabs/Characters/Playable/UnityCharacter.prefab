@@ -367,18 +367,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d0c9cae953fca4ab9737e1caf87cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coreAnimComponent: {fileID: 0}
+  coreAnimComponent: {fileID: 757951669351840636}
   animator: {fileID: 6008113870052017470}
   freeLookAngle: {x: 0, y: 0}
-  lookLayer: {fileID: 0}
-  adsLayer: {fileID: 0}
-  blendLayer: {fileID: 0}
-  swayLayer: {fileID: 0}
-  locoLayer: {fileID: 0}
-  slotLayer: {fileID: 0}
+  lookLayer: {fileID: 757951669351840637}
+  adsLayer: {fileID: 757951669351840624}
+  blendLayer: {fileID: 1579661180}
+  swayLayer: {fileID: 6624334007914568687}
+  locoLayer: {fileID: 1398823265}
+  slotLayer: {fileID: 2115404253}
   aimMotion:
     rot:
-      x:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -420,7 +420,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -462,7 +462,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -532,7 +532,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     loc:
-      x:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -556,7 +556,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -580,7 +580,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -631,14 +631,14 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    blendSpeed: 1.75
-    playRate: 1.7
     outMotion:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 0}
+    blendSpeed: 1.75
+    playRate: 1.7
   leanMotion:
     rot:
-      x:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -689,7 +689,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -731,7 +731,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -801,7 +801,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     loc:
-      x:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -825,7 +825,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -849,7 +849,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -900,11 +900,11 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    blendSpeed: 1.7
-    playRate: 1.6
     outMotion:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 0}
+    blendSpeed: 1.7
+    playRate: 1.6
   crouchHeight: 0.7
   sensitivity: 2
   mainCamera: {fileID: 6624334008321366733}
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   layerAlpha: 1
   lerpSpeed: 0
   runInEditor: 0
-  useMeshSpace: 0
+  useMeshSpace: 1
 --- !u!114 &757951669351840624
 MonoBehaviour:
   m_ObjectHideFlags: 0

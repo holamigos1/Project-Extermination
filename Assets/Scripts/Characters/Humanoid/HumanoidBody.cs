@@ -2,7 +2,7 @@ using System;
 using Characters.Humanoid.Base;
 using Characters.Humanoid.WeaponHandlers;
 using GameAnimation.Sheets;
-using GameObjects.Base;
+using GameItems.Base;
 using Misc;
 using Misc.Extensions;
 using UnityEngine;

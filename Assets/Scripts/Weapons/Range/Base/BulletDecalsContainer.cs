@@ -1,6 +1,6 @@
 ﻿using System;
 using GameData.ResourcesPathfs;
-using GameObjects.Base;
+using GameItems.Base;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;

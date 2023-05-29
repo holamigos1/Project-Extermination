@@ -1,365 +1,334 @@
 // Designed by Kinemation, 2023
 
 using System.Collections.Generic;
-using Kinemation.FPSFramework.Runtime.Core;
+using Plugins.Kinemation.FPSFramework.Runtime.Core;
+using Plugins.Kinemation.FPSFramework.Runtime.Core.Data;
 using UnityEngine;
 
-namespace Kinemation.FPSFramework.Runtime.Layers
+namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 {
-    public class LookLayer : AnimLayer
-    {
-        [SerializeField, Range(0f, 1f)] protected float handsLayerAlpha;
-        [SerializeField] protected float handsLerpSpeed;
+	public class LookLayer : AnimLayer
+	{
+		[SerializeField, Range(0f, 1f)] protected float handsLayerAlpha;
+		[SerializeField]                protected float handsLerpSpeed;
 
-        [SerializeField, Range(0f, 1f)] protected float pelvisLayerAlpha = 1f;
-        [SerializeField] protected float pelvisLerpSpeed;
-        protected float interpPelvis;
+		[SerializeField, Range(0f, 1f)] protected float pelvisLayerAlpha = 1f;
+		[SerializeField]                protected float pelvisLerpSpeed;
 
-        [Header("Offsets")] 
-        [SerializeField] protected Vector3 pelvisOffset;
+		[Header("Offsets")]
+		[SerializeField] protected Vector3 pelvisOffset;
 
-        [Header("Aim Offset")] [SerializeField]
-        protected AimOffset lookUpOffset;
+		[Header("Aim Offset")]
+		[SerializeField] protected AimOffset lookUpOffset;
+		[SerializeField]                   protected AimOffset lookRightOffset;
+		[SerializeField]                   protected bool      enableAutoDistribution;
+		[SerializeField]                   protected bool      enableManualSpineControl;
+		[SerializeField, Range(-90f, 90f)] protected float     aimUp;
+		[SerializeField, Range(-90f, 90f)] protected float     aimRight;
+		[SerializeField]                   protected float     smoothAim;
+		
+		[Header("Leaning")]
+		[SerializeField] [Range(-1, 1)] protected int leanDirection;
+		[SerializeField] protected float leanAmount = 45f;
+		[SerializeField] protected float leanSpeed;
 
-        [SerializeField] protected AimOffset lookRightOffset;
-
-        [SerializeField] protected bool enableAutoDistribution;
-        [SerializeField] protected bool enableManualSpineControl;
-
-        [SerializeField, Range(-90f, 90f)] protected float aimUp;
-        [SerializeField, Range(-90f, 90f)] protected float aimRight;
-
-        // Aim rotation lerp speed. If 0, no lag will be applied.
-        [SerializeField] protected float smoothAim;
-
-        [Header("Leaning")]
-        [SerializeField] [Range(-1, 1)] protected int leanDirection;
-        [SerializeField] protected float leanAmount = 45f;
-        [SerializeField] protected float leanSpeed;
+		[Header("Misc")]
         
-        [Header("Misc")]
-        [SerializeField] protected bool detectZeroFrames = true;
-        [SerializeField] protected bool checkZeroFootIK = true;
-        [SerializeField] protected bool useRightOffset = true;
-        
-        protected float leanInput;
-        
-        protected float interpHands;
-        protected Vector2 lerpedAim;
+		[SerializeField] protected bool detectZeroFrames = true;
+		[SerializeField] protected bool checkZeroFootIK = true;
+		[SerializeField] protected bool useRightOffset  = true;
+		// Used to detect zero key-frames
+		[SerializeField, HideInInspector]  private CachedBones cachedBones;
+		[SerializeField, HideInInspector]  private CachedBones cacheRef;
 
-        // Used to detect zero key-frames
-        [SerializeField] [HideInInspector] private CachedBones cachedBones;
-        [SerializeField] [HideInInspector] private CachedBones cacheRef;
+		protected float InterpHands;
+		protected float InterpPelvis;
 
-        public void SetPelvisWeight(float weight)
-        {
-            pelvisLayerAlpha = Mathf.Clamp01(weight);
-        }
+		protected float   leanInput;
+		protected Vector2 lerpedAim;
 
-        public void SetHandsWeight(float weight)
-        {
-            handsLayerAlpha = Mathf.Clamp01(weight);
-        }
-        
-        public override void OnPreAnimUpdate()
-        {
-            base.OnPreAnimUpdate();
-            if (detectZeroFrames)
-            {
-                CheckZeroFrames();
-            }
-        }
+		protected override void Awake()
+		{
+			base.Awake();
+			lookUpOffset.Init();
+			lookRightOffset.Init();
+		}
 
-        public override void OnAnimUpdate()
-        {
-            ApplySpineLayer();
-        }
+		private void OnValidate()
+		{
+			if (cachedBones.lookUp == null)
+			{
+				cachedBones.lookUp ??= new List<Quaternion>();
+				cacheRef.lookUp ??= new List<Quaternion>();
+			}
 
-        public override void OnPostIK()
-        {
-            if (detectZeroFrames)
-            {
-                CacheBones();
-            }
-        }
-        
-        protected override void Awake()
-        {
-            base.Awake();
-            lookUpOffset.Init();
-            lookRightOffset.Init();
-        }
+			if (!lookUpOffset.IsValid || lookUpOffset.IsChanged)
+			{
+				lookUpOffset.Init();
 
-        private void OnValidate()
-        {
-            if (cachedBones.lookUp == null)
-            {
-                cachedBones.lookUp ??= new List<Quaternion>();
-                cacheRef.lookUp ??= new List<Quaternion>();
-            }
+				cachedBones.lookUp.Clear();
+				cacheRef.lookUp.Clear();
 
-            if (!lookUpOffset.IsValid() || lookUpOffset.IsChanged())
-            {
-                lookUpOffset.Init();
+				for (var i = 0; i < lookUpOffset.bones.Count; i++)
+				{
+					cachedBones.lookUp.Add(Quaternion.identity);
+					cacheRef.lookUp.Add(Quaternion.identity);
+				}
+			}
 
-                cachedBones.lookUp.Clear();
-                cacheRef.lookUp.Clear();
+			if (!lookRightOffset.IsValid || lookRightOffset.IsChanged)
+				lookRightOffset.Init();
 
-                for (int i = 0; i < lookUpOffset.bones.Count; i++)
-                {
-                    cachedBones.lookUp.Add(Quaternion.identity);
-                    cacheRef.lookUp.Add(Quaternion.identity);
-                }
-            }
+			void Distribute(ref AimOffset aimOffset)
+			{
+				if (enableAutoDistribution)
+				{
+					var enable = false;
+					var divider = 1;
+					var sum = 0f;
 
-            if (!lookRightOffset.IsValid() || lookRightOffset.IsChanged())
-            {
-                lookRightOffset.Init();
-            }
+					for (var i = 0; i < aimOffset.bones.Count - aimOffset.indexOffset; i++)
+					{
+						if (enable)
+						{
+							AimOffsetBone bone = aimOffset.bones[i];
+							bone.maxAngle.x = (90f - sum) / divider;
+							aimOffset.bones[i] = bone;
+							continue;
+						}
 
-            void Distribute(ref AimOffset aimOffset)
-            {
-                if (enableAutoDistribution)
-                {
-                    bool enable = false;
-                    int divider = 1;
-                    float sum = 0f;
+						if (!Mathf.Approximately(aimOffset.bones[i].maxAngle.x, aimOffset.Angles[i].x))
+						{
+							divider = aimOffset.bones.Count - aimOffset.indexOffset - (i + 1);
+							enable = true;
+						}
 
-                    for (int i = 0; i < aimOffset.bones.Count - aimOffset.indexOffset; i++)
-                    {
-                        if (enable)
-                        {
-                            var bone = aimOffset.bones[i];
-                            bone.maxAngle.x = (90f - sum) / divider;
-                            aimOffset.bones[i] = bone;
-                            continue;
-                        }
+						sum += aimOffset.bones[i].maxAngle.x;
+					}
+				}
 
-                        if (!Mathf.Approximately(aimOffset.bones[i].maxAngle.x, aimOffset.angles[i].x))
-                        {
-                            divider = aimOffset.bones.Count - aimOffset.indexOffset - (i + 1);
-                            enable = true;
-                        }
+				if (enableAutoDistribution)
+				{
+					var enable = false;
+					var divider = 1;
+					var sum = 0f;
 
-                        sum += aimOffset.bones[i].maxAngle.x;
-                    }
-                }
+					for (var i = 0; i < aimOffset.bones.Count - aimOffset.indexOffset; i++)
+					{
+						if (enable)
+						{
+							AimOffsetBone bone = aimOffset.bones[i];
+							bone.maxAngle.y = (90f - sum) / divider;
+							aimOffset.bones[i] = bone;
+							continue;
+						}
 
-                if (enableAutoDistribution)
-                {
-                    bool enable = false;
-                    int divider = 1;
-                    float sum = 0f;
+						if (!Mathf.Approximately(aimOffset.bones[i].maxAngle.y, aimOffset.Angles[i].y))
+						{
+							divider = aimOffset.bones.Count - aimOffset.indexOffset - (i + 1);
+							enable = true;
+						}
 
-                    for (int i = 0; i < aimOffset.bones.Count - aimOffset.indexOffset; i++)
-                    {
-                        if (enable)
-                        {
-                            var bone = aimOffset.bones[i];
-                            bone.maxAngle.y = (90f - sum) / divider;
-                            aimOffset.bones[i] = bone;
-                            continue;
-                        }
+						sum += aimOffset.bones[i].maxAngle.y;
+					}
+				}
 
-                        if (!Mathf.Approximately(aimOffset.bones[i].maxAngle.y, aimOffset.angles[i].y))
-                        {
-                            divider = aimOffset.bones.Count - aimOffset.indexOffset - (i + 1);
-                            enable = true;
-                        }
+				for (var i = 0; i < aimOffset.bones.Count - aimOffset.indexOffset; i++)
+					aimOffset.Angles[i] = aimOffset.bones[i].maxAngle;
+			}
 
-                        sum += aimOffset.bones[i].maxAngle.y;
-                    }
-                }
+			if (lookUpOffset.bones.Count > 0)
+				Distribute(ref lookUpOffset);
 
-                for (int i = 0; i < aimOffset.bones.Count - aimOffset.indexOffset; i++)
-                {
-                    aimOffset.angles[i] = aimOffset.bones[i].maxAngle;
-                }
-            }
+			if (lookRightOffset.bones.Count > 0)
+				Distribute(ref lookRightOffset);
+		}
 
-            if (lookUpOffset.bones.Count > 0)
-            {
-                Distribute(ref lookUpOffset);
-            }
+		public void SetPelvisWeight(float weight) =>
+			pelvisLayerAlpha = Mathf.Clamp01(weight);
 
-            if (lookRightOffset.bones.Count > 0)
-            {
-                Distribute(ref lookRightOffset);
-            }
-        }
-        
-        private void CheckZeroFrames()
-        {
-            if (cachedBones.pelvis.Item1 == core.rigData.pelvis.localPosition)
-            {
-                core.rigData.pelvis.localPosition = cacheRef.pelvis.Item1;
-            }
-            
-            if (cachedBones.pelvis.Item2 == core.rigData.pelvis.localRotation)
-            {
-                core.rigData.pelvis.localRotation = cacheRef.pelvis.Item2;
-                
-                if (checkZeroFootIK)
-                {
-                    core.rigData.rightFoot.Retarget();
-                    core.rigData.leftFoot.Retarget();
-                }
-            }
+		public void SetHandsWeight(float weight) =>
+			handsLayerAlpha = Mathf.Clamp01(weight);
 
-            cacheRef.pelvis.Item2 = core.rigData.pelvis.localRotation;
+		public override void OnPreAnimUpdate()
+		{
+			base.OnPreAnimUpdate();
+			if (detectZeroFrames)
+				CheckZeroFrames();
+		}
 
-            bool bZeroSpine = false;
-            for (int i = 0; i < cachedBones.lookUp.Count; i++)
-            {
-                var bone = lookUpOffset.bones[i].bone;
-                if (bone == null || bone == core.rigData.pelvis)
-                {
-                    continue;
-                }
+		public override void OnAnimUpdate() =>
+			ApplySpineLayer();
 
-                if (cachedBones.lookUp[i] == bone.localRotation)
-                {
-                    bZeroSpine = true;
-                    bone.localRotation = cacheRef.lookUp[i];
-                }
-            }
-            
-            if (bZeroSpine)
-            {
-                core.rigData.masterDynamic.Retarget();
-                core.rigData.rightHand.Retarget();
-                core.rigData.leftHand.Retarget();
-            }
-            
-            cacheRef.pelvis.Item1 = core.rigData.pelvis.localPosition;
+		public override void OnPostIK()
+		{
+			if (detectZeroFrames)
+				CacheBones();
+		}
 
-            for (int i = 0; i < lookUpOffset.bones.Count; i++)
-            {
-                var bone = lookUpOffset.bones[i].bone;
-                if (bone == null)
-                {
-                    continue;
-                }
-                
-                cacheRef.lookUp[i] = bone.localRotation;
-            }
-        }
-        
-        private void CacheBones()
-        {
-            cachedBones.pelvis.Item1 = core.rigData.pelvis.localPosition;
-            cachedBones.pelvis.Item2 = core.rigData.pelvis.localRotation;
-            
-            for (int i = 0; i < lookUpOffset.bones.Count; i++)
-            {
-                var bone = lookUpOffset.bones[i].bone;
-                if (bone == null || bone == core.rigData.pelvis)
-                {
-                    continue;
-                }
+		private void CheckZeroFrames()
+		{
+			if (cachedBones.pelvis.Item1 == CoreAnim.rigData.pelvisBone.localPosition)
+				CoreAnim.rigData.pelvisBone.localPosition = cacheRef.pelvis.Item1;
 
-                cachedBones.lookUp[i] = bone.localRotation;
-            }
-        }
+			if (cachedBones.pelvis.Item2 == CoreAnim.rigData.pelvisBone.localRotation)
+			{
+				CoreAnim.rigData.pelvisBone.localRotation = cacheRef.pelvis.Item2;
 
-        private bool BlendLayers()
-        {
-            return Mathf.Approximately(smoothLayerAlpha, 0f);
-        }
+				if (checkZeroFootIK)
+				{
+					CoreAnim.rigData.rightFootBone.Retarget();
+					CoreAnim.rigData.leftFootBone.Retarget();
+				}
+			}
 
-        private void ApplySpineLayer()
-        {
-            if (BlendLayers())
-            {
-                return;
-            }
-            
-            if (!enableManualSpineControl)
-            {
-                aimUp = GetCharData().totalAimInput.y;
-                aimRight = GetCharData().totalAimInput.x;
-                
-                if (lookRightOffset.bones.Count == 0 || !useRightOffset)
-                {
-                    aimRight = 0f;
-                }
-                
-                leanInput = CoreToolkitLib.Glerp(leanInput, leanAmount * GetCharData().leanDirection, 
-                    leanSpeed);
-            }
-            else
-            {
-                leanInput = CoreToolkitLib.Glerp(leanInput, leanAmount * leanDirection, leanSpeed);
-            }
-            
-            interpPelvis = CoreToolkitLib.Glerp(interpPelvis, pelvisLayerAlpha * smoothLayerAlpha, 
-                pelvisLerpSpeed);
-            
-            Vector3 pelvisFinal = Vector3.Lerp(Vector3.zero, pelvisOffset, interpPelvis);
-            CoreToolkitLib.MoveInBoneSpace(GetRootBone(), core.rigData.pelvis, pelvisFinal, 1f);
+			cacheRef.pelvis.Item2 = CoreAnim.rigData.pelvisBone.localRotation;
 
-            lerpedAim.y = CoreToolkitLib.GlerpLayer(lerpedAim.y, aimUp, smoothAim);
-            lerpedAim.x = CoreToolkitLib.GlerpLayer(lerpedAim.x, aimRight, smoothAim);
+			var bZeroSpine = false;
+			for (var i = 0; i < cachedBones.lookUp.Count; i++)
+			{
+				Transform bone = lookUpOffset.bones[i].boneTransform;
+				if (bone == null || bone == CoreAnim.rigData.pelvisBone)
+					continue;
 
-            foreach (var bone in lookRightOffset.bones)
-            {
-                if (!Application.isPlaying && bone.bone == null)
-                {
-                    continue;
-                }
+				if (cachedBones.lookUp[i] == bone.localRotation)
+				{
+					bZeroSpine = true;
+					bone.localRotation = cacheRef.lookUp[i];
+				}
+			}
 
-                float angleFraction = lerpedAim.x >= 0f ? bone.maxAngle.y : bone.maxAngle.x;
-                CoreToolkitLib.RotateInBoneSpace(GetRootBone().rotation, bone.bone,
-                    Quaternion.Euler(0f, lerpedAim.x * smoothLayerAlpha / (90f / angleFraction),0f), 1f);
-            }
-            
-            foreach (var bone in lookRightOffset.bones)
-            {
-                if (!Application.isPlaying && bone.bone == null)
-                {
-                    continue;
-                }
+			if (bZeroSpine)
+			{
+				CoreAnim.rigData.masterDynamicBone.Retarget();
+				CoreAnim.rigData.rightHandBone.Retarget();
+				CoreAnim.rigData.leftHandBone.Retarget();
+			}
 
-                float angleFraction = bone.maxAngle.x;
-                CoreToolkitLib.RotateInBoneSpace(
-                    GetRootBone().rotation * Quaternion.Euler(0f, lerpedAim.x, 0f), bone.bone,
-                    Quaternion.Euler(0f, 0f, leanInput * smoothLayerAlpha / (90f / angleFraction)), 1f);
-            }
+			cacheRef.pelvis.Item1 = CoreAnim.rigData.pelvisBone.localPosition;
 
-            Vector3 rightHandLoc = core.rigData.rightHand.obj.transform.position;
-            Quaternion rightHandRot = core.rigData.rightHand.obj.transform.rotation;
+			for (var i = 0; i < lookUpOffset.bones.Count; i++)
+			{
+				Transform bone = lookUpOffset.bones[i].boneTransform;
+				if (bone == null)
+					continue;
 
-            Vector3 leftHandLoc = core.rigData.leftHand.obj.transform.position;
-            Quaternion leftHandRot = core.rigData.leftHand.obj.transform.rotation;
+				cacheRef.lookUp[i] = bone.localRotation;
+			}
+		}
 
-            foreach (var bone in lookUpOffset.bones)
-            {
-                if (!Application.isPlaying && bone.bone == null)
-                {
-                    continue;
-                }
+		private void CacheBones()
+		{
+			cachedBones.pelvis.Item1 = CoreAnim.rigData.pelvisBone.localPosition;
+			cachedBones.pelvis.Item2 = CoreAnim.rigData.pelvisBone.localRotation;
 
-                float angleFraction = lerpedAim.y >= 0f ? bone.maxAngle.y : bone.maxAngle.x;
+			for (var i = 0; i < lookUpOffset.bones.Count; i++)
+			{
+				Transform bone = lookUpOffset.bones[i].boneTransform;
+				if (bone == null || bone == CoreAnim.rigData.pelvisBone)
+					continue;
 
-                CoreToolkitLib.RotateInBoneSpace(GetRootBone().rotation * Quaternion.Euler(0f, lerpedAim.x, 0f),
-                    bone.bone,
-                    Quaternion.Euler(lerpedAim.y * smoothLayerAlpha / (90f / angleFraction), 0f, 0f), 1f);
-            }
+				cachedBones.lookUp[i] = bone.localRotation;
+			}
+		}
 
-            interpHands = CoreToolkitLib.GlerpLayer(interpHands, handsLayerAlpha, handsLerpSpeed);
+		private bool BlendLayers() =>
+			Mathf.Approximately(SmoothLayerAlpha, 0f);
 
-            core.rigData.rightHand.obj.transform.position = Vector3.Lerp(rightHandLoc,
-                core.rigData.rightHand.obj.transform.position,
-                interpHands);
-            core.rigData.rightHand.obj.transform.rotation = Quaternion.Slerp(rightHandRot,
-                core.rigData.rightHand.obj.transform.rotation,
-                interpHands);
+		private void ApplySpineLayer()
+		{
+			if (BlendLayers())
+				return;
 
-            core.rigData.leftHand.obj.transform.position = Vector3.Lerp(leftHandLoc, core.rigData.leftHand.obj.transform.position,
-                interpHands);
-            core.rigData.leftHand.obj.transform.rotation = Quaternion.Slerp(leftHandRot,
-                core.rigData.leftHand.obj.transform.rotation,
-                interpHands);
-        }
-    }
+			if (!enableManualSpineControl)
+			{
+				aimUp = CharData.totalAimInput.y;
+				aimRight = CharData.totalAimInput.x;
+
+				if (lookRightOffset.bones.Count == 0 || !useRightOffset)
+					aimRight = 0f;
+
+				leanInput = CoreToolkitLib.Glerp(leanInput, leanAmount * CharData.leanDirection,
+												 leanSpeed);
+			}
+			else
+			{
+				leanInput = CoreToolkitLib.Glerp(leanInput, leanAmount * leanDirection, leanSpeed);
+			}
+
+			InterpPelvis = CoreToolkitLib.Glerp(InterpPelvis, pelvisLayerAlpha * SmoothLayerAlpha,
+												pelvisLerpSpeed);
+
+			Vector3 pelvisFinal = Vector3.Lerp(Vector3.zero, pelvisOffset, InterpPelvis);
+			CoreToolkitLib.MoveInBoneSpace(RootBone, CoreAnim.rigData.pelvisBone, pelvisFinal, 1f);
+
+			lerpedAim.y = CoreToolkitLib.GlerpLayer(lerpedAim.y, aimUp, smoothAim);
+			lerpedAim.x = CoreToolkitLib.GlerpLayer(lerpedAim.x, aimRight, smoothAim);
+
+			foreach (AimOffsetBone bone in lookRightOffset.bones)
+			{
+				if (!Application.isPlaying && bone.boneTransform == null)
+					continue;
+
+				float angleFraction = lerpedAim.x >= 0f ?
+					bone.maxAngle.y :
+					bone.maxAngle.x;
+				CoreToolkitLib.RotateInBoneSpace(RootBone.rotation, bone.boneTransform,
+												 Quaternion.Euler(
+													 0f, lerpedAim.x * SmoothLayerAlpha / (90f / angleFraction), 0f),
+												 1f);
+			}
+
+			foreach (AimOffsetBone bone in lookRightOffset.bones)
+			{
+				if (!Application.isPlaying && bone.boneTransform == null)
+					continue;
+
+				float angleFraction = bone.maxAngle.x;
+				CoreToolkitLib.RotateInBoneSpace(
+					RootBone.rotation * Quaternion.Euler(0f, lerpedAim.x, 0f), bone.boneTransform,
+					Quaternion.Euler(0f, 0f, leanInput * SmoothLayerAlpha / (90f / angleFraction)), 1f);
+			}
+
+			Vector3 rightHandLoc = CoreAnim.rigData.rightHandBone.obj.transform.position;
+			Quaternion rightHandRot = CoreAnim.rigData.rightHandBone.obj.transform.rotation;
+
+			Vector3 leftHandLoc = CoreAnim.rigData.leftHandBone.obj.transform.position;
+			Quaternion leftHandRot = CoreAnim.rigData.leftHandBone.obj.transform.rotation;
+
+			foreach (AimOffsetBone bone in lookUpOffset.bones)
+			{
+				if (!Application.isPlaying && bone.boneTransform == null)
+					continue;
+
+				float angleFraction = lerpedAim.y >= 0f ?
+					bone.maxAngle.y :
+					bone.maxAngle.x;
+
+				CoreToolkitLib.RotateInBoneSpace(RootBone.rotation * Quaternion.Euler(0f, lerpedAim.x, 0f),
+												 bone.boneTransform,
+												 Quaternion.Euler(
+													 lerpedAim.y * SmoothLayerAlpha / (90f / angleFraction), 0f, 0f),
+												 1f);
+			}
+
+			InterpHands = CoreToolkitLib.GlerpLayer(InterpHands, handsLayerAlpha, handsLerpSpeed);
+
+			CoreAnim.rigData.rightHandBone.obj.transform.position = Vector3.Lerp(rightHandLoc,
+																		 CoreAnim.rigData.rightHandBone.obj.transform.position,
+																		 InterpHands);
+			CoreAnim.rigData.rightHandBone.obj.transform.rotation = Quaternion.Slerp(rightHandRot,
+																			 CoreAnim.rigData.rightHandBone.obj.transform
+																				 .rotation,
+																			 InterpHands);
+
+			CoreAnim.rigData.leftHandBone.obj.transform.position = Vector3.Lerp(
+				leftHandLoc, CoreAnim.rigData.leftHandBone.obj.transform.position,
+				InterpHands);
+			CoreAnim.rigData.leftHandBone.obj.transform.rotation = Quaternion.Slerp(leftHandRot,
+																			CoreAnim.rigData.leftHandBone.obj.transform
+																				.rotation,
+																			InterpHands);
+		}
+	}
 }

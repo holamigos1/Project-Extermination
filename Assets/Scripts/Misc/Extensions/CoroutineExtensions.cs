@@ -42,7 +42,7 @@ namespace Misc.Extensions
         private static MonoBehaviour CoroutineParent => s_coroutineParent ?
                                                         s_coroutineParent :
                                                         s_coroutineParent = new GameObject("Coroutine Container") 
-                                                                                { tag = "GameController" }
+                                                                                .SetTag("GameController")
                                                                                 .AddComponent<MonoBehaviourContainer>();
 
         private static MonoBehaviour s_coroutineParent;
@@ -51,7 +51,6 @@ namespace Misc.Extensions
         {
             IsPaused = false;
             IsStopped = false;
-
             _routine = null;
         }
 

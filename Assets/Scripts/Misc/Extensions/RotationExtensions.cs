@@ -1,10 +1,12 @@
-﻿using Unity.Mathematics;
+﻿using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Misc.Extensions
 {
     public static class RotationExtensions
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float ClampAngle(this float angle, Vector2 minMax, out bool isClamped)
         {
             const float tolerance = 3f;
@@ -21,10 +23,11 @@ namespace Misc.Extensions
         }
 
         
-        
-        public static float ClampAngle(this float angle, Range range) =>
-            angle.ClampAngle(range.Minimum, range.Maximum);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float ClampAngle(this float angle, MinMaxDiapason minMaxDiapason) =>
+            angle.ClampAngle(minMaxDiapason.Minimum, minMaxDiapason.Maximum);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float ClampAngle(this float angle, float from, float to)
         {
             if (angle < 0f) angle += 360;
@@ -34,9 +37,11 @@ namespace Misc.Extensions
                 math.min(angle, to);
         }
     
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float IfNegativeAngle(this float angle) =>
             (angle > 180) ? angle - 360 : angle;
     
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 ToEulerAngles(this float4 q) //TODO Затести преформанс с юнитевской библиотекой
         {
             float3 angles = new();
@@ -65,12 +70,14 @@ namespace Misc.Extensions
             return angles;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion ToQuaternion(this Vector3 euler)//кек
         {
             float4 q = ToQuaternion((float3)euler);
             return new Quaternion(q.x, q.y, q.z, q.w);
         }
-
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 ToQuaternion(this float3 euler) //TODO Затести преформанс с юнитевской библиотекой
         {
             float cy = (float)math.cos(euler.z * 0.5);

@@ -18,12 +18,12 @@ MonoBehaviour:
   kickback: {x: -0.022, y: -0.03}
   kickUp: {x: 0.005, y: 0.007}
   kickRight: {x: 0, y: 0}
-  aimRot: {x: 1, y: 0.6, z: 0.7}
-  aimLoc: {x: 1, y: 0.7, z: 1}
-  smoothRot: {x: 0, y: 9, z: 5}
-  smoothLoc: {x: 1.1, y: 25, z: 55}
-  extraRot: {x: 1.3, y: 3, z: 5}
-  extraLoc: {x: 1, y: 1, z: 1.3}
+  aimRotation: {x: 1, y: 0.6, z: 0.7}
+  aimLocation: {x: 1, y: 0.7, z: 1}
+  smoothRotation: {x: 0, y: 8.57, z: 4.76}
+  smoothLocation: {x: 1.1, y: 25, z: 55}
+  extraRotation: {x: 1.3, y: 3, z: 5}
+  extraLocation: {x: 1, y: 1, z: 1.3}
   noiseX: {x: -0.007, y: 0.008}
   noiseY: {x: -0.005, y: 0.009}
   noiseAccel: {x: 8, y: 12}
@@ -35,8 +35,8 @@ MonoBehaviour:
   smoothRoll: 1
   playRate: 1.05
   recoilCurves:
-    semiRotCurve:
-      x:
+    semiRotationCurve:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -96,7 +96,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -147,7 +147,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -207,8 +207,8 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    semiLocCurve:
-      x:
+    semiLocationCurve:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -259,7 +259,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -310,7 +310,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -370,8 +370,8 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    autoRotCurve:
-      x:
+    autoRotationCurve:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -440,7 +440,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -509,7 +509,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -578,8 +578,8 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    autoLocCurve:
-      x:
+    autoLocationCurve:
+      xAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -603,7 +603,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      y:
+      yAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
@@ -663,7 +663,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      z:
+      zAxisCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using GameObjects.Base;
+using GameItems.Base;
 using Misc;
 using Misc.Extensions;
 using UnityEngine;

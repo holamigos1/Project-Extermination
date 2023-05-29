@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Misc.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,28 +15,20 @@ namespace UserInterface
 	[RequireComponent(typeof(Canvas))]
 	public abstract class GameCanvasBase : MonoBehaviour, IComparable<GameCanvasBase>
 	{
-		public static EventSystem EventSystemInstance
-		{
-			get
-			{
-				if (s_eventSystemObject)
-					return s_eventSystemObject;
-				
-				if (EventSystem.current)
-					return s_eventSystemObject = EventSystem.current;
-				
-				s_eventSystemObject = new GameObject(nameof(EventSystem), 
-															typeof(EventSystem), 
-															typeof(InputSystemUIInputModule), 
-															typeof(BaseInput))
-															.GetComponent<EventSystem>();
+		public static EventSystem EventSystemInstance =>
+			s_eventSystemObject ?
+			s_eventSystemObject : 
+				EventSystem.current ? 
+				s_eventSystemObject = EventSystem.current :
+				s_eventSystemObject = new GameObject(nameof(EventSystem))
+													.AddComponent<EventSystem>()
+													.AddComponent<BaseInput>()
+													.AddComponent<InputSystemUIInputModule>()
+													.SetParent(UIGod.UIParentInstance)
+													.SetTag("GameController")
+													.SetLayer(LayerMask.NameToLayer("UI"))
+													.GetComponent<EventSystem>();
 
-				s_eventSystemObject.transform.parent = UIGod.UIParentInstance;
-				s_eventSystemObject.gameObject.tag = "GameController";
-				s_eventSystemObject.gameObject.layer = LayerMask.NameToLayer("UI");
-				return s_eventSystemObject;
-			}
-		}
 		private static EventSystem s_eventSystemObject;
 		
 		[SerializeField, HideInInspector] 

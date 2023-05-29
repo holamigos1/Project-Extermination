@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 namespace Misc.Extensions
@@ -11,51 +13,61 @@ namespace Misc.Extensions
         /// <typeparam name="T">Искомый тип типа class</typeparam>
         /// <returns>Если есть искомый тип он его вернёт, иначе вернёт null</returns>
         [CanBeNull] 
-        public static T First<T>(this IList<T> list) 
-                where T : class =>
-                list?.Count > 0 ?
-                    list[0] :
-                    default(T);
-        
-        [CanBeNull] 
-        public static T First<T>(this IList<object> list) =>
-            list?.Count > 0 ?
-                (T)list[0] :
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T First<T>(this T[] list) 
+            where T : class =>
+            list?.Length > 0 ?
+                list[Index.Start] :
                 default(T);
         
         [CanBeNull] 
-        public static T Last<T>(this IList<T> list) where T : class =>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T First<T>(this List<object> list) =>
             list?.Count > 0 ?
-                list[^1] :
+                (T)list[Index.Start] :
+                default(T);
+        
+        [CanBeNull] 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T Last<T>(this T[] list) 
+            where T : class =>
+            list?.Length > 0 ?
+                list[Index.FromEnd(1)] :
                 null;
 
-        public static IList<T> FindFirstOne<T>(this IList<object> list)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T[] FindObjects<T>(this T[] list)
+            where T : class
         {
             if (list == null) 
-                return null;
-            
-            if (list.Count <= 0) 
-                return null;
-            
-            IList<T> genericList = new List<T>();
+                return Array.Empty<T>();
 
-            foreach (object obj in list)
+            if (list.Length == 0)
+                return Array.Empty<T>();
+            
+            List<T> genericList = new List<T>(list.Length);
+            Type genericType = typeof(T);
+            
+            foreach (object obj in list!)
             {
-                if (obj.GetType() != typeof(T)) 
+                if (obj.GetType() != genericType) 
                     continue;
                 
                 genericList.Add((T)obj);
             }
             
-            return genericList;
-        }
-
-        public static bool IsEmpty(this IList<object> list)
-        {
-            if (list == null) 
-                return true;
+            if(genericList.Count < list.Length)
+                genericList.TrimExcess();//TODO надо ли это делать
             
-            return list.Count <= 0;
+            return genericList.ToArray();
         }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsEmpty(this object[] array) =>
+            array?.Length == 0;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool IsNotEmpty(this object[] array) => 
+            array?.Length != 0;
     }
 }
