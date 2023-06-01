@@ -1,62 +1,80 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Weapons.Data;
 
 namespace Plugins.Kinemation.FPSFramework.Runtime.Core.Data
 {
+	/// <summary> Curve-based animation </summary>
 	[Serializable]
 	public struct DynamicMotion
 	{
-		// Curve-based animation
-		[FormerlySerializedAs("rot")] public Vector3DCurve       rotation;
-		[FormerlySerializedAs("loc")] public Vector3DCurve       location;
-		public                               LocationAndRotation outMotion;
-		// How fast to blend to another motion
-		[SerializeField] private float blendSpeed;
-		[SerializeField] private float playRate;
+		[LabelText("Кривые позиции")]
+		[SuffixLabel("Метры    ")]
+		public Vector3DCurve location;
+		
+		[LabelText("Кривые вращений")]
+		[SuffixLabel("Градусы °")]
+		public Vector3DCurve rotation;
+		
+		[LabelText("Длинна перехода в эту анимацию")]
+		[Tooltip("Если анимация начинается из другой анимации, о переход значений из той в эту анимацию займёт указанное в этом значении время.")]
+		[SuffixLabel("Секунды  ")]
+		[Range(0.01f, 3)]
+		[SerializeField]
+		private float _motionBlendSpeed;
+		
+		[SerializeField]
+		[Range(0.01f,5)]
+		[LabelText("Множитель времени кривых")]
+		[Tooltip("При получении значений кривых по значению времени, то время умножается на этот модификатор.\n"
+				 + "Можно не менять все кривые а просто менять этот параметр, делая движение быстрее или медленее.")]
+		[SuffixLabel("Множитель")]
+		private float _playRateFactor;
+		
+		[LabelText("Текущие значения анимации")]
+		[HideInInspector]
+		public LocationAndRotation _currentMotionValues;
 
-		private float               _blendAlpha;
-		// Used to blend to the currentMotion
-		private LocationAndRotation _cachedMotion;
-		private float               _motionLength;
-		private float               _playBack;
+		private float               _currentMotionBlendAlpha;
+		private LocationAndRotation _cachedMotionPosition;
+		private float               _motionEndTime;
+		private float               _motionPlayedSeconds;
 
 		public void Reset() =>
-			outMotion = _cachedMotion = new LocationAndRotation(Vector3.zero, Quaternion.identity);
+			_currentMotionValues = _cachedMotionPosition = new LocationAndRotation(Vector3.zero, Quaternion.identity);
 
 		public void Play(ref DynamicMotion previousMotion)
 		{
-			_cachedMotion = previousMotion.outMotion;
-			playRate = Mathf.Approximately(playRate, 0f) ? 
-				1f : playRate;
-			
-			_motionLength = Mathf.Max(location.LastKeyframeTime, rotation.LastKeyframeTime);
-			_playBack = 0f;
-			_blendAlpha = 0f;
+			_cachedMotionPosition = previousMotion._currentMotionValues;
+			_motionEndTime = Mathf.Max(location.LastKeyframeTime, rotation.LastKeyframeTime);
+			_motionPlayedSeconds = 0f;
+			_currentMotionBlendAlpha = 0f;
 		}
 
-		private LocationAndRotation Evaluate() => 
-			new(location.Evaluate(_playBack), Quaternion.Euler(rotation.Evaluate(_playBack)));
+		private LocationAndRotation Evaluate(float value) => 
+			new(location.Evaluate(value), Quaternion.Euler(rotation.Evaluate(value)));
 
 		// Return currently playing motion
 		public void UpdateMotion()
 		{
-			if (Mathf.Approximately(_playBack, _motionLength))
+			if (Mathf.Approximately(_motionPlayedSeconds, _motionEndTime))
 			{
-				outMotion = new LocationAndRotation(Vector3.zero, Quaternion.identity);
+				_currentMotionValues = new LocationAndRotation(Vector3.zero, Quaternion.identity);
 				return;
 			}
 
-			_playBack += Time.deltaTime * playRate;
-			_playBack = Mathf.Clamp(_playBack, 0f, _motionLength);
-			LocationAndRotation currentMotion = Evaluate();
-
-			_blendAlpha += Time.deltaTime * blendSpeed;
-			_blendAlpha = Mathf.Min(1f, _blendAlpha);
-
-			LocationAndRotation result = CoreToolkitLib.Lerp(_cachedMotion, currentMotion, _blendAlpha);
-			outMotion = result;
+			_motionPlayedSeconds += Time.deltaTime * _playRateFactor;
+			_motionPlayedSeconds = Mathf.Clamp(_motionPlayedSeconds, 
+											   0f, 
+											   _motionEndTime);
+			
+			_currentMotionBlendAlpha = Mathf.Min(1f, 
+												 _motionPlayedSeconds / _motionBlendSpeed);
+			
+			_currentMotionValues = CoreToolkitLib.Lerp(_cachedMotionPosition, 
+													   Evaluate(_motionPlayedSeconds), _currentMotionBlendAlpha);
 		}
 	}
 }

@@ -3,10 +3,12 @@
 using System;
 using System.Collections.Generic;
 using Plugins.Kinemation.FPSFramework.Runtime.Core.Data;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Playables;
+using UnityEngine.Serialization;
 using Weapons.Data;
 
 namespace Plugins.Kinemation.FPSFramework.Runtime.Core
@@ -22,22 +24,30 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 	[ExecuteAlways]
 	public class CoreAnimComponent : MonoBehaviour
 	{
-		[Header("Essentials"), Tooltip("The armature root, used for manual bone search"), SerializeField] 
-        
+		[ Header("Essentials")]
+		[ Tooltip("The armature root, used for manual bone search")]
+		[ SerializeField]
 		private Transform skeleton;
 
 		[Tooltip("Used to play animation from code")]
 		public AvatarMask upperBodyMask;
 
-		public DynamicRigData rigData;
+		[FormerlySerializedAs("rigData")] 
+		[LabelText("Данные о костях")]
+		public DynamicRigData _rigData;
 
-		[SerializeField, HideInInspector]  private List<AnimLayer> animLayers;
-		[SerializeField]                   private bool            useIK = true;
+		[SerializeField] 
+		[HideInInspector]
+		private List<AnimLayer> animLayers;
+		
+		[SerializeField]                     
+		private bool useIK = true;
 
-		[Header("Misc"), SerializeField] 
-        
+		[Header("Misc")]
+		
+		[SerializeField] 
 		private bool drawDebug;
-
+		
 		private AnimationClipPlayable       _animationPlayable;
 		private BlendTime                   _blendOutTime;
 		private float                       _interpHands;
@@ -46,12 +56,12 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		private PlayableGraph _playableGraph;
 
-		private bool                _updateInEditor;
-		private Tuple<float, float> leftFootWeight  = new(1f, 1f);
-		private Tuple<float, float> leftHandWeight  = new(1f, 1f);
-		private Tuple<float, float> rightFootWeight = new(1f, 1f);
-
-		private Tuple<float, float> rightHandWeight = new(1f, 1f);
+		private bool _updateInEditor;
+		
+		private Tuple<float, float> _leftFootWeight  = new(1f, 1f);
+		private Tuple<float, float> _leftHandWeight  = new(1f, 1f);
+		private Tuple<float, float> _rightFootWeight = new(1f, 1f);
+		private Tuple<float, float> _rightHandWeight = new(1f, 1f);
 
 		private void Start()
 		{
@@ -65,10 +75,10 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 		{
 			if (!Application.isPlaying && _updateInEditor)
 			{
-				if (rigData.rigAnimator == null)
+				if (_rigData.rigAnimator == null)
 					return;
 
-				rigData.rigAnimator.Update(Time.deltaTime);
+				_rigData.rigAnimator.Update(Time.deltaTime);
 			}
 
 			BlendOutAnimation();
@@ -108,16 +118,16 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 				if (Mathf.Approximately(weights.Item1, 0f))
 					return;
 
-				Transform lowerBone = tipBone.target.parent;
-				CoreToolkitLib.SolveTwoBoneIK(lowerBone.parent, lowerBone, tipBone.target,
-											  tipBone.obj.transform, tipBone.hintTarget, weights.Item1, weights.Item1,
+				Transform lowerBone = tipBone._bone.parent;
+				CoreToolkitLib.SolveTwoBoneIK(lowerBone.parent, lowerBone, tipBone._bone,
+											  tipBone._boneObject.transform, tipBone._boneHint, weights.Item1, weights.Item1,
 											  weights.Item2);
 			}
 
-			SolveIK(rigData.rightHandBone, rightHandWeight);
-			SolveIK(rigData.leftHandBone, leftHandWeight);
-			SolveIK(rigData.rightFootBone, rightFootWeight);
-			SolveIK(rigData.leftFootBone, leftFootWeight);
+			SolveIK(_rigData.rightHandBone, _rightHandWeight);
+			SolveIK(_rigData.leftHandBone, _leftHandWeight);
+			SolveIK(_rigData.rightFootBone, _rightFootWeight);
+			SolveIK(_rigData.leftFootBone, _leftFootWeight);
 		}
 
 		private void InitPlayableGraph()
@@ -125,18 +135,19 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 			if (!Application.isPlaying)
 				return;
 
-			Animator animator = rigData.rigAnimator;
+			Animator animator = _rigData.rigAnimator;
 
 			_playableGraph = animator.playableGraph;
 			_playableGraph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
 
 			_layerMixerPlayable = AnimationLayerMixerPlayable.Create(_playableGraph, 2);
 
-			var output = AnimationPlayableOutput.Create(_playableGraph, "FPSAnimator", animator);
+			AnimationPlayableOutput output = AnimationPlayableOutput.Create(_playableGraph, "FPSAnimator", animator);
 			output.SetSourcePlayable(_layerMixerPlayable);
 
 			var controllerPlayable =
 				AnimatorControllerPlayable.Create(_playableGraph, animator.runtimeAnimatorController);
+			
 			_playableGraph.Connect(controllerPlayable, 0, _layerMixerPlayable, 0);
 			_layerMixerPlayable.SetInputWeight(0, 1f);
 
@@ -180,7 +191,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 				layer.OnRetarget(this);
 			}
 
-			rigData.Retarget();
+			_rigData.Retarget();
 		}
 
 		// Called right after retargeting
@@ -220,8 +231,8 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		public void EnableEditorPreview()
 		{
-			if (rigData.rigAnimator == null)
-				rigData.rigAnimator = GetComponent<Animator>();
+			if (_rigData.rigAnimator == null)
+				_rigData.rigAnimator = GetComponent<Animator>();
 
 			_updateInEditor = true;
 		}
@@ -230,15 +241,15 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 		{
 			_updateInEditor = false;
 
-			if (rigData.rigAnimator == null)
+			if (_rigData.rigAnimator == null)
 				return;
 
-			rigData.rigAnimator.Rebind();
-			rigData.rigAnimator.Update(0f);
+			_rigData.rigAnimator.Rebind();
+			_rigData.rigAnimator.Update(0f);
 		}
 
 		public Transform GetRootBone() =>
-			rigData.rootBone;
+			_rigData.rootBone;
 
 		public void PlayAnimation(AnimationClip clip, BlendTime blendOut, float playRate = 1f)
 		{
@@ -265,27 +276,27 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		public void OnGunEquipped(WeaponAnimData gunAimData)
 		{
-			rigData.gunData = gunAimData;
-			rigData.masterDynamicBone.target = rigData.gunData.gunAimData.pivotPoint;
+			_rigData.gunData = gunAimData;
+			_rigData.masterDynamicBone._bone = _rigData.gunData.gunAimData.pivotPoint;
 		}
 
 		public void OnSightChanged(Transform newSight) =>
-			rigData.gunData.gunAimData.aimPoint = newSight;
+			_rigData.gunData.gunAimData.aimPoint = newSight;
 
 		public void SetCharData(CharAnimData data) =>
-			rigData.characterData = data;
+			_rigData.characterData = data;
 
 		public void SetRightHandIKWeight(float effector, float hint) =>
-			rightHandWeight = Tuple.Create(effector, hint);
+			_rightHandWeight = Tuple.Create(effector, hint);
 
 		public void SetLeftHandIKWeight(float effector, float hint) =>
-			leftHandWeight = Tuple.Create(effector, hint);
+			_leftHandWeight = Tuple.Create(effector, hint);
 
 		public void SetRightFootIKWeight(float effector, float hint) =>
-			rightFootWeight = Tuple.Create(effector, hint);
+			_rightFootWeight = Tuple.Create(effector, hint);
 
 		public void SetLeftFootIKWeight(float effector, float hint) =>
-			leftFootWeight = Tuple.Create(effector, hint);
+			_leftFootWeight = Tuple.Create(effector, hint);
 
 		// Editor utils
 	#if UNITY_EDITOR
@@ -297,23 +308,23 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 				void DrawDynamicBone(ref DynamicBone bone, string boneName)
 				{
-					if (bone.obj != null)
+					if (bone._boneObject != null)
 					{
-						Vector3 loc = bone.obj.transform.position;
+						Vector3 loc = bone._boneObject.transform.position;
 						Gizmos.DrawWireSphere(loc, 0.06f);
 						Handles.Label(loc, boneName);
 					}
 				}
 
-				DrawDynamicBone(ref rigData.rightHandBone, "RightHandIK");
-				DrawDynamicBone(ref rigData.leftHandBone, "LeftHandIK");
-				DrawDynamicBone(ref rigData.rightFootBone, "RightFootIK");
-				DrawDynamicBone(ref rigData.leftFootBone, "LeftFootIK");
+				DrawDynamicBone(ref _rigData.rightHandBone, "RightHandIK");
+				DrawDynamicBone(ref _rigData.leftHandBone, "LeftHandIK");
+				DrawDynamicBone(ref _rigData.rightFootBone, "RightFootIK");
+				DrawDynamicBone(ref _rigData.leftFootBone, "LeftFootIK");
 
 				Gizmos.color = Color.blue;
-				if (rigData.rootBone != null)
+				if (_rigData.rootBone != null)
 				{
-					Vector3 mainBone = rigData.rootBone.position;
+					Vector3 mainBone = _rigData.rootBone.position;
 					Gizmos.DrawWireCube(mainBone, new Vector3(0.1f, 0.1f, 0.1f));
 					Handles.Label(mainBone, "rootBone");
 				}
@@ -328,67 +339,67 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		public void SetupBones()
 		{
-			if (rigData.rigAnimator == null)
-				rigData.rigAnimator = GetComponent<Animator>();
+			if (_rigData.rigAnimator == null)
+				_rigData.rigAnimator = GetComponent<Animator>();
 
-			if (rigData.rootBone == null)
+			if (_rigData.rootBone == null)
 			{
 				Transform root = transform.Find("rootBone"); //TODO Сделать базу имён костей с разных программ
 
 				if (root != null)
 				{
-					rigData.rootBone = root.transform;
+					_rigData.rootBone = root.transform;
 				}
 				else
 				{
 					var bone = new GameObject("rootBone");
 					bone.transform.parent = transform;
-					rigData.rootBone = bone.transform;
-					rigData.rootBone.localPosition = Vector3.zero;
+					_rigData.rootBone = bone.transform;
+					_rigData.rootBone.localPosition = Vector3.zero;
 				}
 			}
 
-			if (rigData.rightFootBone.obj == null)
+			if (_rigData.rightFootBone._boneObject == null)
 			{
 				Transform bone = transform.Find("RightFootIK"); //TODO Сделать базу имён костей с разных программ
 
 				if (bone != null)
 				{
-					rigData.rightFootBone.obj = bone.gameObject;
+					_rigData.rightFootBone._boneObject = bone.gameObject;
 				}
 				else
 				{
-					rigData.rightFootBone.obj = new GameObject("RightFootIK");
-					rigData.rightFootBone.obj.transform.parent = transform;
-					rigData.rightFootBone.obj.transform.localPosition = Vector3.zero;
+					_rigData.rightFootBone._boneObject = new GameObject("RightFootIK");
+					_rigData.rightFootBone._boneObject.transform.parent = transform;
+					_rigData.rightFootBone._boneObject.transform.localPosition = Vector3.zero;
 				}
 			}
 
-			if (rigData.leftFootBone.obj == null)
+			if (_rigData.leftFootBone._boneObject == null)
 			{
 				Transform bone = transform.Find("LeftFootIK"); //TODO Сделать базу имён костей с разных программ
 
 				if (bone != null)
 				{
-					rigData.leftFootBone.obj = bone.gameObject;
+					_rigData.leftFootBone._boneObject = bone.gameObject;
 				}
 				else
 				{
-					rigData.leftFootBone.obj = new GameObject("LeftFootIK");
-					rigData.leftFootBone.obj.transform.parent = transform;
-					rigData.leftFootBone.obj.transform.localPosition = Vector3.zero;
+					_rigData.leftFootBone._boneObject = new GameObject("LeftFootIK");
+					_rigData.leftFootBone._boneObject.transform.parent = transform;
+					_rigData.leftFootBone._boneObject.transform.localPosition = Vector3.zero;
 				}
 			}
 
-			if (rigData.rigAnimator.isHuman)
+			if (_rigData.rigAnimator.isHuman)
 			{
-				rigData.pelvisBone = rigData.rigAnimator.GetBoneTransform(HumanBodyBones.Hips);
-				rigData.rightHandBone.target = rigData.rigAnimator.GetBoneTransform(HumanBodyBones.RightHand);
-				rigData.leftHandBone.target = rigData.rigAnimator.GetBoneTransform(HumanBodyBones.LeftHand);
-				rigData.rightFootBone.target = rigData.rigAnimator.GetBoneTransform(HumanBodyBones.RightFoot);
-				rigData.leftFootBone.target = rigData.rigAnimator.GetBoneTransform(HumanBodyBones.LeftFoot);
+				_rigData.pelvisBone = _rigData.rigAnimator.GetBoneTransform(HumanBodyBones.Hips);
+				_rigData.rightHandBone._bone = _rigData.rigAnimator.GetBoneTransform(HumanBodyBones.RightHand);
+				_rigData.leftHandBone._bone = _rigData.rigAnimator.GetBoneTransform(HumanBodyBones.LeftHand);
+				_rigData.rightFootBone._bone = _rigData.rigAnimator.GetBoneTransform(HumanBodyBones.RightFoot);
+				_rigData.leftFootBone._bone = _rigData.rigAnimator.GetBoneTransform(HumanBodyBones.LeftFoot);
 
-				Transform head = rigData.rigAnimator.GetBoneTransform(HumanBodyBones.Head);
+				Transform head = _rigData.rigAnimator.GetBoneTransform(HumanBodyBones.Head);
 				SetupIKBones(head);
 				return;
 			}
@@ -416,7 +427,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 				bool bMatches = bone.name.ToLower().Contains("hips") || bone.name.ToLower().Contains("pelvis");
 				if (!foundPelvis && bMatches)
 				{
-					rigData.pelvisBone = bone;
+					_rigData.pelvisBone = bone;
 					foundPelvis = true;
 					continue;
 				}
@@ -429,10 +440,10 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 						   || bone.name.ToLower().Contains("hand.l");
 				if (!foundLeftHand && bMatches)
 				{
-					rigData.leftHandBone.target = bone;
+					_rigData.leftHandBone._bone = bone;
 
-					if (rigData.leftHandBone.hintTarget == null)
-						rigData.leftHandBone.hintTarget = bone.parent;
+					if (_rigData.leftHandBone._boneHint == null)
+						_rigData.leftHandBone._boneHint = bone.parent;
 
 					foundLeftHand = true;
 					continue;
@@ -446,10 +457,10 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 						   || bone.name.ToLower().Contains("hand.r");
 				if (!foundRightHand && bMatches)
 				{
-					rigData.rightHandBone.target = bone;
+					_rigData.rightHandBone._bone = bone;
 
-					if (rigData.rightHandBone.hintTarget == null)
-						rigData.rightHandBone.hintTarget = bone.parent;
+					if (_rigData.rightHandBone._boneHint == null)
+						_rigData.rightHandBone._boneHint = bone.parent;
 
 					foundRightHand = true;
 				}
@@ -462,8 +473,8 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 						   || bone.name.ToLower().Contains("foot.r");
 				if (!foundRightFoot && bMatches)
 				{
-					rigData.rightFootBone.target = bone;
-					rigData.rightFootBone.hintTarget = bone.parent;
+					_rigData.rightFootBone._bone = bone;
+					_rigData.rightFootBone._boneHint = bone.parent;
 
 					foundRightFoot = true;
 				}
@@ -476,8 +487,8 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 						   || bone.name.ToLower().Contains("foot.l");
 				if (!foundLeftFoot && bMatches)
 				{
-					rigData.leftFootBone.target = bone;
-					rigData.leftFootBone.hintTarget = bone.parent;
+					_rigData.leftFootBone._bone = bone;
+					_rigData.leftFootBone._boneHint = bone.parent;
 
 					foundLeftFoot = true;
 				}
@@ -503,47 +514,47 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		private void SetupIKBones(Transform head)
 		{
-			if (rigData.masterDynamicBone.obj == null)
+			if (_rigData.masterDynamicBone._boneObject == null)
 			{
 				Transform boneObject = head.transform.Find("MasterIK");
 
 				if (boneObject != null)
 				{
-					rigData.masterDynamicBone.obj = boneObject.gameObject;
+					_rigData.masterDynamicBone._boneObject = boneObject.gameObject;
 				}
 				else
 				{
-					rigData.masterDynamicBone.obj = new GameObject("MasterIK");
-					rigData.masterDynamicBone.obj.transform.parent = head;
-					rigData.masterDynamicBone.obj.transform.localPosition = Vector3.zero;
+					_rigData.masterDynamicBone._boneObject = new GameObject("MasterIK");
+					_rigData.masterDynamicBone._boneObject.transform.parent = head;
+					_rigData.masterDynamicBone._boneObject.transform.localPosition = Vector3.zero;
 				}
 			}
 
-			if (rigData.rightHandBone.obj == null)
+			if (_rigData.rightHandBone._boneObject == null)
 			{
 				Transform boneObject =
 					head.transform.Find("RightHandIK"); //TODO Сделать базу имён костей с разных программ
 
 				if (boneObject != null)
-					rigData.rightHandBone.obj = boneObject.gameObject;
+					_rigData.rightHandBone._boneObject = boneObject.gameObject;
 				else
-					rigData.rightHandBone.obj = new GameObject("RightHandIK");
+					_rigData.rightHandBone._boneObject = new GameObject("RightHandIK");
 
-				rigData.rightHandBone.obj.transform.parent = rigData.masterDynamicBone.obj.transform;
-				rigData.rightHandBone.obj.transform.localPosition = Vector3.zero;
+				_rigData.rightHandBone._boneObject.transform.parent = _rigData.masterDynamicBone._boneObject.transform;
+				_rigData.rightHandBone._boneObject.transform.localPosition = Vector3.zero;
 			}
 
-			if (rigData.leftHandBone.obj == null)
+			if (_rigData.leftHandBone._boneObject == null)
 			{
 				Transform boneObject = head.transform.Find("LeftHandIK");
 
 				if (boneObject != null)
-					rigData.leftHandBone.obj = boneObject.gameObject;
+					_rigData.leftHandBone._boneObject = boneObject.gameObject;
 				else
-					rigData.leftHandBone.obj = new GameObject("LeftHandIK");
+					_rigData.leftHandBone._boneObject = new GameObject("LeftHandIK");
 
-				rigData.leftHandBone.obj.transform.parent = rigData.masterDynamicBone.obj.transform;
-				rigData.leftHandBone.obj.transform.localPosition = Vector3.zero;
+				_rigData.leftHandBone._boneObject.transform.parent = _rigData.masterDynamicBone._boneObject.transform;
+				_rigData.leftHandBone._boneObject.transform.localPosition = Vector3.zero;
 			}
 		}
 

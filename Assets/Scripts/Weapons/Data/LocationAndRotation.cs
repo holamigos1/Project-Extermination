@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Weapons.Data
@@ -6,7 +7,12 @@ namespace Weapons.Data
 	[Serializable]
 	public struct LocationAndRotation
 	{
+		[LabelText("Позиция")]
+		[SuffixLabel("Метры    ")]
 		public Vector3    position;
+		
+		[LabelText("Вращение")]
+		[SuffixLabel("Градусы °")]
 		public Quaternion rotation;
 
 		public LocationAndRotation(Vector3 location, Quaternion rotation)

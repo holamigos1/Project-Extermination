@@ -96,8 +96,8 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 		{
 			Transform masterDynamic = MasterIK;
 
-			float deltaRight = CoreAnim.rigData.characterData.deltaAimInput.x / Time.deltaTime;
-			float deltaUp = CoreAnim.rigData.characterData.deltaAimInput.y / Time.deltaTime;
+			float deltaRight = CoreAnim._rigData.characterData.deltaAimInput.x / Time.deltaTime;
+			float deltaUp = CoreAnim._rigData.characterData.deltaAimInput.y / Time.deltaTime;
 
 			swayTarget += new Vector2(deltaRight, deltaUp) * 0.01f;
 			swayTarget.x = CoreToolkitLib.GlerpLayer(swayTarget.x * 0.01f, 0f, 5f);
@@ -106,13 +106,13 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 			var targetLoc = new Vector3(swayTarget.x, swayTarget.y, 0f);
 			var targetRot = new Vector3(swayTarget.y, swayTarget.x, swayTarget.x);
 
-			swayLoc = CoreToolkitLib.SpringInterp(swayLoc, targetLoc, ref CoreAnim.rigData.gunData.springData.location);
-			swayRot = CoreToolkitLib.SpringInterp(swayRot, targetRot, ref CoreAnim.rigData.gunData.springData.rotation);
+			swayLoc = CoreToolkitLib.SpringInterp(swayLoc, targetLoc, ref CoreAnim._rigData.gunData.springData.location);
+			swayRot = CoreToolkitLib.SpringInterp(swayRot, targetRot, ref CoreAnim._rigData.gunData.springData.rotation);
 
-			Quaternion rot = CoreAnim.rigData.rootBone.rotation;
+			Quaternion rot = CoreAnim._rigData.rootBone.rotation;
 
 			CoreToolkitLib.RotateInBoneSpace(rot, masterDynamic, Quaternion.Euler(swayRot), 1f);
-			CoreToolkitLib.MoveInBoneSpace(CoreAnim.rigData.rootBone, masterDynamic, swayLoc, 1f);
+			CoreToolkitLib.MoveInBoneSpace(CoreAnim._rigData.rootBone, masterDynamic, swayLoc, 1f);
 		}
 
 		protected virtual void ApplyMoveSway()
@@ -139,7 +139,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 			smoothMoveSwayLoc.y = CoreToolkitLib.Glerp(smoothMoveSwayLoc.y, moveLocTarget.y, 3f);
 			smoothMoveSwayLoc.z = CoreToolkitLib.Glerp(smoothMoveSwayLoc.z, moveLocTarget.z, 2.5f);
 
-			CoreToolkitLib.MoveInBoneSpace(CoreAnim.rigData.rootBone, MasterIK,
+			CoreToolkitLib.MoveInBoneSpace(CoreAnim._rigData.rootBone, MasterIK,
 										   smoothMoveSwayLoc, 1f);
 			CoreToolkitLib.RotateInBoneSpace(MasterIK.rotation, MasterIK,
 											 Quaternion.Euler(smoothMoveSwayRot), 1f);

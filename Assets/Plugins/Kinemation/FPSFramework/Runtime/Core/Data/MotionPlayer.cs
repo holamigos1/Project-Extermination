@@ -21,6 +21,6 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core.Data
 			_motion.UpdateMotion();
 
 		public LocationAndRotation Get() =>
-			_motion.outMotion;
+			_motion._currentMotionValues;
 	}
 }

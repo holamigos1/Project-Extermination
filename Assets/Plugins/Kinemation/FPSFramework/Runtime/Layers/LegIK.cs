@@ -56,8 +56,8 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 
 		public override void OnAnimUpdate()
 		{
-			Transform rightFoot = Right_foot_bone.obj.transform;
-			Transform leftFoot = Left_foot_bone.obj.transform;
+			Transform rightFoot = Right_foot_bone._boneObject.transform;
+			Transform leftFoot = Left_foot_bone._boneObject.transform;
 
 			Vector3 rf = rightFoot.position;
 			Vector3 lf = leftFoot.position;

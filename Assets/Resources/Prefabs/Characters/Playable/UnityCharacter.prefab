@@ -273,7 +273,6 @@ Transform:
   - {fileID: 4529134798625444422}
   - {fileID: 1723750300017140138}
   - {fileID: 4469719217360632048}
-  - {fileID: 2234277907263054911}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,17 +366,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d0c9cae953fca4ab9737e1caf87cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coreAnimComponent: {fileID: 757951669351840636}
-  animator: {fileID: 6008113870052017470}
-  freeLookAngle: {x: 0, y: 0}
-  lookLayer: {fileID: 757951669351840637}
-  adsLayer: {fileID: 757951669351840624}
-  blendLayer: {fileID: 1579661180}
-  swayLayer: {fileID: 6624334007914568687}
-  locoLayer: {fileID: 1398823265}
-  slotLayer: {fileID: 2115404253}
-  aimMotion:
-    rot:
+  _isShouldTorsoRotate: 1
+  _mouseSensitivity: 2.027795
+  freeLookAngle: {x: 80, y: 80}
+  _aimMotion:
+    location:
+      xAxisCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      yAxisCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      zAxisCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0.41795668
+          outSlope: 0.41795668
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.12331939
+          value: 0.051542163
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.39814115
+          value: -0.011881448
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.6981615
+          value: 0.0043928353
+          inSlope: 0.0037862265
+          outSlope: 0.0037862265
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.25225678
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.0049459194
+          outSlope: 0.0049459194
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.22070263
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    rotation:
       xAxisCurve:
         serializedVersion: 2
         m_Curve:
@@ -531,7 +624,13 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    loc:
+    _motionBlendSpeed: 0.6
+    _playRateFactor: 1
+    _currentMotionValues:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 0}
+  _leanMotion:
+    location:
       xAxisCurve:
         serializedVersion: 2
         m_Curve:
@@ -545,7 +644,7 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
+          time: 0.8342285
           value: 0
           inSlope: 0
           outSlope: 0
@@ -631,13 +730,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    outMotion:
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 0}
-    blendSpeed: 1.75
-    playRate: 1.7
-  leanMotion:
-    rot:
+    rotation:
       xAxisCurve:
         serializedVersion: 2
         m_Curve:
@@ -800,122 +893,18 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    loc:
-      xAxisCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 34
-          weightedMode: 0
-          inWeight: 0
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.8342285
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 34
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      yAxisCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 34
-          weightedMode: 0
-          inWeight: 0
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 34
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      zAxisCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 0
-          inSlope: 0.41795668
-          outSlope: 0.41795668
-          tangentMode: 34
-          weightedMode: 0
-          inWeight: 0
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.12331939
-          value: 0.051542163
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.39814115
-          value: -0.011881448
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.6981615
-          value: 0.0043928353
-          inSlope: 0.0037862265
-          outSlope: 0.0037862265
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.25225678
-        - serializedVersion: 3
-          time: 1
-          value: 0
-          inSlope: 0.0049459194
-          outSlope: 0.0049459194
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.22070263
-          outWeight: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    outMotion:
+    _motionBlendSpeed: 0.6
+    _playRateFactor: 1
+    _currentMotionValues:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 0}
-    blendSpeed: 1.7
-    playRate: 1.6
-  crouchHeight: 0.7
-  sensitivity: 2
   mainCamera: {fileID: 6624334008321366733}
   cameraHolder: {fileID: 7333732395697125981}
-  fpCameraBone: {fileID: 7832979088296095766}
-  tpCameraBone: {fileID: 4469719217360632048}
-  tacCameraBone: {fileID: 2234277907263054911}
-  shouldMove: 1
+  FirstPersonCameraBone: {fileID: 7832979088296095766}
+  ThirdPersonCameraBone: {fileID: 4469719217360632048}
+  crouchHeight: 0.6996303
   walkingSpeed: 1.65
   sprintSpeed: 4
-  controller: {fileID: 6624334007537884657}
   weapons:
   - {fileID: 1428956329782498722}
   - {fileID: 2000235327942966871}
@@ -934,29 +923,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeleton: {fileID: 1723750300017140138}
   upperBodyMask: {fileID: 31900000, guid: 2991366001ec4984f87e3f0feb954958, type: 2}
-  rigData:
-    animator: {fileID: 6008113870052017470}
-    pelvis: {fileID: 8772665799266686338}
-    masterDynamic:
-      target: {fileID: 0}
-      hintTarget: {fileID: 0}
-      obj: {fileID: 6624334007458056875}
-    rightHand:
-      target: {fileID: 7175825402303015915}
-      hintTarget: {fileID: 7448029494456138203}
-      obj: {fileID: 6624334008006963957}
-    leftHand:
-      target: {fileID: 7736939653603154491}
-      hintTarget: {fileID: 3712459092826241277}
-      obj: {fileID: 6624334007158971717}
-    rightFoot:
-      target: {fileID: 2852391527558136416}
-      hintTarget: {fileID: 1414099413729135485}
-      obj: {fileID: 6624334007848180939}
-    leftFoot:
-      target: {fileID: 4156215281114090817}
-      hintTarget: {fileID: 2897017628893790072}
-      obj: {fileID: 6624334007571304637}
+  _rigData:
+    rigAnimator: {fileID: 6008113870052017470}
+    pelvisBone: {fileID: 8772665799266686338}
+    masterDynamicBone:
+      _bone: {fileID: 0}
+      _boneHint: {fileID: 0}
+      _boneObject: {fileID: 6624334007458056875}
+    rightHandBone:
+      _bone: {fileID: 7175825402303015915}
+      _boneHint: {fileID: 7448029494456138203}
+      _boneObject: {fileID: 6624334008006963957}
+    leftHandBone:
+      _bone: {fileID: 7736939653603154491}
+      _boneHint: {fileID: 3712459092826241277}
+      _boneObject: {fileID: 6624334007158971717}
+    rightFootBone:
+      _bone: {fileID: 2852391527558136416}
+      _boneHint: {fileID: 1414099413729135485}
+      _boneObject: {fileID: 6624334007848180939}
+    leftFootBone:
+      _bone: {fileID: 4156215281114090817}
+      _boneHint: {fileID: 2897017628893790072}
+      _boneObject: {fileID: 6624334007571304637}
     rootBone: {fileID: 6624334008445290585}
     gunData:
       leftHandTarget: {fileID: 0}
@@ -970,40 +959,40 @@ MonoBehaviour:
         aimSpeed: 0
       handsOffset: {x: 0, y: 0, z: 0}
       springData:
-        loc:
-          x:
+        location:
+          xAxis:
             stiffness: 0
             criticalDamping: 0
             speed: 0
             mass: 0
             maxValue: 0
-          y:
+          yAxis:
             stiffness: 0
             criticalDamping: 0
             speed: 0
             mass: 0
             maxValue: 0
-          z:
+          zAxis:
             stiffness: 0
             criticalDamping: 0
             speed: 0
             mass: 0
             maxValue: 0
           scale: {x: 0, y: 0, z: 0}
-        rot:
-          x:
+        rotation:
+          xAxis:
             stiffness: 0
             criticalDamping: 0
             speed: 0
             mass: 0
             maxValue: 0
-          y:
+          yAxis:
             stiffness: 0
             criticalDamping: 0
             speed: 0
             mass: 0
             maxValue: 0
-          z:
+          zAxis:
             stiffness: 0
             criticalDamping: 0
             speed: 0
@@ -1015,8 +1004,8 @@ MonoBehaviour:
         maxValue: 0
         speed: 0
       moveSwayData:
-        maxMoveLocSway: {x: 0, y: 0, z: 0}
-        maxMoveRotSway: {x: 0, y: 0, z: 0}
+        maxMoveLocationSway: {x: 0, y: 0, z: 0}
+        maxMoveRotationSway: {x: 0, y: 0, z: 0}
       blockData:
         weaponLength: 0.6
         startOffset: 0
@@ -1059,30 +1048,30 @@ MonoBehaviour:
   pelvisOffset: {x: 0, y: -0.04, z: 0}
   lookUpOffset:
     bones:
-    - bone: {fileID: 8772665799266686338}
+    - boneTransform: {fileID: 8772665799266686338}
       maxAngle: {x: 7, y: 18}
-    - bone: {fileID: 8528173871660539412}
+    - boneTransform: {fileID: 8528173871660539412}
       maxAngle: {x: 16.6, y: 14.4}
-    - bone: {fileID: 3575851755613417296}
+    - boneTransform: {fileID: 3575851755613417296}
       maxAngle: {x: 16.6, y: 14.4}
-    - bone: {fileID: 4685197714634851932}
+    - boneTransform: {fileID: 4685197714634851932}
       maxAngle: {x: 16.6, y: 14.4}
-    - bone: {fileID: 425405440898943080}
+    - boneTransform: {fileID: 425405440898943080}
       maxAngle: {x: 16.6, y: 14.4}
-    - bone: {fileID: 5170988514493833645}
+    - boneTransform: {fileID: 5170988514493833645}
       maxAngle: {x: 16.6, y: 14.4}
-    - bone: {fileID: 7068956039934375134}
+    - boneTransform: {fileID: 7068956039934375134}
       maxAngle: {x: 25, y: 25}
     indexOffset: 1
   lookRightOffset:
     bones:
-    - bone: {fileID: 8772665799266686338}
+    - boneTransform: {fileID: 8772665799266686338}
       maxAngle: {x: 20, y: 20}
-    - bone: {fileID: 8528173871660539412}
+    - boneTransform: {fileID: 8528173871660539412}
       maxAngle: {x: 23.333334, y: 23.333334}
-    - bone: {fileID: 3575851755613417296}
+    - boneTransform: {fileID: 3575851755613417296}
       maxAngle: {x: 23.333334, y: 23.333334}
-    - bone: {fileID: 4685197714634851932}
+    - boneTransform: {fileID: 4685197714634851932}
       maxAngle: {x: 23.333334, y: 23.333334}
     indexOffset: 0
   enableAutoDistribution: 0
@@ -3146,19 +3135,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeProfile:
     springData:
-      x:
+      xAxis:
         stiffness: 0.7
         criticalDamping: 0.5
         speed: 25
         mass: 1
         maxValue: 15
-      y:
+      yAxis:
         stiffness: 0.7
         criticalDamping: 0.5
         speed: 25
         mass: 1
         maxValue: 15
-      z:
+      zAxis:
         stiffness: 0.8
         criticalDamping: 0.4
         speed: 25
@@ -3880,37 +3869,6 @@ Transform:
   m_Father: {fileID: 3965550661098105171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8969982467598171781
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2234277907263054911}
-  m_Layer: 0
-  m_Name: TacCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2234277907263054911
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8969982467598171781}
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.547, y: 0.443, z: 0.106}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 396659192199487300}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &9188808773288446827
 GameObject:
   m_ObjectHideFlags: 0
@@ -4177,6 +4135,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4720054333846582, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}
       propertyPath: gunData.moveSwayData.maxMoveRotSway.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720054333846582, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocationSway.x
+      value: -0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720054333846582, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocationSway.y
+      value: -0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720054333846582, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveLocationSway.z
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720054333846582, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotationSway.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720054333846582, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotationSway.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720054333846582, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}
+      propertyPath: gunData.moveSwayData.maxMoveRotationSway.z
       value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5279972816420009359, guid: e1438d518dbd3a342a3d7bca9295d4db, type: 3}

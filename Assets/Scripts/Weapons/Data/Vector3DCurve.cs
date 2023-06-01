@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using Misc.Extensions;
+using Sirenix.OdinInspector;
 using Unity.Mathematics;
 
 namespace Weapons.Data
@@ -9,11 +10,17 @@ namespace Weapons.Data
 	/// <summary> Трёхмерный вариант AnimationCurve. </summary>
 	/// <seealso cref="AnimationCurve"/>
 	[Serializable]
+	[InlineProperty(LabelWidth = 13)]
 	public struct Vector3DCurve
 	{
-		[SerializeField] private AnimationCurve xAxisCurve;
-		[SerializeField] private AnimationCurve yAxisCurve;
-		[SerializeField] private AnimationCurve zAxisCurve;
+		[HorizontalGroup] [SerializeField] 
+		private AnimationCurve xAxisCurve;
+		
+		[SerializeField] [HorizontalGroup]
+		private AnimationCurve yAxisCurve;
+		
+		[SerializeField] [HorizontalGroup]
+		private AnimationCurve zAxisCurve;
 		
 		public bool IsValid => xAxisCurve.keys.Length != 0
 							   || yAxisCurve.keys.Length != 0
@@ -34,6 +41,7 @@ namespace Weapons.Data
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public Vector3 Evaluate(float time) => 
-			new(xAxisCurve.Evaluate(time), yAxisCurve.Evaluate(time), zAxisCurve.Evaluate(time));
+			new(xAxisCurve.Evaluate(time), yAxisCurve.Evaluate(time), zAxisCurve.Evaluate(time));		
+		
 	}
 }

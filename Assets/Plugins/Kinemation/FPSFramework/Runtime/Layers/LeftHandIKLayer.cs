@@ -16,7 +16,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 			Transform target = GunData.leftHandTarget == null ?
 				leftHandTarget :
 				GunData.leftHandTarget;
-			Transform leftHand = CoreAnim.rigData.leftHandBone.obj.transform;
+			Transform leftHand = CoreAnim._rigData.leftHandBone._boneObject.transform;
 			float finalAlpha = useCurveBlending ?
 				Rig_animator.GetFloat(blendCurveName) :
 				SmoothLayerAlpha;

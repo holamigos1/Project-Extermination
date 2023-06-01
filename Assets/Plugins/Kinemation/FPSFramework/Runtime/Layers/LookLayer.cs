@@ -168,27 +168,27 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 
 		private void CheckZeroFrames()
 		{
-			if (cachedBones.pelvis.Item1 == CoreAnim.rigData.pelvisBone.localPosition)
-				CoreAnim.rigData.pelvisBone.localPosition = cacheRef.pelvis.Item1;
+			if (cachedBones.pelvis.Item1 == CoreAnim._rigData.pelvisBone.localPosition)
+				CoreAnim._rigData.pelvisBone.localPosition = cacheRef.pelvis.Item1;
 
-			if (cachedBones.pelvis.Item2 == CoreAnim.rigData.pelvisBone.localRotation)
+			if (cachedBones.pelvis.Item2 == CoreAnim._rigData.pelvisBone.localRotation)
 			{
-				CoreAnim.rigData.pelvisBone.localRotation = cacheRef.pelvis.Item2;
+				CoreAnim._rigData.pelvisBone.localRotation = cacheRef.pelvis.Item2;
 
 				if (checkZeroFootIK)
 				{
-					CoreAnim.rigData.rightFootBone.Retarget();
-					CoreAnim.rigData.leftFootBone.Retarget();
+					CoreAnim._rigData.rightFootBone.Retarget();
+					CoreAnim._rigData.leftFootBone.Retarget();
 				}
 			}
 
-			cacheRef.pelvis.Item2 = CoreAnim.rigData.pelvisBone.localRotation;
+			cacheRef.pelvis.Item2 = CoreAnim._rigData.pelvisBone.localRotation;
 
 			var bZeroSpine = false;
 			for (var i = 0; i < cachedBones.lookUp.Count; i++)
 			{
 				Transform bone = lookUpOffset.bones[i].boneTransform;
-				if (bone == null || bone == CoreAnim.rigData.pelvisBone)
+				if (bone == null || bone == CoreAnim._rigData.pelvisBone)
 					continue;
 
 				if (cachedBones.lookUp[i] == bone.localRotation)
@@ -200,12 +200,12 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 
 			if (bZeroSpine)
 			{
-				CoreAnim.rigData.masterDynamicBone.Retarget();
-				CoreAnim.rigData.rightHandBone.Retarget();
-				CoreAnim.rigData.leftHandBone.Retarget();
+				CoreAnim._rigData.masterDynamicBone.Retarget();
+				CoreAnim._rigData.rightHandBone.Retarget();
+				CoreAnim._rigData.leftHandBone.Retarget();
 			}
 
-			cacheRef.pelvis.Item1 = CoreAnim.rigData.pelvisBone.localPosition;
+			cacheRef.pelvis.Item1 = CoreAnim._rigData.pelvisBone.localPosition;
 
 			for (var i = 0; i < lookUpOffset.bones.Count; i++)
 			{
@@ -219,13 +219,13 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 
 		private void CacheBones()
 		{
-			cachedBones.pelvis.Item1 = CoreAnim.rigData.pelvisBone.localPosition;
-			cachedBones.pelvis.Item2 = CoreAnim.rigData.pelvisBone.localRotation;
+			cachedBones.pelvis.Item1 = CoreAnim._rigData.pelvisBone.localPosition;
+			cachedBones.pelvis.Item2 = CoreAnim._rigData.pelvisBone.localRotation;
 
 			for (var i = 0; i < lookUpOffset.bones.Count; i++)
 			{
 				Transform bone = lookUpOffset.bones[i].boneTransform;
-				if (bone == null || bone == CoreAnim.rigData.pelvisBone)
+				if (bone == null || bone == CoreAnim._rigData.pelvisBone)
 					continue;
 
 				cachedBones.lookUp[i] = bone.localRotation;
@@ -260,7 +260,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 												pelvisLerpSpeed);
 
 			Vector3 pelvisFinal = Vector3.Lerp(Vector3.zero, pelvisOffset, InterpPelvis);
-			CoreToolkitLib.MoveInBoneSpace(RootBone, CoreAnim.rigData.pelvisBone, pelvisFinal, 1f);
+			CoreToolkitLib.MoveInBoneSpace(RootBone, CoreAnim._rigData.pelvisBone, pelvisFinal, 1f);
 
 			lerpedAim.y = CoreToolkitLib.GlerpLayer(lerpedAim.y, aimUp, smoothAim);
 			lerpedAim.x = CoreToolkitLib.GlerpLayer(lerpedAim.x, aimRight, smoothAim);
@@ -290,11 +290,11 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 					Quaternion.Euler(0f, 0f, leanInput * SmoothLayerAlpha / (90f / angleFraction)), 1f);
 			}
 
-			Vector3 rightHandLoc = CoreAnim.rigData.rightHandBone.obj.transform.position;
-			Quaternion rightHandRot = CoreAnim.rigData.rightHandBone.obj.transform.rotation;
+			Vector3 rightHandLoc = CoreAnim._rigData.rightHandBone._boneObject.transform.position;
+			Quaternion rightHandRot = CoreAnim._rigData.rightHandBone._boneObject.transform.rotation;
 
-			Vector3 leftHandLoc = CoreAnim.rigData.leftHandBone.obj.transform.position;
-			Quaternion leftHandRot = CoreAnim.rigData.leftHandBone.obj.transform.rotation;
+			Vector3 leftHandLoc = CoreAnim._rigData.leftHandBone._boneObject.transform.position;
+			Quaternion leftHandRot = CoreAnim._rigData.leftHandBone._boneObject.transform.rotation;
 
 			foreach (AimOffsetBone bone in lookUpOffset.bones)
 			{
@@ -314,19 +314,19 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Layers
 
 			InterpHands = CoreToolkitLib.GlerpLayer(InterpHands, handsLayerAlpha, handsLerpSpeed);
 
-			CoreAnim.rigData.rightHandBone.obj.transform.position = Vector3.Lerp(rightHandLoc,
-																		 CoreAnim.rigData.rightHandBone.obj.transform.position,
+			CoreAnim._rigData.rightHandBone._boneObject.transform.position = Vector3.Lerp(rightHandLoc,
+																		 CoreAnim._rigData.rightHandBone._boneObject.transform.position,
 																		 InterpHands);
-			CoreAnim.rigData.rightHandBone.obj.transform.rotation = Quaternion.Slerp(rightHandRot,
-																			 CoreAnim.rigData.rightHandBone.obj.transform
+			CoreAnim._rigData.rightHandBone._boneObject.transform.rotation = Quaternion.Slerp(rightHandRot,
+																			 CoreAnim._rigData.rightHandBone._boneObject.transform
 																				 .rotation,
 																			 InterpHands);
 
-			CoreAnim.rigData.leftHandBone.obj.transform.position = Vector3.Lerp(
-				leftHandLoc, CoreAnim.rigData.leftHandBone.obj.transform.position,
+			CoreAnim._rigData.leftHandBone._boneObject.transform.position = Vector3.Lerp(
+				leftHandLoc, CoreAnim._rigData.leftHandBone._boneObject.transform.position,
 				InterpHands);
-			CoreAnim.rigData.leftHandBone.obj.transform.rotation = Quaternion.Slerp(leftHandRot,
-																			CoreAnim.rigData.leftHandBone.obj.transform
+			CoreAnim._rigData.leftHandBone._boneObject.transform.rotation = Quaternion.Slerp(leftHandRot,
+																			CoreAnim._rigData.leftHandBone._boneObject.transform
 																				.rotation,
 																			InterpHands);
 		}

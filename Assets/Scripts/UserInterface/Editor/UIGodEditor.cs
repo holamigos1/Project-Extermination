@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -12,10 +13,12 @@ namespace UserInterface.Editor
         private List<GameCanvasBase> _gameCanvases;
         
         [SerializeField] 
+        [FolderPath]
         private string _uiSheetFolder = "Assets/Resources/Scriptable Data/UI/";
         private string _fullSheetSavePath => _uiSheetFolder + nameof(UISheet) + ".asset"; 
 		
         [SerializeField] 
+        [FolderPath]
         private string _gameCanvasesFolder = "Assets/Resources/Prefabs/UI";
 
         private StyleSheet      _styleSheet;

@@ -1,16 +1,23 @@
 // Designed by Kinemation, 2023
 
+using System;
 using System.Collections.Generic;
 using Plugins.Kinemation.FPSFramework.Runtime.Core.Data;
 using Plugins.Kinemation.FPSFramework.Runtime.Core.States;
 using Plugins.Kinemation.FPSFramework.Runtime.Layers;
+using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Weapons;
 using Weapons.Data;
 
 namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 {
 	// An example-controller class
+	[RequireComponent(typeof(CharacterController), typeof(Animator), typeof(CoreAnimComponent))]
+	[RequireComponent(typeof(LookLayer), typeof(AdsLayer), typeof(BlendingLayer))]
+	[RequireComponent(typeof(SwayLayer), typeof(DemoLoco), typeof(SlotLayer))]
 	public class FPSController : MonoBehaviour
 	{
 		private static readonly int s_Sprint  = Animator.StringToHash("sprint");
@@ -19,51 +26,104 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 		private static readonly int s_MoveX   = Animator.StringToHash("moveX");
 		private static readonly int s_MoveY   = Animator.StringToHash("moveY");
 
-		[Header("FPS Animator Core")]
-		[SerializeField] private CoreAnimComponent coreAnimComponent;
-		[SerializeField] private Animator animator;
+		[Title("Вращение")]
+		[FormerlySerializedAs("shouldMove")]
+		[LabelText("Может вращать торсом")]
+		[ToggleLeft]
+		[SerializeField] private bool _isShouldTorsoRotate;
+		
+		[FormerlySerializedAs("sensitivity")]
+		[LabelText("Чувствительность мыши")]
+		[Tooltip("Если коэффициент 0 то ввод с мыши будет игнорироваться.")]
+		[SuffixLabel("Коэффициент")]
+		[ProgressBar(0, 3)]
+		[SerializeField]
+		private float _mouseSensitivity;
+
+		[LabelText("Углы свободного осмотра")]
+		[SuffixLabel("° Градусы")]
+		[Wrap(0,81)]
+		[Tooltip("При нажатии на X мышка перестаёт управлять телом и управляет только головой.\n Этим параметром можно задать пределы отклонения башки.")]
 		[SerializeField] private Vector2  freeLookAngle;
-
-		[Header("FPS Animator Layers")]
-		[SerializeField] private LookLayer     lookLayer;
-		[SerializeField] private AdsLayer      adsLayer;
-		[SerializeField] private BlendingLayer blendLayer;
-		[SerializeField] private SwayLayer     swayLayer;
-		[SerializeField] private DemoLoco      locoLayer;
-		[SerializeField] private SlotLayer     slotLayer;
-
-		[Header("FPS Animator Dynamic Motions")]
-		[SerializeField] private DynamicMotion aimMotion;
-		[SerializeField] private DynamicMotion leanMotion;
-
-		[Header("Character Controls")]
-		[SerializeField] private float crouchHeight;
-		[SerializeField] private float sensitivity;
 		
-		[Header("Camera")]
+		[Title("Процедурные анимации")]
+		
+		[FormerlySerializedAs("aimMotion")]
+		[LabelText("Движение прицеливания пушки")]
+		[SerializeField]
+		private DynamicMotion _aimMotion;
+
+		[FormerlySerializedAs("leanMotion")]
+		[LabelText("Движение наклона торсом")]
+		[SerializeField]
+		private DynamicMotion _leanMotion;
+
+		[Title("Камера")]
+		
+		[LabelText("Главная камера")]
+		[SuffixLabel("Объект с кости головы")]
 		[SerializeField] private Transform mainCamera;
-		[SerializeField] private Transform cameraHolder;
-		[SerializeField] private Transform fpCameraBone;
-		[SerializeField] private Transform tpCameraBone;
-		[SerializeField] private Transform tacCameraBone;
-
-		[Header("Movement")]
-		[SerializeField] private bool                shouldMove;
-		[SerializeField] private float               walkingSpeed = 10f;
-		[SerializeField] private float               sprintSpeed  = 25f;
-		[SerializeField] private CharacterController controller;
-		[SerializeField] private List<Weapon>        weapons;
 		
-		private bool        _aiming;
+		[LabelText("Контейнер с камерой")]
+		[SuffixLabel("Объект с кости головы")]
+		[Tooltip("Объект, одна из дочек которого является камера")]
+		[SerializeField] private Transform cameraHolder;//TODO Это лишнее. Проще управлять объектом самой камеры или дрочить синемашинную камеру.
+
+		[LabelText("Позиция камеры первого лица")]
+		[Tooltip("Объект-пустышка на место которого встанет FPS камера.")]
+		[SuffixLabel("Объект с кости головы")]
+		[FormerlySerializedAs("fpCameraBone")]
+		[SerializeField]
+		private Transform FirstPersonCameraBone;
+
+		[LabelText("Позиция камеры третьего лица")]
+		[Tooltip("Объект-пустышка на место которого встанет TPS камера.")]
+		[SuffixLabel("Объект с кости головы")]
+		[FormerlySerializedAs("tpCameraBone")]
+		[SerializeField] private Transform ThirdPersonCameraBone;
+
+		[Title("Движение")]
+		
+		[LabelText("Высота в присяди")]
+		[Tooltip("На сколько меньше станет высота капсулы Character Controller в момент приседания персонажа по отношению к положения стоя.")]
+		[SuffixLabel("Коэффициент")]
+		[ProgressBar(0,1)]
+		[SerializeField] private float crouchHeight;
+
+		[LabelText("Скорость ходьбы")]
+		[SuffixLabel("Метров в секунду")]
+		[ProgressBar(0,5)]
+		[SerializeField] private float walkingSpeed = 1.65f;
+		
+		[LabelText("Скорость бега")]
+		[SuffixLabel("Метров в секунду")]
+		[ProgressBar(0,10)]
+		[SerializeField] private float sprintSpeed  = 4f;
+		
+		[LabelText("Список экипированного оружия")]
+		[HideLabel]
+		[SerializeField] private List<Weapon>        weapons;
+
+		private bool        _isAiming;
 		private int         _bursts;
 		private CameraState _cachedCameraState;
 
-		private CameraState       _cameraState = CameraState.FirstPerson;
-		private SpringCameraShake _cameraShake;
-		private CharAnimData      _charAnimData;
-		private float             _fireTimer = -1f;
-
-		private bool _freeLook;
+		private CameraState         _cameraState = CameraState.FirstPerson;
+		private SpringCameraShake   _cameraShake;
+		private CharAnimData        _charAnimData;
+		private float               _fireTimer = -1f;
+		private CharacterController _characterController;
+		private CoreAnimComponent   _coreAnimComponent;
+		private Animator            _animator;
+		private bool                _isFreeLook;
+		
+		//слои ебаные
+		private LookLayer     _lookLayer;
+		private AdsLayer      _adsLayer;
+		private BlendingLayer _blendLayer;
+		private SwayLayer     _swayLayer;
+		private DemoLoco      _locoLayer;
+		private SlotLayer     _slotLayer;
 
 		// Used for free-look
 		private Vector2 _freeLookInput;
@@ -73,7 +133,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		private Vector2         _playerInput;
 		private RecoilAnimation _recoilAnimation;
-		private bool            _reloading;
+		private bool            _isReloading;
 		private Vector2         _smoothMoveInput;
 		private float           _speed;
 
@@ -90,13 +150,18 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
 
-			_lowerCapsuleOffset = controller.center.y - controller.height / 2f;
+			_lowerCapsuleOffset = _characterController.center.y - _characterController.height / 2f;
 			_speed = walkingSpeed;
 
 			_cameraShake = mainCamera.gameObject.GetComponent<SpringCameraShake>();
 
 			InitLayers();
 			EquipWeapon();
+		}
+
+		private void Awake()
+		{
+			_characterController = GetComponent<CharacterController>();
 		}
 
 		private void Update()
@@ -113,16 +178,16 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		private void InitLayers()
 		{
-			coreAnimComponent = GetComponent<CoreAnimComponent>();
-			animator = GetComponent<Animator>();
+			_coreAnimComponent = GetComponent<CoreAnimComponent>();
+			_animator = GetComponent<Animator>();
 			_recoilAnimation = GetComponent<RecoilAnimation>();
-
-			lookLayer = GetComponent<LookLayer>();
-			adsLayer = GetComponent<AdsLayer>();
-			blendLayer = GetComponent<BlendingLayer>();
-			locoLayer = GetComponent<DemoLoco>();
-			swayLayer = GetComponent<SwayLayer>();
-			slotLayer = GetComponent<SlotLayer>();
+			
+			_lookLayer = GetComponent<LookLayer>();
+			_adsLayer = GetComponent<AdsLayer>();
+			_blendLayer = GetComponent<BlendingLayer>();
+			_locoLayer = GetComponent<DemoLoco>();
+			_swayLayer = GetComponent<SwayLayer>();
+			_slotLayer = GetComponent<SlotLayer>();
 		}
 
 		private void EquipWeapon()
@@ -131,7 +196,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 			_bursts = gun.burstAmount;
 			_recoilAnimation.Init(gun.recoilData, gun.fireRate, gun.fireMode);
-			coreAnimComponent.OnGunEquipped(gun.gunData);
+			_coreAnimComponent.OnGunEquipped(gun.gunData);
 
 			gun.gameObject.SetActive(true);
 		}
@@ -144,6 +209,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 				newIndex = 0;
 
 			weapons[_weaponIndex].gameObject.SetActive(false);
+			//todo тут прописать переключение оружий
 			_weaponIndex = newIndex;
 
 			EquipWeapon();
@@ -151,29 +217,29 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		public void ToggleAim()
 		{
-			_aiming = !_aiming;
+			_isAiming = !_isAiming;
 
-			if (_aiming)
+			if (_isAiming)
 			{
 				_actionState = FPSActionState.Aiming;
-				adsLayer.SetAdsAlpha(1f);
-				swayLayer.SetFreeAimEnable(false);
-				slotLayer.PlayMotion(aimMotion);
+				_adsLayer.SetAdsAlpha(1f);
+				_swayLayer.SetFreeAimEnable(false);
+				_slotLayer.PlayMotion(_aimMotion);
 			}
 			else
 			{
 				_actionState = FPSActionState.None;
-				adsLayer.SetAdsAlpha(0f);
-				adsLayer.SetPointAlpha(0f);
-				swayLayer.SetFreeAimEnable(true);
-				slotLayer.PlayMotion(aimMotion);
+				_adsLayer.SetAdsAlpha(0f);
+				_adsLayer.SetPointAlpha(0f);
+				_swayLayer.SetFreeAimEnable(true);
+				_slotLayer.PlayMotion(_aimMotion);
 			}
 
-			_recoilAnimation.isAiming = _aiming;
+			_recoilAnimation.isAiming = _isAiming;
 		}
 
 		public void ChangeScope() =>
-			coreAnimComponent.OnSightChanged(CurrentWeapon.GetScope());
+			_coreAnimComponent.OnSightChanged(CurrentWeapon.GetScope());
 
 		private void Fire()
 		{
@@ -201,11 +267,11 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 			if (_poseState == FPSPoseState.Crouching)
 				return;
 
-			adsLayer.SetLayerAlpha(0f);
-			lookLayer.SetLayerAlpha(0.4f);
-			blendLayer.SetLayerAlpha(0f);
-			locoLayer.SetSprint(true);
-			locoLayer.SetReadyWeight(0f);
+			_adsLayer.SetLayerAlpha(0f);
+			_lookLayer.SetLayerAlpha(0.4f);
+			_blendLayer.SetLayerAlpha(0f);
+			_locoLayer.SetSprint(true);
+			_locoLayer.SetReadyWeight(0f);
 
 			_movementState = FPSMovementState.Sprinting;
 			_actionState = FPSActionState.None;
@@ -213,7 +279,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 			_recoilAnimation.Stop();
 
 			_speed = sprintSpeed;
-			animator.SetBool(s_Sprint, true);
+			_animator.SetBool(s_Sprint, true);
 		}
 
 		private void SprintReleased()
@@ -221,50 +287,47 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 			if (_poseState == FPSPoseState.Crouching)
 				return;
 
-			adsLayer.SetLayerAlpha(1f);
-			lookLayer.SetLayerAlpha(1f);
-			blendLayer.SetLayerAlpha(1f);
-			locoLayer.SetSprint(false);
+			_adsLayer.SetLayerAlpha(1f);
+			_lookLayer.SetLayerAlpha(1f);
+			_blendLayer.SetLayerAlpha(1f);
+			_locoLayer.SetSprint(false);
 
 			_movementState = FPSMovementState.Walking;
 
 			_speed = walkingSpeed;
-			animator.SetBool(s_Sprint, false);
+			_animator.SetBool(s_Sprint, false);
 		}
 
 		private void Crouch()
 		{
-			float height = controller.height;
+			float height = _characterController.height;
 			height *= crouchHeight;
-			controller.height = height;
-			controller.center = new Vector3(0f, _lowerCapsuleOffset + height / 2f, 0f);
+			_characterController.height = height;
+			_characterController.center = new Vector3(0f, _lowerCapsuleOffset + height / 2f, 0f);
 			_speed *= 0.7f;
 
-			lookLayer.SetPelvisWeight(0f);
+			_lookLayer.SetPelvisWeight(0f);
 
 			_poseState = FPSPoseState.Crouching;
-			animator.SetBool(s_Crouch1, true);
+			_animator.SetBool(s_Crouch1, true);
 		}
 
 		private void Uncrouch()
 		{
-			float height = controller.height;
+			float height = _characterController.height;
 			height /= crouchHeight;
-			controller.height = height;
-			controller.center = new Vector3(0f, _lowerCapsuleOffset + height / 2f, 0f);
+			_characterController.height = height;
+			_characterController.center = new Vector3(0f, _lowerCapsuleOffset + height / 2f, 0f);
 			_speed /= 0.7f;
 
-			lookLayer.SetPelvisWeight(1f);
+			_lookLayer.SetPelvisWeight(1f);
 
 			_poseState = FPSPoseState.Standing;
-			animator.SetBool(s_Crouch1, false);
+			_animator.SetBool(s_Crouch1, false);
 		}
 
 		private void ProcessActionInput() //TODO Использовать NewInputSystem
 		{
-			if (Input.GetKeyDown(KeyCode.Escape))
-				Application.Quit(0);
-
 			_charAnimData.leanDirection = 0;
 
 			if (Input.GetKeyDown(KeyCode.P))
@@ -278,16 +341,16 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 					cameraHolder.parent = transform;
 
-					cameraHolder.localPosition = new Vector3(0f, tpCameraBone.localPosition.y, 0f);
+					cameraHolder.localPosition = new Vector3(0f, ThirdPersonCameraBone.localPosition.y, 0f);
 					cameraHolder.localRotation = Quaternion.identity;
 
-					mainCamera.position = tpCameraBone.position;
+					mainCamera.position = ThirdPersonCameraBone.position;
 					mainCamera.localRotation = Quaternion.identity;
 				}
 				else
 				{
 					_cameraState = CameraState.FirstPerson;
-					cameraHolder.parent = fpCameraBone;
+					cameraHolder.parent = FirstPersonCameraBone;
 
 					cameraHolder.localPosition = Vector3.zero;
 					cameraHolder.localRotation = Quaternion.identity;
@@ -315,7 +378,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 					|| Input.GetKeyUp(KeyCode.Q)
 					|| Input.GetKeyDown(KeyCode.E)
 					|| Input.GetKeyUp(KeyCode.E))
-					slotLayer.PlayMotion(leanMotion);
+					_slotLayer.PlayMotion(_leanMotion);
 
 				if (Input.GetKey(KeyCode.Q))
 					_charAnimData.leanDirection = 1;
@@ -334,16 +397,16 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 				if (Input.GetKeyDown(KeyCode.V))
 					ChangeScope();
 
-				if (Input.GetKeyDown(KeyCode.B) && _aiming)
+				if (Input.GetKeyDown(KeyCode.B) && _isAiming)
 				{
 					if (_actionState == FPSActionState.PointAiming)
 					{
-						adsLayer.SetPointAlpha(0f);
+						_adsLayer.SetPointAlpha(0f);
 						_actionState = FPSActionState.Aiming;
 					}
 					else
 					{
-						adsLayer.SetPointAlpha(1f);
+						_adsLayer.SetPointAlpha(1f);
 						_actionState = FPSActionState.PointAiming;
 					}
 				}
@@ -362,15 +425,15 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 				if (_actionState == FPSActionState.Ready)
 				{
 					_actionState = FPSActionState.None;
-					locoLayer.SetReadyWeight(0f);
-					lookLayer.SetLayerAlpha(1f);
+					_locoLayer.SetReadyWeight(0f);
+					_lookLayer.SetLayerAlpha(1f);
 				}
 				else
 				{
 					_actionState = FPSActionState.Ready;
-					locoLayer.SetReadyPose(ReadyPose.LowReady);
-					locoLayer.SetReadyWeight(1f);
-					lookLayer.SetLayerAlpha(.5f);
+					_locoLayer.SetReadyPose(ReadyPose.LowReady);
+					_locoLayer.SetReadyWeight(1f);
+					_lookLayer.SetLayerAlpha(.5f);
 					OnFireReleased();
 				}
 			}
@@ -378,12 +441,12 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 		private void ProcessLookInput()
 		{
-			_freeLook = Input.GetKey(KeyCode.X); //TODO Использовать NewInputSystem
+			_isFreeLook = Input.GetKey(KeyCode.X); //TODO Использовать NewInputSystem
 
-			float deltaMouseX = Input.GetAxis("Mouse X") * sensitivity;
-			float deltaMouseY = -Input.GetAxis("Mouse Y") * sensitivity;
+			float deltaMouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
+			float deltaMouseY = -Input.GetAxis("Mouse Y") * _mouseSensitivity;
 
-			if (_freeLook)
+			if (_isFreeLook)
 			{
 				// No input for both controller and animation component. We only want to rotate the camera
 
@@ -404,7 +467,7 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 			_playerInput.x = Mathf.Clamp(_playerInput.x, -90f, 90f);
 			_playerInput.y = Mathf.Clamp(_playerInput.y, -90f, 90f);
 
-			if (shouldMove && !_freeLook)
+			if (_isShouldTorsoRotate && !_isFreeLook)
 				transform.Rotate(Vector3.up * deltaMouseX);
 
 			_charAnimData.AddAimInput(new Vector2(deltaMouseX, deltaMouseY));
@@ -458,23 +521,23 @@ namespace Plugins.Kinemation.FPSFramework.Runtime.Core
 
 			bool moving = Mathf.Abs(moveX) >= 0.4f || Mathf.Abs(moveY) >= 0.4f;
 
-			animator.SetBool(s_Moving, moving);
-			animator.SetFloat(s_MoveX, _smoothMoveInput.x);
-			animator.SetFloat(s_MoveY, _smoothMoveInput.y);
+			_animator.SetBool(s_Moving, moving);
+			_animator.SetFloat(s_MoveX, _smoothMoveInput.x);
+			_animator.SetFloat(s_MoveY, _smoothMoveInput.y);
 
 			Vector3 move = transform.right * _smoothMoveInput.x + transform.forward * _smoothMoveInput.y;
-			controller.Move(move * _speed * Time.deltaTime);
+			_characterController.Move(move * _speed * Time.deltaTime);
 
 			_lastMoveInput.x = moveX;
 			_lastMoveInput.y = moveY;
 		}
 
 		private void UpdateAnimValues() =>
-			coreAnimComponent.SetCharData(_charAnimData);
+			_coreAnimComponent.SetCharData(_charAnimData);
 
 		private void UpdateCameraRotation()
 		{
-			var finalInput = new Vector2(shouldMove ?
+			var finalInput = new Vector2(_isShouldTorsoRotate ?
 											 0f :
 											 _playerInput.x, _playerInput.y); // + _freeLookInput;
 			cameraHolder.rotation = transform.rotation * Quaternion.Euler(finalInput.y, finalInput.x, 0f);
